@@ -4,98 +4,239 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mois Cohen - Portfolio</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        secondary: '#475569',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
-    <div class="container mx-auto px-4 py-8 max-w-4xl">
-        <!-- Header Section -->
-        <header class="text-center mb-12">
-            <h1 class="text-4xl font-bold mb-2">Mois Cohen</h1>
-            <div class="flex justify-center space-x-4 flex-wrap">
-                <p class="text-sm">(858) 668-9347</p>
-                <p class="text-sm">mois.cohen787@gmail.com</p>
-            </div>
-            <p class="mt-2 text-sm">B.S. Mechanical Engineering, Minor in Accounting</p>
-            <p class="text-sm">California Polytechnic State University, San Luis Obispo</p>
-        </header>
-
-        <!-- Current Project Section -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-semibold mb-4 border-b border-gray-300 dark:border-gray-700 pb-2">Current Project</h2>
-            <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
-                <h3 class="text-xl font-semibold mb-2">Wildland Fire Hose Clamp | Cal Poly SLO</h3>
-                <p class="text-sm mb-4">Senior Project Team Member</p>
-                <ul class="list-disc list-inside space-y-2 text-sm">
-                    <li>Performing advanced CAD modeling and FEA analysis</li>
-                    <li>Managing iterative prototyping process</li>
-                    <li>Coordinating with stakeholders for field deployment</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-semibold mb-4 border-b border-gray-300 dark:border-gray-700 pb-2">Experience</h2>
-            <div class="space-y-6">
-                <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
-                    <h3 class="text-xl font-semibold">K2 Systems US</h3>
-                    <p class="text-sm mb-2">Mechanical Engineering Intern</p>
-                    <p class="text-sm mb-2">San Diego, CA</p>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <!-- Navigation -->
+    <nav class="sticky top-0 bg-white dark:bg-gray-800 shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold">Mois Cohen</span>
                 </div>
-                
-                <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
-                    <h3 class="text-xl font-semibold">Nina Labs</h3>
-                    <p class="text-sm mb-2">Junior Engineer</p>
-                    <p class="text-sm mb-2">Tel Aviv, Israel</p>
-                </div>
-
-                <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
-                    <h3 class="text-xl font-semibold">Autoprint Inc.</h3>
-                    <p class="text-sm mb-2">Co-founder and CRO</p>
-                    <p class="text-sm mb-2">Poway, CA</p>
+                <div class="flex items-center space-x-4">
+                    <a href="#experience" class="hover:text-blue-600 dark:hover:text-blue-400">Experience</a>
+                    <a href="#skills" class="hover:text-blue-600 dark:hover:text-blue-400">Skills</a>
+                    <a href="#achievements" class="hover:text-blue-600 dark:hover:text-blue-400">Achievements</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </nav>
 
-        <!-- Skills Section -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-semibold mb-4 border-b border-gray-300 dark:border-gray-700 pb-2">Technical Skills</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
-                    <h3 class="font-semibold mb-2">Design & Analysis</h3>
-                    <p class="text-sm">SolidWorks, Autodesk Suite, CAD/FEA, Design for Manufacturability</p>
-                </div>
-                <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
-                    <h3 class="font-semibold mb-2">Manufacturing</h3>
-                    <p class="text-sm">CNC Machining, Prototyping, Quality Control, Production Optimization</p>
-                </div>
-                <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
-                    <h3 class="font-semibold mb-2">Programming</h3>
-                    <p class="text-sm">MATLAB, JavaScript, HTML</p>
-                </div>
-                <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
-                    <h3 class="font-semibold mb-2">Languages</h3>
-                    <p class="text-sm">English, Spanish</p>
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-r from-blue-800 to-blue-600 dark:from-blue-900 dark:to-blue-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+            <div class="text-center text-white">
+                <h1 class="text-4xl font-bold mb-4">Mechanical Engineer</h1>
+                <p class="text-xl mb-4">B.S. Mechanical Engineering, Minor in Accounting</p>
+                <p class="text-lg">California Polytechnic State University, San Luis Obispo</p>
+                <div class="flex justify-center space-x-6 mt-6">
+                    <a href="mailto:mois.cohen787@gmail.com" class="flex items-center space-x-2">
+                        <i class="fas fa-envelope"></i>
+                        <span>mois.cohen787@gmail.com</span>
+                    </a>
+                    <a href="tel:8586689347" class="flex items-center space-x-2">
+                        <i class="fas fa-phone"></i>
+                        <span>(858) 668-9347</span>
+                    </a>
                 </div>
             </div>
-        </section>
-
-        <!-- Achievements Section -->
-        <section>
-            <h2 class="text-2xl font-semibold mb-4 border-b border-gray-300 dark:border-gray-700 pb-2">Achievements</h2>
-            <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
-                <ul class="space-y-2">
-                    <li class="flex items-center">
-                        <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
-                        <span>Eagle Scout Rank</span>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
-                        <span>Student Pilot</span>
-                    </li>
-                </ul>
-            </div>
-        </section>
+        </div>
     </div>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Current Project -->
+        <section class="mb-16">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl overflow-hidden">
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold mb-4">Current Project</h2>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-blue-600 pl-4">
+                            <h3 class="text-xl font-semibold">Wildland Fire Hose Clamp | Cal Poly SLO</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Senior Project Team Member (2024-2025)</p>
+                            <ul class="mt-2 space-y-2 text-gray-700 dark:text-gray-300">
+                                <li>• Performing advanced CAD modeling and FEA analysis to optimize product performance</li>
+                                <li>• Managing iterative prototyping process to meet rigorous emergency response requirements</li>
+                                <li>• Coordinating with stakeholders to ensure design meets field deployment specifications</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience" class="mb-16">
+            <h2 class="text-3xl font-bold mb-8">Professional Experience</h2>
+            <div class="space-y-8">
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <h3 class="text-xl font-semibold">K2 Systems US</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Mechanical Engineering Intern</p>
+                            <p class="text-gray-500 dark:text-gray-500">June 2024 - September 2024</p>
+                        </div>
+                        <div class="md:col-span-2">
+                            <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                <li>• Developed comprehensive technical documentation including customer-facing drawings and certification</li>
+                                <li>• Designed and constructed test jigs for product validation to streamline certification processes</li>
+                                <li>• Collaborated with international engineering teams with product development workflows</li>
+                                <li>• Managed product certification testing and documentation to meet industry standards</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <h3 class="text-xl font-semibold">Cal Poly SLO</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Research Assistant</p>
+                            <p class="text-gray-500 dark:text-gray-500">April 2024 - Present</p>
+                        </div>
+                        <div class="md:col-span-2">
+                            <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                <li>• Conducting research on sustainability and thermal comfort in campus environments</li>
+                                <li>• Developing and implementing data acquisition systems for HVAC monitoring</li>
+                                <li>• Analyzing thermal performance data to optimize HVAC system efficiency</li>
+                                <li>• Collaborating with faculty to evaluate and improve campus sustainability</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <h3 class="text-xl font-semibold">Nina Labs</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Junior Engineer</p>
+                            <p class="text-gray-500 dark:text-gray-500">June 2023 - December 2023</p>
+                        </div>
+                        <div class="md:col-span-2">
+                            <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                <li>• Led design optimization initiatives focusing on manufacturability and production efficiency</li>
+                                <li>• Managed rapid product testing and validation as one of two engineers within Nina</li>
+                                <li>• Implemented design improvements based on manufacturing feedback and market requirements</li>
+                                <li>• Coordinated cross-functional teams to ensure successful product launches</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <h3 class="text-xl font-semibold">Autoprint Inc.</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Co-founder and CRO</p>
+                            <p class="text-gray-500 dark:text-gray-500">November 2020 - November 2021</p>
+                        </div>
+                        <div class="md:col-span-2">
+                            <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                <li>• Co-founded and led technical development for 3D printing technology startup</li>
+                                <li>• Managed product development from concept through prototype phase</li>
+                                <li>• Developed business strategies and pursued capital investment opportunities</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="mb-16">
+            <h2 class="text-3xl font-bold mb-8">Technical Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6">
+                    <h3 class="text-xl font-semibold mb-4">Design & Analysis</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 rounded-full">SolidWorks</span>
+                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 rounded-full">Autodesk Suite</span>
+                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 rounded-full">CAD/FEA</span>
+                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 rounded-full">DFM</span>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6">
+                    <h3 class="text-xl font-semibold mb-4">Manufacturing</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 rounded-full">CNC Machining</span>
+                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 rounded-full">Prototyping</span>
+                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 rounded-full">Quality Control</span>
+                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 rounded-full">Production Optimization</span>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6">
+                    <h3 class="text-xl font-semibold mb-4">Programming</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 rounded-full">MATLAB</span>
+                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 rounded-full">JavaScript</span>
+                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 rounded-full">HTML</span>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6">
+                    <h3 class="text-xl font-semibold mb-4">Languages</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 rounded-full">English</span>
+                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 rounded-full">Spanish</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements -->
+        <section id="achievements">
+            <h2 class="text-3xl font-bold mb-8">Achievements</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-award text-3xl text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold">Eagle Scout Rank</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Demonstrated leadership and project management capabilities</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-plane text-3xl text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold">Student Pilot</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Developing rapid analytical and decision-making skills</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 dark:bg-gray-800 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center text-gray-600 dark:text-gray-400">
+                <p>© 2024 Mois Cohen. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
