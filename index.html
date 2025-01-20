@@ -1,18 +1,188 @@
 <!DOCTYPE html>
 <html lang="en" class="dark scroll-smooth">
-<!-- Previous head section remains the same -->
-[Previous head section with styles and scripts remains identical]
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mois Cohen - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Add AOS library for scroll animations -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Add particles.js for hero section -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        secondary: '#475569',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Smooth scrolling behavior */
+        html {
+            scroll-behavior: smooth;
+        }
 
+        /* Parallax effect */
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Scroll progress bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: #1e40af;
+            z-index: 1000;
+            transition: width 0.2s ease-out;
+        }
+
+        /* Card hover effects */
+        .experience-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Particles container */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Mobile menu styles */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: none;
+            }
+            .mobile-menu.active {
+                display: block;
+            }
+        }
+
+        /* Back to top button */
+        #backToTop {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        #backToTop.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-    <!-- Progress Bar and Navigation remain the same -->
-    [Previous progress bar and navigation sections remain identical]
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="scrollProgress"></div>
 
-    <!-- Hero Section remains the same -->
-    [Previous hero section with particles remains identical]
+    <!-- Navigation -->
+    <nav class="sticky top-0 bg-white dark:bg-gray-800 shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold">Mois Cohen</span>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#experience" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Experience</a>
+                    <a href="#skills" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Skills</a>
+                    <a href="#achievements" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Achievements</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-gray-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="#experience" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Experience</a>
+                    <a href="#skills" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Skills</a>
+                    <a href="#achievements" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Achievements</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Particles -->
+    <div class="relative bg-gradient-to-r from-blue-800 to-blue-600 dark:from-blue-900 dark:to-blue-700 overflow-hidden">
+        <div id="particles-js"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 hero-content">
+            <div class="text-center text-white" data-aos="fade-up">
+                <h1 class="text-4xl font-bold mb-4">Mechanical Engineer</h1>
+                <p class="text-xl mb-4">B.S. Mechanical Engineering, Minor in Accounting</p>
+                <p class="text-lg">California Polytechnic State University, San Luis Obispo</p>
+                <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6 mt-6">
+                    <a href="mailto:mois.cohen787@gmail.com" class="flex items-center justify-center space-x-2 hover:text-blue-200 transition-colors duration-300">
+                        <i class="fas fa-envelope"></i>
+                        <span>mois.cohen787@gmail.com</span>
+                    </a>
+                    <a href="tel:8586689347" class="flex items-center justify-center space-x-2 hover:text-blue-200 transition-colors duration-300">
+                        <i class="fas fa-phone"></i>
+                        <span>(858) 668-9347</span>
+                    </a>
+                </div>
+                <div class="mt-8">
+                    <a href="https://raw.githubusercontent.com/moisc/moisc.github.io/main/Cohen_Mois_12_26_24.pdf" 
+                        class="inline-flex items-center space-x-2 bg-white text-blue-800 px-8 py-3 rounded-full hover:bg-blue-50 transition duration-300 shadow-lg transform hover:scale-105"
+                        download="Mois_Cohen_Resume.pdf">
+                        <i class="fas fa-download"></i>
+                        <span>Download My Resume</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <!-- Current Project section remains the same -->
-        [Previous current project section remains identical]
+        <!-- Current Project -->
+        <section class="mb-16" data-aos="fade-up">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl overflow-hidden experience-card">
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold mb-4">Current Project</h2>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-blue-600 pl-4">
+                            <h3 class="text-xl font-semibold">Wildland Fire Hose Clamp | Cal Poly SLO</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Senior Project Team Member (2024-2025)</p>
+                            <ul class="mt-2 space-y-2 text-gray-700 dark:text-gray-300">
+                                <li>• Performing advanced CAD modeling and FEA analysis to optimize product performance</li>
+                                <li>• Managing iterative prototyping process to meet rigorous emergency response requirements</li>
+                                <li>• Coordinating with stakeholders to ensure design meets field deployment specifications</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Experience -->
         <section id="experience" class="mb-16">
@@ -189,13 +359,87 @@
     </main>
 
     <!-- Back to Top Button -->
-    [Previous back to top button section remains identical]
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-blue-600 text-white p-4 rounded-full shadow-lg opacity-0 transition-opacity duration-300 hover:bg-blue-700">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- Footer -->
-    [Previous footer section remains identical]
+    <footer class="bg-gray-100 dark:bg-gray-800 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center text-gray-600 dark:text-gray-400">
+                <p>© 2024 Mois Cohen. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <!-- Initialize scripts -->
-    [Previous scripts section remains identical]
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
 
+        // Initialize particles.js
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: '#ffffff'
+                },
+                opacity: {
+                    value: 0.5
+                },
+                size: {
+                    value: 3
+                },
+                line_linked: {
+                    enable: true,
+                    color: '#ffffff',
+                    opacity: 0.4
+                },
+                move: {
+                    enable: true,
+                    speed: 2
+                }
+            }
+        });
+
+        // Mobile menu functionality
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('active');
+        });
+
+        // Scroll Progress Bar
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("scrollProgress").style.width = scrolled + "%";
+            
+            // Back to Top button visibility
+            let backToTopButton = document.getElementById("backToTop");
+            if (winScroll > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        };
+
+        // Back to Top button functionality
+        document.getElementById("backToTop").addEventListener("click", function() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    </script>
 </body>
 </html>
