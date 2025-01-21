@@ -85,6 +85,131 @@
             }
         }
 
+        /* Timeline styles */
+        .timeline-container {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: #1e40af;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-container::after {
+                left: 31px;
+            }
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            right: -8px;
+            top: 15px;
+            background: #1e40af;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -8px;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 23px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0%;
+            }
+        }
+
+        /* Contact form styles */
+        .form-input {
+            @apply w-full px-4 py-2 border rounded-lg dark:border-gray-600 bg-gray-50 dark:bg-gray-700;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-input:focus {
+            @apply border-blue-600 ring-2 ring-blue-600 ring-opacity-50;
+            outline: none;
+        }
+
+        /* Form loading and success states */
+        .form-loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .form-success {
+            @apply bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100;
+        }
+
+        /* Floating action button */
+        .fab-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 50;
+        }
+
+        .fab {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .fab-items {
+            position: absolute;
+            bottom: 100%;
+            right: 0;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.5rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .fab-container:hover .fab-items {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
         /* Back to top button */
         #backToTop {
             opacity: 0;
@@ -114,6 +239,7 @@
                     <a href="#experience" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Experience</a>
                     <a href="#skills" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Skills</a>
                     <a href="#achievements" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Achievements</a>
+                    <a href="#contact" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Contact</a>
                 </div>
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
@@ -128,6 +254,7 @@
                     <a href="#experience" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Experience</a>
                     <a href="#skills" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Skills</a>
                     <a href="#achievements" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Achievements</a>
+                    <a href="#contact" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Contact</a>
                 </div>
             </div>
         </div>
@@ -184,101 +311,81 @@
             </div>
         </section>
 
-        <!-- Experience -->
+        <!-- Experience Timeline -->
         <section id="experience" class="mb-16">
             <h2 class="text-3xl font-bold mb-8" data-aos="fade-up">Professional Experience</h2>
-            <div class="space-y-8">
+            <div class="timeline-container">
                 <!-- K2 Systems -->
-                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 experience-card" data-aos="fade-up">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div>
-                            <h3 class="text-xl font-semibold">K2 Systems US</h3>
-                            <p class="text-gray-600 dark:text-gray-400">Mechanical Engineering Intern</p>
-                            <p class="text-gray-500 dark:text-gray-500">June 2024 - September 2024</p>
-                        </div>
-                        <div class="md:col-span-2">
-                            <ul class="space-y-2 text-gray-700 dark:text-gray-300">
-                                <li>• Developed comprehensive technical documentation including customer-facing drawings and certification</li>
-                                <li>• Designed and constructed test jigs for product validation to streamline certification processes</li>
-                                <li>• Collaborated with international engineering teams with product development workflows</li>
-                                <li>• Managed product certification testing and documentation to meet industry standards</li>
-                            </ul>
-                        </div>
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 experience-card">
+                        <h3 class="text-xl font-semibold">K2 Systems US</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Mechanical Engineering Intern</p>
+                        <p class="text-gray-500 dark:text-gray-500">June 2024 - September 2024</p>
+                        <ul class="mt-4 space-y-2 text-gray-700 dark:text-gray-300">
+                            <li>• Developed comprehensive technical documentation including customer-facing drawings and certification</li>
+                            <li>• Designed and constructed test jigs for product validation to streamline certification processes</li>
+                            <li>• Collaborated with international engineering teams with product development workflows</li>
+                            <li>• Managed product certification testing and documentation to meet industry standards</li>
+                        </ul>
                     </div>
                 </div>
 
                 <!-- Cal Poly SLO -->
-                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 experience-card" data-aos="fade-up">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div>
-                            <h3 class="text-xl font-semibold">Cal Poly SLO</h3>
-                            <p class="text-gray-600 dark:text-gray-400">Research Assistant</p>
-                            <p class="text-gray-500 dark:text-gray-500">April 2024 - Present</p>
-                        </div>
-                        <div class="md:col-span-2">
-                            <ul class="space-y-2 text-gray-700 dark:text-gray-300">
-                                <li>• Conducting research on sustainability and thermal comfort in campus environments</li>
-                                <li>• Developing and implementing data acquisition systems for HVAC monitoring</li>
-                                <li>• Analyzing thermal performance data to optimize HVAC system efficiency</li>
-                                <li>• Collaborating with faculty to evaluate and improve campus sustainability</li>
-                            </ul>
-                        </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 experience-card">
+                        <h3 class="text-xl font-semibold">Cal Poly SLO</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Research Assistant</p>
+                        <p class="text-gray-500 dark:text-gray-500">April 2024 - Present</p>
+                        <ul class="mt-4 space-y-2 text-gray-700 dark:text-gray-300">
+                            <li>• Conducting research on sustainability and thermal comfort in campus environments</li>
+                            <li>• Developing and implementing data acquisition systems for HVAC monitoring</li>
+                            <li>• Analyzing thermal performance data to optimize HVAC system efficiency</li>
+                            <li>• Collaborating with faculty to evaluate and improve campus sustainability</li>
+                        </ul>
                     </div>
                 </div>
 
                 <!-- Nina Labs -->
-                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 experience-card" data-aos="fade-up">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div>
-                            <h3 class="text-xl font-semibold">Nina Labs</h3>
-                            <p class="text-gray-600 dark:text-gray-400">Junior Engineer</p>
-                            <p class="text-gray-500 dark:text-gray-500">June 2023 - December 2023</p>
-                        </div>
-                        <div class="md:col-span-2">
-                            <ul class="space-y-2 text-gray-700 dark:text-gray-300">
-                                <li>• Led design optimization initiatives focusing on manufacturability and production efficiency</li>
-                                <li>• Managed rapid product testing and validation as one of two engineers within Nina</li>
-                                <li>• Implemented design improvements based on manufacturing feedback and market requirements</li>
-                                <li>• Coordinated cross-functional teams to ensure successful product launches</li>
-                            </ul>
-                        </div>
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 experience-card">
+                        <h3 class="text-xl font-semibold">Nina Labs</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Junior Engineer</p>
+                        <p class="text-gray-500 dark:text-gray-500">June 2023 - December 2023</p>
+                        <ul class="mt-4 space-y-2 text-gray-700 dark:text-gray-300">
+                            <li>• Led design optimization initiatives focusing on manufacturability and production efficiency</li>
+                            <li>• Managed rapid product testing and validation as one of two engineers within Nina</li>
+                            <li>• Implemented design improvements based on manufacturing feedback and market requirements</li>
+                            <li>• Coordinated cross-functional teams to ensure successful product launches</li>
+                        </ul>
                     </div>
                 </div>
 
                 <!-- Self-Contracted Laborer -->
-                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 experience-card" data-aos="fade-up">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div>
-                            <h3 class="text-xl font-semibold">Self-Contracted Laborer</h3>
-                            <p class="text-gray-600 dark:text-gray-400">Handyman/Laborer/Landscaping</p>
-                            <p class="text-gray-500 dark:text-gray-500">April 2019 - Present</p>
-                        </div>
-                        <div class="md:col-span-2">
-                            <ul class="space-y-2 text-gray-700 dark:text-gray-300">
-                                <li>• Performed diverse handyman tasks including plumbing, roofing, painting, electrical work, and woodworking, gaining hands-on experience and enhancing problem-solving skills</li>
-                                <li>• Conducted and learned small engine repair, including maintenance and troubleshooting, enhancing technical skills and mechanical knowledge</li>
-                                <li>• Implemented design improvements based on manufacturing feedback and market requirements</li>
-                                <li>• Created advertisements for my services to accumulate clients within the local region</li>
-                            </ul>
-                        </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 experience-card">
+                        <h3 class="text-xl font-semibold">Self-Contracted Laborer</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Handyman/Laborer/Landscaping</p>
+                        <p class="text-gray-500 dark:text-gray-500">April 2019 - Present</p>
+                        <ul class="mt-4 space-y-2 text-gray-700 dark:text-gray-300">
+                            <li>• Performed diverse handyman tasks including plumbing, roofing, painting, electrical work, and woodworking, gaining hands-on experience and enhancing problem-solving skills</li>
+                            <li>• Conducted and learned small engine repair, including maintenance and troubleshooting, enhancing technical skills and mechanical knowledge</li>
+                            <li>• Implemented design improvements based on manufacturing feedback and market requirements</li>
+                            <li>• Created advertisements for my services to accumulate clients within the local region</li>
+                        </ul>
                     </div>
                 </div>
 
                 <!-- Autoprint Inc. -->
-                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 experience-card" data-aos="fade-up">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div>
-                            <h3 class="text-xl font-semibold">Autoprint Inc.</h3>
-                            <p class="text-gray-600 dark:text-gray-400">Co-founder and CRO</p>
-                            <p class="text-gray-500 dark:text-gray-500">November 2020 - November 2021</p>
-                        </div>
-                        <div class="md:col-span-2">
-                            <ul class="space-y-2 text-gray-700 dark:text-gray-300">
-                                <li>• Co-founded and led technical development for 3D printing technology startup</li>
-                                <li>• Managed product development from concept through prototype phase</li>
-                                <li>• Developed business strategies and pursued capital investment opportunities</li>
-                            </ul>
-                        </div>
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 experience-card">
+                        <h3 class="text-xl font-semibold">Autoprint Inc.</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Co-founder and CRO</p>
+                        <p class="text-gray-500 dark:text-gray-500">November 2020 - November 2021</p>
+                        <ul class="mt-4 space-y-2 text-gray-700 dark:text-gray-300">
+                            <li>• Co-founded and led technical development for 3D printing technology startup</li>
+                            <li>• Managed product development from concept through prototype phase</li>
+                            <li>• Developed business strategies and pursued capital investment opportunities</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -328,7 +435,7 @@
         </section>
 
         <!-- Achievements -->
-        <section id="achievements">
+        <section id="achievements" class="mb-16">
             <h2 class="text-3xl font-bold mb-8" data-aos="fade-up">Achievements</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 experience-card" data-aos="fade-up">
@@ -356,7 +463,57 @@
                 </div>
             </div>
         </section>
+
+        <!-- Contact Form -->
+        <section id="contact" class="mb-16">
+            <h2 class="text-3xl font-bold mb-8" data-aos="fade-up">Contact Me</h2>
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6">
+                    <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium mb-2">Name</label>
+                            <input type="text" id="name" name="name" required
+                                class="form-input">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium mb-2">Email</label>
+                            <input type="email" id="email" name="email" required
+                                class="form-input">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium mb-2">Message</label>
+                            <textarea id="message" name="message" rows="4" required
+                                class="form-input"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <!-- Floating Action Button -->
+    <div class="fab-container">
+        <div class="fab-items">
+            <a href="#contact" class="fab bg-green-600 text-white shadow-lg hover:bg-green-700">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="tel:8586689347" class="fab bg-blue-600 text-white shadow-lg hover:bg-blue-700">
+                <i class="fas fa-phone"></i>
+            </a>
+            <a href="https://raw.githubusercontent.com/moisc/moisc.github.io/main/Cohen_Mois_12_26_24.pdf" 
+               class="fab bg-purple-600 text-white shadow-lg hover:bg-purple-700"
+               download="Mois_Cohen_Resume.pdf">
+                <i class="fas fa-file-download"></i>
+            </a>
+        </div>
+        <button class="fab bg-blue-600 text-white shadow-lg hover:bg-blue-700">
+            <i class="fas fa-plus"></i>
+        </button>
+    </div>
 
     <!-- Back to Top Button -->
     <button id="backToTop" class="fixed bottom-8 right-8 bg-blue-600 text-white p-4 rounded-full shadow-lg opacity-0 transition-opacity duration-300 hover:bg-blue-700">
@@ -440,6 +597,78 @@
                 behavior: "smooth"
             });
         });
+
+        // Form handling
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Add loading state
+                form.classList.add('form-loading');
+                const submitButton = form.querySelector('button[type="submit"]');
+                const originalButtonText = submitButton.innerHTML;
+                submitButton.innerHTML = 'Sending...';
+
+                // Submit the form
+                fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => response.json())
+                .then(data => {
+                    // Handle success
+                    form.reset();
+                    submitButton.innerHTML = 'Message Sent!';
+                    setTimeout(() => {
+                        submitButton.innerHTML = originalButtonText;
+                    }, 3000);
+                    
+                }).catch(error => {
+                    // Handle error
+                    submitButton.innerHTML = 'Error Sending';
+                    setTimeout(() => {
+                        submitButton.innerHTML = originalButtonText;
+                    }, 3000);
+                }).finally(() => {
+                    // Remove loading state
+                    form.classList.remove('form-loading');
+                });
+            });
+        }
+
+        // Smooth scroll for all internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                    }
+                }
+            });
+        });
+
+        // FAB button functionality
+        const fabButton = document.querySelector('.fab-container button');
+        if (fabButton) {
+            fabButton.addEventListener('click', function() {
+                const fabItems = document.querySelector('.fab-items');
+                fabItems.style.opacity = fabItems.style.opacity === '1' ? '0' : '1';
+                fabItems.style.pointerEvents = fabItems.style.opacity === '1' ? 'auto' : 'none';
+                this.querySelector('i').classList.toggle('fa-plus');
+                this.querySelector('i').classList.toggle('fa-times');
+            });
+        }
     </script>
 </body>
 </html>
