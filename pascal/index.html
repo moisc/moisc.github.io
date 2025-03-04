@@ -763,6 +763,475 @@
             </div>
         </div>
     </div>
+
+<!-- Missing Scene 2B - Moderate enhancement -->
+<div class="scene" id="scene-2b">
+    <div class="scene-heading">Moderate Enhancement</div>
+    <p>You decide to create somewhat enhanced materials that look better than reality but aren't completely fabricated.</p>
+    
+    <div class="scene-image" style="background-color: #f39c12;">
+        🔄 Finding Middle Ground 🔄
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Your Approach:</span><br><br>
+        You clean up the prototype photos with better lighting and angles, remove some obvious flaws, but keep the basic structure accurate. For the data, you extrapolate from the limited tests you've done, showing best-case scenarios rather than outright fabrications.
+    </div>
+    
+    <div class="feedback neutral">
+        <strong>Ethical Consideration:</strong> You're walking a fine line between presentation and misrepresentation.
+        <div class="nspe-citation">NSPE Code of Ethics III.3.a: "Engineers shall avoid the use of statements containing a material misrepresentation of fact or omitting a material fact."</div>
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-pascal-review-moderate')">Dr. Pascal reviews your materials</button>
+        <button class="choice-btn" onclick="goToScene('scene-team-concerns')">Another team member raises concerns</button>
+    </div>
+</div>
+
+<!-- Pascal Reviews Moderate Materials Scene -->
+<div class="scene" id="scene-pascal-review-moderate">
+    <div class="scene-heading">Dr. Pascal's Review</div>
+    <p>Dr. Pascal reviews the moderately enhanced materials you've created.</p>
+    
+    <div class="scene-image" style="background-color: #f39c12;">
+        📋 Review Meeting 📋
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Dr. Pascal:</span><br><br>
+        "These look pretty good, but I was hoping for something more impressive. The competitors will have polished products. Can you enhance these further? Maybe make the clamp look more streamlined and boost the pressure resistance numbers by another 20%?"
+    </div>
+    
+    <div class="feedback neutral">
+        <strong>Ethical Challenge:</strong> You're being pushed to cross the line from enhancement to misrepresentation.
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-give-in')">Give in and make the additional changes</button>
+        <button class="choice-btn" onclick="goToScene('scene-stand-firm')">Stand firm on the current level of enhancement</button>
+        <button class="choice-btn" onclick="goToScene('scene-suggest-honesty')">Suggest pivoting to a completely honest approach</button>
+    </div>
+</div>
+
+<!-- Stand Firm Scene -->
+<div class="scene" id="scene-stand-firm">
+    <div class="scene-heading">Standing Your Ground</div>
+    <p>You decide to stand firm on keeping the enhancements moderate rather than crossing further into deception.</p>
+    
+    <div class="scene-image" style="background-color: #3498db;">
+        🛡️ Drawing the Line 🛡️
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Your Response:</span><br><br>
+        "Dr. Pascal, I believe the materials as they are now strike the right balance. They present our work in the best light possible without crossing into misrepresentation. Further changes would risk our professional credibility if investors later discover discrepancies between what we show and reality. I think this current version gives you a strong pitch while maintaining integrity."
+    </div>
+    
+    <div class="feedback positive">
+        <strong>Ethical Stand:</strong> You've defined your ethical boundary and defended it.
+        <div class="nspe-citation">NSPE Code of Ethics I.4: "Engineers shall act for each employer or client as faithful agents or trustees."</div>
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-pascal-accepts-moderate')">Dr. Pascal reluctantly accepts your position</button>
+        <button class="choice-btn" onclick="goToScene('scene-pascal-finds-another')">Dr. Pascal finds another student to make the changes</button>
+    </div>
+</div>
+
+<!-- Pascal Accepts Moderate Scene -->
+<div class="scene" id="scene-pascal-accepts-moderate">
+    <div class="scene-heading">Reluctant Acceptance</div>
+    <p>After some consideration, Dr. Pascal accepts your position on keeping the enhancements moderate.</p>
+    
+    <div class="scene-image" style="background-color: #3498db;">
+        🤝 Agreement Reached 🤝
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Dr. Pascal:</span><br><br>
+        "I see your point about credibility. The Sharks can be pretty tough with due diligence. Let's go with what you've prepared. I appreciate you putting in the effort to make the prototype look presentable while still being truthful about its capabilities."
+    </div>
+    
+    <div class="feedback positive">
+        <strong>Ethical Outcome:</strong> You've managed to maintain some ethical boundaries while still being helpful.
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-shark-tank-moderate')">Dr. Pascal goes on Shark Tank with moderately enhanced materials</button>
+    </div>
+</div>
+
+<!-- Shark Tank Moderate Scene -->
+<div class="scene" id="scene-shark-tank-moderate">
+    <div class="scene-heading">Shark Tank with Enhanced Materials</div>
+    <p>Dr. Pascal appears on Shark Tank with your moderately enhanced materials.</p>
+    
+    <div class="scene-image" style="background-color: #2c3e50;">
+        🦈 Mixed Reception 🦈
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Shark:</span> "This looks promising, but some of these test results seem a bit optimistic. How extensive was your testing?"<br><br>
+        <span class="character">Dr. Pascal:</span> "We've done preliminary testing at the university lab, though we're still in development."<br><br>
+        <span class="character">Shark:</span> "And if I were to send my engineering team to examine the prototype, it would look exactly like these photos?"<br><br>
+        <span class="character">Dr. Pascal:</span> *hesitating* "The photos show our prototype in... optimal conditions."
+    </div>
+    
+    <div class="feedback neutral">
+        <strong>Consequence:</strong> The moderately enhanced materials are creating some credibility issues.
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-shark-conditional')">A Shark makes a conditional offer</button>
+        <button class="choice-btn" onclick="goToScene('scene-sharks-pass')">All Sharks pass due to credibility concerns</button>
+    </div>
+</div>
+
+<!-- Shark Conditional Scene -->
+<div class="scene" id="scene-shark-conditional">
+    <div class="scene-heading">Conditional Offer</div>
+    <p>Despite some skepticism, one of the Sharks sees potential in the product and makes a conditional offer.</p>
+    
+    <div class="scene-image" style="background-color: #f39c12;">
+        💰 Strings Attached 💰
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Shark:</span> "I like the concept, but I'm concerned about the gap between your presentation and reality. Here's what I'm willing to do: $80,000 for 30%, but I want to send my engineering team to evaluate the actual prototype next week, and the deal is contingent on their assessment that your product can actually achieve 80% of what you're claiming here."<br><br>
+        <span class="character">Dr. Pascal:</span> "I accept your offer, and I'm confident your team will see the potential in our design."
+    </div>
+    
+    <div class="feedback neutral">
+        <strong>Mixed Outcome:</strong> You've secured a conditional deal, but the enhanced materials have created a credibility hurdle.
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-engineers-visit')">Engineers visit to evaluate the prototype</button>
+    </div>
+</div>
+
+<!-- Engineers Visit Scene -->
+<div class="scene" id="scene-engineers-visit">
+    <div class="scene-heading">Engineering Evaluation</div>
+    <p>The Shark's engineering team arrives to evaluate the prototype against your enhanced materials.</p>
+    
+    <div class="scene-image" style="background-color: #e67e22;">
+        🔍 Close Inspection 🔍
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Lead Engineer:</span> "The prototype is definitely earlier in development than what the photos suggested, and we couldn't replicate all the performance metrics in your data tables. However, we do see the potential in the core design concept."<br><br>
+        <span class="character">Shark:</span> *on video call* "Based on my team's assessment, I'm still interested but need to adjust my offer. I'll do $60,000 for 35%, and I want my engineering team involved in the development process to ensure we meet the performance targets."
+    </div>
+    
+    <div class="feedback neutral">
+        <strong>Consequence:</strong> Your moderate enhancements have resulted in a reduced offer with more investor control.
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-accept-adjusted')">Dr. Pascal accepts the adjusted offer</button>
+        <button class="choice-btn" onclick="goToScene('scene-reject-adjusted')">Dr. Pascal rejects the adjusted offer</button>
+    </div>
+</div>
+
+<!-- Accept Adjusted Scene -->
+<div class="scene" id="scene-accept-adjusted">
+    <div class="scene-heading">Accepting Adjusted Terms</div>
+    <p>Dr. Pascal decides to accept the Shark's adjusted offer, despite the less favorable terms.</p>
+    
+    <div class="scene-image" style="background-color: #d35400;">
+        📝 New Deal 📝
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Dr. Pascal:</span><br><br>
+        "After the engineers' visit, the Shark reduced the offer and wants more control. It's not what I hoped for, but it's still an opportunity to bring the product to market. The enhanced materials did help get us in the door, but ultimately created some trust issues we need to overcome now. I've accepted the new terms, and we'll be working closely with their engineering team going forward."
+    </div>
+    
+    <div class="feedback neutral">
+        <strong>Mixed Outcome:</strong> The deal was saved but at a cost to both financial terms and trust.
+        <div class="nspe-citation">NSPE Code of Ethics III.1.c: "Engineers shall not engage in conduct that may impair their professional judgment."</div>
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-mixed-aftermath')">Six months later</button>
+    </div>
+</div>
+
+<!-- Mixed Aftermath Scene -->
+<div class="scene" id="scene-mixed-aftermath">
+    <div class="scene-heading">Mixed Results</div>
+    <p>Six months after the deal, the product development is proceeding but with challenges.</p>
+    
+    <div class="scene-image" style="background-color: #f39c12;">
+        ⚖️ Balanced Outcome ⚖️
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Email from Dr. Pascal:</span><br><br>
+        "I wanted to update you on how things have progressed. The good news is that we're on track to bring the product to market. The investor's engineering team has been helpful in resolving some technical challenges.<br><br>
+        The difficult part has been rebuilding trust after the initial discrepancies between our materials and the actual prototype. I've had to work under closer oversight than I'd like, and we've had some tense moments when making design decisions.<br><br>
+        Looking back, I think we would have been better served with complete honesty from the start, but we still achieved the main goal of securing investment. This has been a valuable learning experience for all of us about balancing presentation with integrity."
+    </div>
+    
+    <div class="feedback neutral">
+        <strong>Final Outcome:</strong> Your approach had mixed results - achieving the business goal but with relationship and control compromises.
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('game-mixed')">Game Complete: Mixed Outcome</button>
+    </div>
+</div>
+
+<!-- Game Mixed Scene -->
+<div class="scene" id="game-mixed">
+    <div class="scene-heading">Game Complete: Mixed Outcome</div>
+    <p>Your choices led to a partially successful outcome with ethical compromises.</p>
+    
+    <div class="scene-image" style="background-color: #f39c12;">
+        🏆 Partial Victory 🏆
+    </div>
+    
+    <div class="result">
+        <h2>Final Assessment</h2>
+        <p>Ethics Score: <span id="final-ethics-score-mixed">60</span>/100</p>
+        <p>Your decisions showed some ethical consideration while still making compromises for practical outcomes. This led to partial success but with complications and relationship costs.</p>
+        <p>Key Ethics Lesson: Small compromises in truthfulness can create trust issues that persist even when a business goal is achieved.</p>
+    </div>
+    
+    <div class="button-container">
+        <button class="control-btn restart-btn" onclick="restartGame()">Restart Game</button>
+        <button class="control-btn" onclick="goToScene('scene-class-discussion')">Discuss Ethics</button>
+    </div>
+</div>
+
+<!-- Scene 2C - Second thoughts -->
+<div class="scene" id="scene-2c">
+    <div class="scene-heading">Second Thoughts</div>
+    <p>After initially agreeing to help, you have second thoughts about creating misleading materials.</p>
+    
+    <div class="scene-image" style="background-color: #3498db;">
+        🤔 Ethical Reconsideration 🤔
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Your Follow-up Email:</span><br><br>
+        "Dr. Pascal, after thinking more about your request, I've become concerned about the ethical implications of creating heavily modified images and fabricated data. As engineering students, we're taught to uphold certain professional standards about truthfulness in reporting.<br><br>
+        I'd still like to help with your Shark Tank opportunity, but in a way that's both effective and ethically sound. Could we discuss some alternative approaches that might work better in the long run?"
+    </div>
+    
+    <div class="feedback positive">
+        <strong>Ethical Growth:</strong> You've recognized the ethical issues and are trying to correct course.
+        <div class="nspe-citation">NSPE Code of Ethics III.1.a: "Engineers shall avoid all conduct or practice that deceives the public."</div>
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-pascal-disappointed')">Dr. Pascal is disappointed by your change of heart</button>
+        <button class="choice-btn" onclick="goToScene('scene-pascal-respects')">Dr. Pascal respects your reconsideration</button>
+    </div>
+</div>
+
+<!-- Pascal Respects Scene -->
+<div class="scene" id="scene-pascal-respects">
+    <div class="scene-heading">Respect for Integrity</div>
+    <p>Dr. Pascal responds with unexpected respect for your ethical reconsideration.</p>
+    
+    <div class="scene-image" style="background-color: #2ecc71;">
+        🤝 Mutual Respect 🤝
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Dr. Pascal's Response:</span><br><br>
+        "Thank you for your honesty. I was caught up in the excitement of the opportunity and wasn't thinking clearly about the ethical implications. As an educator, I should be modeling better behavior.<br><br>
+        You're right that we need an approach that maintains our integrity. I'd appreciate your ideas on how we can create a compelling pitch without misrepresentation. Perhaps we can meet tomorrow to discuss alternatives?"
+    </div>
+    
+    <div class="feedback positive">
+        <strong>Ethical Influence:</strong> Your ethical stance has positively influenced Dr. Pascal's approach.
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-honest-preparation')">Help prepare an honest but compelling pitch</button>
+    </div>
+</div>
+
+<!-- Scene 2D - Face disappointment -->
+<div class="scene" id="scene-2d">
+    <div class="scene-heading">Facing Disappointment</div>
+    <p>Dr. Pascal is clearly disappointed by your refusal to help with data and image manipulation.</p>
+    
+    <div class="scene-image" style="background-color: #e74c3c;">
+        😞 Disappointed Mentor 😞
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Dr. Pascal's Response:</span><br><br>
+        "I have to say I'm disappointed. This is a once-in-a-lifetime opportunity that could secure my retirement and benefit the department through licensing revenue. Everyone polishes their presentations for Shark Tank - it's just how the game is played.<br><br>
+        I thought I could count on you to help with this. This isn't just about me - it's about getting this important safety technology to market where it can save lives. Sometimes a little enhancement is necessary for the greater good."
+    </div>
+    
+    <div class="feedback negative">
+        <strong>Ethical Challenge:</strong> Dr. Pascal is using emotional leverage and consequentialist arguments to pressure you.
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-stand-ground')">Stand your ground firmly</button>
+        <button class="choice-btn" onclick="goToScene('scene-compromise-after-refusal')">Offer a compromise solution</button>
+        <button class="choice-btn" onclick="goToScene('scene-give-in-pressure')">Give in to the pressure</button>
+    </div>
+</div>
+
+<!-- Stand Ground Scene -->
+<div class="scene" id="scene-stand-ground">
+    <div class="scene-heading">Standing Your Ground</div>
+    <p>Despite the pressure, you decide to firmly maintain your ethical position.</p>
+    
+    <div class="scene-image" style="background-color: #2ecc71;">
+        🧠 Ethical Resolve 🧠
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Your Response:</span><br><br>
+        "Dr. Pascal, I understand this is important to you, and I genuinely want to see both you and this technology succeed. However, creating fake data or manipulated images contradicts the engineering ethics we're taught here at Cal Poly.<br><br>
+        If the product has merit - which I believe it does - it should be able to attract investment based on its actual potential and current state. I'm still happy to help prepare a truthful presentation that showcases that potential effectively. Sometimes standing on principle is difficult, but I believe it's the right thing to do."
+    </div>
+    
+    <div class="feedback positive">
+        <strong>Ethical Strength:</strong> You've maintained your principles despite significant pressure.
+        <div class="nspe-citation">NSPE Code of Ethics I.1: "Engineers shall hold paramount the safety, health, and welfare of the public."</div>
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-pascal-angered')">Dr. Pascal is angered by your stance</button>
+        <button class="choice-btn" onclick="goToScene('scene-pascal-reflection')">Dr. Pascal reflects on your argument</button>
+    </div>
+</div>
+
+<!-- Pascal Reflection Scene -->
+<div class="scene" id="scene-pascal-reflection">
+    <div class="scene-heading">Causing Reflection</div>
+    <p>Your principled stance causes Dr. Pascal to reflect on the ethical implications.</p>
+    
+    <div class="scene-image" style="background-color: #3498db;">
+        🤔 Second Thoughts 🤔
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Dr. Pascal:</span><br><br>
+        *After a long pause*<br><br>
+        "You know, you've given me something to think about. I've spent my career teaching students to uphold engineering ethics, and here I am asking you to compromise those very principles.<br><br>
+        You're right - if this technology is as good as I believe it is, it should stand on its own merits. I got caught up in the competitive aspect of Shark Tank and lost sight of my own values. Thank you for having the courage to stand up for what's right, even to a professor."
+    </div>
+    
+    <div class="feedback positive">
+        <strong>Ethical Influence:</strong> Your ethical stance has caused positive reflection and reconsideration.
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-honest-collaboration')">Collaborate on an honest approach</button>
+    </div>
+</div>
+
+<!-- Honest Collaboration Scene -->
+<div class="scene" id="scene-honest-collaboration">
+    <div class="scene-heading">Honest Collaboration</div>
+    <p>You and Dr. Pascal begin working together on an honest approach to the Shark Tank pitch.</p>
+    
+    <div class="scene-image" style="background-color: #2ecc71;">
+        🤝 Ethical Partnership 🤝
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Collaboration Process:</span><br><br>
+        Over the next few weeks, you work closely with Dr. Pascal to develop an honest but compelling pitch. Instead of photoshopping the prototype, you create clearly labeled "concept renders" alongside actual photos. Rather than fabricating performance data, you present the limited test results you have with appropriate context and explain the development roadmap.<br><br>
+        Throughout the process, Dr. Pascal seems increasingly comfortable with the honest approach, noting that it actually feels better to prepare materials you can stand behind with confidence.
+    </div>
+    
+    <div class="feedback positive">
+        <strong>Ethical Process:</strong> You've collaborated to create materials that are both effective and honest.
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-honest-shark-tank')">Dr. Pascal takes the honest pitch to Shark Tank</button>
+    </div>
+</div>
+
+<!-- Scene 2F - Volunteer overtime -->
+<div class="scene" id="scene-2f">
+    <div class="scene-heading">Volunteer Overtime</div>
+    <p>You offer to work overtime to get real test data ready for Dr. Pascal's Shark Tank pitch.</p>
+    
+    <div class="scene-image" style="background-color: #2ecc71;">
+        ⏰ Extra Effort ⏰
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Your Offer:</span><br><br>
+        "Dr. Pascal, instead of creating fabricated data, what if our team puts in some overtime to run additional tests and gather more real data points? We could focus on the tests most likely to show promising results, photograph the prototype in optimal but authentic conditions, and prepare honest materials that you can present with complete confidence.<br><br>
+        We might not be able to test everything, but with focused effort, we could get enough real data to make a compelling case for the technology's potential. I'm willing to organize the team and put in the extra hours to make this happen."
+    </div>
+    
+    <div class="feedback positive">
+        <strong>Ethical Solution:</strong> You've offered a constructive alternative that maintains integrity through extra effort.
+        <div class="nspe-citation">NSPE Code of Ethics III.1.a: "Engineers shall avoid all conduct or practice that deceives the public."</div>
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-pascal-appreciates')">Dr. Pascal appreciates your offer</button>
+        <button class="choice-btn" onclick="goToScene('scene-pascal-doubtful')">Dr. Pascal is doubtful it will be enough</button>
+    </div>
+</div>
+
+<!-- Pascal Appreciates Scene -->
+<div class="scene" id="scene-pascal-appreciates">
+    <div class="scene-heading">Appreciation for Initiative</div>
+    <p>Dr. Pascal appreciates your willingness to put in extra effort to gather real data.</p>
+    
+    <div class="scene-image" style="background-color: #2ecc71;">
+        👍 Recognized Effort 👍
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Dr. Pascal's Response:</span><br><br>
+        "I really appreciate your willingness to put in the extra work. You're right that real data, even if limited, would be better than fabricated numbers. I hadn't considered that as an option because I didn't want to burden the team with additional work.<br><br>
+        If you're genuinely willing to organize this effort, I think it could be a great solution. We can focus on the tests that highlight the clamp's key innovations. This approach will also give me much more confidence in the pitch, knowing I'm presenting authentic results."
+    </div>
+    
+    <div class="feedback positive">
+        <strong>Ethical Leadership:</strong> Your initiative has created a path to an ethical solution.
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-overtime-testing')">Organize overtime testing sessions</button>
+    </div>
+</div>
+
+<!-- Overtime Testing Scene -->
+<div class="scene" id="scene-overtime-testing">
+    <div class="scene-heading">Overtime Testing</div>
+    <p>You organize the team for additional testing sessions to gather real data.</p>
+    
+    <div class="scene-image" style="background-color: #2ecc71;">
+        🧪 Late Night Testing 🧪
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">The Process:</span><br><br>
+        You rally the team, and everyone agrees to put in extra hours over the next two weeks. You work late into the evenings running focused tests on the prototype, documenting everything meticulously.<br><br>
+        The results are mixed - some tests show impressive performance, while others reveal issues that still need to be addressed. You compile all the data honestly, but organize it to highlight the strengths while acknowledging the limitations and the development roadmap for addressing them.
+    </div>
+    
+    <div class="feedback positive">
+        <strong>Ethical Effort:</strong> The team has created honest but strategic materials through additional effort.
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-present-real-results')">Present the results to Dr. Pascal</button>
+    </div>
+</div>
+
+
     
     <script>
         // Game state variables
