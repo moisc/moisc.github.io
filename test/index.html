@@ -3,28 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PascalGrip: An Engineering Ethics Adventure</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Engineering Ethics Adventure</title>
     <style>
-        :root {
-            --primary-color: #3498db;
-            --success-color: #2ecc71;
-            --warning-color: #f39c12;
-            --danger-color: #e74c3c;
-            --dark-color: #2c3e50;
-            --light-color: #ecf0f1;
-            --shadow: 0 4px 8px rgba(0,0,0,0.1);
-            --transition: all 0.3s ease;
-        }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
         body {
-            font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
             max-width: 800px;
@@ -33,21 +15,12 @@
             background-color: #f5f5f5;
         }
         
-        h1 {
-            text-align: center;
-            color: var(--dark-color);
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-        }
-        
         .game-container {
             background-color: white;
             border-radius: 10px;
-            box-shadow: var(--shadow);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             padding: 20px;
             margin-bottom: 20px;
-            position: relative;
         }
         
         .scene {
@@ -61,20 +34,20 @@
         
         .scene-heading {
             font-size: 24px;
-            color: var(--dark-color);
+            color: #2c3e50;
             margin-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
+            border-bottom: 2px solid #3498db;
             padding-bottom: 5px;
         }
         
         .character {
             font-weight: bold;
-            color: var(--primary-color);
+            color: #2980b9;
         }
         
         .dialogue {
             background-color: #f8f9fa;
-            border-left: 4px solid var(--primary-color);
+            border-left: 4px solid #3498db;
             padding: 10px 15px;
             margin: 15px 0;
             border-radius: 0 5px 5px 0;
@@ -93,7 +66,6 @@
             font-size: 24px;
             color: white;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
-            transition: var(--transition);
         }
         
         .choices-container {
@@ -105,64 +77,40 @@
             width: 100%;
             padding: 12px 15px;
             margin-bottom: 10px;
-            background-color: var(--primary-color);
+            background-color: #3498db;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             text-align: left;
             font-size: 16px;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
+            transition: background-color 0.3s;
         }
         
         .choice-btn:hover {
             background-color: #2980b9;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        
-        .choice-btn:active {
-            transform: translateY(0);
-            box-shadow: var(--shadow);
         }
         
         .choice-btn.ethical {
-            border-left: 5px solid var(--success-color);
+            border-left: 5px solid #2ecc71;
         }
         
         .choice-btn.unethical {
-            border-left: 5px solid var(--danger-color);
-        }
-        
-        .choice-btn::after {
-            content: "→";
-            position: absolute;
-            right: 15px;
-            opacity: 0;
-            transition: var(--transition);
-        }
-        
-        .choice-btn:hover::after {
-            opacity: 1;
-            transform: translateX(5px);
+            border-left: 5px solid #e74c3c;
         }
         
         .stats {
             display: flex;
             justify-content: space-around;
-            background-color: var(--dark-color);
+            background-color: #34495e;
             color: white;
             padding: 15px;
             border-radius: 5px;
             margin-bottom: 20px;
-            box-shadow: var(--shadow);
         }
         
         .stat {
             text-align: center;
-            transition: var(--transition);
         }
         
         .stat-value {
@@ -181,25 +129,24 @@
             border-radius: 10px;
             margin-bottom: 20px;
             overflow: hidden;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .ethics-fill {
             height: 100%;
             width: 50%;
             background: linear-gradient(to right, #e74c3c, #f39c12, #f1c40f, #2ecc71);
-            transition: width 0.8s ease;
+            transition: width 0.5s;
         }
         
         .ethics-pointer {
             width: 10px;
             height: 30px;
-            background-color: var(--dark-color);
+            background-color: #34495e;
             position: relative;
             top: -25px;
             left: 50%;
             transform: translateX(-50%);
-            transition: left 0.8s ease;
+            transition: left 0.5s;
         }
         
         .feedback {
@@ -207,22 +154,24 @@
             border-radius: 5px;
             margin-top: 20px;
             display: none;
-            animation: fadeIn 0.5s;
         }
         
         .feedback.positive {
             background-color: #d5f5e3;
-            border-left: 4px solid var(--success-color);
+            border-left: 4px solid #2ecc71;
+            display: block;
         }
         
         .feedback.negative {
             background-color: #fadbd8;
-            border-left: 4px solid var(--danger-color);
+            border-left: 4px solid #e74c3c;
+            display: block;
         }
         
         .feedback.neutral {
             background-color: #eaeded;
             border-left: 4px solid #95a5a6;
+            display: block;
         }
         
         .nspe-citation {
@@ -240,37 +189,29 @@
         
         .control-btn {
             padding: 10px 15px;
-            background-color: var(--dark-color);
+            background-color: #34495e;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .control-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         
         .restart-btn {
-            background-color: var(--danger-color);
+            background-color: #e74c3c;
         }
         
         .next-btn {
-            background-color: var(--success-color);
+            background-color: #2ecc71;
         }
         
         .result {
-            background-color: var(--primary-color);
+            background-color: #3498db;
             color: white;
             padding: 20px;
             border-radius: 5px;
             margin-top: 20px;
             text-align: center;
             display: none;
-            animation: fadeIn 0.5s;
-            box-shadow: var(--shadow);
         }
         
         .result h2 {
@@ -302,16 +243,6 @@
             background-color: #fffacd;
             position: relative;
             margin-top: 40px;
-            animation: glow 2s infinite alternate;
-        }
-        
-        @keyframes glow {
-            from {
-                box-shadow: 0 0 10px #f1c40f;
-            }
-            to {
-                box-shadow: 0 0 20px #f1c40f;
-            }
         }
         
         .certificate:before {
@@ -326,7 +257,6 @@
         
         .certificate h2 {
             font-family: 'Times New Roman', Times, serif;
-            color: #b7950b;
         }
         
         .stamp {
@@ -335,189 +265,21 @@
             bottom: 20px;
             width: 100px;
             height: 100px;
-            border: 5px solid var(--danger-color);
+            border: 5px solid #e74c3c;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            color: var(--danger-color);
+            color: #e74c3c;
             transform: rotate(-15deg);
-            animation: pulse 1.5s infinite;
         }
-        
-        @keyframes pulse {
-            0% {
-                transform: rotate(-15deg) scale(1);
-            }
-            50% {
-                transform: rotate(-15deg) scale(1.05);
-            }
-            100% {
-                transform: rotate(-15deg) scale(1);
-            }
-        }
-        
-        /* Mobile responsiveness */
-        @media (max-width: 600px) {
-            .scene-heading {
-                font-size: 20px;
-            }
-            
-            .stats {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .stat {
-                margin-bottom: 10px;
-            }
-            
-            .button-container {
-                flex-direction: column;
-            }
-            
-            .control-btn {
-                margin-bottom: 10px;
-                width: 100%;
-            }
-        }
-        
-        /* Progress tracker */
-        .progress-tracker {
-            position: sticky;
-            top: 10px;
-            z-index: 100;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 5px 10px;
-            border-radius: 20px;
-            display: flex;
-            justify-content: center;
-            box-shadow: var(--shadow);
-            margin-bottom: 15px;
-            backdrop-filter: blur(5px);
-        }
-        
-        .hidden {
-            display: none !important;
-        }
-        
-        /* Loading animation */
-        .loader {
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: rgba(255, 255, 255, 0.9);
-            z-index: 1000;
-        }
-        
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid var(--primary-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* Sound controls */
-        .sound-controls {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 100;
-        }
-        
-        .sound-btn {
-            background-color: var(--dark-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-        
-        .sound-btn:hover {
-            transform: scale(1.1);
-        }
-        
-        /* Save/Load Game */
-        .save-load-container {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            z-index: 100;
-            display: flex;
-            gap: 10px;
-        }
-        
-        .save-btn, .load-btn {
-            background-color: var(--dark-color);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 5px 10px;
-            font-size: 14px;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-        
-        .save-btn:hover, .load-btn:hover {
-            transform: scale(1.05);
-        }
-        
-        /* Toast notifications */
-        .toast {
-            position: fixed;
-            bottom: 70px;
-            right: 20px;
-            background-color: var(--dark-color);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            box-shadow: var(--shadow);
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.3s, transform 0.3s;
-            z-index: 1000;
-        }
-        
-        .toast.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+
+        /* Loader removed */
     </style>
 </head>
 <body>
-    <div class="loader" id="loader">
-        <div class="spinner"></div>
-    </div>
-    
-    <div class="progress-tracker">
-        <div class="stat">
-            <div class="stat-label">Progress</div>
-            <div class="stat-value" id="progress-value">0%</div>
-        </div>
-    </div>
-    
-    <h1>PascalGrip: An Engineering Ethics Adventure</h1>
+    <h1>PascalGrip: An Engineering Ethics Dilemma</h1>
     
     <div class="game-container">
         <div class="stats">
@@ -561,10 +323,10 @@
             </div>
             
             <div class="choices-container">
-                <button class="choice-btn unethical" data-choice="scene-1a">Agree to help with everything Dr. Pascal requested</button>
-                <button class="choice-btn ethical" data-choice="scene-1b">Refuse to help with any manipulation of data or images</button>
-                <button class="choice-btn neutral" data-choice="scene-1c">Offer a compromise solution</button>
-                <button class="choice-btn neutral" data-choice="scene-1d">Delay responding while you consult with the team</button>
+                <button class="choice-btn" onclick="goToScene('scene-1a')">Agree to help with everything Dr. Pascal requested</button>
+                <button class="choice-btn" onclick="goToScene('scene-1b')">Refuse to help with any manipulation of data or images</button>
+                <button class="choice-btn" onclick="goToScene('scene-1c')">Offer a compromise solution</button>
+                <button class="choice-btn" onclick="goToScene('scene-1d')">Delay responding while you consult with the team</button>
             </div>
         </div>
         
@@ -588,9 +350,9 @@
             </div>
             
             <div class="choices-container">
-                <button class="choice-btn unethical" data-choice="scene-2a">Create heavily edited photos and fabricated data</button>
-                <button class="choice-btn neutral" data-choice="scene-2b">Enhance photos moderately and use extrapolated data from limited tests</button>
-                <button class="choice-btn ethical" data-choice="scene-2c">Have second thoughts and try to steer toward a more honest approach</button>
+                <button class="choice-btn" onclick="goToScene('scene-2a')">Create heavily edited photos and fabricated data</button>
+                <button class="choice-btn" onclick="goToScene('scene-2b')">Enhance photos moderately and use extrapolated data from limited tests</button>
+                <button class="choice-btn" onclick="goToScene('scene-2c')">Have second thoughts and try to steer toward a more honest approach</button>
             </div>
         </div>
         
@@ -614,9 +376,9 @@
             </div>
             
             <div class="choices-container">
-                <button class="choice-btn neutral" data-choice="scene-2d">Face Dr. Pascal's disappointment and potential fallout</button>
-                <button class="choice-btn ethical" data-choice="scene-2e">Suggest alternative approaches for the Shark Tank pitch</button>
-                <button class="choice-btn ethical" data-choice="scene-2f">Volunteer to work overtime to get real data ready</button>
+                <button class="choice-btn" onclick="goToScene('scene-2d')">Face Dr. Pascal's disappointment and potential fallout</button>
+                <button class="choice-btn" onclick="goToScene('scene-2e')">Suggest alternative approaches for the Shark Tank pitch</button>
+                <button class="choice-btn" onclick="goToScene('scene-2f')">Volunteer to work overtime to get real data ready</button>
             </div>
         </div>
         
@@ -640,9 +402,9 @@
             </div>
             
             <div class="choices-container">
-                <button class="choice-btn ethical" data-choice="scene-2g">Dr. Pascal accepts your compromise</button>
-                <button class="choice-btn neutral" data-choice="scene-2h">Dr. Pascal pushes back, asking for more "enhancement"</button>
-                <button class="choice-btn unethical" data-choice="scene-2i">Dr. Pascal brings in the department chair to pressure you</button>
+                <button class="choice-btn" onclick="goToScene('scene-2g')">Dr. Pascal accepts your compromise</button>
+                <button class="choice-btn" onclick="goToScene('scene-2h')">Dr. Pascal pushes back, asking for more "enhancement"</button>
+                <button class="choice-btn" onclick="goToScene('scene-2i')">Dr. Pascal brings in the department chair to pressure you</button>
             </div>
         </div>
         
@@ -666,9 +428,9 @@
             </div>
             
             <div class="choices-container">
-                <button class="choice-btn neutral" data-choice="scene-2j">Team agrees to help with minor enhancements but no fabrication</button>
-                <button class="choice-btn neutral" data-choice="scene-2k">Team is divided on what to do</button>
-                <button class="choice-btn ethical" data-choice="scene-2l">Team agrees to refuse the unethical requests</button>
+                <button class="choice-btn" onclick="goToScene('scene-2j')">Team agrees to help with minor enhancements but no fabrication</button>
+                <button class="choice-btn" onclick="goToScene('scene-2k')">Team is divided on what to do</button>
+                <button class="choice-btn" onclick="goToScene('scene-2l')">Team agrees to refuse the unethical requests</button>
             </div>
         </div>
 
@@ -692,9 +454,9 @@
             </div>
             
             <div class="choices-container">
-                <button class="choice-btn unethical" data-choice="scene-shark-tank-a">Dr. Pascal goes on Shark Tank with your materials</button>
-                <button class="choice-btn neutral" data-choice="scene-investor-due-diligence">A Shark expresses interest and requests due diligence materials</button>
-                <button class="choice-btn ethical" data-choice="scene-regret">You regret your decision and try to fix the situation</button>
+                <button class="choice-btn" onclick="goToScene('scene-shark-tank-a')">Dr. Pascal goes on Shark Tank with your materials</button>
+                <button class="choice-btn" onclick="goToScene('scene-investor-due-diligence')">A Shark expresses interest and requests due diligence materials</button>
+                <button class="choice-btn" onclick="goToScene('scene-regret')">You regret your decision and try to fix the situation</button>
             </div>
         </div>
 
@@ -720,8 +482,8 @@
             </div>
             
             <div class="choices-container">
-                <button class="choice-btn unethical" data-choice="scene-exposure">The deception is exposed on national television</button>
-                <button class="choice-btn unethical" data-choice="scene-lucky-escape">Dr. Pascal manages to deflect and get a deal anyway</button>
+                <button class="choice-btn" onclick="goToScene('scene-exposure')">The deception is exposed on national television</button>
+                <button class="choice-btn" onclick="goToScene('scene-lucky-escape')">Dr. Pascal manages to deflect and get a deal anyway</button>
             </div>
         </div>
 
@@ -747,7 +509,7 @@
             </div>
             
             <div class="choices-container">
-                <button class="choice-btn unethical" data-choice="scene-aftermath-bad">Face the aftermath of the public deception</button>
+                <button class="choice-btn" onclick="goToScene('scene-aftermath-bad')">Face the aftermath of the public deception</button>
             </div>
         </div>
 
@@ -758,3 +520,522 @@
             
             <div class="scene-image" style="background-color: #c0392b;">
                 📉 Career Impact 📉
+            </div>
+            
+            <div class="dialogue">
+                <span class="character">Email from Department Chair:</span><br><br>
+                "Due to the serious ethical breach in the Shark Tank incident, the university is conducting a formal investigation. All students involved in creating falsified materials will face an academic integrity hearing. Dr. Pascal has been placed on administrative leave pending investigation. This incident has severely damaged our department's reputation with industry partners."
+            </div>
+            
+            <div class="feedback negative">
+                <strong>Final Outcome:</strong> Your decision to create fabricated materials has resulted in serious career and academic consequences.
+            </div>
+            
+            <div class="choices-container">
+                <button class="choice-btn" onclick="goToScene('game-over')">Game Over: Ethical Failure</button>
+            </div>
+        </div>
+
+        <!-- Game Over Scene -->
+        <div class="scene" id="game-over">
+            <div class="scene-heading">Game Over: Ethical Failure</div>
+            <p>Your choices led to serious ethical breaches with significant negative consequences.</p>
+            
+            <div class="scene-image" style="background-color: #c0392b;">
+                🚫 Ethics Violation 🚫
+            </div>
+            
+            <div class="result">
+                <h2>Final Assessment</h2>
+                <p>Ethics Score: <span id="final-ethics-score">20</span>/100</p>
+                <p>Your decisions demonstrated a willingness to compromise professional ethics for short-term gain, resulting in damaged reputations and career setbacks.</p>
+                <p>Key Ethics Lesson: Maintaining integrity in engineering documentation and communication is essential, even when under pressure from authority figures.</p>
+            </div>
+            
+            <div class="button-container">
+                <button class="control-btn restart-btn" onclick="restartGame()">Restart Game</button>
+                <button class="control-btn" onclick="goToScene('scene-class-discussion')">Discuss Ethics</button>
+            </div>
+        </div>
+
+        <!-- Scene 2E - Alternative approaches -->
+        <div class="scene" id="scene-2e">
+            <div class="scene-heading">Finding Ethical Alternatives</div>
+            <p>You decide to suggest alternative approaches that could help Dr. Pascal succeed without compromising ethics.</p>
+            
+            <div class="scene-image" style="background-color: #2ecc71;">
+                💡 Creative Solutions 💡
+            </div>
+            
+            <div class="dialogue">
+                <span class="character">Your Follow-up Email:</span><br><br>
+                "Dr. Pascal, I've been thinking about your Shark Tank opportunity and want to suggest some alternatives that could be even more effective than modified images or data. Many successful Shark Tank pitches focus on the problem being solved and the market potential rather than finished products.<br><br>
+                What if we created honest 'before and after' demonstrations showing the real problems with current hose clamps and how our design concept addresses them? We could prepare actual test data from our limited trials, clearly labeled as preliminary, alongside a professional development roadmap showing the path to full production.<br><br>
+                Investors often respond well to honesty about where a product stands in development, especially when paired with a clear vision for completion. Let me know if you'd like help preparing these materials instead."
+            </div>
+            
+            <div class="feedback positive">
+                <strong>Ethical Approach:</strong> You've offered constructive alternatives that maintain integrity while still helping.
+                <div class="nspe-citation">NSPE Code of Ethics II.1.c: "Engineers shall not reveal facts, data, or information without the prior consent of the client or employer except as authorized or required by law or this Code."</div>
+            </div>
+            
+            <div class="choices-container">
+                <button class="choice-btn" onclick="goToScene('scene-pascal-accepts')">Dr. Pascal appreciates your ideas and accepts</button>
+                <button class="choice-btn" onclick="goToScene('scene-pascal-compromise')">Dr. Pascal wants a mix of your approach and some enhancements</button>
+                <button class="choice-btn" onclick="goToScene('scene-pascal-rejects')">Dr. Pascal rejects your ideas and finds someone else to help</button>
+            </div>
+        </div>
+
+        <!-- Pascal Accepts Scene -->
+        <div class="scene" id="scene-pascal-accepts">
+            <div class="scene-heading">Dr. Pascal Agrees</div>
+            <p>To your relief, Dr. Pascal responds positively to your ethical alternative suggestions.</p>
+            
+            <div class="scene-image" style="background-color: #27ae60;">
+                👍 Ethical Victory 👍
+            </div>
+            
+            <div class="dialogue">
+                <span class="character">Dr. Pascal's Response:</span><br><br>
+                "You know what, you make some excellent points. I've been so focused on impressing the Sharks with a finished product that I didn't consider the value of honesty and transparency. The before/after demonstration idea is particularly good - it really highlights the innovation.<br><br>
+                Let's work together on preparing an honest but compelling pitch. I appreciate your integrity on this - it's actually a good reminder of the values I should be upholding as an educator."
+            </div>
+            
+            <div class="feedback positive">
+                <strong>Ethical Win:</strong> You've successfully influenced the situation toward an ethical outcome while maintaining a positive relationship.
+                <div class="nspe-citation">NSPE Code of Ethics II.1.a: "Engineers shall hold paramount the safety, health, and welfare of the public."</div>
+            </div>
+            
+            <div class="choices-container">
+                <button class="choice-btn" onclick="goToScene('scene-honest-preparation')">Help prepare an honest but compelling pitch</button>
+            </div>
+        </div>
+
+        <!-- Honest Preparation Scene -->
+        <div class="scene" id="scene-honest-preparation">
+            <div class="scene-heading">Honest Preparation</div>
+            <p>You work with Dr. Pascal to create an honest but compelling Shark Tank pitch.</p>
+            
+            <div class="scene-image" style="background-color: #2ecc71;">
+                📊 Real Data ✅
+            </div>
+            
+            <div class="dialogue">
+                <span class="character">Preparation Process:</span><br><br>
+                Over the next few weeks, you help Dr. Pascal prepare:
+                <br>- Clear photos of the actual prototype
+                <br>- Concept drawings (clearly labeled as such) showing the vision
+                <br>- Real test data from limited trials
+                <br>- A demonstration comparing current market solutions to your prototype
+                <br>- A development roadmap with realistic timelines
+                <br>- Market analysis showing the potential impact and business case
+            </div>
+            
+            <div class="feedback positive">
+                <strong>Ethical Process:</strong> You've maintained professional integrity while still creating compelling materials.
+            </div>
+            
+            <div class="choices-container">
+                <button class="choice-btn" onclick="goToScene('scene-shark-tank-honest')">Dr. Pascal goes on Shark Tank with the honest materials</button>
+            </div>
+        </div>
+
+        <!-- Honest Shark Tank Scene -->
+        <div class="scene" id="scene-shark-tank-honest">
+            <div class="scene-heading">Honest Shark Tank Pitch</div>
+            <p>Dr. Pascal appears on Shark Tank with the honest but compelling materials you helped prepare.</p>
+            
+            <div class="scene-image" style="background-color: #2c3e50;">
+                🦈 Honest Pitch 🦈
+            </div>
+            
+            <div class="dialogue">
+                <span class="character">Dr
+
+<span class="character">Dr. Pascal on Shark Tank:</span><br><br>
+                "...and while we're still in the prototype phase, our initial tests show promising results. As you can see from our development roadmap, we're on track to have a market-ready product in 8 months. The problem we're solving is critical - current hose clamps fail under high pressure situations, putting firefighters at risk. Our design addresses that specific weakness."<br><br>
+                <span class="character">Shark:</span> "I appreciate your honesty about where you are in development. Most people come in here claiming they're ready to ship tomorrow. Can you tell me more about your testing process?"<br><br>
+                <span class="character">Dr. Pascal:</span> "Absolutely. We've conducted initial pressure tests at our university lab. While the sample size is still small, all results have been promising. We've been transparent about the limitations in the data packet I provided."
+            </div>
+            
+            <div class="feedback positive">
+                <strong>Ethical Outcome:</strong> The honest approach is being well-received by the investors.
+            </div>
+            
+            <div class="choices-container">
+                <button class="choice-btn" onclick="goToScene('scene-shark-deal')">A Shark makes an offer</button>
+                <button class="choice-btn" onclick="goToScene('scene-shark-no-deal')">No deal, but valuable connections made</button>
+            </div>
+        </div>
+
+        <!-- Shark Deal Scene -->
+        <div class="scene" id="scene-shark-deal">
+            <div class="scene-heading">Success!</div>
+            <p>Dr. Pascal's honest approach actually impresses one of the Sharks enough to make an offer.</p>
+            
+            <div class="scene-image" style="background-color: #2ecc71;">
+                💰 Deal Made! 💰
+            </div>
+            
+            <div class="dialogue">
+                <span class="character">Shark:</span> "I like your honesty, and I see the potential in this product. The wildfire problem isn't going away, and better equipment is needed. I'll offer $100,000 for 25% of the company, contingent on you hitting the milestones in your development roadmap."<br><br>
+                <span class="character">Dr. Pascal:</span> "I would be honored to partner with you. I accept your offer!"<br><br>
+                <span class="character">Shark:</span> "What I'm investing in here is not just the product, but your integrity. In my experience, honest founders are the ones who succeed long-term."
+            </div>
+            
+            <div class="feedback positive">
+                <strong>Ethical Win:</strong> The ethical approach has led to a successful outcome that's built on trust and integrity.
+                <div class="nspe-citation">NSPE Code of Ethics III.1.a: "Engineers shall avoid all conduct or practice that deceives the public."</div>
+            </div>
+            
+            <div class="choices-container">
+                <button class="choice-btn" onclick="goToScene('scene-aftermath-good')">See the positive aftermath</button>
+            </div>
+        </div>
+
+        <!-- Good Aftermath Scene -->
+        <div class="scene" id="scene-aftermath-good">
+            <div class="scene-heading">Positive Aftermath</div>
+            <p>The ethical approach to the Shark Tank pitch has led to positive outcomes for everyone involved.</p>
+            
+            <div class="scene-image" style="background-color: #2ecc71;">
+                📈 Success Story 📈
+            </div>
+            
+            <div class="dialogue">
+                <span class="character">Email from Dr. Pascal:</span><br><br>
+                "I wanted to thank you for steering me toward the honest approach for Shark Tank. Not only did we secure an investment, but our new partner has connected us with firefighting equipment manufacturers who are interested in licensing the technology.<br><br>
+                The dean has also reached out about using our Shark Tank success as a case study for engineering ethics classes. Most importantly, I can retire knowing that I upheld my professional integrity while still achieving my goals.<br><br>
+                I've recommended you for a summer internship with our new partner company. Your commitment to ethics while still being solution-oriented is exactly what they're looking for."
+            </div>
+            
+            <div class="feedback positive">
+                <strong>Final Outcome:</strong> Your ethical approach has benefited your career, Dr. Pascal's retirement plans, and potentially saved lives by getting the improved hose clamp to market the right way.
+            </div>
+            
+            <div class="choices-container">
+                <button class="choice-btn" onclick="goToScene('game-success')">Game Complete: Ethical Success</button>
+            </div>
+        </div>
+
+        <!-- Game Success Scene -->
+        <div class="scene" id="game-success">
+            <div class="scene-heading">Game Complete: Ethical Success</div>
+            <p>Your choices led to a successful outcome while maintaining professional ethics.</p>
+            
+            <div class="scene-image" style="background-color: #2ecc71;">
+                🏆 Ethical Victory 🏆
+            </div>
+            
+            <div class="result">
+                <h2>Final Assessment</h2>
+                <p>Ethics Score: <span id="final-ethics-score-good">85</span>/100</p>
+                <p>Your decisions demonstrated a commitment to engineering ethics while still finding creative solutions to help all parties achieve their goals.</p>
+                <p>Key Ethics Lesson: It's possible to maintain integrity while still being helpful and solution-oriented, even when under pressure from authority figures.</p>
+            </div>
+            
+            <div class="certificate">
+                <h2>Certificate of Ethical Engineering</h2>
+                <p>This certifies that the player has successfully navigated complex ethical challenges while upholding the NSPE Code of Ethics.</p>
+                <div class="stamp">APPROVED</div>
+            </div>
+            
+            <div class="button-container">
+                <button class="control-btn restart-btn" onclick="restartGame()">Restart Game</button>
+                <button class="control-btn" onclick="goToScene('scene-class-discussion')">Discuss Ethics</button>
+            </div>
+        </div>
+
+        <!-- Class Discussion Scene -->
+        <div class="scene" id="scene-class-discussion">
+            <div class="scene-heading">Class Discussion</div>
+            <p>Here are some discussion points for your engineering ethics class:</p>
+            
+            <div class="scene-image" style="background-color: #3498db;">
+                💬 Ethics Discussion 💬
+            </div>
+            
+            <ol>
+                <li><strong>Pressure from Authority:</strong> How does pressure from someone in a position of authority (like Dr. Pascal) affect ethical decision-making?</li>
+                <li><strong>Gray Areas:</strong> What's the difference between "putting your best foot forward" and misrepresentation?</li>
+                <li><strong>Real World Impact:</strong> How might safety-critical equipment like firefighting gear be affected by ethical shortcuts in development?</li>
+                <li><strong>Collective Responsibility:</strong> If multiple team members collaborate on unethical actions, who bears responsibility?</li>
+                <li><strong>Career Impact:</strong> How might ethical or unethical choices early in your career affect your long-term prospects?</li>
+                <li><strong>Alternative Scenario:</strong> Would your ethical calculation change if this were a non-safety-critical product, like a kitchen gadget?</li>
+                <li><strong>Reporting Dilemma:</strong> Under what circumstances would you be obligated to report unethical requests to someone higher up?</li>
+            </ol>
+            
+            <div class="button-container">
+                <button class="control-btn restart-btn" onclick="restartGame()">Restart Game</button>
+            </div>
+        </div>
+
+<!-- Missing Scene 2B - Moderate enhancement -->
+<div class="scene" id="scene-2b">
+    <div class="scene-heading">Moderate Enhancement</div>
+    <p>You decide to create somewhat enhanced materials that look better than reality but aren't completely fabricated.</p>
+    
+    <div class="scene-image" style="background-color: #f39c12;">
+        🔄 Finding Middle Ground 🔄
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Your Approach:</span><br><br>
+        You clean up the prototype photos with better lighting and angles, remove some obvious flaws, but keep the basic structure accurate. For the data, you extrapolate from the limited tests you've done, showing best-case scenarios rather than outright fabrications.
+    </div>
+    
+    <div class="feedback neutral">
+        <strong>Ethical Consideration:</strong> You're walking a fine line between presentation and misrepresentation.
+        <div class="nspe-citation">NSPE Code of Ethics III.3.a: "Engineers shall avoid the use of statements containing a material misrepresentation of fact or omitting a material fact."</div>
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-pascal-review-moderate')">Dr. Pascal reviews your materials</button>
+        <button class="choice-btn" onclick="goToScene('scene-team-concerns')">Another team member raises concerns</button>
+    </div>
+</div>
+
+<!-- Pascal Reviews Moderate Materials Scene -->
+<div class="scene" id="scene-pascal-review-moderate">
+    <div class="scene-heading">Dr. Pascal's Review</div>
+    <p>Dr. Pascal reviews the moderately enhanced materials you've created.</p>
+    
+    <div class="scene-image" style="background-color: #f39c12;">
+        📋 Review Meeting 📋
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Dr. Pascal:</span><br><br>
+        "These look pretty good, but I was hoping for something more impressive. The competitors will have polished products. Can you enhance these further? Maybe make the clamp look more streamlined and boost the pressure resistance numbers by another 20%?"
+    </div>
+    
+    <div class="feedback neutral">
+        <strong>Ethical Challenge:</strong> You're being pushed to cross the line from enhancement to misrepresentation.
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-give-in')">Give in and make the additional changes</button>
+        <button class="choice-btn" onclick="goToScene('scene-stand-firm')">Stand firm on the current level of enhancement</button>
+        <button class="choice-btn" onclick="goToScene('scene-suggest-honesty')">Suggest pivoting to a completely honest approach</button>
+    </div>
+</div>
+
+<!-- Stand Firm Scene -->
+<div class="scene" id="scene-stand-firm">
+    <div class="scene-heading">Standing Your Ground</div>
+    <p>You decide to stand firm on keeping the enhancements moderate rather than crossing further into deception.</p>
+    
+    <div class="scene-image" style="background-color: #3498db;">
+        🛡️ Drawing the Line 🛡️
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Your Response:</span><br><br>
+        "Dr. Pascal, I believe the materials as they are now strike the right balance. They present our work in the best light possible without crossing into misrepresentation. Further changes would risk our professional credibility if investors later discover discrepancies between what we show and reality. I think this current version gives you a strong pitch while maintaining integrity."
+    </div>
+    
+    <div class="feedback positive">
+        <strong>Ethical Stand:</strong> You've defined your ethical boundary and defended it.
+        <div class="nspe-citation">NSPE Code of Ethics I.4: "Engineers shall act for each employer or client as faithful agents or trustees."</div>
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-pascal-accepts-moderate')">Dr. Pascal reluctantly accepts your position</button>
+        <button class="choice-btn" onclick="goToScene('scene-pascal-finds-another')">Dr. Pascal finds another student to make the changes</button>
+    </div>
+</div>
+
+        <!-- Add more scenes here as needed -->
+
+<script>
+    // Game state variables
+    let ethicsScore = 50;
+    let reputation = 50;
+    let career = 50;
+    let gameHistory = [];
+    
+    // Function to update stats display
+    function updateStats() {
+        document.getElementById('ethics-score').textContent = ethicsScore;
+        document.getElementById('reputation').textContent = reputation;
+        document.getElementById('career').textContent = career;
+        
+        const ethicsFill = document.getElementById('ethics-fill');
+        const ethicsPointer = document.getElementById('ethics-pointer');
+        
+        if (ethicsFill && ethicsPointer) {
+            ethicsFill.style.width = `${ethicsScore}%`;
+            ethicsPointer.style.left = `${ethicsScore}%`;
+        }
+    }
+    
+    // Function to navigate between scenes
+    function goToScene(sceneId) {
+        // Record history for back button functionality
+        gameHistory.push(sceneId);
+        
+        // Hide all scenes
+        const scenes = document.querySelectorAll('.scene');
+        scenes.forEach(scene => {
+            scene.classList.remove('active');
+        });
+        
+        // Show the target scene
+        const targetScene = document.getElementById(sceneId);
+        if (targetScene) {
+            targetScene.classList.add('active');
+            window.scrollTo(0, 0);
+        } else {
+            console.warn(`Scene ${sceneId} not found!`);
+            return; // Exit if scene not found
+        }
+        
+        // Update stats based on scene transitions
+        updateScoresByScene(sceneId);
+        
+        // Update the stats display
+        updateStats();
+        
+        // Show feedbacks
+        const feedbacks = targetScene.querySelectorAll('.feedback');
+        feedbacks.forEach(feedback => {
+            feedback.style.display = 'block';
+        });
+        
+        // Show results if present
+        const results = targetScene.querySelectorAll('.result');
+        results.forEach(result => {
+            result.style.display = 'block';
+        });
+    }
+    
+    // Function to update scores based on scene ID
+    function updateScoresByScene(sceneId) {
+        switch(sceneId) {
+            case 'scene-1a':
+                updateScores(-15, 0, 0);
+                break;
+            case 'scene-1b':
+                updateScores(+15, -5, -5);
+                break;
+            case 'scene-1c':
+                updateScores(+10, +5, +5);
+                break;
+            case 'scene-1d':
+                updateScores(+5, 0, 0);
+                break;
+            case 'scene-2a':
+                updateScores(-25, -10, -5);
+                break;
+            case 'scene-2e':
+                updateScores(+15, +5, +10);
+                break;
+            case 'scene-exposure':
+                updateScores(-30, -40, -40);
+                break;
+            case 'scene-aftermath-bad':
+                updateScores(-20, -30, -30);
+                break;
+            case 'scene-pascal-accepts':
+                updateScores(+20, +15, +15);
+                break;
+            case 'scene-honest-preparation':
+                updateScores(+10, +10, +10);
+                break;
+            case 'scene-shark-deal':
+                updateScores(+5, +25, +25);
+                break;
+            case 'scene-aftermath-good':
+                updateScores(+5, +10, +15);
+                break;
+            case 'game-over':
+                document.getElementById('final-ethics-score').textContent = ethicsScore;
+                break;
+            case 'game-success':
+                document.getElementById('final-ethics-score-good').textContent = ethicsScore;
+                break;
+            case 'scene-mixed-aftermath':
+                updateScores(0, +5, +10);
+                break;
+            case 'game-mixed':
+                const mixedScoreElement = document.getElementById('final-ethics-score-mixed');
+                if (mixedScoreElement) {
+                    mixedScoreElement.textContent = ethicsScore;
+                }
+                break;
+            case 'game-leadership-success':
+                const leadershipScoreElement = document.getElementById('final-ethics-score-leadership');
+                if (leadershipScoreElement) {
+                    leadershipScoreElement.textContent = ethicsScore;
+                }
+                break;
+            case 'game-professional-success':
+                const professionalScoreElement = document.getElementById('final-ethics-score-professional');
+                if (professionalScoreElement) {
+                    professionalScoreElement.textContent = ethicsScore;
+                }
+                break;
+            case 'game-team-compromise':
+                const teamScoreElement = document.getElementById('final-ethics-score-team');
+                if (teamScoreElement) {
+                    teamScoreElement.textContent = ethicsScore;
+                }
+                break;
+            case 'game-recovery':
+                const recoveryScoreElement = document.getElementById('final-ethics-score-recovery');
+                if (recoveryScoreElement) {
+                    recoveryScoreElement.textContent = ethicsScore;
+                }
+                break;
+            case 'game-failed-deception':
+                const failedScoreElement = document.getElementById('final-ethics-score-failed');
+                if (failedScoreElement) {
+                    failedScoreElement.textContent = ethicsScore;
+                }
+                break;
+            case 'game-alternative-success':
+                const alternativeScoreElement = document.getElementById('final-ethics-score-alternative');
+                if (alternativeScoreElement) {
+                    alternativeScoreElement.textContent = ethicsScore;
+                }
+                break;
+            case 'game-effort-success':
+                const effortScoreElement = document.getElementById('final-ethics-score-effort');
+                if (effortScoreElement) {
+                    effortScoreElement.textContent = ethicsScore;
+                }
+                break;
+        }
+    }
+    
+    // Function to update scores with limits
+    function updateScores(ethicsDelta, reputationDelta, careerDelta) {
+        ethicsScore = Math.max(0, Math.min(100, ethicsScore + ethicsDelta));
+        reputation = Math.max(0, Math.min(100, reputation + reputationDelta));
+        career = Math.max(0, Math.min(100, career + careerDelta));
+    }
+    
+    // Function to restart the game
+    function restartGame() {
+        ethicsScore = 50;
+        reputation = 50;
+        career = 50;
+        gameHistory = [];
+        updateStats();
+        goToScene('scene-intro');
+    }
+    
+    // Initialize the game
+    document.addEventListener('DOMContentLoaded', function() {
+        // Show all feedbacks by default
+        const feedbacks = document.querySelectorAll('.feedback');
+        feedbacks.forEach(feedback => {
+            feedback.style.display = 'block';
+        });
+        
+        updateStats();
+    });
+</script>
+</div>
+</body>
+</html>
