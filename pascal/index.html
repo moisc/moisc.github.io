@@ -2708,6 +2708,38 @@
                 case 'game-success':
                     document.getElementById('final-ethics-score-good').textContent = ethicsScore;
                     break;
+                case 'game-success':
+                    document.getElementById('final-ethics-score-good').textContent = ethicsScore;
+                    break;
+                case 'scene-mixed-aftermath':
+                updateScores(0, +5, +10);
+                break;
+            case 'game-mixed':
+                document.getElementById('final-ethics-score-mixed').textContent = ethicsScore;
+                break;
+                case 'game-leadership-success':
+                document.getElementById('final-ethics-score-leadership').textContent = ethicsScore;
+                break;
+            case 'game-professional-success':
+                document.getElementById('final-ethics-score-professional').textContent = ethicsScore;
+                break;
+                case 'game-team-compromise':
+                document.getElementById('final-ethics-score-team').textContent = ethicsScore;
+                    break;
+            case 'game-recovery':
+                document.getElementById('final-ethics-score-recovery').textContent = ethicsScore;
+                break;
+            case 'game-failed-deception':
+                document.getElementById('final-ethics-score-failed').textContent = ethicsScore;
+                break;
+            case 'game-alternative-success':
+                document.getElementById('final-ethics-score-alternative').textContent = ethicsScore;
+                break;
+                case 'game-effort-success':
+                document.getElementById('final-ethics-score-effort').textContent = ethicsScore;
+                break;
+
+                    
             }
             
             // Update the stats display
