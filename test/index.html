@@ -1077,6 +1077,332 @@
     </div>
 </div>
 
+<!-- Pascal Doubtful Scene -->
+<div class="scene" id="scene-pascal-doubtful">
+    <div class="scene-heading">Skeptical Response</div>
+    <p>Dr. Pascal is doubtful that the overtime approach will yield sufficient results.</p>
+    
+    <div class="scene-image" style="background-color: #f39c12;">
+        🤔 Skeptical Mentor 🤔
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Dr. Pascal:</span><br><br>
+        "I appreciate your willingness to put in extra work, but I'm skeptical this approach will generate impressive enough results in time. We're working with a tight deadline, and the prototype has several issues we haven't resolved yet. The Sharks need to see a finished product, not a work in progress."
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-persist-overtime')">Persist with your overtime suggestion</button>
+        <button class="choice-btn" onclick="goToScene('scene-accept-defeat')">Accept defeat and walk away</button>
+    </div>
+</div>
+
+<!-- Persist Overtime Scene -->
+<div class="scene" id="scene-persist-overtime">
+    <div class="scene-heading">Determined Effort</div>
+    <p>You persist with your overtime suggestion, offering a concrete plan to impress Dr. Pascal.</p>
+    
+    <div class="scene-image" style="background-color: #2ecc71;">
+        📊 Strategic Effort 📊
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Your Persistence:</span><br><br>
+        "Dr. Pascal, I understand your concern, but I believe we can focus our efforts strategically. We've already identified the most promising aspects of the prototype. If we dedicate the next three weekends to intensive testing of just those features, we can generate compelling real data for those specific areas. Rather than a complete product, we can present it as a proven core technology with a clear path to completion. This approach is both honest and strategic."
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-pascal-convinced')">Dr. Pascal is convinced</button>
+    </div>
+</div>
+
+<!-- Pascal Convinced Scene -->
+<div class="scene" id="scene-pascal-convinced">
+    <div class="scene-heading">Changing Minds</div>
+    <p>Your persistence and strategic thinking convince Dr. Pascal to try your approach.</p>
+    
+    <div class="scene-image" style="background-color: #2ecc71;">
+        🔄 Mind Changed 🔄
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Dr. Pascal:</span><br><br>
+        "Your determination is impressive. And you make a good point about focusing on our core innovation rather than trying to present a finished product. Let's try your approach. Organize the team for intensive testing on the weekends, and let's see what real data we can generate."
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-overtime-testing')">Organize overtime testing sessions</button>
+    </div>
+</div>
+
+<!-- Accept Defeat Scene -->
+<div class="scene" id="scene-accept-defeat">
+    <div class="scene-heading">Walking Away</div>
+    <p>You decide to accept defeat and distance yourself from the project.</p>
+    
+    <div class="scene-image" style="background-color: #e74c3c;">
+        🚶 Ethical Exit 🚶
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Your Decision:</span><br><br>
+        "I understand your position, Dr. Pascal. Given that we can't agree on an approach that aligns with my ethical standards, I think it's best if I step back from this aspect of the project. I wish you success with the Shark Tank pitch, but I can't participate in creating materials I'm not comfortable with professionally."
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-observing-from-distance')">Observe from a distance</button>
+    </div>
+</div>
+
+<!-- Observing From Distance Scene -->
+<div class="scene" id="scene-observing-from-distance">
+    <div class="scene-heading">Distant Observer</div>
+    <p>You observe the project's progress from a distance after removing yourself.</p>
+    
+    <div class="scene-image" style="background-color: #34495e;">
+        🔭 Observing From Afar 🔭
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Outcome:</span><br><br>
+        Over the following weeks, you hear that Dr. Pascal found other students willing to create enhanced materials for the Shark Tank pitch. The appearance results in initial interest but falls apart during due diligence when discrepancies between the presentation and reality become apparent. Dr. Pascal faces professional embarrassment, but you're spared involvement in the fallout.<br><br>
+        While it's a bittersweet outcome, you're relieved your professional integrity remains intact. A professor from another department who heard about your ethical stand offers you a position on their research team, noting, "I need team members who know where to draw the line."
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('game-ethical-exit')">Game Complete: Ethical Exit</button>
+    </div>
+</div>
+
+<!-- Game Ethical Exit Scene -->
+<div class="scene" id="game-ethical-exit">
+    <div class="scene-heading">Game Complete: Ethical Exit</div>
+    <p>Your choice to walk away rather than compromise your ethics led to a different but ultimately positive outcome.</p>
+    
+    <div class="scene-image" style="background-color: #3498db;">
+        🏆 Integrity Protected 🏆
+    </div>
+    
+    <div class="result">
+        <h2>Final Assessment</h2>
+        <p>Ethics Score: <span id="final-ethics-score-exit">80</span>/100</p>
+        <p>Your decisions prioritized maintaining your professional integrity, even when it meant walking away from an opportunity.</p>
+        <p>Key Ethics Lesson: Sometimes the ethical choice is to decline participation rather than compromise your standards. This can preserve your integrity and lead to alternative opportunities with like-minded professionals.</p>
+    </div>
+    
+    <div class="button-container">
+        <button class="control-btn restart-btn" onclick="restartGame()">Restart Game</button>
+        <button class="control-btn" onclick="goToScene('scene-class-discussion')">Discuss Ethics</button>
+    </div>
+</div>
+
+<!-- Observe Outcome Scene -->
+<div class="scene" id="scene-observe-outcome">
+    <div class="scene-heading">Watching Events Unfold</div>
+    <p>You decide to observe the outcome of Dr. Pascal's approach from the sidelines.</p>
+    
+    <div class="scene-image" style="background-color: #34495e;">
+        👀 Careful Observation 👀
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Your Perspective:</span><br><br>
+        You step back from direct involvement but keep tabs on what happens with Dr. Pascal's Shark Tank pitch. Over the next few weeks, you learn that another student created heavily enhanced materials as requested. Dr. Pascal's application is accepted, and he's scheduled to appear on the show.
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-watch-episode')">Watch the Shark Tank episode</button>
+    </div>
+</div>
+
+<!-- Watch Episode Scene -->
+<div class="scene" id="scene-watch-episode">
+    <div class="scene-heading">The Televised Pitch</div>
+    <p>You watch Dr. Pascal's Shark Tank episode with your classmates when it airs.</p>
+    
+    <div class="scene-image" style="background-color: #c0392b;">
+        📺 Uncomfortable Viewing 📺
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">The Outcome:</span><br><br>
+        The pitch starts well, but when questioned about specific technical details and performance metrics, Dr. Pascal's answers become vague and evasive. The Sharks, sensing inconsistencies, press harder. One Shark with an engineering background points out that some of the claimed performance specifications are beyond current materials science.<br><br>
+        Dr. Pascal struggles, eventually admitting the materials show "projected performance" rather than current capabilities. The Sharks decline to invest, citing concerns about transparency. It's an uncomfortable moment that validates your ethical stance, though you take no pleasure in Dr. Pascal's public embarrassment.
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-aftermath-lesson')">Process the aftermath</button>
+    </div>
+</div>
+
+<!-- Aftermath Lesson Scene -->
+<div class="scene" id="scene-aftermath-lesson">
+    <div class="scene-heading">Learning from Afar</div>
+    <p>You process the aftermath of Dr. Pascal's unsuccessful pitch.</p>
+    
+    <div class="scene-image" style="background-color: #3498db;">
+        📚 Valuable Lesson 📚
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">The Lesson:</span><br><br>
+        In the following days, the failed Shark Tank pitch becomes a topic of uncomfortable discussion in the department. Dr. Pascal avoids eye contact when you pass in the hallways.<br><br>
+        Your academic advisor pulls you aside one day: "I heard you declined to participate in creating those materials. That showed real professional judgment. Engineers face pressure to cut corners all the time, but those who maintain their integrity ultimately build stronger careers. I'd like you to consider joining my research team next semester."
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('game-observer-win')">Game Complete: Observer's Vindication</button>
+    </div>
+</div>
+
+<!-- Game Observer Win Scene -->
+<div class="scene" id="game-observer-win">
+    <div class="scene-heading">Game Complete: Observer's Vindication</div>
+    <p>By standing aside rather than participating in unethical behavior, you protected your integrity and gained professional respect.</p>
+    
+    <div class="scene-image" style="background-color: #2ecc71;">
+        🏆 Silent Integrity 🏆
+    </div>
+    
+    <div class="result">
+        <h2>Final Assessment</h2>
+        <p>Ethics Score: <span id="final-ethics-score-observer">85</span>/100</p>
+        <p>Your decision to step back rather than participate in unethical behavior proved wise when the deception failed publicly.</p>
+        <p>Key Ethics Lesson: Sometimes standing aside is itself an ethical action. Not every ethical dilemma requires active intervention - protecting your own integrity by non-participation can be the right choice.</p>
+    </div>
+    
+    <div class="button-container">
+        <button class="control-btn restart-btn" onclick="restartGame()">Restart Game</button>
+        <button class="control-btn" onclick="goToScene('scene-class-discussion')">Discuss Ethics</button>
+    </div>
+</div>
+
+<!-- Report Concern Scene -->
+<div class="scene" id="scene-report-concern">
+    <div class="scene-heading">Raising Concerns</div>
+    <p>You decide to report your concerns about Dr. Pascal's requests to the department chair.</p>
+    
+    <div class="scene-image" style="background-color: #9b59b6;">
+        🚨 Ethical Whistleblowing 🚨
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Your Meeting:</span><br><br>
+        You schedule a confidential meeting with the department chair, Dr. Rivera. With some trepidation, you explain Dr. Pascal's request for fabricated materials and manipulated images for a commercial venture using university resources.<br><br>
+        <span class="character">Dr. Rivera:</span><br><br>
+        "This is concerning, especially for a safety-critical product. Thank you for bringing this to my attention. It took courage to report this, particularly given Dr. Pascal's standing in the department. I'll speak with him directly about this matter. Your name will be kept confidential, though he may guess who came forward."
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-chair-intervention')">The chair intervenes with Dr. Pascal</button>
+    </div>
+</div>
+
+<!-- Chair Intervention Scene -->
+<div class="scene" id="scene-chair-intervention">
+    <div class="scene-heading">Administrative Intervention</div>
+    <p>The department chair intervenes with Dr. Pascal regarding his unethical requests.</p>
+    
+    <div class="scene-image" style="background-color: #3498db;">
+        👔 Authority Intervention 👔
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">The Aftermath:</span><br><br>
+        A few days later, you receive an email from Dr. Rivera requesting another meeting. When you arrive, Dr. Pascal is unexpectedly present as well. The atmosphere is tense.<br><br>
+        <span class="character">Dr. Rivera:</span><br><br>
+        "I've spoken with Dr. Pascal about the concerns raised regarding the Shark Tank materials. We've agreed that all materials presented must adhere to our university's ethics guidelines and accurately represent the current state of the technology. Dr. Pascal has something he'd like to say."<br><br>
+        <span class="character">Dr. Pascal:</span> *clearly uncomfortable* <br><br>
+        "I... apologize for putting you in a difficult position. I got carried away with the opportunity and lost sight of our responsibilities as educators and engineers. I'd like to proceed with the Shark Tank application, but with honest materials that accurately represent our work. I'd appreciate your help with that approach, if you're willing."
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-accept-apology')">Accept the apology and help</button>
+        <button class="choice-btn" onclick="goToScene('scene-decline-involvement')">Decline further involvement</button>
+    </div>
+</div>
+
+<!-- Accept Apology Scene -->
+<div class="scene" id="scene-accept-apology">
+    <div class="scene-heading">Reconciliation</div>
+    <p>You accept Dr. Pascal's apology and agree to help with an honest approach.</p>
+    
+    <div class="scene-image" style="background-color: #2ecc71;">
+        🤝 Professional Reconciliation 🤝
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Your Response:</span><br><br>
+        "I appreciate your apology, Dr. Pascal. I'd be happy to help create honest materials that showcase the genuine innovation and potential of our work. I believe the technology has real merit that can stand on its own without embellishment."
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-honest-preparation')">Help prepare honest materials</button>
+    </div>
+</div>
+
+<!-- Decline Involvement Scene -->
+<div class="scene" id="scene-decline-involvement">
+    <div class="scene-heading">Professional Distance</div>
+    <p>You decline further involvement with Dr. Pascal's Shark Tank project.</p>
+    
+    <div class="scene-image" style="background-color: #f39c12;">
+        🚶 Professional Boundary 🚶
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Your Response:</span><br><br>
+        "I appreciate the apology, Dr. Pascal, but I think it would be best if I step back from this project. I believe it creates an awkward dynamic for both of us, and you'll likely work more effectively with team members who haven't been involved in this situation. I wish you success with an honest approach to the pitch."
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-chair-respect')">The chair respects your decision</button>
+    </div>
+</div>
+
+<!-- Chair Respect Scene -->
+<div class="scene" id="scene-chair-respect">
+    <div class="scene-heading">Professional Respect</div>
+    <p>The department chair respects your decision to maintain professional distance.</p>
+    
+    <div class="scene-image" style="background-color: #2ecc71;">
+        👏 Professional Acknowledgment 👏
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Dr. Rivera:</span><br><br>
+        "I understand and respect your decision. Reporting ethical concerns and then navigating the aftermath requires significant professional maturity. I'd like to offer you a position on our department's ethics committee. We need voices like yours who are willing to take principled stands, even when difficult."
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('game-whistleblower')">Game Complete: Ethical Whistleblower</button>
+    </div>
+</div>
+
+<!-- Game Whistleblower Scene -->
+<div class="scene" id="game-whistleblower">
+    <div class="scene-heading">Game Complete: Ethical Whistleblower</div>
+    <p>Your decision to report ethical concerns led to positive systemic change.</p>
+    
+    <div class="scene-image" style="background-color: #2ecc71;">
+        🏆 Principled Stand 🏆
+    </div>
+    
+    <div class="result">
+        <h2>Final Assessment</h2>
+        <p>Ethics Score: <span id="final-ethics-score-whistleblower">90</span>/100</p>
+        <p>You took the difficult path of reporting unethical requests through proper channels, resulting in systemic correction.</p>
+        <p>Key Ethics Lesson: Sometimes maintaining ethics requires formal reporting through established channels. While this path may create temporary discomfort, it can lead to systemic improvement and professional recognition.</p>
+    </div>
+    
+    <div class="button-container">
+        <button class="control-btn restart-btn" onclick="restartGame()">Restart Game</button>
+        <button class="control-btn" onclick="goToScene('scene-class-discussion')">Discuss Ethics</button>
+    </div>
+</div>
+
+        
+        
 <!-- Scene 2F - Volunteer overtime -->
 <div class="scene" id="scene-2f">
     <div class="scene-heading">Volunteer Overtime</div>
@@ -3880,6 +4206,47 @@ function updateScoresByScene(sceneId) {
         case 'scene-2e':
             updateScores(+15, +5, +10);
             break;
+
+            // Add these cases to your updateScoresByScene function
+case 'scene-persist-overtime':
+    updateScores(+10, 0, +5);
+    break;
+case 'scene-pascal-convinced':
+    updateScores(+10, +10, +10);
+    break;
+case 'scene-accept-defeat':
+    updateScores(+5, -10, -5);
+    break;
+case 'scene-observing-from-distance':
+    updateScores(+10, 0, +5);
+    break;
+case 'game-ethical-exit':
+    document.getElementById('final-ethics-score-exit').textContent = ethicsScore;
+    break;
+case 'scene-watch-episode':
+    updateScores(+5, 0, +5);
+    break;
+case 'scene-aftermath-lesson':
+    updateScores(+10, +10, +10);
+    break;
+case 'game-observer-win':
+    document.getElementById('final-ethics-score-observer').textContent = ethicsScore;
+    break;
+case 'scene-chair-intervention':
+    updateScores(+10, 0, 0);
+    break;
+case 'scene-accept-apology':
+    updateScores(+5, +10, +5);
+    break;
+case 'scene-decline-involvement':
+    updateScores(+5, -5, 0);
+    break;
+case 'scene-chair-respect':
+    updateScores(+10, +15, +10);
+    break;
+case 'game-whistleblower':
+    document.getElementById('final-ethics-score-whistleblower').textContent = ethicsScore;
+    break;
         case 'scene-exposure':
             updateScores(-30, -40, -40);
             break;
