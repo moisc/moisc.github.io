@@ -612,6 +612,58 @@
             </div>
         </div>
 
+        <!-- Pascal Compromise Scene -->
+<div class="scene" id="scene-pascal-compromise">
+    <div class="scene-heading">Partial Agreement</div>
+    <p>Dr. Pascal is interested in your ethical approach but still wants some enhancements.</p>
+    
+    <div class="scene-image" style="background-color: #f39c12;">
+        🔄 Finding Middle Ground 🔄
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Dr. Pascal's Response:</span><br><br>
+        "I like your approach of showing the real state of development, but we still need to make a strong impression. Let's use your honest presentations but enhance the visuals a bit - nothing dishonest, just making things look more polished than they currently are. We can label the concept renders appropriately, but let's make them really compelling."
+    </div>
+    
+    <div class="feedback neutral">
+        <strong>Ethical Balancing:</strong> Dr. Pascal is trying to find a compromise between honesty and impact.
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-polished-honest')">Create polished but basically honest materials</button>
+        <button class="choice-btn" onclick="goToScene('scene-push-full-honesty')">Push for complete honesty</button>
+    </div>
+</div>
+
+        <!-- Pascal Rejects Scene -->
+<div class="scene" id="scene-pascal-rejects">
+    <div class="scene-heading">Rejected Approach</div>
+    <p>Dr. Pascal rejects your ethical suggestions and decides to find someone else to help.</p>
+    
+    <div class="scene-image" style="background-color: #e74c3c;">
+        👎 Ethical Standoff 👎
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Dr. Pascal's Response:</span><br><br>
+        "I appreciate the thought, but your approach won't make the impact we need. This is business, not an ethics classroom. I'll find someone else on the team who understands what it takes to get investor attention. I'm disappointed in your lack of pragmatism here."
+    </div>
+    
+    <div class="feedback positive">
+        <strong>Ethical Stance:</strong> You maintained your ethical position despite rejection.
+        <div class="nspe-citation">NSPE Code of Ethics III.1.a: "Engineers shall avoid all conduct or practice that deceives the public."</div>
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-observe-outcome')">Observe what happens from the sidelines</button>
+        <button class="choice-btn" onclick="goToScene('scene-report-concern')">Report your concerns to the department chair</button>
+    </div>
+</div>
+
+
+        
+
         <!-- Honest Preparation Scene -->
         <div class="scene" id="scene-honest-preparation">
             <div class="scene-heading">Honest Preparation</div>
@@ -922,6 +974,34 @@
     </div>
 </div>
 
+<!-- Scene 2F - Volunteer overtime -->
+<div class="scene" id="scene-2f">
+    <div class="scene-heading">Volunteer Overtime</div>
+    <p>You offer to work overtime to get real test data ready for Dr. Pascal's Shark Tank pitch.</p>
+    
+    <div class="scene-image" style="background-color: #2ecc71;">
+        ⏰ Extra Effort ⏰
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Your Offer:</span><br><br>
+        "Dr. Pascal, instead of creating fabricated data, what if our team puts in some overtime to run additional tests and gather more real data points? We could focus on the tests most likely to show promising results, photograph the prototype in optimal but authentic conditions, and prepare honest materials that you can present with complete confidence.<br><br>
+        We might not be able to test everything, but with focused effort, we could get enough real data to make a compelling case for the technology's potential. I'm willing to organize the team and put in the extra hours to make this happen."
+    </div>
+    
+    <div class="feedback positive">
+        <strong>Ethical Solution:</strong> You've offered a constructive alternative that maintains integrity through extra effort.
+        <div class="nspe-citation">NSPE Code of Ethics III.1.a: "Engineers shall avoid all conduct or practice that deceives the public."</div>
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-pascal-appreciates')">Dr. Pascal appreciates your offer</button>
+        <button class="choice-btn" onclick="goToScene('scene-pascal-doubtful')">Dr. Pascal is doubtful it will be enough</button>
+    </div>
+</div>
+
+        
+        
 <!-- Stand Ground Scene -->
 <div class="scene" id="scene-stand-ground">
     <div class="scene-heading">Standing Your Ground</div>
@@ -3382,6 +3462,59 @@
     </div>
 </div>
 
+        <!-- Janitor Deal Scene -->
+<div class="scene" id="scene-janitor-deal">
+    <div class="scene-heading">Unexpected Expert</div>
+    <p>Carl the janitor's genuine wisdom helps secure a remarkable deal.</p>
+    
+    <div class="scene-image" style="background-color: #2ecc71;">
+        🌟 Surprising Success 🌟
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Deal Outcome:</span><br><br>
+        The Sharks are so impressed by Carl's authentic wisdom and unexpected financial insight that they get into a bidding war for the product. The final deal is even better than Dr. Pascal had hoped: $300,000 for 15% of the company.<br><br>
+        <span class="character">Dr. Pascal:</span> *stunned* "I came here expecting to have to defend against skepticism, not witness a bidding war led by our university janitor!"<br><br>
+        <span class="character">Carl:</span> "Twenty-eight years of cleaning up messes teaches you a thing or two about value and integrity. When something's built right, it doesn't need fancy packaging."
+    </div>
+    
+    <div class="feedback positive">
+        <strong>Unexpected Triumph:</strong> Your unconventional but ethical approach has led to an extraordinary outcome.
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('game-janitor-success')">Game Complete: Unexpected Hero</button>
+    </div>
+</div>
+
+<!-- Game Janitor Success Scene -->
+<div class="scene" id="game-janitor-success">
+    <div class="scene-heading">Game Complete: Unexpected Hero</div>
+    <p>Your ethical creativity and inclusion of an unexpected voice led to extraordinary success.</p>
+    
+    <div class="scene-image" style="background-color: #2ecc71;">
+        🏆 Creative Integrity Win 🏆
+    </div>
+    
+    <div class="result">
+        <h2>Final Assessment</h2>
+        <p>Ethics Score: <span id="final-ethics-score-janitor">95</span>/100</p>
+        <p>Your decisions demonstrated that ethical engineering can come with unexpected twists. By valuing authenticity over slick presentation, you achieved remarkable success.</p>
+        <p>Key Ethics Lesson: Sometimes the most powerful ethical strategies involve bringing in unconventional perspectives that cut through pretense and speak truth.</p>
+    </div>
+    
+    <div class="certificate">
+        <h2>Certificate of Creative Ethics</h2>
+        <p>This certifies that the player has demonstrated exceptional creativity in maintaining ethical standards while achieving business success.</p>
+        <div class="stamp">CREATIVITY</div>
+    </div>
+    
+    <div class="button-container">
+        <button class="control-btn restart-btn" onclick="restartGame()">Restart Game</button>
+        <button class="control-btn" onclick="goToScene('scene-class-discussion')">Discuss Ethics</button>
+    </div>
+</div>
+
 <!-- Honest Approach Scene -->
 <div class="scene" id="scene-honest-approach">
     <div class="scene-heading">Ethical Strategy</div>
@@ -3463,7 +3596,64 @@
     </div>
 </div>
 
-            
+      <!-- Shark No Deal Scene -->
+<div class="scene" id="scene-shark-no-deal">
+    <div class="scene-heading">No Deal, But Connections</div>
+    <p>While no Shark makes an investment offer, the honest pitch creates valuable industry connections.</p>
+    
+    <div class="scene-image" style="background-color: #3498db;">
+        🤝 Networking Opportunity 🤝
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Shark Tank Outcome:</span><br><br>
+        None of the Sharks make an investment offer, citing the early stage of development. However, one Shark who has connections in the firefighting equipment industry offers to make introductions to potential manufacturing partners who might be interested in the technology.
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('scene-industry-connection')">Pursue the industry connection</button>
+    </div>
+</div>
+
+<!-- Industry Connection Scene -->
+<div class="scene" id="scene-industry-connection">
+    <div class="scene-heading">Alternative Path</div>
+    <p>Though the Shark Tank appearance didn't result in investment, it opened an unexpected door.</p>
+    
+    <div class="scene-image" style="background-color: #2ecc71;">
+        🚪 New Opportunity 🚪
+    </div>
+    
+    <div class="dialogue">
+        <span class="character">Email from Dr. Pascal:</span><br><br>
+        "While we didn't get a deal on Shark Tank, the connection from the show proved incredibly valuable. The firefighting equipment manufacturer I met is interested in licensing our technology. Their R&D team appreciates our honest presentation of the current state and potential. This may actually be a better path to market than the Shark Tank investment would have been."
+    </div>
+    
+    <div class="choices-container">
+        <button class="choice-btn" onclick="goToScene('game-alternative-success')">Game Complete: Alternative Success</button>
+    </div>
+</div>
+
+<!-- Game Alternative Success Scene -->
+<div class="scene" id="game-alternative-success">
+    <div class="scene-heading">Game Complete: Alternative Success</div>
+    <p>Your ethical choices led to an unexpected but potentially better outcome.</p>
+    
+    <div class="scene-image" style="background-color: #2ecc71;">
+        🏆 Ethical Victory 🏆
+    </div>
+    
+    <div class="result">
+        <h2>Final Assessment</h2>
+        <p>Ethics Score: <span id="final-ethics-score-alternative">90</span>/100</p>
+        <p>Key Ethics Lesson: Maintaining ethics may close some doors but can open others that are ultimately more beneficial.</p>
+    </div>
+    
+    <div class="button-container">
+        <button class="control-btn restart-btn" onclick="restartGame()">Restart Game</button>
+        <button class="control-btn" onclick="goToScene('scene-class-discussion')">Discuss Ethics</button>
+    </div>
+</div>      
         
 <script>
     // Game state variables
@@ -3623,6 +3813,50 @@
                     effortScoreElement.textContent = ethicsScore;
                 }
                 break;
+
+               // Add these cases to your updateScoresByScene function
+case 'scene-pascal-compromise':
+    updateScores(+5, 0, +5);
+    break;
+case 'scene-pascal-rejects':
+    updateScores(+10, -10, -5);
+    break;
+case 'scene-pascal-appreciates':
+    updateScores(+15, +10, +10);
+    break;
+case 'scene-pascal-doubtful':
+    updateScores(+5, 0, +5);
+    break;
+case 'scene-observe-outcome':
+    updateScores(+5, -5, -5);
+    break;
+case 'scene-report-concern':
+    updateScores(+15, -10, -5);
+    break;
+case 'scene-stand-ground':
+    updateScores(+20, -5, -5);
+    break;
+case 'scene-compromise-after-refusal':
+    updateScores(+10, +5, +5);
+    break;
+case 'scene-give-in-pressure':
+    updateScores(-15, +10, +5);
+    break;
+case 'scene-polished-honest':
+    updateScores(+5, +10, +10);
+    break;
+case 'scene-push-full-honesty':
+    updateScores(+15, 0, 0);
+    break;
+case 'scene-janitor-deal':
+    updateScores(+15, +25, +25);
+    break;
+case 'game-janitor-success':
+    document.getElementById('final-ethics-score-janitor').textContent = ethicsScore;
+    break;
+case 'game-alternative-success':
+    document.getElementById('final-ethics-score-alternative').textContent = ethicsScore;
+    break; 
         
         // Function to update scores based on scene ID
 function updateScoresByScene(sceneId) {
