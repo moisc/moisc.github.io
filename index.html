@@ -262,15 +262,23 @@
     </nav>
 
     <!-- Hero Section with Particles -->
-    <div class="relative bg-gradient-to-r from-blue-800 to-blue-600 dark:from-blue-900 dark:to-blue-700 overflow-hidden">
-        <div id="particles-js"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 hero-content">
-            <div class="text-center text-white" data-aos="fade-up">
+<div class="relative bg-gradient-to-r from-blue-800 to-blue-600 dark:from-blue-900 dark:to-blue-700 overflow-hidden">
+    <div id="particles-js"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 hero-content">
+        <div class="flex flex-col md:flex-row items-center justify-center gap-8 text-white" data-aos="fade-up">
+            <!-- Headshot - Add this part -->
+            <div class="mb-6 md:mb-0">
+                <div class="rounded-full overflow-hidden border-4 border-white shadow-xl" style="width: 200px; height: 200px;">
+                    <img src="unnamed (22).jpg" alt="Mois Cohen" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <!-- Existing content - Keep this part -->
+            <div class="text-center md:text-left">
                 <h1 class="text-4xl font-bold mb-4">Mechanical Engineer</h1>
                 <p class="text-xl mb-4">B.S. Mechanical Engineering</p>
                 <p class="text-lg">California Polytechnic State University, San Luis Obispo</p>
                 <p class="text-lg">September 2021 - June 2025 | GPA: 3.2</p>
-                <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6 mt-6">
+                <div class="flex flex-col md:flex-row justify-center md:justify-start space-y-4 md:space-y-0 md:space-x-6 mt-6">
                     <a href="mailto:mois.cohen787@gmail.com" class="flex items-center justify-center space-x-2 hover:text-blue-200 transition-colors duration-300">
                         <i class="fas fa-envelope"></i>
                         <span>mois.cohen787@gmail.com</span>
@@ -291,6 +299,7 @@
             </div>
         </div>
     </div>
+</div>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <!-- Current Project -->
