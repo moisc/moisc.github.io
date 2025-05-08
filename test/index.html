@@ -85,7 +85,7 @@
             transition: width 0.2s ease-out;
         }
 
-        /* Custom timeline styles */
+        /* Custom timeline styles - FIXED ALIGNMENT */
         .timeline-container {
             position: relative;
         }
@@ -124,6 +124,18 @@
             
             .timeline-item:nth-child(even) {
                 flex-direction: row-reverse;
+            }
+            
+            /* Fix for alignment of job titles */
+            .timeline-item .timeline-title {
+                text-align: right;
+                padding-right: 2rem;
+            }
+            
+            .timeline-item:nth-child(even) .timeline-title {
+                text-align: left;
+                padding-left: 2rem;
+                padding-right: 0;
             }
         }
         
@@ -220,10 +232,10 @@
         <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
             <!-- Content Column -->
             <div class="md:col-span-7" data-aos="fade-right">
-                <h2 class="text-sm uppercase tracking-wider text-accent font-semibold mb-2">Mechanical Engineer</h2>
+                <h2 class="text-sm uppercase tracking-wider text-accent font-semibold mb-2">MECHANICAL ENGINEER</h2>
                 <h1 class="text-4xl sm:text-5xl font-bold mb-6">
                     Hello, I'm 
-                    <span class="gradient-text">Mois Cohen</span>
+                    <div id="typing-text" class="gradient-text">Mois Cohen</div>
                     <span class="cursor"></span>
                 </h1>
                 <p class="text-lg text-gray-700 mb-8 leading-relaxed">
@@ -261,7 +273,7 @@
                     
                     <!-- Profile Image -->
                     <div class="relative z-10 overflow-hidden rounded-2xl shadow-xl aspect-square max-w-md mx-auto">
-                        <img src="unnamed (22).jpg" alt="Mois Cohen" class="w-full h-full object-cover">
+                        <img src="../unnamed (22).jpg" alt="Mois Cohen" class="w-full h-full object-cover">
                     </div>
                     
                     <!-- Decorative elements -->
@@ -346,12 +358,12 @@
             <!-- K2 Systems -->
             <div class="timeline-item flex flex-col md:flex-row mb-12" data-aos="fade-up">
                 <div class="timeline-dot"></div>
-                <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+                <div class="md:w-1/2 mb-6 md:mb-0 timeline-title">
                     <span class="inline-block px-3 py-1 rounded-full bg-blue-50 text-accent text-xs font-medium mb-2">June 2024 - September 2024</span>
                     <h3 class="text-xl font-semibold">K2 Systems US</h3>
                     <p class="text-gray-600">Mechanical Engineering Intern</p>
                 </div>
-                <div class="md:w-1/2 md:pl-12">
+                <div class="md:w-1/2">
                     <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
                         <ul class="space-y-3 mb-4">
                             <li class="flex items-start">
@@ -384,12 +396,12 @@
             <!-- Cal Poly SLO -->
             <div class="timeline-item flex flex-col md:flex-row mb-12" data-aos="fade-up">
                 <div class="timeline-dot"></div>
-                <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+                <div class="md:w-1/2 mb-6 md:mb-0 timeline-title">
                     <span class="inline-block px-3 py-1 rounded-full bg-blue-50 text-accent text-xs font-medium mb-2">April 2024 - Present</span>
                     <h3 class="text-xl font-semibold">Cal Poly SLO</h3>
                     <p class="text-gray-600">Research Assistant</p>
                 </div>
-                <div class="md:w-1/2 md:pl-12">
+                <div class="md:w-1/2">
                     <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
                         <ul class="space-y-3 mb-4">
                             <li class="flex items-start">
@@ -422,12 +434,12 @@
             <!-- Nina Labs -->
             <div class="timeline-item flex flex-col md:flex-row mb-12" data-aos="fade-up">
                 <div class="timeline-dot"></div>
-                <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+                <div class="md:w-1/2 mb-6 md:mb-0 timeline-title">
                     <span class="inline-block px-3 py-1 rounded-full bg-blue-50 text-accent text-xs font-medium mb-2">June 2023 - December 2023</span>
                     <h3 class="text-xl font-semibold">Nina Labs</h3>
                     <p class="text-gray-600">Junior Engineer</p>
                 </div>
-                <div class="md:w-1/2 md:pl-12">
+                <div class="md:w-1/2">
                     <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
                         <ul class="space-y-3 mb-4">
                             <li class="flex items-start">
@@ -460,12 +472,12 @@
             <!-- Self-Contracted Laborer -->
             <div class="timeline-item flex flex-col md:flex-row mb-12" data-aos="fade-up">
                 <div class="timeline-dot"></div>
-                <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+                <div class="md:w-1/2 mb-6 md:mb-0 timeline-title">
                     <span class="inline-block px-3 py-1 rounded-full bg-blue-50 text-accent text-xs font-medium mb-2">April 2019 - Present</span>
                     <h3 class="text-xl font-semibold">Self-Contracted Laborer</h3>
                     <p class="text-gray-600">Handyman/Laborer/Landscaping</p>
                 </div>
-                <div class="md:w-1/2 md:pl-12">
+                <div class="md:w-1/2">
                     <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
                         <ul class="space-y-3 mb-4">
                             <li class="flex items-start">
@@ -498,12 +510,12 @@
             <!-- Autoprint Inc. -->
             <div class="timeline-item flex flex-col md:flex-row" data-aos="fade-up">
                 <div class="timeline-dot"></div>
-                <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+                <div class="md:w-1/2 mb-6 md:mb-0 timeline-title">
                     <span class="inline-block px-3 py-1 rounded-full bg-blue-50 text-accent text-xs font-medium mb-2">November 2020 - November 2021</span>
                     <h3 class="text-xl font-semibold">Autoprint Inc.</h3>
                     <p class="text-gray-600">Co-founder and CRO</p>
                 </div>
-                <div class="md:w-1/2 md:pl-12">
+                <div class="md:w-1/2">
                     <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
                         <ul class="space-y-3 mb-4">
                             <li class="flex items-start">
@@ -719,15 +731,10 @@
                     
                     <div class="pt-8 mt-8 border-t border-gray-100">
                         <h4 class="text-lg font-semibold mb-4">Connect with me</h4>
-                        <div class="flex space-x-4">
-                            <a href="#" class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-colors">
+                        <div class="flex">
+                            <!-- Only LinkedIn button as requested -->
+                            <a href="https://www.linkedin.com/in/moiscohen/" target="_blank" class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-colors">
                                 <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="#" class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-colors">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-colors">
-                                <i class="fab fa-instagram"></i>
                             </a>
                         </div>
                     </div>
@@ -868,20 +875,19 @@
             document.getElementById("scrollProgress").style.width = scrolled + "%";
         });
         
-        // Typing effect simulation
-        const phrases = ['Mois Cohen', 'a Mechanical Engineer', 'a Problem Solver', 'a Designer']; 
+        // Improved typing effect that properly shows the complete phrases
+        const phrases = ['Mois Cohen', 'a Problem Solver', 'a Designer', 'an Engineer']; 
         let currentPhraseIndex = 0;
         let isDeleting = false;
         let charIndex = 0;
         let typingSpeed = 100;
+        const typingElement = document.getElementById('typing-text');
         
         function typeEffect() {
             const currentPhrase = phrases[currentPhraseIndex];
-            const cursor = document.querySelector('.cursor');
-            const typingElement = cursor.previousElementSibling;
             
             if (isDeleting) {
-                // If we're deleting and it's the first phrase, don't delete it
+                // If we're at the first phrase (Mois Cohen), don't delete it
                 if (currentPhraseIndex === 0) {
                     isDeleting = false;
                     currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
@@ -903,6 +909,7 @@
                 charIndex++;
                 typingSpeed = 150;
                 
+                // Ensure we show the complete phrase including the last character
                 if (charIndex === currentPhrase.length) {
                     if (currentPhraseIndex === 0) {
                         // If it's the first phrase, move to the next without deleting
