@@ -1,972 +1,293 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mois Cohen | Mechanical Engineer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0F172A',
-                        secondary: '#475569',
-                        accent: '#3B82F6',
-                        light: '#F8FAFC',
-                        dark: '#0F172A'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['Fira Code', 'monospace']
-                    },
-                }
-            }
-        }
-    </script>
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap');
-        
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 80px;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F8FAFC;
-            color: #0F172A;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(90deg, #3B82F6, #2563EB, #1D4ED8);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: inline-block;
-        }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, #3B82F6, #1E40AF);
-        }
-        
-        .experience-card {
-            transition: all 0.3s ease;
-            border-left: 4px solid transparent;
-        }
-        
-        .experience-card:hover {
-            transform: translateY(-5px);
-            border-left: 4px solid #3B82F6;
-        }
-        
-        .skill-pill {
-            transition: all 0.3s ease;
-        }
-        
-        .skill-pill:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            background: #3B82F6;
-            z-index: 1000;
-            transition: width 0.2s ease-out;
-        }
-
-        /* Custom timeline styles - FIXED ALIGNMENT */
-        .timeline-container {
-            position: relative;
-        }
-        
-        .timeline-container::before {
-            content: '';
-            position: absolute;
-            width: 2px;
-            background: #E2E8F0;
-            top: 0;
-            bottom: 0;
-            left: 24px;
-        }
-        
-        .timeline-dot {
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: #3B82F6;
-            left: 17px;
-            top: 24px;
-            z-index: 1;
-        }
-        
-        @media (min-width: 768px) {
-            .timeline-container::before {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-            
-            .timeline-dot {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-            
-            .timeline-item:nth-child(even) {
-                flex-direction: row-reverse;
-            }
-            
-            /* Fix for alignment of job titles */
-            .timeline-item .timeline-title {
-                text-align: right;
-                padding-right: 2rem;
-            }
-            
-            .timeline-item:nth-child(even) .timeline-title {
-                text-align: left;
-                padding-left: 2rem;
-                padding-right: 0;
-            }
-        }
-        
-        /* Animated cursor */
-        .cursor {
-            display: inline-block;
-            width: 2px;
-            height: 1.2em;
-            background-color: currentColor;
-            margin-left: 2px;
-            animation: blink 1s step-end infinite;
-        }
-        
-        @keyframes blink {
-            from, to { opacity: 1; }
-            50% { opacity: 0; }
-        }
-        
-        /* Project image gallery */
-        .gallery-container {
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-        }
-        
-        .gallery-container::-webkit-scrollbar {
-            display: none;
-        }
-        
-        .gallery-item {
-            scroll-snap-align: start;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio of Mois Cohen, Mechanical Engineering student showcasing experience and skills.">
+  <meta name="author" content="Mois Cohen">
+  <meta name="keywords" content="Mois Cohen, Mechanical Engineering, Portfolio, Resume, Particles.js, AOS">
+  <title>Mois Cohen | Portfolio</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- AOS CSS for scroll animations -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <!-- Google Analytics (replace G-XXXXXXXXXX with actual ID) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
 </head>
+<body class="text-gray-800">
+  <!-- Navigation Bar -->
+  <nav class="bg-white fixed w-full top-0 z-20 shadow">
+    <div class="max-w-4xl mx-auto flex justify-between items-center p-4">
+      <a href="#home" class="text-xl font-bold text-gray-900">Mois Cohen</a>
+      <div class="hidden md:block space-x-6">
+        <a href="#about" class="text-gray-700 hover:text-blue-600">About</a>
+        <a href="#timeline" class="text-gray-700 hover:text-blue-600">Timeline</a>
+        <a href="#skills" class="text-gray-700 hover:text-blue-600">Skills</a>
+        <a href="#contact" class="text-gray-700 hover:text-blue-600">Contact</a>
+      </div>
+      <button id="navToggle" class="md:hidden text-gray-700 focus:outline-none">
+        <i class="fa fa-bars text-xl"></i>
+      </button>
+    </div>
+    <!-- Mobile Menu (hidden by default) -->
+    <div id="navMenu" class="md:hidden hidden flex flex-col items-center bg-white border-t border-gray-200">
+      <a href="#about" class="py-2 w-full text-center text-gray-700 hover:bg-gray-100">About</a>
+      <a href="#timeline" class="py-2 w-full text-center text-gray-700 hover:bg-gray-100">Timeline</a>
+      <a href="#skills" class="py-2 w-full text-center text-gray-700 hover:bg-gray-100">Skills</a>
+      <a href="#contact" class="py-2 w-full text-center text-gray-700 hover:bg-gray-100">Contact</a>
+    </div>
+  </nav>
 
-<body>
-    <!-- Progress Bar -->
-    <div class="progress-bar" id="scrollProgress"></div>
-    
-    <!-- Navigation -->
-    <header class="fixed top-0 left-0 w-full bg-white bg-opacity-80 backdrop-blur-md z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center">
-                    <span class="text-xl font-bold text-primary">MC<span class="text-accent">.</span></span>
-                </div>
-                
-                <!-- Desktop Navigation -->
-                <nav class="hidden md:flex space-x-8 text-sm font-medium">
-                    <a href="#about" class="text-gray-700 hover:text-accent transition-colors">About</a>
-                    <a href="#experience" class="text-gray-700 hover:text-accent transition-colors">Experience</a>
-                    <a href="#skills" class="text-gray-700 hover:text-accent transition-colors">Skills</a>
-                    <a href="#achievements" class="text-gray-700 hover:text-accent transition-colors">Achievements</a>
-                    <a href="#contact" class="text-gray-700 hover:text-accent transition-colors">Contact</a>
-                </nav>
-                
-                <!-- Resume Button -->
-                <div class="hidden md:block">
-                    <a href="https://raw.githubusercontent.com/moisc/moisc.github.io/main/Resume 4.30.25 .pdf" 
-                       class="px-4 py-2 rounded-full text-sm font-medium text-accent border border-accent hover:bg-accent hover:text-white transition-colors duration-300"
-                       download="Resume 4.30.25 .pdf">
-                        Download CV
-                    </a>
-                </div>
-                
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="md:hidden text-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
-            </div>
-            
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden py-4 border-t border-gray-200">
-                <div class="flex flex-col space-y-4 text-sm font-medium">
-                    <a href="#about" class="text-gray-700 hover:text-accent">About</a>
-                    <a href="#experience" class="text-gray-700 hover:text-accent">Experience</a>
-                    <a href="#skills" class="text-gray-700 hover:text-accent">Skills</a>
-                    <a href="#achievements" class="text-gray-700 hover:text-accent">Achievements</a>
-                    <a href="#contact" class="text-gray-700 hover:text-accent">Contact</a>
-                    <a href="https://raw.githubusercontent.com/moisc/moisc.github.io/main/Resume 4.30.25 .pdf" 
-                       class="text-accent font-medium"
-                       download="Resume 4.30.25 .pdf">
-                        Download CV
-                    </a>
-                </div>
-            </div>
+  <!-- Hero Section with Particles.js -->
+  <header id="home" class="relative flex items-center justify-center text-center text-white bg-gray-900" style="min-height: 100vh;">
+    <!-- Particles.js container -->
+    <div id="particles-js" class="absolute inset-0"></div>
+    <!-- Hero content -->
+    <div class="relative z-10 max-w-2xl px-4">
+      <h1 class="text-4xl md:text-5xl font-bold">Mois Cohen</h1>
+      <p class="text-xl md:text-2xl mt-4">Mechanical Engineering Student &amp; Aspiring Developer</p>
+      <!-- Call-to-Action: Download Resume -->
+      <a href="Mois_Cohen_Resume.pdf" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-md shadow mt-8">
+        <i class="fa fa-download mr-2"></i>Download Resume
+      </a>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="bg-white py-16">
+    <div class="max-w-4xl mx-auto px-4" data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">About Me</h2>
+      <p class="text-lg leading-relaxed">
+        Currently pursuing a Bachelor of Science in Mechanical Engineering at California Polytechnic State University, San Luis Obispo, 
+        I've honed my skills as a Junior Engineer at NINA and as an Engineering Intern at K2 Systems US. 
+        I am driven by innovation and hands-on problem solving, continuously striving to bridge theory and practical application in engineering projects.
+      </p>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section id="timeline" class="bg-gray-50 py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8" data-aos="fade-up">Timeline</h2>
+      <div class="relative">
+        <!-- Vertical line for timeline -->
+        <div class="absolute left-4 top-0 bottom-0 border-l-2 border-gray-300"></div>
+        <div class="ml-8">
+          <!-- Timeline Item 1 -->
+          <div class="relative pb-8" data-aos="fade-up">
+            <div class="absolute -left-6 top-1 w-4 h-4 bg-blue-600 rounded-full"></div>
+            <h3 class="font-semibold text-gray-800">Junior Engineer</h3>
+            <span class="text-sm text-gray-600">Jun 2023 – Present | NINA</span>
+          </div>
+          <!-- Timeline Item 2 -->
+          <div class="relative pb-8" data-aos="fade-up">
+            <div class="absolute -left-6 top-1 w-4 h-4 bg-blue-600 rounded-full"></div>
+            <h3 class="font-semibold text-gray-800">Engineering Intern</h3>
+            <span class="text-sm text-gray-600">Jun 2022 – Sep 2022 | K2 Systems US</span>
+          </div>
+          <!-- Timeline Item 3 -->
+          <div class="relative" data-aos="fade-up">
+            <div class="absolute -left-6 top-1 w-4 h-4 bg-blue-600 rounded-full"></div>
+            <h3 class="font-semibold text-gray-800">B.S. Mechanical Engineering</h3>
+            <span class="text-sm text-gray-600">Sep 2021 – Jun 2025 (Expected) | Cal Poly, San Luis Obispo</span>
+          </div>
         </div>
-    </header>
-    
-    <!-- Hero Section -->
-    <section id="about" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-            <!-- Content Column -->
-            <div class="md:col-span-7" data-aos="fade-right">
-                <h2 class="text-sm uppercase tracking-wider text-accent font-semibold mb-2">MECHANICAL ENGINEER</h2>
-                <h1 class="text-4xl sm:text-5xl font-bold mb-6">
-                    Hello, I'm 
-                    <div id="typing-text" class="gradient-text">Mois Cohen</div>
-                    <span class="cursor"></span>
-                </h1>
-                <p class="text-lg text-gray-700 mb-8 leading-relaxed">
-                    B.S. Mechanical Engineering student at California Polytechnic State University, San Luis Obispo, specializing in CAD modeling, FEA analysis, and product development. Experienced in designing test equipment and optimizing manufacturing processes.
-                </p>
-                <div class="flex flex-wrap gap-4 mb-8">
-                    <a href="mailto:mois.cohen787@gmail.com" class="flex items-center space-x-2 text-sm text-gray-700 hover:text-accent transition-colors">
-                        <i class="fas fa-envelope"></i>
-                        <span>mois.cohen787@gmail.com</span>
-                    </a>
-                    <a href="tel:8586689347" class="flex items-center space-x-2 text-sm text-gray-700 hover:text-accent transition-colors">
-                        <i class="fas fa-phone"></i>
-                        <span>(858) 668-9347</span>
-                    </a>
-                </div>
-                <div class="flex space-x-4">
-                    <a href="https://raw.githubusercontent.com/moisc/moisc.github.io/main/Resume 4.30.25 .pdf" 
-                       class="px-6 py-3 rounded-lg gradient-bg text-white font-medium hover:shadow-lg transition-all duration-300 flex items-center space-x-2"
-                       download="Resume 4.30.25 .pdf">
-                        <i class="fas fa-download"></i>
-                        <span>Download Resume</span>
-                    </a>
-                    <a href="#contact" class="px-6 py-3 rounded-lg bg-white border border-gray-300 text-gray-700 font-medium hover:border-accent hover:text-accent transition-all duration-300">
-                        Contact Me
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Image Column -->
-            <div class="md:col-span-5" data-aos="fade-left">
-                <div class="relative">
-                    <!-- Decorative background elements -->
-                    <div class="absolute -top-10 -right-10 w-64 h-64 bg-blue-100 rounded-full opacity-50 blur-3xl"></div>
-                    <div class="absolute -bottom-10 -left-10 w-48 h-48 bg-blue-200 rounded-full opacity-50 blur-3xl"></div>
-                    
-                    <!-- Profile Image -->
-                    <div class="relative z-10 overflow-hidden rounded-2xl shadow-xl aspect-square max-w-md mx-auto">
-                        <img src="../unnamed (22).jpg" alt="Mois Cohen" class="w-full h-full object-cover">
-                    </div>
-                    
-                    <!-- Decorative elements -->
-                    <div class="absolute -top-4 -left-4 w-24 h-24 border-8 border-blue-100 rounded-xl z-0"></div>
-                    <div class="absolute -bottom-4 -right-4 w-32 h-32 border-8 border-blue-100 rounded-full z-0"></div>
-                </div>
-            </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="bg-white py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8" data-aos="fade-up">Skills</h2>
+      <!-- Skill 1 -->
+      <div class="mb-4" data-aos="fade-up">
+        <div class="flex justify-between text-gray-800">
+          <span>SolidWorks</span><span>90%</span>
         </div>
-    </section>
-    
-    <!-- Current Project -->
-    <section class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="bg-white rounded-2xl shadow-sm overflow-hidden" data-aos="fade-up">
-            <div class="p-8">
-                <div class="flex items-center mb-6">
-                    <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white mr-4">
-                        <i class="fas fa-fire"></i>
-                    </div>
-                    <div>
-                        <h2 class="text-2xl font-bold">Current Project</h2>
-                        <p class="text-gray-500">What I'm working on right now</p>
-                    </div>
-                </div>
-                
-                <div class="border border-gray-100 rounded-xl p-6 hover:shadow-md transition-all duration-300">
-                    <h3 class="text-xl font-semibold mb-2">Wildland Fire Hose Clamp | Cal Poly SLO</h3>
-                    <p class="text-gray-600 mb-4">Senior Project Team Member (2024-2025)</p>
-                    
-                    <ul class="mb-6 space-y-3">
-                        <li class="flex items-start">
-                            <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                            <span>Performing advanced CAD modeling and FEA analysis to optimize product performance</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                            <span>Managing iterative prototyping process to meet rigorous emergency response requirements</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                            <span>Coordinating with stakeholders to ensure design meets field deployment specifications</span>
-                        </li>
-                    </ul>
-                    
-                    <!-- Project Gallery Preview -->
-                    <div class="gallery-container flex mb-6 -mx-2">
-                        <div class="gallery-item flex-shrink-0 w-1/3 px-2">
-                            <div class="aspect-video bg-gray-100 rounded-lg flex items-center justify-center text-gray-400">
-                                <i class="fas fa-image text-2xl"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item flex-shrink-0 w-1/3 px-2">
-                            <div class="aspect-video bg-gray-100 rounded-lg flex items-center justify-center text-gray-400">
-                                <i class="fas fa-image text-2xl"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item flex-shrink-0 w-1/3 px-2">
-                            <div class="aspect-video bg-gray-100 rounded-lg flex items-center justify-center text-gray-400">
-                                <i class="fas fa-image text-2xl"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <a href="#" class="inline-flex items-center text-accent hover:text-blue-700 font-medium transition-colors">
-                        <span>Browse project portfolio and documentation</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
+        <div class="w-full bg-gray-300 rounded-full h-2">
+          <div class="bg-blue-600 h-2 rounded-full" style="width: 90%;"></div>
         </div>
-    </section>
-    
-    <!-- Experience Section -->
-    <section id="experience" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="mb-12 text-center" data-aos="fade-up">
-            <h2 class="text-sm uppercase tracking-wider text-accent font-semibold mb-2">My Journey</h2>
-            <h3 class="text-3xl font-bold">Professional Experience</h3>
+      </div>
+      <!-- Skill 2 -->
+      <div class="mb-4" data-aos="fade-up">
+        <div class="flex justify-between text-gray-800">
+          <span>MATLAB</span><span>85%</span>
         </div>
-        
-        <div class="timeline-container">
-            <!-- K2 Systems -->
-            <div class="timeline-item flex flex-col md:flex-row mb-12" data-aos="fade-up">
-                <div class="timeline-dot"></div>
-                <div class="md:w-1/2 mb-6 md:mb-0 timeline-title">
-                    <span class="inline-block px-3 py-1 rounded-full bg-blue-50 text-accent text-xs font-medium mb-2">June 2024 - September 2024</span>
-                    <h3 class="text-xl font-semibold">K2 Systems US</h3>
-                    <p class="text-gray-600">Mechanical Engineering Intern</p>
-                </div>
-                <div class="md:w-1/2">
-                    <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-                        <ul class="space-y-3 mb-4">
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Developed comprehensive technical documentation including customer-facing drawings and certification</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Designed and constructed test jigs for product validation to streamline certification processes</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Collaborated with international engineering teams with product development workflows</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Managed product certification testing and documentation to meet industry standards</span>
-                            </li>
-                        </ul>
-                        <a href="#" class="inline-flex items-center text-accent hover:text-blue-700 font-medium transition-colors">
-                            <span>Browse project portfolio and documentation</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Cal Poly SLO -->
-            <div class="timeline-item flex flex-col md:flex-row mb-12" data-aos="fade-up">
-                <div class="timeline-dot"></div>
-                <div class="md:w-1/2 mb-6 md:mb-0 timeline-title">
-                    <span class="inline-block px-3 py-1 rounded-full bg-blue-50 text-accent text-xs font-medium mb-2">April 2024 - Present</span>
-                    <h3 class="text-xl font-semibold">Cal Poly SLO</h3>
-                    <p class="text-gray-600">Research Assistant</p>
-                </div>
-                <div class="md:w-1/2">
-                    <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-                        <ul class="space-y-3 mb-4">
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Conducting research on sustainability and thermal comfort in campus environments</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Developing and implementing data acquisition systems for HVAC monitoring</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Analyzing thermal performance data to optimize HVAC system efficiency</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Collaborating with faculty to evaluate and improve campus sustainability</span>
-                            </li>
-                        </ul>
-                        <a href="#" class="inline-flex items-center text-accent hover:text-blue-700 font-medium transition-colors">
-                            <span>Browse project portfolio and documentation</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Nina Labs -->
-            <div class="timeline-item flex flex-col md:flex-row mb-12" data-aos="fade-up">
-                <div class="timeline-dot"></div>
-                <div class="md:w-1/2 mb-6 md:mb-0 timeline-title">
-                    <span class="inline-block px-3 py-1 rounded-full bg-blue-50 text-accent text-xs font-medium mb-2">June 2023 - December 2023</span>
-                    <h3 class="text-xl font-semibold">Nina Labs</h3>
-                    <p class="text-gray-600">Junior Engineer</p>
-                </div>
-                <div class="md:w-1/2">
-                    <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-                        <ul class="space-y-3 mb-4">
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Led design optimization initiatives focusing on manufacturability and production efficiency</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Managed rapid product testing and validation as one of two engineers within Nina</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Implemented design improvements based on manufacturing feedback and market requirements</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Coordinated cross-functional teams to ensure successful product launches</span>
-                            </li>
-                        </ul>
-                        <a href="#" class="inline-flex items-center text-accent hover:text-blue-700 font-medium transition-colors">
-                            <span>Browse project portfolio and documentation</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Self-Contracted Laborer -->
-            <div class="timeline-item flex flex-col md:flex-row mb-12" data-aos="fade-up">
-                <div class="timeline-dot"></div>
-                <div class="md:w-1/2 mb-6 md:mb-0 timeline-title">
-                    <span class="inline-block px-3 py-1 rounded-full bg-blue-50 text-accent text-xs font-medium mb-2">April 2019 - Present</span>
-                    <h3 class="text-xl font-semibold">Self-Contracted Laborer</h3>
-                    <p class="text-gray-600">Handyman/Laborer/Landscaping</p>
-                </div>
-                <div class="md:w-1/2">
-                    <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-                        <ul class="space-y-3 mb-4">
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Performed diverse handyman tasks including plumbing, roofing, painting, electrical work, and woodworking</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Conducted and learned small engine repair, including maintenance and troubleshooting</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Implemented design improvements based on manufacturing feedback and market requirements</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Created advertisements for my services to accumulate clients within the local region</span>
-                            </li>
-                        </ul>
-                        <a href="#" class="inline-flex items-center text-accent hover:text-blue-700 font-medium transition-colors">
-                            <span>Browse project portfolio and documentation</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Autoprint Inc. -->
-            <div class="timeline-item flex flex-col md:flex-row" data-aos="fade-up">
-                <div class="timeline-dot"></div>
-                <div class="md:w-1/2 mb-6 md:mb-0 timeline-title">
-                    <span class="inline-block px-3 py-1 rounded-full bg-blue-50 text-accent text-xs font-medium mb-2">November 2020 - November 2021</span>
-                    <h3 class="text-xl font-semibold">Autoprint Inc.</h3>
-                    <p class="text-gray-600">Co-founder and CRO</p>
-                </div>
-                <div class="md:w-1/2">
-                    <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-                        <ul class="space-y-3 mb-4">
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Co-founded and led technical development for 3D printing technology startup</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Managed product development from concept through prototype phase</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Developed business strategies and pursued capital investment opportunities</span>
-                            </li>
-                        </ul>
-                        <a href="#" class="inline-flex items-center text-accent hover:text-blue-700 font-medium transition-colors">
-                            <span>Browse project portfolio and documentation</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
+        <div class="w-full bg-gray-300 rounded-full h-2">
+          <div class="bg-blue-600 h-2 rounded-full" style="width: 85%;"></div>
         </div>
-    </section>
-    
-    <!-- Skills -->
-    <section id="skills" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50">
-        <div class="mb-12 text-center" data-aos="fade-up">
-            <h2 class="text-sm uppercase tracking-wider text-accent font-semibold mb-2">What I Do</h2>
-            <h3 class="text-3xl font-bold">Technical Skills</h3>
+      </div>
+      <!-- Skill 3 -->
+      <div class="mb-4" data-aos="fade-up">
+        <div class="flex justify-between text-gray-800">
+          <span>C++</span><span>75%</span>
         </div>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Design & Analysis -->
-            <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                <div class="absolute -right-5 -top-5 w-24 h-24 bg-blue-50 rounded-full opacity-50"></div>
-                <div class="relative">
-                    <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-accent mb-6">
-                        <i class="fas fa-drafting-compass text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">Design & Analysis</h3>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">SolidWorks</span>
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Autodesk Suite</span>
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">CAD/FEA</span>
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">DFM</span>
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">GD&T</span>
-                    </div>
-                    <div class="w-full bg-gray-100 h-1 rounded-full mb-1">
-                        <div class="bg-accent h-1 rounded-full" style="width: 95%"></div>
-                    </div>
-                    <div class="text-right text-xs text-gray-500">Expert</div>
-                </div>
-            </div>
-            
-            <!-- Manufacturing -->
-            <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                <div class="absolute -right-5 -top-5 w-24 h-24 bg-blue-50 rounded-full opacity-50"></div>
-                <div class="relative">
-                    <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-accent mb-6">
-                        <i class="fas fa-industry text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">Manufacturing</h3>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">CNC Machining</span>
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Prototyping</span>
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Quality Control</span>
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Production Optimization</span>
-                    </div>
-                    <div class="w-full bg-gray-100 h-1 rounded-full mb-1">
-                        <div class="bg-accent h-1 rounded-full" style="width: 85%"></div>
-                    </div>
-                    <div class="text-right text-xs text-gray-500">Advanced</div>
-                </div>
-            </div>
-            
-            <!-- Programming -->
-            <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
-                <div class="absolute -right-5 -top-5 w-24 h-24 bg-blue-50 rounded-full opacity-50"></div>
-                <div class="relative">
-                    <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-accent mb-6">
-                        <i class="fas fa-code text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">Programming</h3>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">MATLAB</span>
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">JavaScript</span>
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">HTML</span>
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Python</span>
-                    </div>
-                    <div class="w-full bg-gray-100 h-1 rounded-full mb-1">
-                        <div class="bg-accent h-1 rounded-full" style="width: 75%"></div>
-                    </div>
-                    <div class="text-right text-xs text-gray-500">Proficient</div>
-                </div>
-            </div>
-            
-            <!-- Business -->
-            <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden" data-aos="fade-up" data-aos-delay="400">
-                <div class="absolute -right-5 -top-5 w-24 h-24 bg-blue-50 rounded-full opacity-50"></div>
-                <div class="relative">
-                    <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-accent mb-6">
-                        <i class="fas fa-chart-line text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">Business</h3>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Financial Analysis</span>
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Accounting Principles</span>
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Cost Management</span>
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Project Management</span>
-                    </div>
-                    <div class="w-full bg-gray-100 h-1 rounded-full mb-1">
-                        <div class="bg-accent h-1 rounded-full" style="width: 80%"></div>
-                    </div>
-                    <div class="text-right text-xs text-gray-500">Advanced</div>
-                </div>
-            </div>
+        <div class="w-full bg-gray-300 rounded-full h-2">
+          <div class="bg-blue-600 h-2 rounded-full" style="width: 75%;"></div>
         </div>
-    </section>
-    
-    <!-- Achievements -->
-    <section id="achievements" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="mb-12 text-center" data-aos="fade-up">
-            <h2 class="text-sm uppercase tracking-wider text-accent font-semibold mb-2">Recognition</h2>
-            <h3 class="text-3xl font-bold">Achievements</h3>
+      </div>
+      <!-- Skill 4 -->
+      <div class="mb-4" data-aos="fade-up">
+        <div class="flex justify-between text-gray-800">
+          <span>Python</span><span>70%</span>
         </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Eagle Scout -->
-            <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 flex" data-aos="fade-up" data-aos-delay="100">
-                <div class="mr-6">
-                    <div class="w-16 h-16 rounded-xl gradient-bg flex items-center justify-center text-white">
-                        <i class="fas fa-award text-2xl"></i>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-2">Eagle Scout Rank</h3>
-                    <p class="text-gray-600">Demonstrated leadership and project management capabilities through completing service projects and earning merit badges. Developed teamwork, outdoor skills, and problem-solving abilities.</p>
-                    <div class="mt-4 text-xs font-medium text-gray-500">
-                        <span class="inline-flex items-center">
-                            <i class="fas fa-calendar-alt mr-1"></i> Achieved 2018
-                        </span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Student Pilot -->
-            <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 flex" data-aos="fade-up" data-aos-delay="200">
-                <div class="mr-6">
-                    <div class="w-16 h-16 rounded-xl gradient-bg flex items-center justify-center text-white">
-                        <i class="fas fa-plane text-2xl"></i>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-2">Student Pilot</h3>
-                    <p class="text-gray-600">Developing rapid analytical and decision-making skills through flight training. Learning complex systems management, navigation, and emergency procedures in dynamic environments.</p>
-                    <div class="mt-4 text-xs font-medium text-gray-500">
-                        <span class="inline-flex items-center">
-                            <i class="fas fa-calendar-alt mr-1"></i> Ongoing
-                        </span>
-                    </div>
-                </div>
-            </div>
+        <div class="w-full bg-gray-300 rounded-full h-2">
+          <div class="bg-blue-600 h-2 rounded-full" style="width: 70%;"></div>
         </div>
-    </section>
-    
-    <!-- Contact -->
-    <section id="contact" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50">
-        <div class="mb-12 text-center" data-aos="fade-up">
-            <h2 class="text-sm uppercase tracking-wider text-accent font-semibold mb-2">Get In Touch</h2>
-            <h3 class="text-3xl font-bold">Contact Me</h3>
+      </div>
+      <!-- Skill 5 -->
+      <div class="mb-4" data-aos="fade-up">
+        <div class="flex justify-between text-gray-800">
+          <span>ANSYS</span><span>65%</span>
         </div>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <!-- Contact Info -->
-            <div class="lg:col-span-4" data-aos="fade-right">
-                <div class="bg-white rounded-2xl p-8 shadow-sm h-full">
-                    <h4 class="text-xl font-semibold mb-6">Contact Information</h4>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                            <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-accent mr-4">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div>
-                                <h5 class="text-sm font-medium text-gray-500 mb-1">Email</h5>
-                                <a href="mailto:mois.cohen787@gmail.com" class="text-gray-800 hover:text-accent transition-colors">mois.cohen787@gmail.com</a>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-accent mr-4">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div>
-                                <h5 class="text-sm font-medium text-gray-500 mb-1">Phone</h5>
-                                <a href="tel:8586689347" class="text-gray-800 hover:text-accent transition-colors">(858) 668-9347</a>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-accent mr-4">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div>
-                                <h5 class="text-sm font-medium text-gray-500 mb-1">Location</h5>
-                                <p class="text-gray-800">San Luis Obispo, California</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="pt-8 mt-8 border-t border-gray-100">
-                        <h4 class="text-lg font-semibold mb-4">Connect with me</h4>
-                        <div class="flex">
-                            <!-- Only LinkedIn button as requested -->
-                            <a href="https://www.linkedin.com/in/moiscohen/" target="_blank" class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-colors">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Contact Form -->
-            <div class="lg:col-span-8" data-aos="fade-left">
-                <div class="bg-white rounded-2xl p-8 shadow-sm">
-                    <form action="https://formspree.io/f/mqaargaq" method="POST" class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
-                                <input 
-                                    type="text" 
-                                    id="name" 
-                                    name="name" 
-                                    required
-                                    class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
-                                    placeholder="Your name">
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                                <input 
-                                    type="email" 
-                                    id="email" 
-                                    name="email" 
-                                    required
-                                    class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
-                                    placeholder="your.email@example.com">
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
-                            <input 
-                                type="text" 
-                                id="subject" 
-                                name="subject" 
-                                class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
-                                placeholder="What is this regarding?">
-                        </div>
-                        
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                            <textarea 
-                                id="message" 
-                                name="message" 
-                                rows="6" 
-                                required
-                                class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-accent focus:border-accent transition-colors resize-none"
-                                placeholder="Your message here..."></textarea>
-                        </div>
-                        
-                        <div class="flex justify-end">
-                            <button 
-                                type="submit"
-                                class="px-8 py-3 rounded-lg gradient-bg text-white font-medium hover:shadow-lg transition-all duration-300 flex items-center space-x-2">
-                                <span>Send Message</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                                </svg>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+        <div class="w-full bg-gray-300 rounded-full h-2">
+          <div class="bg-blue-600 h-2 rounded-full" style="width: 65%;"></div>
         </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer class="py-8 px-4 sm:px-6 lg:px-8 bg-gray-100">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <span class="text-xl font-bold text-primary">Mois Cohen<span class="text-accent">.</span></span>
-                    <p class="text-gray-600 text-sm mt-1">Mechanical Engineer</p>
-                </div>
-                
-                <div class="flex space-x-8 text-sm text-gray-600">
-                    <a href="#about" class="hover:text-accent transition-colors">About</a>
-                    <a href="#experience" class="hover:text-accent transition-colors">Experience</a>
-                    <a href="#skills" class="hover:text-accent transition-colors">Skills</a>
-                    <a href="#achievements" class="hover:text-accent transition-colors">Achievements</a>
-                    <a href="#contact" class="hover:text-accent transition-colors">Contact</a>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-200 mt-6 pt-6 text-center text-sm text-gray-500">
-                <p>© 2025 Mois Cohen. All rights reserved.</p>
-            </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="bg-gray-50 py-16">
+    <div class="max-w-2xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6" data-aos="fade-up">Contact Me</h2>
+      <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-4" data-aos="fade-up">
+        <div>
+          <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+          <input type="text" id="name" name="name" required 
+                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                 placeholder="Your Name">
         </div>
-    </footer>
-    
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true,
-            mirror: false
-        });
-        
-        // Mobile menu
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-        
-        // Smooth scroll for all internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80, // Accounting for fixed header
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
-            });
-        });
-        
-        // Scroll progress bar
-        window.addEventListener('scroll', function() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById("scrollProgress").style.width = scrolled + "%";
-        });
-        
-        // Improved typing effect that properly shows the complete phrases
-        const phrases = ['Mois Cohen', 'a Problem Solver', 'a Designer', 'an Engineer']; 
-        let currentPhraseIndex = 0;
-        let isDeleting = false;
-        let charIndex = 0;
-        let typingSpeed = 100;
-        const typingElement = document.getElementById('typing-text');
-        
-        function typeEffect() {
-            const currentPhrase = phrases[currentPhraseIndex];
-            
-            if (isDeleting) {
-                // If we're at the first phrase (Mois Cohen), don't delete it
-                if (currentPhraseIndex === 0) {
-                    isDeleting = false;
-                    currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-                    charIndex = 0;
-                    setTimeout(typeEffect, 500);
-                    return;
-                }
-                
-                charIndex--;
-                typingSpeed = 50;
-                
-                if (charIndex === 0) {
-                    isDeleting = false;
-                    currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-                    setTimeout(typeEffect, 500);
-                    return;
-                }
-            } else {
-                charIndex++;
-                typingSpeed = 150;
-                
-                // Ensure we show the complete phrase including the last character
-                if (charIndex === currentPhrase.length) {
-                    if (currentPhraseIndex === 0) {
-                        // If it's the first phrase, move to the next without deleting
-                        currentPhraseIndex = 1;
-                        charIndex = 0;
-                        setTimeout(typeEffect, 1500);
-                        return;
-                    }
-                    
-                    isDeleting = true;
-                    setTimeout(typeEffect, 1500);
-                    return;
-                }
-            }
-            
-            // Only update the text if it's not the first phrase "Mois Cohen"
-            if (currentPhraseIndex !== 0) {
-                typingElement.textContent = currentPhrase.substring(0, charIndex);
-            }
-            
-            setTimeout(typeEffect, typingSpeed);
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+          <input type="email" id="email" name="email" required 
+                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                 placeholder="Your Email">
+        </div>
+        <div>
+          <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+          <textarea id="message" name="message" rows="5" required 
+                    class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                    placeholder="Your Message"></textarea>
+        </div>
+        <button type="submit" class="bg-blue-600 text-white font-semibold py-3 px-6 rounded-md shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-gray-500 text-sm py-6 bg-white">
+    &copy; 2025 Mois Cohen. All rights reserved.
+  </footer>
+
+  <!-- Particles.js library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+  <!-- Initialize particles effect -->
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#ffffff" },
+        "shape": {
+          "type": "circle",
+          "stroke": { "width": 0, "color": "#000000" },
+          "polygon": { "nb_sides": 5 }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": false,
+          "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false }
+        },
+        "size": {
+          "value": 4,
+          "random": true,
+          "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 6,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 }
         }
-        
-        // Start the typing effect after a delay
-        setTimeout(typeEffect, 2000);
-        
-        // Form handling
-        const form = document.querySelector('form');
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const submitButton = form.querySelector('button[type="submit"]');
-                const originalButtonText = submitButton.innerHTML;
-                submitButton.innerHTML = '<span>Sending...</span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 animate-spin" viewBox="0 0 24 24" fill="none"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
-                
-                fetch(form.action, {
-                    method: 'POST',
-                    body: new FormData(form),
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                }).then(response => response.json())
-                .then(data => {
-                    form.reset();
-                    submitButton.innerHTML = '<span>Message Sent!</span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
-                    setTimeout(() => {
-                        submitButton.innerHTML = originalButtonText;
-                    }, 3000);
-                }).catch(error => {
-                    submitButton.innerHTML = '<span>Error Sending</span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>';
-                    setTimeout(() => {
-                        submitButton.innerHTML = originalButtonText;
-                    }, 3000);
-                });
-            });
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "grab" },
+          "onclick": { "enable": true, "mode": "push" },
+          "resize": true
+        },
+        "modes": {
+          "grab": { "distance": 200, "line_linked": { "opacity": 1 } },
+          "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 },
+          "repulse": { "distance": 200, "duration": 0.4 },
+          "push": { "particles_nb": 4 },
+          "remove": { "particles_nb": 2 }
         }
-    </script>
+      },
+      "retina_detect": true
+    });
+  </script>
+  <!-- AOS library -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Initialize AOS animations -->
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out',
+      once: true
+    });
+  </script>
+  <!-- Mobile nav toggle script -->
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('hidden');
+    });
+    // Hide mobile menu on link click
+    document.querySelectorAll('#navMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.add('hidden');
+      });
+    });
+  </script>
+  <!-- Scroll-to-top Button -->
+  <a id="toTopBtn" href="#home" aria-label="Scroll to top" title="Back to top" 
+     class="fixed bottom-4 right-4 bg-blue-600 text-white rounded-full p-4 shadow-lg transition-opacity transition-transform duration-300 opacity-0 pointer-events-none hover:scale-110 hover:bg-blue-700">
+    <i class="fa fa-arrow-up"></i>
+  </a>
+  <script>
+    const toTopBtn = document.getElementById('toTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 100) {
+        toTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+      } else {
+        toTopBtn.classList.add('opacity-0', 'pointer-events-none');
+      }
+    });
+  </script>
 </body>
 </html>
