@@ -89,7 +89,7 @@
             transition: width 0.2s ease-out;
         }
 
-        /* Custom timeline styles - FIXED ALIGNMENT */
+        /* Improved mobile timeline styles */
         .timeline-container {
             position: relative;
         }
@@ -143,21 +143,57 @@
             }
         }
         
-        /* Improved mobile timeline - ensure no overlap */
+        /* Better mobile experience */
         @media (max-width: 767px) {
             .timeline-container {
                 padding-left: 45px; /* Give more space for the line and dots */
             }
             
-            .timeline-title {
-                margin-bottom: 0.75rem;
+            .timeline-item {
                 position: relative;
+                padding-bottom: 2rem; /* Add space between items */
             }
             
-            .timeline-title h3,
+            .timeline-title {
+                margin-bottom: 1rem;
+                padding-left: 0.5rem;
+            }
+            
+            .timeline-title .date-badge {
+                display: inline-block;
+                margin-bottom: 0.5rem;
+            }
+            
+            .timeline-title h3 {
+                font-size: 1.5rem;
+                line-height: 1.2;
+                margin-bottom: 0.25rem;
+            }
+            
             .timeline-title p {
-                margin: 0; /* Remove default margins that cause spacing issues */
+                margin: 0;
                 line-height: 1.4;
+            }
+            
+            .timeline-content {
+                width: 100%;
+                padding-left: 0.5rem;
+            }
+            
+            /* Better spacing for list items */
+            .list-item {
+                display: flex;
+                margin-bottom: 0.75rem;
+            }
+            
+            .list-item .icon {
+                flex-shrink: 0;
+                margin-top: 0.25rem;
+                margin-right: 0.75rem;
+            }
+            
+            .list-item .text {
+                flex-grow: 1;
             }
         }
         
@@ -391,34 +427,34 @@
             <!-- K2 Systems -->
             <div class="timeline-item flex flex-col md:flex-row mb-12" data-aos="fade-up">
                 <div class="timeline-dot"></div>
-                <div class="md:w-1/2 mb-2 md:mb-0 timeline-title">
-                    <span class="inline-block px-3 py-1 rounded-full bg-blue-50 text-accent text-xs font-medium mb-2">June 2024 - September 2024</span>
+                <div class="md:w-1/2 timeline-title">
+                    <span class="date-badge inline-block px-3 py-1 rounded-full bg-blue-50 text-accent text-xs font-medium mb-2">June 2024 - September 2024</span>
                     <h3 class="text-xl font-semibold">K2 Systems US</h3>
                     <p class="text-gray-600">Mechanical Engineering Intern</p>
                 </div>
-                <div class="md:w-1/2 w-full">
+                <div class="md:w-1/2 timeline-content">
                     <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-                        <ul class="space-y-3 mb-4">
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1 flex-shrink-0"><i class="fas fa-check-circle"></i></span>
-                                <span>Developed comprehensive technical documentation including customer-facing drawings and certification</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1 flex-shrink-0"><i class="fas fa-check-circle"></i></span>
-                                <span>Designed and constructed test jigs for product validation to streamline certification processes</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1 flex-shrink-0"><i class="fas fa-check-circle"></i></span>
-                                <span>Collaborated with international engineering teams with product development workflows</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1 flex-shrink-0"><i class="fas fa-check-circle"></i></span>
-                                <span>Managed product certification testing and documentation to meet industry standards</span>
-                            </li>
-                        </ul>
+                        <div class="space-y-3 mb-4">
+                            <div class="list-item">
+                                <div class="icon text-accent"><i class="fas fa-check-circle"></i></div>
+                                <div class="text">Developed comprehensive technical documentation including customer-facing drawings and certification</div>
+                            </div>
+                            <div class="list-item">
+                                <div class="icon text-accent"><i class="fas fa-check-circle"></i></div>
+                                <div class="text">Designed and constructed test jigs for product validation to streamline certification processes</div>
+                            </div>
+                            <div class="list-item">
+                                <div class="icon text-accent"><i class="fas fa-check-circle"></i></div>
+                                <div class="text">Collaborated with international engineering teams with product development workflows</div>
+                            </div>
+                            <div class="list-item">
+                                <div class="icon text-accent"><i class="fas fa-check-circle"></i></div>
+                                <div class="text">Managed product certification testing and documentation to meet industry standards</div>
+                            </div>
+                        </div>
                         <a href="#" class="inline-flex items-center text-accent hover:text-blue-700 font-medium transition-colors">
                             <span>Browse project portfolio and documentation</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                             </svg>
                         </a>
