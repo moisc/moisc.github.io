@@ -36,16 +36,16 @@
         html {
             scroll-behavior: smooth;
             scroll-padding-top: 80px;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
+            overflow-x: hidden;
         }
         
         body {
             font-family: 'Inter', sans-serif;
             background-color: #F8FAFC;
             color: #0F172A;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
+            overflow-x: hidden;
             width: 100%;
-            max-width: 100vw; /* Ensure content doesn't overflow viewport */
+            max-width: 100vw;
         }
         
         .gradient-text {
@@ -70,15 +70,6 @@
             border-left: 4px solid #3B82F6;
         }
         
-        .skill-pill {
-            transition: all 0.3s ease;
-        }
-        
-        .skill-pill:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        
         .progress-bar {
             position: fixed;
             top: 0;
@@ -89,115 +80,7 @@
             transition: width 0.2s ease-out;
         }
 
-        /* Improved mobile timeline styles */
-        .timeline-container {
-            position: relative;
-        }
-        
-        .timeline-container::before {
-            content: '';
-            position: absolute;
-            width: 2px;
-            background: #E2E8F0;
-            top: 0;
-            bottom: 0;
-            left: 24px;
-        }
-        
-        .timeline-dot {
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: #3B82F6;
-            left: 17px;
-            top: 24px;
-            z-index: 1;
-        }
-        
-        @media (min-width: 768px) {
-            .timeline-container::before {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-            
-            .timeline-dot {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-            
-            .timeline-item:nth-child(even) {
-                flex-direction: row-reverse;
-            }
-            
-            /* Fix for alignment of job titles */
-            .timeline-item .timeline-title {
-                text-align: right;
-                padding-right: 2rem;
-            }
-            
-            .timeline-item:nth-child(even) .timeline-title {
-                text-align: left;
-                padding-left: 2rem;
-                padding-right: 0;
-            }
-        }
-        
-        /* Better mobile experience */
-        @media (max-width: 767px) {
-            .timeline-container {
-                padding-left: 45px; /* Give more space for the line and dots */
-            }
-            
-            .timeline-item {
-                position: relative;
-                padding-bottom: 2rem; /* Add space between items */
-            }
-            
-            .timeline-title {
-                margin-bottom: 1rem;
-                padding-left: 0.5rem;
-            }
-            
-            .timeline-title .date-badge {
-                display: inline-block;
-                margin-bottom: 0.5rem;
-            }
-            
-            .timeline-title h3 {
-                font-size: 1.5rem;
-                line-height: 1.2;
-                margin-bottom: 0.25rem;
-            }
-            
-            .timeline-title p {
-                margin: 0;
-                line-height: 1.4;
-            }
-            
-            .timeline-content {
-                width: 100%;
-                padding-left: 0.5rem;
-            }
-            
-            /* Better spacing for list items */
-            .list-item {
-                display: flex;
-                margin-bottom: 0.75rem;
-            }
-            
-            .list-item .icon {
-                flex-shrink: 0;
-                margin-top: 0.25rem;
-                margin-right: 0.75rem;
-            }
-            
-            .list-item .text {
-                flex-grow: 1;
-            }
-        }
-        
-        /* Animated cursor */
+        /* Cursor */
         .cursor {
             display: inline-block;
             width: 2px;
@@ -217,7 +100,7 @@
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             scrollbar-width: none;
-            -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+            -webkit-overflow-scrolling: touch;
         }
         
         .gallery-container::-webkit-scrollbar {
