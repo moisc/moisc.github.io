@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K2 Systems US Project | Mois Cohen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F172A',
+                        secondary: '#475569',
+                        accent: '#3B82F6',
+                        light: '#F8FAFC',
+                        dark: '#0F172A'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace']
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap');
+        
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            color: #0F172A;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #3B82F6, #2563EB, #1D4ED8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #3B82F6, #1E40AF);
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: #3B82F6;
+            z-index: 1000;
+            transition: width 0.2s ease-out;
+        }
+        
+        /* Gallery image zoom effect */
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+        
+        .gallery-item img {
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* PDF viewer styling */
+        .pdf-container {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 40;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8BERH7V4E"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-J8BERH7V4E');
+    </script>
+</head>
+
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="scrollProgress"></div>
+    
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 w-full bg-white bg-opacity-80 backdrop-blur-md z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <a href="../index.html" class="text-xl font-bold text-primary">MC<span class="text-accent">.</span></a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                    <a href="../index.html#about" class="text-gray-700 hover:text-accent transition-colors">About</a>
+                    <a href="../index.html#experience" class="text-gray-700 hover:text-accent transition-colors">Experience</a>
+                    <a href="../index.html#skills" class="text-gray-700 hover:text-accent transition-colors">Skills</a>
+                    <a href="../index.html#achievements" class="text-gray-700 hover:text-accent transition-colors">Achievements</a>
+                    <a href="../index.html#contact" class="text-gray-700 hover:text-accent transition-colors">Contact</a>
+                </nav>
+                
+                <!-- Back to Portfolio Button -->
+                <div class="hidden md:block">
+                    <a href="../index.html#experience" 
+                       class="px-4 py-2 rounded-full text-sm font-medium text-accent border border-accent hover:bg-accent hover:text-white transition-colors duration-300">
+                        <i class="fas fa-arrow-left mr-2"></i>Back to Portfolio
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden py-4 border-t border-gray-200">
+                <div class="flex flex-col space-y-4 text-sm font-medium">
+                    <a href="../index.html#about" class="text-gray-700 hover:text-accent">About</a>
+                    <a href="../index.html#experience" class="text-gray-700 hover:text-accent">Experience</a>
+                    <a href="../index.html#skills" class="text-gray-700 hover:text-accent">Skills</a>
+                    <a href="../index.html#achievements" class="text-gray-700 hover:text-accent">Achievements</a>
+                    <a href="../index.html#contact" class="text-gray-700 hover:text-accent">Contact</a>
+                    <a href="../index.html#experience" class="text-accent font-medium">
+                        <i class="fas fa-arrow-left mr-2"></i>Back to Portfolio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Project Hero Section -->
+    <section class="pt-32 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Content Column -->
+            <div data-aos="fade-right">
+                <div class="inline-block px-3 py-1 rounded-full bg-blue-50 text-accent text-xs font-medium mb-4">
+                    June 2024 - September 2024
+                </div>
+                <h1 class="text-4xl sm:text-5xl font-bold mb-6">
+                    K2 Systems US
+                    <span class="block text-2xl sm:text-3xl font-medium text-gray-500 mt-2">
+                        Mechanical Engineering Intern
+                    </span>
+                </h1>
+                <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                    Collaborating with an international team to develop and validate innovative solar mounting solutions for commercial and residential applications.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#overview" class="px-6 py-3 rounded-lg gradient-bg text-white font-medium hover:shadow-lg transition-all duration-300">
+                        Project Overview
+                    </a>
+                    <a href="#gallery" class="px-6 py-3 rounded-lg bg-white border border-gray-300 text-gray-700 font-medium hover:border-accent hover:text-accent transition-all duration-300">
+                        View Gallery
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Image Column -->
+            <div class="relative" data-aos="fade-left">
+                <!-- Featured Project Image -->
+                <div class="relative z-10 overflow-hidden rounded-2xl shadow-xl aspect-video">
+                    <img src="project-images/k2-systems/featured.jpg" alt="K2 Systems Project" class="w-full h-full object-cover">
+                </div>
+                
+                <!-- Decorative elements -->
+                <div class="absolute -top-6 -right-6 w-32 h-32 border-8 border-blue-100 rounded-full z-0"></div>
+                <div class="absolute -bottom-6 -left-6 w-24 h-24 border-8 border-blue-100 rounded-xl z-0"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Project Overview -->
+    <section id="overview" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="mb-12 text-center" data-aos="fade-up">
+            <h2 class="text-sm uppercase tracking-wider text-accent font-semibold mb-2">Project Overview</h2>
+            <h3 class="text-3xl font-bold">Project Scope & Objectives</h3>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Key Responsibilities -->
+            <div class="bg-white rounded-2xl shadow-sm p-8 project-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-accent mb-6">
+                    <i class="fas fa-tasks text-xl"></i>
+                </div>
+                <h4 class="text-xl font-semibold mb-4">Key Responsibilities</h4>
+                <ul class="space-y-3 text-gray-700">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                        <span>Developed comprehensive technical documentation including customer-facing drawings and certification</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                        <span>Designed and constructed test jigs for product validation to streamline certification processes</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                        <span>Collaborated with international engineering teams with product development workflows</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                        <span>Managed product certification testing and documentation to meet industry standards</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Project Challenges -->
+            <div class="bg-white rounded-2xl shadow-sm p-8 project-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-accent mb-6">
+                    <i class="fas fa-mountain text-xl"></i>
+                </div>
+                <h4 class="text-xl font-semibold mb-4">Project Challenges</h4>
+                <ul class="space-y-3 text-gray-700">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                        <span>Adapting German engineering designs to meet US-specific building codes and regulations</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                        <span>Creating test methodologies that accurately simulate real-world stress conditions</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                        <span>Coordinating certification processes across multiple regulatory authorities</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                        <span>Balancing cost-effectiveness with structural integrity requirements</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Solutions & Innovations -->
+            <div class="bg-white rounded-2xl shadow-sm p-8 project-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-accent mb-6">
+                    <i class="fas fa-lightbulb text-xl"></i>
+                </div>
+                <h4 class="text-xl font-semibold mb-4">Solutions & Innovations</h4>
+                <ul class="space-y-3 text-gray-700">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                        <span>Developed modular test jig system that could be reconfigured for multiple product lines</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                        <span>Created standardized documentation templates to streamline certification process</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                        <span>Implemented digital workflow systems to improve cross-team collaboration</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                        <span>Optimized design elements to reduce material costs while maintaining structural integrity</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Detailed Description -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Project Description -->
+            <div data-aos="fade-right">
+                <h3 class="text-2xl font-bold mb-6">Project Description</h3>
+                <div class="space-y-4 text-gray-700">
+                    <p>
+                        During my internship at K2 Systems US, I was involved in the development, testing, and certification of solar mounting solutions designed for the US market. The company specializes in creating innovative mounting systems that are both cost-effective and comply with strict building regulations.
+                    </p>
+                    <p>
+                        My primary focus was on adapting the European designs to meet American standards and creating the documentation necessary for certification. This involved extensive collaboration with teams in Germany and required a deep understanding of both structural engineering principles and regulatory requirements.
+                    </p>
+                    <p>
+                        A significant portion of my role involved designing and constructing test jigs that could accurately simulate the stresses these mounting systems would encounter in real-world installations. These tests needed to account for various weather conditions, including high winds, snow loads, and seismic activity.
+                    </p>
+                    <p>
+                        By the end of my internship, I had successfully developed a standardized testing methodology that reduced certification time by 30% while maintaining the rigorous safety standards required in the industry.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Technical Details -->
+            <div data-aos="fade-left">
+                <h3 class="text-2xl font-bold mb-6">Technical Specifications</h3>
+                <div class="bg-white rounded-xl p-8 shadow-sm">
+                    <div class="space-y-6">
+                        <!-- Specs Group 1 -->
+                        <div>
+                            <h4 class="text-lg font-semibold mb-3 text-accent">Testing Parameters</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex justify-between items-center border-b border-gray-100 pb-2">
+                                    <span>Wind Load Resistance</span>
+                                    <span class="font-medium">Up to 180 mph</span>
+                                </li>
+                                <li class="flex justify-between items-center border-b border-gray-100 pb-2">
+                                    <span>Snow Load Capacity</span>
+                                    <span class="font-medium">70 lbs/ft²</span>
+                                </li>
+                                <li class="flex justify-between items-center border-b border-gray-100 pb-2">
+                                    <span>Seismic Category</span>
+                                    <span class="font-medium">D2</span>
+                                </li>
+                                <li class="flex justify-between items-center">
+                                    <span>Temperature Range</span>
+                                    <span class="font-medium">-40°F to 180°F</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Specs Group 2 -->
+                        <div>
+                            <h4 class="text-lg font-semibold mb-3 text-accent">Materials & Compliance</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex justify-between items-center border-b border-gray-100 pb-2">
+                                    <span>Primary Material</span>
+                                    <span class="font-medium">6005-T5 Aluminum</span>
+                                </li>
+                                <li class="flex justify-between items-center border-b border-gray-100 pb-2">
+                                    <span>Hardware</span>
+                                    <span class="font-medium">304 Stainless Steel</span>
+                                </li>
+                                <li class="flex justify-between items-center border-b border-gray-100 pb-2">
+                                    <span>Compliance</span>
+                                    <span class="font-medium">UL 2703, IBC 2021</span>
+                                </li>
+                                <li class="flex justify-between items-center">
+                                    <span>Warranty</span>
+                                    <span class="font-medium">25 Years</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Project Gallery -->
+    <section id="gallery" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="mb-12 text-center" data-aos="fade-up">
+            <h2 class="text-sm uppercase tracking-wider text-accent font-semibold mb-2">Project Gallery</h2>
+            <h3 class="text-3xl font-bold">Images & Visual Documentation</h3>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Gallery Image 1 -->
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                <a href="project-images/k2-systems/image1.jpg" target="_blank">
+                    <img src="project-images/k2-systems/image1.jpg" alt="Design Drawing" class="w-full h-64 object-cover rounded-lg shadow-md">
+                    <div class="mt-2">
+                        <p class="text-sm text-gray-600">Technical drawing of mounting rail system</p>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Gallery Image 2 -->
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="150">
+                <a href="project-images/k2-systems/image2.jpg" target="_blank">
+                    <img src="project-images/k2-systems/image2.jpg" alt="Test Setup" class="w-full h-64 object-cover rounded-lg shadow-md">
+                    <div class="mt-2">
+                        <p class="text-sm text-gray-600">Test jig for wind load simulation</p>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Gallery Image 3 -->
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                <a href="project-images/k2-systems/image3.jpg" target="_blank">
+                    <img src="project-images/k2-systems/image3.jpg" alt="Product Installation" class="w-full h-64 object-cover rounded-lg shadow-md">
+                    <div class="mt-2">
+                        <p class="text-sm text-gray-600">Installation of mounting system on test roof</p>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Gallery Image 4 -->
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="250">
+                <a href="project-images/k2-systems/image4.jpg" target="_blank">
+                    <img src="project-images/k2-systems/image4.jpg" alt="Team Collaboration" class="w-full h-64 object-cover rounded-lg shadow-md">
+                    <div class="mt-2">
+                        <p class="text-sm text-gray-600">International team collaboration session</p>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Gallery Image 5 -->
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                <a href="project-images/k2-systems/image5.jpg" target="_blank">
+                    <img src="project-images/k2-systems/image5.jpg" alt="Material Testing" class="w-full h-64 object-cover rounded-lg shadow-md">
+                    <div class="mt-2">
+                        <p class="text-sm text-gray-600">Material stress testing procedure</p>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Gallery Image 6 -->
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="350">
+                <a href="project-images/k2-systems/image6.jpg" target="_blank">
+                    <img src="project-images/k2-systems/image6.jpg" alt="Final Product" class="w-full h-64 object-cover rounded-lg shadow-md">
+                    <div class="mt-2">
+                        <p class="text-sm text-gray-600">Completed installation with solar panels</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Documents Section -->
+    <section id="documents" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50">
+        <div class="mb-12 text-center" data-aos="fade-up">
+            <h2 class="text-sm uppercase tracking-wider text-accent font-semibold mb-2">Project Documentation</h2>
+            <h3 class="text-3xl font-bold">Technical Documents & Reports</h3>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up">
+            <!-- Document Card 1 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-sm project-card">
+                <div class="p-6">
+                    <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-accent mb-4">
+                        <i class="fas fa-file-pdf text-xl"></i>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">Test Methodology Document</h4>
+                    <p class="text-gray-600 mb-4">Comprehensive guide to the testing methodology developed for solar mounting systems.</p>
+                    <a href="documents/k2-systems/test-methodology.pdf" target="_blank" class="inline-flex items-center text-accent hover:text-blue-700 font-medium transition-colors">
+                        <span>Download PDF</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Document Card 2 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-sm project-card">
+                <div class="p-6">
+                    <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-accent mb-4">
+                        <i class="fas fa-file-alt text-xl"></i>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">Technical Specifications</h4>
+                    <p class="text-gray-600 mb-4">Detailed specifications for K2 Systems US mounting solutions and components.</p>
+                    <a href="documents/k2-systems/technical-specs.pdf" target="_blank" class="inline-flex items-center text-accent hover:text-blue-700 font-medium transition-colors">
+                        <span>Download PDF</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Document Card 3 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-sm project-card">
+                <div class="p-6">
+                    <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-accent mb-4">
+                        <i class="fas fa-clipboard-check text-xl"></i>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">Certification Report</h4>
+                    <p class="text-gray-600 mb-4">Final certification report documenting compliance with industry standards.</p>
+                    <a href="documents/k2-systems/certification-report.pdf" target="_blank" class="inline-flex items-center text-accent hover:text-blue-700 font-medium transition-colors">
+                        <span>Download PDF</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PDF Viewer Section -->
+        <div class="mt-12" data-aos="fade-up">
+            <div class="bg-white rounded-xl overflow-hidden shadow-sm">
+                <div class="p-6">
+                    <h4 class="text-xl font-semibold mb-4">Document Preview</h4>
+                    <div class="pdf-container">
+                        <!-- Replace with your actual PDF path -->
+                        <iframe src="documents/k2-systems/preview-doc.pdf" class="w-full h-96 border-0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Outcomes & Results -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="mb-12 text-center" data-aos="fade-up">
+            <h2 class="text-sm uppercase tracking-wider text-accent font-semibold mb-2">Project Outcomes</h2>
+            <h3 class="text-3xl font-bold">Results & Achievements</h3>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Key Achievements -->
+            <div data-aos="fade-right">
+                <h4 class="text-2xl font-semibold mb-6">Key Achievements</h4>
+                <div class="space-y-4">
+                    <div class="bg-white rounded-xl p-6 shadow-sm">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mr-4">
+                                <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white font-bold">
+                                    1
+                                </div>
+                            </div>
+                            <div>
+                                <h5 class="text-lg font-medium mb-2">Certification Process Optimization</h5>
+                                <p class="text-gray-700">Reduced certification timeline by 30% through streamlined documentation and testing procedures.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-sm">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mr-4">
+                                <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white font-bold">
+                                    2
+                                </div>
+                            </div>
+                            <div>
+                                <h5 class="text-lg font-medium mb-2">Test Jig Innovation</h5>
+                                <p class="text-gray-700">Designed modular test jig that reduced setup time by 45% and allowed for multiple configuration testing.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-sm">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mr-4">
+                                <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white font-bold">
+                                    3
+                                </div>
+                            </div>
+                            <div>
+                                <h5 class="text-lg font-medium mb-2">International Collaboration</h5>
+                                <p class="text-gray-700">Established cross-team workflow that improved communication efficiency between US and German engineering teams.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-sm">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mr-4">
+                                <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white font-bold">
+                                    4
+                                </div>
+                            </div>
+                            <div>
+                                <h5 class="text-lg font-medium mb-2">Documentation Standards</h5>
+                                <p class="text-gray-700">Created comprehensive documentation templates that became company standard for all new product certifications.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Impact & Testimonial -->
+            <div data-aos="fade-left">
+                <h4 class="text-2xl font-semibold mb-6">Project Impact</h4>
+                <div class="bg-white rounded-xl p-8 shadow-sm mb-8">
+                    <h5 class="text-lg font-medium mb-4">Business Impact</h5>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-accent mb-2">30%</div>
+                            <p class="text-gray-600">Reduction in certification time</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-accent mb-2">15%</div>
+                            <p class="text-gray-600">Cost savings in testing procedures</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-accent mb-2">3</div>
+                            <p class="text-gray-600">New product lines certified</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-accent mb-2">100%</div>
+                            <p class="text-gray-600">Compliance with US regulations</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial -->
+                    <div class="border-t border-gray-100 pt-6">
+                        <h5 class="text-lg font-medium mb-4">Supervisor Feedback</h5>
+                        <blockquote class="italic text-gray-700 mb-4">
+                            "Mois demonstrated exceptional technical abilities and initiative during his internship. His contributions to streamlining our certification process had an immediate positive impact on our operations. His test jig designs continue to be used by our team today."
+                        </blockquote>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center mr-3 overflow-hidden">
+                                <i class="fas fa-user text-gray-500"></i>
+                            </div>
+                            <div>
+                                <div class="font-medium">John Smith</div>
+                                <div class="text-sm text-gray-500">Engineering Manager, K2 Systems US</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Call To Action -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="bg-white rounded-2xl shadow-sm overflow-hidden" data-aos="fade-up">
+            <div class="p-8 md:p-12">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold mb-4">Interested in My Work?</h2>
+                    <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                        Feel free to explore my other projects or get in touch to discuss how my skills and experience can benefit your organization.
+                    </p>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="../index.html#experience" class="px-8 py-3 rounded-lg bg-white border border-accent text-accent font-medium hover:bg-accent hover:text-white transition-all duration-300 w-full sm:w-auto text-center">
+                        <i class="fas fa-arrow-left mr-2"></i>View Other Projects
+                    </a>
+                    <a href="../index.html#contact" class="px-8 py-3 rounded-lg gradient-bg text-white font-medium hover:shadow-lg transition-all duration-300 w-full sm:w-auto text-center">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-8 px-4 sm:px-6 lg:px-8 bg-gray-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <span class="text-xl font-bold text-primary">Mois Cohen<span class="text-accent">.</span></span>
+                    <p class="text-gray-600 text-sm mt-1">Mechanical Engineer</p>
+                </div>
+                
+                <div class="flex space-x-8 text-sm text-gray-600">
+                    <a href="../index.html#about" class="hover:text-accent transition-colors">About</a>
+                    <a href="../index.html#experience" class="hover:text-accent transition-colors">Experience</a>
+                    <a href="../index.html#skills" class="hover:text-accent transition-colors">Skills</a>
+                    <a href="../index.html#achievements" class="hover:text-accent transition-colors">Achievements</a>
+                    <a href="../index.html#contact" class="hover:text-accent transition-colors">Contact</a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 mt-6 pt-6 text-center text-sm text-gray-500">
+                <p>© 2025 Mois Cohen. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center shadow-lg hover:shadow-xl hover:bg-blue-700 transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+        
+        // Mobile menu
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Scroll progress bar
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("scrollProgress").style.width = scrolled + "%";
+            
+            // Back to top button
+            const backToTopButton = document.getElementById('backToTop');
+            if (winScroll > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+        
+        // Back to top button
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
