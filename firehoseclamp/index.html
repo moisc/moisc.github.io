@@ -1,1 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fire Hose Clamp Project - Protected | Mois Cohen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F172A',
+                        secondary: '#475569',
+                        accent: '#3B82F6',
+                        light: '#F8FAFC',
+                        dark: '#0F172A'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            color: #0F172A;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #3B82F6, #1E40AF);
+        }
+    </style>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8BERH7V4E"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-J8BERH7V4E');
+    </script>
+</head>
 
+<body class="min-h-screen flex flex-col">
+    <!-- Navigation -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <a href="/" class="text-xl font-bold text-primary">MC<span class="text-accent">.</span></a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                    <a href="/#about" class="text-gray-700 hover:text-accent transition-colors">About</a>
+                    <a href="/#experience" class="text-gray-700 hover:text-accent transition-colors">Experience</a>
+                    <a href="/#skills" class="text-gray-700 hover:text-accent transition-colors">Skills</a>
+                    <a href="/#achievements" class="text-gray-700 hover:text-accent transition-colors">Achievements</a>
+                    <a href="/#contact" class="text-gray-700 hover:text-accent transition-colors">Contact</a>
+                </nav>
+                
+                <!-- Back to Portfolio Button -->
+                <div class="hidden md:block">
+                    <a href="/#experience" 
+                       class="px-4 py-2 rounded-full text-sm font-medium text-accent border border-accent hover:bg-accent hover:text-white transition-colors duration-300">
+                        <i class="fas fa-arrow-left mr-2"></i>Back to Portfolio
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden py-4 border-t border-gray-200">
+                <div class="flex flex-col space-y-4 text-sm font-medium">
+                    <a href="/#about" class="text-gray-700 hover:text-accent">About</a>
+                    <a href="/#experience" class="text-gray-700 hover:text-accent">Experience</a>
+                    <a href="/#skills" class="text-gray-700 hover:text-accent">Skills</a>
+                    <a href="/#achievements" class="text-gray-700 hover:text-accent">Achievements</a>
+                    <a href="/#contact" class="text-gray-700 hover:text-accent">Contact</a>
+                    <a href="/#experience" class="text-accent font-medium">
+                        <i class="fas fa-arrow-left mr-2"></i>Back to Portfolio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="flex-grow flex items-center justify-center px-4 py-20">
+        <div class="max-w-2xl w-full text-center">
+            <!-- Lock Icon -->
+            <div class="mb-8 flex justify-center">
+                <div class="w-20 h-20 rounded-full bg-blue-50 flex items-center justify-center">
+                    <i class="fas fa-lock text-3xl text-accent"></i>
+                </div>
+            </div>
+            
+            <!-- Title -->
+            <h1 class="text-3xl font-bold mb-4">Wildland Fire Hose Clamp Project</h1>
+            
+            <!-- Status Badge -->
+            <div class="inline-block px-4 py-2 rounded-full bg-amber-100 text-amber-800 text-sm font-medium mb-8">
+                <i class="fas fa-shield-alt mr-2"></i>Protected Intellectual Property
+            </div>
+            
+            <!-- Message -->
+            <p class="text-lg text-gray-700 mb-8 max-w-xl mx-auto">
+                This project is currently under IP protection as part of Cal Poly's Senior Project program. 
+                Full details, documentation, and project outcomes will be available after June 2025.
+            </p>
+            
+            <!-- Contact Section -->
+            <div class="bg-white rounded-xl p-8 shadow-sm">
+                <h2 class="text-xl font-semibold mb-4">Have Questions?</h2>
+                <p class="text-gray-600 mb-6">
+                    For inquiries about this project or collaboration opportunities, please get in touch.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="mailto:mois.cohen787@gmail.com?subject=Fire%20Hose%20Clamp%20Project%20Inquiry" 
+                       class="px-6 py-3 rounded-lg gradient-bg text-white font-medium hover:shadow-lg transition-all duration-300">
+                        <i class="fas fa-envelope mr-2"></i>Email Me
+                    </a>
+                    <a href="/#contact" 
+                       class="px-6 py-3 rounded-lg bg-white border border-gray-300 text-gray-700 font-medium hover:border-accent hover:text-accent transition-all duration-300">
+                        <i class="fas fa-comment mr-2"></i>Contact Form
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="py-8 px-4 sm:px-6 lg:px-8 bg-gray-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <span class="text-xl font-bold text-primary">Mois Cohen<span class="text-accent">.</span></span>
+                    <p class="text-gray-600 text-sm mt-1">Mechanical Engineer</p>
+                </div>
+                
+                <div class="flex space-x-8 text-sm text-gray-600">
+                    <a href="/#about" class="hover:text-accent transition-colors">About</a>
+                    <a href="/#experience" class="hover:text-accent transition-colors">Experience</a>
+                    <a href="/#skills" class="hover:text-accent transition-colors">Skills</a>
+                    <a href="/#achievements" class="hover:text-accent transition-colors">Achievements</a>
+                    <a href="/#contact" class="hover:text-accent transition-colors">Contact</a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 mt-6 pt-6 text-center text-sm text-gray-500">
+                <p>© 2025 Mois Cohen. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
