@@ -58,12 +58,13 @@
         
         .experience-card {
             transition: all 0.3s ease;
-            border-left: 4px solid transparent;
+            border: 2px solid transparent;
         }
         
         .experience-card:hover {
             transform: translateY(-5px);
-            border-left: 4px solid #3B82F6;
+            border: 2px solid #3B82F6;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
         
         .skill-pill {
@@ -85,58 +86,56 @@
             transition: width 0.2s ease-out;
         }
 
-        /* Custom timeline styles - FIXED FOR MOBILE */
-        .timeline-container {
+        /* Toggle Switch Styles */
+        .toggle-container {
+            display: inline-flex;
+            background: #F1F5F9;
+            border-radius: 50px;
+            padding: 4px;
             position: relative;
         }
         
-        .timeline-container::before {
-            content: '';
-            position: absolute;
-            width: 2px;
-            background: #E2E8F0;
-            top: 0;
-            bottom: 0;
-            left: 12px; /* Adjusted position for mobile */
+        .toggle-option {
+            padding: 12px 32px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #64748B;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 50px;
+            position: relative;
+            z-index: 2;
         }
         
-        .timeline-dot {
+        .toggle-option.active {
+            color: white;
+        }
+        
+        .toggle-slider {
             position: absolute;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
             background: #3B82F6;
-            left: 4px; /* Adjusted position for mobile */
-            top: 24px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
             z-index: 1;
+            box-shadow: 0 2px 10px rgba(59, 130, 246, 0.5);
         }
         
-        @media (min-width: 768px) {
-            .timeline-container::before {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-            
-            .timeline-dot {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-            
-            .timeline-item:nth-child(even) {
-                flex-direction: row-reverse;
-            }
-            
-            /* Fix for alignment of job titles */
-            .timeline-item .timeline-title {
-                text-align: right;
-                padding-right: 2rem;
-            }
-            
-            .timeline-item:nth-child(even) .timeline-title {
-                text-align: left;
-                padding-left: 2rem;
-                padding-right: 0;
-            }
+        /* Project card styles */
+        .project-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            border: 2px solid #3B82F6;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .project-thumbnail {
+            height: 200px;
+            object-fit: cover;
         }
         
         /* Animated cursor */
@@ -302,192 +301,151 @@
         </div>
     </section>
     
-    <!-- Experience Section -->
+    <!-- Experience & Projects Section -->
     <section id="experience" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div class="mb-12 text-center" data-aos="fade-up">
-            <h3 class="text-3xl font-bold">Professional Experience</h3>
+            <!-- Toggle Switch -->
+            <div class="toggle-container" id="sectionToggle">
+                <div class="toggle-option active" data-section="experience">Professional Experience</div>
+                <div class="toggle-option" data-section="projects">Projects</div>
+                <div class="toggle-slider" id="toggleSlider"></div>
+            </div>
         </div>
         
-        <div class="timeline-container">
+        <!-- Professional Experience Content -->
+        <div id="experienceContent" class="grid grid-cols-1 md:grid-cols-2 gap-6">
             
             <!-- Fire Hose Clamp Project -->
-            <div class="timeline-item flex flex-col md:flex-row mb-12" data-aos="fade-up">
-                <div class="timeline-dot"></div>
-                <div class="md:w-1/2 mb-6 md:mb-0 timeline-title">
-                    <span class="inline-block px-3 py-1 rounded-full bg-blue-50 text-accent text-xs font-medium mb-2">September 2024 - June 2025</span>
-                    <h3 class="text-xl font-semibold">Cal Poly SLO Senior Project</h3>
-                    <p class="text-gray-600">Wildland Fire Hose Clamp Team Member</p>
-                </div>
-                <div class="md:w-1/2">
-                    <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-                        <ul class="space-y-3 mb-4">
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Performed advanced CAD modeling and FEA simulations to refine clamp design, improving strength by 30% to meet performance targets</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Developed models to predict system behavior in various conditions, identifying potential failure modes</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Coordinated with all stakeholders to align the design with requirements to ensure the final product met all specifications</span>
-                            </li>
-                        </ul>
-                        <a href="/firehoseclamp" class="inline-flex items-center text-accent hover:text-white-700 font-medium transition-colors">
-                            <span>Browse project portfolio and documentation</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </a>
+            <div class="experience-card bg-white rounded-xl p-6 shadow-sm" data-aos="fade-up">
+                <div class="flex items-start justify-between mb-4">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1">Cal Poly SLO Senior Project</h3>
+                        <p class="text-gray-600">Wildland Fire Hose Clamp Team Member</p>
                     </div>
+                    <span class="inline-block px-4 py-2 rounded-full bg-blue-50 text-accent text-sm font-medium whitespace-nowrap">
+                        Sep 2024 - Jun 2025
+                    </span>
                 </div>
+                <ul class="space-y-2 mb-4">
+                    <li class="text-sm text-gray-700">• Performed advanced CAD modeling and FEA simulations, improving strength by 30%</li>
+                    <li class="text-sm text-gray-700">• Developed models to predict system behavior and identify failure modes</li>
+                    <li class="text-sm text-gray-700">• Coordinated with stakeholders to align design with specifications</li>
+                </ul>
+                <a href="/firehoseclamp" class="inline-flex items-center text-accent hover:text-blue-700 font-medium text-sm transition-colors">
+                    <span>View project details</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
             </div>
 
-    
-            <!-- Cal Poly SLO -->
-            <div class="timeline-item flex flex-col md:flex-row mb-12" data-aos="fade-up">
-                <div class="timeline-dot"></div>
-                <div class="md:w-1/2 mb-6 md:mb-0 timeline-title">
-                    <span class="inline-block px-3 py-1 rounded-full bg-blue-50 text-accent text-xs font-medium mb-2">April 2024 - June 2025</span>
-                    <h3 class="text-xl font-semibold">Cal Poly SLO</h3>
-                    <p class="text-gray-600">Mechanical Engineering Research Assistant</p>
-                </div>
-                <div class="md:w-1/2">
-                    <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-                        <ul class="space-y-3 mb-4">
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Conducted research on campus sustainability and thermal comfort to improve HVAC cooling capacity by 15% through methods developed with the team</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Developed and implemented data acquisition systems for HVAC monitoring, enabling real-time performance analysis</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Collaborated with faculty on evaluating sustainability initiatives, contributing to strategies for improved energy management</span>
-                            </li>
-                        </ul>
-                       
+            <!-- Cal Poly SLO Research -->
+            <div class="experience-card bg-white rounded-xl p-6 shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex items-start justify-between mb-4">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1">Cal Poly SLO</h3>
+                        <p class="text-gray-600">Mechanical Engineering Research Assistant</p>
                     </div>
+                    <span class="inline-block px-4 py-2 rounded-full bg-blue-50 text-accent text-sm font-medium whitespace-nowrap">
+                        Apr 2024 - Jun 2025
+                    </span>
                 </div>
+                <ul class="space-y-2">
+                    <li class="text-sm text-gray-700">• Conducted research on campus sustainability and thermal comfort</li>
+                    <li class="text-sm text-gray-700">• Improved HVAC cooling capacity by 15% through developed methods</li>
+                    <li class="text-sm text-gray-700">• Developed data acquisition systems for real-time performance analysis</li>
+                    <li class="text-sm text-gray-700">• Collaborated with faculty on sustainability initiatives</li>
+                </ul>
             </div>
             
             <!-- K2 Systems -->
-<div class="timeline-item flex flex-col md:flex-row mb-12" data-aos="fade-up">
-                <div class="timeline-dot"></div>
-                <div class="md:w-1/2 mb-6 md:mb-0 timeline-title">
-                    <span class="inline-block px-3 py-1 rounded-full bg-blue-50 text-accent text-xs font-medium mb-2">June 2024 - September 2024</span>
-                    <h3 class="text-xl font-semibold">K2 Systems US</h3>
-                    <p class="text-gray-600">Mechanical Engineering Intern</p>
-                </div>
-                <div class="md:w-1/2">
-                    <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-                        <ul class="space-y-3 mb-4">
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Developed testing methodologies and data collection systems, reducing test duration and improving accuracy by over 50%</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Constructed test jigs and fixtures, minimizing measurement errors and streamlining test setups</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Conducted certification testing (fire, wind, rain) to ensure product compliance with UL and other certification bodies</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Created customer-facing product drawings and marketing materials to support client purchasing decisions</span>
-                            </li>
-                        </ul>
-                        <a href="/k2-systems" class="inline-flex items-center text-accent hover:text-blue-700 font-medium transition-colors">
-                            <span>Browse project portfolio and documentation</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </a>
+            <div class="experience-card bg-white rounded-xl p-6 shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex items-start justify-between mb-4">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1">K2 Systems US</h3>
+                        <p class="text-gray-600">Mechanical Engineering Intern</p>
                     </div>
+                    <span class="inline-block px-4 py-2 rounded-full bg-blue-50 text-accent text-sm font-medium whitespace-nowrap">
+                        Jun 2024 - Sep 2024
+                    </span>
                 </div>
+                <ul class="space-y-2 mb-4">
+                    <li class="text-sm text-gray-700">• Developed testing methodologies, improving accuracy by over 50%</li>
+                    <li class="text-sm text-gray-700">• Constructed test jigs and fixtures for streamlined setups</li>
+                    <li class="text-sm text-gray-700">• Conducted certification testing (fire, wind, rain) for compliance</li>
+                    <li class="text-sm text-gray-700">• Created customer-facing product drawings and marketing materials</li>
+                </ul>
+                <a href="/k2-systems" class="inline-flex items-center text-accent hover:text-blue-700 font-medium text-sm transition-colors">
+                    <span>View project details</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
             </div>
             
             <!-- Nina Labs -->
-            <div class="timeline-item flex flex-col md:flex-row" data-aos="fade-up">
-                <div class="timeline-dot"></div>
-                <div class="md:w-1/2 mb-6 md:mb-0 timeline-title">
-                    <span class="inline-block px-3 py-1 rounded-full bg-blue-50 text-accent text-xs font-medium mb-2">June 2023 - December 2023</span>
-                    <h3 class="text-xl font-semibold">Nina Labs</h3>
-                    <p class="text-gray-600">Junior Engineer</p>
-                </div>
-                <div class="md:w-1/2">
-                    <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-                        <ul class="space-y-3 mb-4">
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Drove design optimization initiatives to enhance manufacturability and production efficiency</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Designed mechanical test jigs in SolidWorks and developed automated validation protocols using Python and MATLAB</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Led iterative testing efforts, improving pour accuracy by approximately 80% through test driven discoveries</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                                <span>Collaborated with team to accelerate development and ensure an on-time product launch at the Sphere</span>
-                            </li>
-                        </ul>
-                        <a href="/ninalabs" class="inline-flex items-center text-accent hover:text-white-700 font-medium transition-colors">
-                            <span>Browse project portfolio and documentation</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </a>
+            <div class="experience-card bg-white rounded-xl p-6 shadow-sm" data-aos="fade-up" data-aos-delay="300">
+                <div class="flex items-start justify-between mb-4">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1">Nina Labs</h3>
+                        <p class="text-gray-600">Junior Engineer</p>
                     </div>
+                    <span class="inline-block px-4 py-2 rounded-full bg-blue-50 text-accent text-sm font-medium whitespace-nowrap">
+                        Jun 2023 - Dec 2023
+                    </span>
                 </div>
+                <ul class="space-y-2 mb-4">
+                    <li class="text-sm text-gray-700">• Drove design optimization for enhanced manufacturability</li>
+                    <li class="text-sm text-gray-700">• Designed test jigs in SolidWorks with automated validation protocols</li>
+                    <li class="text-sm text-gray-700">• Improved pour accuracy by ~80% through test-driven discoveries</li>
+                    <li class="text-sm text-gray-700">• Ensured on-time product launch at the Sphere</li>
+                </ul>
+                <a href="/ninalabs" class="inline-flex items-center text-accent hover:text-blue-700 font-medium text-sm transition-colors">
+                    <span>View project details</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
             </div>
 
-<!-- Autoprint Inc. -->
- <div class="timeline-item flex flex-col md:flex-row mb-12 pt-12" data-aos="fade-up">
-                <div class="timeline-dot"></div>
-                <div class="md:w-1/2 mb-6 md:mb-0 timeline-title">
-                    <span class="inline-block px-3 py-1 rounded-full bg-blue-50 text-accent text-xs font-medium mb-2">November 2020 - November 2021</span>
-                    <h3 class="text-xl font-semibold">Autoprint Inc.</h3>
-                    <p class="text-gray-600">Co-founder & Chief Mechanical Engineer</p>
+            <!-- Autoprint Inc. -->
+            <div class="experience-card bg-white rounded-xl p-6 shadow-sm" data-aos="fade-up" data-aos-delay="400">
+                <div class="flex items-start justify-between mb-4">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1">Autoprint Inc.</h3>
+                        <p class="text-gray-600">Co-founder & Chief Mechanical Engineer</p>
+                    </div>
+                    <span class="inline-block px-4 py-2 rounded-full bg-blue-50 text-accent text-sm font-medium whitespace-nowrap">
+                        Nov 2020 - Nov 2021
+                    </span>
                 </div>
-    <div class="md:w-1/2">
-        <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-            <ul class="space-y-3 mb-4">
-                <li class="flex items-start">
-                    <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                    <span>Co-founded 3D printing startup and led technical development of proprietary printer design with novel technology</span>
-                </li>
-                <li class="flex items-start">
-                    <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                    <span>Filed provisional patent for innovative 3D printing technology while managing $32,000 operating budget</span>
-                </li>
-                <li class="flex items-start">
-                    <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                    <span>Engineered IoT-enabled 3D printer system, reducing pre-print setup time by 90% and enabling remote operation</span>
-                </li>
-                <li class="flex items-start">
-                    <span class="text-accent mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
-                    <span>Developed full-stack solution integrating mechanical design, electronics, and cloud connectivity for seamless user experience</span>
-                </li>
-            </ul>
-           <a href="/autoprint" class="inline-flex items-center text-accent hover:text-white-700 font-medium transition-colors">
-                <span>Browse project portfolio and documentation</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-            </a> 
-        </div>
-    </div>
-</div>
+                <ul class="space-y-2 mb-4">
+                    <li class="text-sm text-gray-700">• Co-founded 3D printing startup with proprietary printer design</li>
+                    <li class="text-sm text-gray-700">• Filed provisional patent while managing $32,000 budget</li>
+                    <li class="text-sm text-gray-700">• Engineered IoT-enabled system, reducing setup time by 90%</li>
+                    <li class="text-sm text-gray-700">• Developed full-stack solution with cloud connectivity</li>
+                </ul>
+                <a href="/autoprint" class="inline-flex items-center text-accent hover:text-blue-700 font-medium text-sm transition-colors">
+                    <span>View project details</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+            </div>
             
+        </div>
+
+        <!-- Projects Content (Hidden by default) -->
+        <div id="projectsContent" class="hidden">
+            <div class="flex items-center justify-center py-24">
+                <div class="text-center" data-aos="fade-up">
+                    <div class="w-20 h-20 rounded-full bg-blue-50 flex items-center justify-center text-accent mx-auto mb-6">
+                        <i class="fas fa-rocket text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">Projects Coming Soon</h3>
+                    <p class="text-gray-600 max-w-md mx-auto">I'm currently working on documenting my personal projects. Check back soon to see my latest work!</p>
+                </div>
+            </div>
         </div>
     </section>
     
@@ -936,6 +894,50 @@
         
         // Start typing immediately
         setTimeout(type, 1000);
+        
+        // Toggle Switch functionality
+        const toggleOptions = document.querySelectorAll('.toggle-option');
+        const toggleSlider = document.getElementById('toggleSlider');
+        const experienceContent = document.getElementById('experienceContent');
+        const projectsContent = document.getElementById('projectsContent');
+        
+        // Initialize slider position
+        function updateSliderPosition() {
+            const activeOption = document.querySelector('.toggle-option.active');
+            toggleSlider.style.width = activeOption.offsetWidth + 'px';
+            toggleSlider.style.height = activeOption.offsetHeight + 'px';
+            toggleSlider.style.left = activeOption.offsetLeft - 4 + 'px';
+            toggleSlider.style.top = '4px';
+        }
+        
+        // Initial position
+        updateSliderPosition();
+        
+        // Handle toggle clicks
+        toggleOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                const section = this.getAttribute('data-section');
+                
+                // Update active state
+                toggleOptions.forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Update slider position
+                updateSliderPosition();
+                
+                // Show/hide content
+                if (section === 'experience') {
+                    experienceContent.classList.remove('hidden');
+                    projectsContent.classList.add('hidden');
+                } else {
+                    experienceContent.classList.add('hidden');
+                    projectsContent.classList.remove('hidden');
+                }
+            });
+        });
+        
+        // Update slider position on window resize
+        window.addEventListener('resize', updateSliderPosition);
         
         // Form handling
         const form = document.querySelector('form');
