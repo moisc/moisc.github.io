@@ -163,18 +163,25 @@
             }
             
             .toggle-container {
-                flex-direction: column;
-                padding: 2px;
+                flex-direction: row;
+                padding: 4px;
                 width: 100%;
-                max-width: 300px;
+                max-width: 350px;
                 margin: 0 auto;
             }
             
             .toggle-option {
-                padding: 8px 16px;
-                font-size: 14px;
+                padding: 10px 12px;
+                font-size: 13px;
                 text-align: center;
-                width: 100%;
+                width: 50%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            
+            .toggle-slider {
+                width: 50%;
             }
             
             .experience-card {
@@ -203,6 +210,11 @@
             .experience-card, .project-card {
                 margin-left: 0;
                 margin-right: 0;
+                border: 1px solid #E5E7EB;
+            }
+            
+            .experience-card:hover, .project-card:hover {
+                border: 1px solid #3B82F6;
             }
             
             /* Mobile hero section */
@@ -216,6 +228,35 @@
             .mobile-image-container {
                 max-width: 280px;
                 margin: 0 auto 2rem auto;
+            }
+            
+            /* Fix mobile borders and shadows */
+            .shadow-sm {
+                box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            }
+            
+            .bg-white {
+                border: 1px solid #F1F5F9;
+            }
+            
+            /* Mobile footer fix */
+            footer {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            /* Better mobile touch targets */
+            a, button {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            /* Mobile navigation improvements */
+            #mobile-menu a {
+                padding: 12px 0;
+                min-height: 48px;
             }
         }
         
@@ -962,19 +1003,19 @@
     
     <!-- Footer -->
     <footer class="py-8 px-4 sm:px-6 lg:px-8 bg-gray-100">
-        <div class="max-w-7xl mx-auto">
+        <div class="max-w-7xl mx-auto px-2 sm:px-0">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
+                <div class="mb-4 md:mb-0 text-center md:text-left">
                     <span class="text-xl font-bold text-primary">Mois Cohen<span class="text-accent">.</span></span>
                     <p class="text-gray-600 text-sm mt-1">Mechanical Engineer</p>
                 </div>
                 
-                <div class="flex space-x-8 text-sm text-gray-600">
-                    <a href="#about" class="hover:text-accent transition-colors">About</a>
-                    <a href="#experience" class="hover:text-accent transition-colors">Experience</a>
-                    <a href="#skills" class="hover:text-accent transition-colors">Skills</a>
-                    <a href="#achievements" class="hover:text-accent transition-colors">Achievements</a>
-                    <a href="#contact" class="hover:text-accent transition-colors">Contact</a>
+                <div class="grid grid-cols-2 sm:flex gap-3 sm:gap-6 md:gap-8 text-xs sm:text-sm text-gray-600 text-center">
+                    <a href="#about" class="hover:text-accent transition-colors py-2 px-1">About</a>
+                    <a href="#experience" class="hover:text-accent transition-colors py-2 px-1">Experience</a>
+                    <a href="#skills" class="hover:text-accent transition-colors py-2 px-1">Skills</a>
+                    <a href="#achievements" class="hover:text-accent transition-colors py-2 px-1">Achievements</a>
+                    <a href="#contact" class="hover:text-accent transition-colors py-2 px-1 col-span-2 sm:col-span-1">Contact</a>
                 </div>
             </div>
             
@@ -1183,6 +1224,30 @@
         
         // Update slider position on window resize
         window.addEventListener('resize', updateSliderPosition);
+        
+        // Fix mobile toggle functionality
+        function initMobileToggle() {
+            const toggleContainer = document.getElementById('sectionToggle');
+            const isMobile = window.innerWidth <= 768;
+            
+            if (isMobile) {
+                // Ensure toggle works on mobile
+                toggleContainer.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                }, {passive: false});
+                
+                toggleContainer.addEventListener('touchend', function(e) {
+                    const target = e.target.closest('.toggle-option');
+                    if (target) {
+                        target.click();
+                    }
+                });
+            }
+        }
+        
+        // Initialize mobile toggle
+        initMobileToggle();
+        window.addEventListener('resize', initMobileToggle);
         
         // Form handling
         const form = document.querySelector('form');
