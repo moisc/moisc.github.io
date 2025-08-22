@@ -4,6 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mois Cohen | Mechanical Engineer</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="/favicon.ico">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Mechanical Engineer with expertise in CAD/FEA, thermal systems, and engineering design. B.S. from Cal Poly SLO with experience in aerospace, solar, and mechanical systems.">
+    <meta name="keywords" content="mechanical engineer, CAD, FEA, SolidWorks, thermal systems, engineering design, Cal Poly SLO">
+    <meta name="author" content="Mois Cohen">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Mois Cohen | Mechanical Engineer">
+    <meta property="og:description" content="Mechanical Engineer with expertise in CAD/FEA, thermal systems, and engineering design. B.S. from Cal Poly SLO.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moisc.github.io">
+    <meta property="og:image" content="https://moisc.github.io/unnamed%20(22).jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mois Cohen | Mechanical Engineer">
+    <meta name="twitter:description" content="Mechanical Engineer with expertise in CAD/FEA, thermal systems, and engineering design.">
+    <meta name="twitter:image" content="https://moisc.github.io/unnamed%20(22).jpg">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#3B82F6">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
@@ -20,6 +46,7 @@
                         light: '#F8FAFC',
                         dark: '#0F172A'
                     },
+                    darkMode: 'class',
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         mono: ['Fira Code', 'monospace']
@@ -42,6 +69,90 @@
             font-family: 'Inter', sans-serif;
             background-color: #F8FAFC;
             color: #0F172A;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        /* Dark mode styles */
+        .dark body {
+            background-color: #0F172A;
+            color: #F8FAFC;
+        }
+        
+        .dark .bg-white {
+            background-color: #1E293B !important;
+        }
+        
+        .dark .bg-gray-50 {
+            background-color: #1E293B !important;
+        }
+        
+        .dark .bg-gray-100 {
+            background-color: #334155 !important;
+        }
+        
+        .dark .text-gray-700 {
+            color: #CBD5E1 !important;
+        }
+        
+        .dark .text-gray-600 {
+            color: #94A3B8 !important;
+        }
+        
+        .dark .text-gray-800 {
+            color: #F1F5F9 !important;
+        }
+        
+        .dark .text-gray-500 {
+            color: #64748B !important;
+        }
+        
+        .dark .border-gray-200 {
+            border-color: #334155 !important;
+        }
+        
+        .dark .border-gray-300 {
+            border-color: #475569 !important;
+        }
+        
+        .dark .shadow-sm {
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3) !important;
+        }
+        
+        .dark .shadow-md {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3) !important;
+        }
+        
+        .dark .bg-opacity-80 {
+            background-color: rgba(15, 23, 42, 0.8) !important;
+        }
+        
+        .dark .bg-blue-50 {
+            background-color: rgba(59, 130, 246, 0.1) !important;
+        }
+        
+        /* Theme toggle button */
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #E5E7EB;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .dark .theme-toggle {
+            border-color: #374151;
+            background: #1F2937;
+            color: #F9FAFB;
+        }
+        
+        .theme-toggle:hover {
+            border-color: #3B82F6;
+            transform: scale(1.1);
         }
         
         .gradient-text {
@@ -204,8 +315,11 @@
                     <a href="#contact" class="text-gray-700 hover:text-accent transition-colors">Contact</a>
                 </nav>
                 
-                <!-- Resume Button -->
-                <div class="hidden md:block">
+                <!-- Theme Toggle & Resume Button -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button id="theme-toggle" class="theme-toggle" title="Toggle theme">
+                        <i class="fas fa-sun text-lg" id="theme-icon"></i>
+                    </button>
                     <a href="https://raw.githubusercontent.com/moisc/moisc.github.io/main/Mois Cohen Resume 6.10.25.pdf" 
                        class="px-4 py-2 rounded-full text-sm font-medium text-accent border border-accent hover:bg-accent hover:text-white transition-colors duration-300"
                        download="Mois Cohen Resume 6.10.25.pdf">
@@ -229,11 +343,16 @@
                     <a href="#skills" class="text-gray-700 hover:text-accent">Skills</a>
                     <a href="#achievements" class="text-gray-700 hover:text-accent">Achievements</a>
                     <a href="#contact" class="text-gray-700 hover:text-accent">Contact</a>
-                    <a href="https://raw.githubusercontent.com/moisc/moisc.github.io/main/Mois Cohen Resume 6.10.25.pdf" 
-                       class="text-accent font-medium"
-                       download="Mois Cohen Resume 6.10.25.pdf">
-                        Download CV
-                    </a>
+                    <div class="flex items-center justify-between">
+                        <button id="mobile-theme-toggle" class="theme-toggle" title="Toggle theme">
+                            <i class="fas fa-sun text-lg" id="mobile-theme-icon"></i>
+                        </button>
+                        <a href="https://raw.githubusercontent.com/moisc/moisc.github.io/main/Mois Cohen Resume 6.10.25.pdf" 
+                           class="text-accent font-medium"
+                           download="Mois Cohen Resume 6.10.25.pdf">
+                            Download CV
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -895,6 +1014,67 @@
         
         // Start typing immediately
         setTimeout(type, 1000);
+        
+        // Dark mode functionality
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.documentElement.classList.add('dark');
+                updateThemeIcons('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+                updateThemeIcons('light');
+            }
+        }
+        
+        function updateThemeIcons(theme) {
+            const desktopIcon = document.getElementById('theme-icon');
+            const mobileIcon = document.getElementById('mobile-theme-icon');
+            
+            if (theme === 'dark') {
+                desktopIcon.className = 'fas fa-moon text-lg';
+                mobileIcon.className = 'fas fa-moon text-lg';
+            } else {
+                desktopIcon.className = 'fas fa-sun text-lg';
+                mobileIcon.className = 'fas fa-sun text-lg';
+            }
+        }
+        
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.contains('dark');
+            
+            if (isDark) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                updateThemeIcons('light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                updateThemeIcons('dark');
+            }
+        }
+        
+        // Initialize theme on page load
+        initTheme();
+        
+        // Add event listeners for theme toggle buttons
+        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+        document.getElementById('mobile-theme-toggle').addEventListener('click', toggleTheme);
+        
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                if (e.matches) {
+                    document.documentElement.classList.add('dark');
+                    updateThemeIcons('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    updateThemeIcons('light');
+                }
+            }
+        });
         
         // Toggle Switch functionality
         const toggleOptions = document.querySelectorAll('.toggle-option');
