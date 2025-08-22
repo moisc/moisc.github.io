@@ -80,6 +80,93 @@
             opacity: 1;
             visibility: visible;
         }
+        
+        /* Mosaic Styles */
+        .mosaic-container {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .mosaic-item {
+            position: absolute;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: all 0.4s ease;
+            border: 4px solid white;
+        }
+        
+        .mosaic-item:hover {
+            transform: scale(1.05) rotate(2deg);
+            z-index: 10;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+        
+        .mosaic-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .mosaic-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Individual positioning */
+        .mosaic-item-1 {
+            width: 300px;
+            height: 180px;
+            top: 20px;
+            left: 50px;
+            transform: rotate(-5deg);
+        }
+        
+        .mosaic-item-2 {
+            width: 250px;
+            height: 200px;
+            top: 150px;
+            right: 80px;
+            transform: rotate(8deg);
+        }
+        
+        .mosaic-item-3 {
+            width: 280px;
+            height: 220px;
+            bottom: 40px;
+            left: 150px;
+            transform: rotate(3deg);
+        }
+        
+        @media (max-width: 768px) {
+            .mosaic-container {
+                height: 400px;
+            }
+            
+            .mosaic-item-1 {
+                width: 200px;
+                height: 120px;
+                top: 20px;
+                left: 20px;
+            }
+            
+            .mosaic-item-2 {
+                width: 180px;
+                height: 150px;
+                top: 120px;
+                right: 30px;
+            }
+            
+            .mosaic-item-3 {
+                width: 190px;
+                height: 160px;
+                bottom: 30px;
+                left: 50px;
+            }
+        }
     </style>
     
     <!-- Google tag (gtag.js) -->
@@ -161,6 +248,28 @@
                 <a href="/#experience" class="px-6 py-3 rounded-lg bg-white border border-gray-300 text-gray-700 font-medium hover:border-accent hover:text-accent transition-all duration-300">
                     Back to Portfolio
                 </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Photo Mosaic Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-sm uppercase tracking-wider text-accent font-semibold mb-2">Photo Gallery</h2>
+            <h3 class="text-3xl font-bold">Ben's Memories</h3>
+        </div>
+        
+        <div class="mosaic-container" data-aos="fade-up" data-aos-delay="200">
+            <div class="mosaic-item mosaic-item-1">
+                <img src="4F4D95CF-F8BA-4432-ABA1-FB3F456E3F92.JPG" alt="Ben with mascot">
+            </div>
+            
+            <div class="mosaic-item mosaic-item-2">
+                <img src="B2A620AC-7795-4896-BA4A-49FD6F1B51A5.JPG" alt="Ben at work">
+            </div>
+            
+            <div class="mosaic-item mosaic-item-3">
+                <img src="Screenshot_20190928-213246_Messages.jpg" alt="Ben with friend">
             </div>
         </div>
     </section>
