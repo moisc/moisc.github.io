@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goals & Life Management | Mois Cohen</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="/favicon.ico">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Personal goal tracking and gamification system for life management and productivity optimization.">
+    <meta name="keywords" content="goal tracking, life management, productivity, gamification, personal development">
+    <meta name="author" content="Mois Cohen">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Goals & Life Management | Mois Cohen">
+    <meta property="og:description" content="Personal goal tracking and gamification system for life management and productivity optimization.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moisc.github.io/goals">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#3B82F6">
+    
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- No external dependencies required -->
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F172A',
+                        secondary: '#475569',
+                        accent: '#3B82F6',
+                        light: '#F8FAFC',
+                        dark: '#0F172A'
+                    },
+                    darkMode: 'class',
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace']
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap');
+        
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            color: #0F172A;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        /* Dark mode styles */
+        .dark body {
+            background-color: #0F172A;
+            color: #F8FAFC;
+        }
+        
+        .dark .bg-white {
+            background-color: #1E293B !important;
+        }
+        
+        .dark .bg-gray-50 {
+            background-color: #1E293B !important;
+        }
+        
+        .dark .bg-gray-100 {
+            background-color: #334155 !important;
+        }
+        
+        .dark .text-gray-700 {
+            color: #CBD5E1 !important;
+        }
+        
+        .dark .text-gray-600 {
+            color: #94A3B8 !important;
+        }
+        
+        .dark .text-gray-800 {
+            color: #F1F5F9 !important;
+        }
+        
+        .dark .text-gray-500 {
+            color: #64748B !important;
+        }
+        
+        .dark .border-gray-200 {
+            border-color: #334155 !important;
+        }
+        
+        .dark .border-gray-300 {
+            border-color: #475569 !important;
+        }
+        
+        /* Theme toggle button */
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #E5E7EB;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .dark .theme-toggle {
+            border-color: #374151;
+            background: #1F2937;
+            color: #F9FAFB;
+        }
+        
+        .theme-toggle:hover {
+            border-color: #3B82F6;
+            transform: scale(1.1);
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .theme-toggle {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .stat-card {
+                padding: 1rem;
+            }
+            
+            /* Mobile touch targets */
+            button, .btn {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #3B82F6, #2563EB, #1D4ED8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #3B82F6, #1E40AF);
+        }
+        
+        .stat-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border: 2px solid #3B82F6;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: #3B82F6;
+            z-index: 1000;
+            transition: width 0.2s ease-out;
+        }
+        
+        /* Loading states */
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        
+        /* Modal styles */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+        
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+        
+        .dark .modal-content {
+            background: #1E293B;
+        }
+        
+        /* Achievement celebration */
+        .achievement-celebration {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            z-index: 1001;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: celebrationPop 0.6s ease-out;
+        }
+        
+        @keyframes celebrationPop {
+            0% {
+                transform: translate(-50%, -50%) scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+        }
+        
+        /* Quick action buttons */
+        .quick-actions {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            z-index: 100;
+        }
+        
+        .quick-action-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #3B82F6;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .quick-action-btn:hover {
+            background: #2563EB;
+            transform: scale(1.1);
+        }
+        
+        /* Dashboard grid layout */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .dashboard-widget {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .dashboard-widget:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark .dashboard-widget {
+            background: #1E293B;
+        }
+        
+        /* Calendar heat map */
+        .calendar-day {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+            display: inline-block;
+            margin: 1px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .calendar-day:hover {
+            transform: scale(1.2);
+        }
+        
+        .calendar-day.level-0 { background-color: #ebedf0; }
+        .calendar-day.level-1 { background-color: #9be9a8; }
+        .calendar-day.level-2 { background-color: #40c463; }
+        .calendar-day.level-3 { background-color: #30a14e; }
+        .calendar-day.level-4 { background-color: #216e39; }
+    </style>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="./manifest.json">
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(function(registration) {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function(err) {
+                        console.log('ServiceWorker registration failed');
+                    });
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="scrollProgress"></div>
+    
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 w-full bg-white bg-opacity-80 backdrop-blur-md z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <a href="/" class="text-xl font-bold text-primary">MC<span class="text-accent">.</span></a>
+                    <span class="ml-4 text-lg font-semibold text-accent">Goals</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                    <a href="#dashboard" class="text-gray-700 hover:text-accent transition-colors">Dashboard</a>
+                    <a href="#progress" class="text-gray-700 hover:text-accent transition-colors">Progress</a>
+                    <a href="#analytics" class="text-gray-700 hover:text-accent transition-colors">Analytics</a>
+                    <a href="#achievements" class="text-gray-700 hover:text-accent transition-colors">Achievements</a>
+                </nav>
+                
+                <!-- Theme Toggle -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button id="theme-toggle" class="theme-toggle" title="Toggle theme">
+                        <i class="fas fa-sun text-lg" id="theme-icon"></i>
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden py-4 border-t border-gray-200">
+                <div class="flex flex-col space-y-4 text-sm font-medium">
+                    <a href="#dashboard" class="text-gray-700 hover:text-accent">Dashboard</a>
+                    <a href="#progress" class="text-gray-700 hover:text-accent">Progress</a>
+                    <a href="#analytics" class="text-gray-700 hover:text-accent">Analytics</a>
+                    <a href="#achievements" class="text-gray-700 hover:text-accent">Achievements</a>
+                    <div class="flex items-center justify-center">
+                        <button id="mobile-theme-toggle" class="theme-toggle" title="Toggle theme">
+                            <i class="fas fa-sun text-lg" id="mobile-theme-icon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- No authentication modal needed -->
+
+    <!-- Main Content -->
+    <main class="pt-20">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="mb-8 text-center" data-aos="fade-up">
+                <h1 class="text-3xl font-bold mb-2">Life Management Dashboard</h1>
+                <p class="text-gray-600">Track your daily progress and achieve your goals</p>
+            </div>
+            
+            <!-- Quick Stats Row -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div id="today-score-widget" class="stat-card bg-white rounded-2xl p-6 shadow-sm" data-aos="fade-up">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-sm font-medium text-gray-500 mb-1">Today's Score</h3>
+                            <div class="text-3xl font-bold text-accent" id="today-score">0</div>
+                        </div>
+                        <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center">
+                            <i class="fas fa-target text-accent text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="streak-widget-small" class="stat-card bg-white rounded-2xl p-6 shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-sm font-medium text-gray-500 mb-1">Current Streak</h3>
+                            <div class="text-3xl font-bold text-green-500" id="current-streak">0</div>
+                        </div>
+                        <div class="w-12 h-12 rounded-lg bg-green-50 flex items-center justify-center">
+                            <i class="fas fa-fire text-green-500 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="level-widget" class="stat-card bg-white rounded-2xl p-6 shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-sm font-medium text-gray-500 mb-1">Current Level</h3>
+                            <div class="text-lg font-bold text-purple-500" id="current-level">Beginner</div>
+                        </div>
+                        <div class="w-12 h-12 rounded-lg bg-purple-50 flex items-center justify-center">
+                            <i class="fas fa-trophy text-purple-500 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="weekly-points-widget" class="stat-card bg-white rounded-2xl p-6 shadow-sm" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-sm font-medium text-gray-500 mb-1">Weekly Points</h3>
+                            <div class="text-3xl font-bold text-orange-500" id="weekly-points">0</div>
+                        </div>
+                        <div class="w-12 h-12 rounded-lg bg-orange-50 flex items-center justify-center">
+                            <i class="fas fa-calendar-week text-orange-500 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Dashboard Widgets -->
+            <div class="dashboard-grid">
+                <!-- Today's Progress Widget -->
+                <div id="today-widget" class="dashboard-widget" data-aos="fade-up">
+                    <!-- Content will be dynamically generated -->
+                </div>
+
+                <!-- Streak Display Widget -->
+                <div id="streak-widget" class="dashboard-widget" data-aos="fade-up" data-aos-delay="100">
+                    <!-- Content will be dynamically generated -->
+                </div>
+
+                <!-- Weekly Progress Widget -->
+                <div id="weekly-progress" class="dashboard-widget" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Content will be dynamically generated -->
+                </div>
+
+                <!-- Monthly Calendar Widget -->
+                <div id="monthly-calendar" class="dashboard-widget" data-aos="fade-up" data-aos-delay="300">
+                    <!-- Content will be dynamically generated -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Analytics Section -->
+        <section id="analytics" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50">
+            <div class="mb-12 text-center" data-aos="fade-up">
+                <h2 class="text-sm uppercase tracking-wider text-accent font-semibold mb-2">Performance</h2>
+                <h3 class="text-3xl font-bold">Analytics & Insights</h3>
+            </div>
+
+            <div id="analytics-widget" data-aos="fade-up">
+                <!-- Content will be dynamically generated -->
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="mb-12 text-center" data-aos="fade-up">
+                <h2 class="text-sm uppercase tracking-wider text-accent font-semibold mb-2">Recognition</h2>
+                <h3 class="text-3xl font-bold">Achievements & Rewards</h3>
+            </div>
+
+            <div id="achievements-widget" data-aos="fade-up">
+                <!-- Content will be dynamically generated -->
+            </div>
+        </section>
+
+        <!-- Insights Section -->
+        <section id="insights" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50">
+            <div class="mb-12 text-center" data-aos="fade-up">
+                <h2 class="text-sm uppercase tracking-wider text-accent font-semibold mb-2">Intelligence</h2>
+                <h3 class="text-3xl font-bold">Insights & Recommendations</h3>
+            </div>
+
+            <div id="insights-widget" data-aos="fade-up">
+                <!-- Content will be dynamically generated -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Quick Action Buttons -->
+    <div class="quick-actions">
+        <button id="quick-entry-fab" class="quick-action-btn" title="Quick Daily Entry">
+            <i class="fas fa-plus"></i>
+        </button>
+        <button id="export-data-fab" class="quick-action-btn" title="Export Data">
+            <i class="fas fa-download"></i>
+        </button>
+    </div>
+
+    <!-- Daily Entry Modal -->
+    <div id="daily-entry-modal" class="modal">
+        <div class="modal-content" style="max-width: 600px;">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold">Daily Entry</h2>
+                <button id="entry-modal-close" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <form id="daily-entry-form" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Date</label>
+                        <input type="date" id="entry-date" required
+                               class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-accent focus:border-accent">
+                    </div>
+                </div>
+
+                <!-- Sleep Foundation (30 points) -->
+                <div class="border border-gray-200 rounded-lg p-4">
+                    <h3 class="text-lg font-semibold mb-4 text-blue-600">
+                        <i class="fas fa-bed mr-2"></i>Sleep Foundation (30 pts)
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Bedtime</label>
+                            <input type="time" id="bedtime"
+                                   class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-accent focus:border-accent">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Wake Time</label>
+                            <input type="time" id="wakeup-time"
+                                   class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-accent focus:border-accent">
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <label class="flex items-center">
+                            <input type="checkbox" id="phone-avoidance" 
+                                   class="rounded border-gray-300 text-accent focus:ring-accent">
+                            <span class="ml-2 text-sm">No phone first 30 minutes after waking</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Priority Execution (40 points) -->
+                <div class="border border-gray-200 rounded-lg p-4">
+                    <h3 class="text-lg font-semibold mb-4 text-green-600">
+                        <i class="fas fa-target mr-2"></i>Priority Execution (40 pts)
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="flex items-center mb-2">
+                                <input type="checkbox" id="morning-priority-block"
+                                       class="rounded border-gray-300 text-accent focus:ring-accent">
+                                <span class="ml-2 text-sm font-medium">8:00-10:30 AM Priority 1 Block Completed</span>
+                            </label>
+                            <div class="ml-6">
+                                <label class="block text-sm text-gray-600 mb-1">Completion %</label>
+                                <input type="range" id="morning-completion" min="0" max="100" value="0"
+                                       class="w-full accent-blue-600">
+                                <span id="morning-completion-value" class="text-sm text-gray-500">0%</span>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="flex items-center mb-2">
+                                <input type="checkbox" id="evening-energy-block"
+                                       class="rounded border-gray-300 text-accent focus:ring-accent">
+                                <span class="ml-2 text-sm font-medium">8:00-10:00 PM Evening Energy Block</span>
+                            </label>
+                            <div class="ml-6">
+                                <label class="block text-sm text-gray-600 mb-1">Completion %</label>
+                                <input type="range" id="evening-completion" min="0" max="100" value="0"
+                                       class="w-full accent-blue-600">
+                                <span id="evening-completion-value" class="text-sm text-gray-500">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Discipline Systems (30 points) -->
+                <div class="border border-gray-200 rounded-lg p-4">
+                    <h3 class="text-lg font-semibold mb-4 text-purple-600">
+                        <i class="fas fa-shield-alt mr-2"></i>Discipline Systems (30 pts)
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Phone Violations During Work Blocks</label>
+                            <input type="number" id="phone-violations" min="0" value="0"
+                                   class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-accent focus:border-accent">
+                        </div>
+                        
+                        <div>
+                            <label class="flex items-center">
+                                <input type="checkbox" id="energy-management"
+                                       class="rounded border-gray-300 text-accent focus:ring-accent">
+                                <span class="ml-2 text-sm">Followed afternoon energy management plan</span>
+                            </label>
+                        </div>
+                        
+                        <div>
+                            <label class="flex items-center">
+                                <input type="checkbox" id="wind-down-routine"
+                                       class="rounded border-gray-300 text-accent focus:ring-accent">
+                                <span class="ml-2 text-sm">Completed evening wind-down routine</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Priority 1 Tracking -->
+                <div class="border border-gray-200 rounded-lg p-4">
+                    <h3 class="text-lg font-semibold mb-4 text-indigo-600">
+                        <i class="fas fa-clipboard-list mr-2"></i>Priority 1 Accomplishments
+                    </h3>
+                    
+                    <div class="space-y-3">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Job Applications Sent</label>
+                            <input type="number" id="job-applications" min="0" value="0"
+                                   class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-accent focus:border-accent">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Interviews/Business Meetings</label>
+                            <input type="number" id="interviews" min="0" value="0"
+                                   class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-accent focus:border-accent">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Portfolio/Project Work (hours)</label>
+                            <input type="number" id="portfolio-work" min="0" step="0.5" value="0"
+                                   class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-accent focus:border-accent">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notes -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Notes & Reflections</label>
+                    <textarea id="daily-notes" rows="3" 
+                              class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-accent focus:border-accent resize-none"
+                              placeholder="How did today go? Any insights or improvements for tomorrow?"></textarea>
+                </div>
+
+                <div class="flex justify-end space-x-3">
+                    <button type="button" id="entry-cancel-btn" 
+                            class="px-6 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50">
+                        Cancel
+                    </button>
+                    <button type="submit" id="entry-save-btn"
+                            class="px-6 py-2 rounded-lg gradient-bg text-white font-medium hover:shadow-lg transition-all duration-300">
+                        Save Entry
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 sm:px-6 lg:px-8 bg-gray-100">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="mb-4">
+                <span class="text-xl font-bold text-primary">Goal Tracker<span class="text-accent">.</span></span>
+                <p class="text-gray-600 text-sm mt-1">Personal Life Management System</p>
+            </div>
+            
+            <div class="border-t border-gray-200 pt-6 text-sm text-gray-500">
+                <p>© 2025 Mois Cohen. Built with dedication to personal growth.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Application Scripts -->
+    <script src="./assets/js/goals-app-standalone.js"></script>
+</body>
+</html>
