@@ -26,8 +26,10 @@ app.use('/api', limiter);
 
 // CORS configuration
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://moisc.github.io', 'https://moiscohen.com'],
-  credentials: true
+  origin: ['http://localhost:3000', 'https://moisc.github.io', 'https://moiscohen.com', 'https://moiscgithubio-production.up.railway.app'],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 // Body parser middleware
