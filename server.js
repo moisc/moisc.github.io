@@ -3,13 +3,15 @@ const cors = require('cors');
 const stripe = require('stripe');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
+const { Resend } = require('resend');
 require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Initialize Stripe
+// Initialize Stripe and Resend
 const stripeClient = stripe(process.env.STRIPE_SECRET_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Security middleware
 app.use(helmet({
@@ -54,11 +56,34 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
       const session = event.data.object;
       console.log('Payment was successful:', session.id);
       
-      // Here you could:
-      // - Update inventory
-      // - Send confirmation email
-      // - Update order status in database
-      // - Trigger fulfillment process
+      // Get detailed session information
+      try {
+        const detailedSession = await stripeClient.checkout.sessions.retrieve(session.id, {
+          expand: ['line_items', 'customer_details']
+        });
+        
+        const orderDetails = {
+          sessionId: session.id,
+          amount: session.amount_total,
+          customerEmail: session.customer_details?.email || session.customer_email,
+          customerName: session.customer_details?.name,
+          shipping: session.shipping_details,
+          items: detailedSession.line_items?.data?.map(item => ({
+            description: item.description,
+            quantity: item.quantity,
+            amount: item.amount_total
+          })) || []
+        };
+        
+        // Send emails
+        await Promise.all([
+          sendOwnerNotification(orderDetails),
+          sendCustomerReceipt(orderDetails)
+        ]);
+        
+      } catch (error) {
+        console.error('Error processing successful payment:', error);
+      }
       
       break;
     case 'payment_intent.payment_failed':
@@ -71,6 +96,109 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
 
   res.json({ received: true });
 });
+
+// Email sending functions
+async function sendOwnerNotification(orderDetails) {
+  try {
+    const { data, error } = await resend.emails.send({
+      from: 'shop@moiscohen.com',
+      to: process.env.OWNER_EMAIL || 'mois.cohen787@gmail.com',
+      subject: `New Order Received - $${(orderDetails.amount / 100).toFixed(2)}`,
+      html: `
+        <h2>🛒 New Order Received!</h2>
+        <p><strong>Order ID:</strong> ${orderDetails.sessionId}</p>
+        <p><strong>Amount:</strong> $${(orderDetails.amount / 100).toFixed(2)}</p>
+        <p><strong>Customer Email:</strong> ${orderDetails.customerEmail}</p>
+        <p><strong>Customer Name:</strong> ${orderDetails.customerName || 'Not provided'}</p>
+        
+        <h3>Items:</h3>
+        <ul>
+          ${orderDetails.items.map(item => `
+            <li>${item.description} - Quantity: ${item.quantity} - $${(item.amount / 100).toFixed(2)}</li>
+          `).join('')}
+        </ul>
+        
+        <p><strong>Shipping Address:</strong><br>
+        ${orderDetails.shipping ? `
+          ${orderDetails.shipping.name}<br>
+          ${orderDetails.shipping.address.line1}<br>
+          ${orderDetails.shipping.address.line2 ? orderDetails.shipping.address.line2 + '<br>' : ''}
+          ${orderDetails.shipping.address.city}, ${orderDetails.shipping.address.state} ${orderDetails.shipping.address.postal_code}<br>
+          ${orderDetails.shipping.address.country}
+        ` : 'No shipping address provided'}
+        </p>
+        
+        <p><em>Login to your <a href="https://dashboard.stripe.com">Stripe Dashboard</a> for full details.</em></p>
+      `,
+    });
+
+    if (error) {
+      console.error('Error sending owner notification:', error);
+    } else {
+      console.log('Owner notification sent successfully:', data.id);
+    }
+  } catch (error) {
+    console.error('Error sending owner notification:', error);
+  }
+}
+
+async function sendCustomerReceipt(orderDetails) {
+  try {
+    const { data, error } = await resend.emails.send({
+      from: 'shop@moiscohen.com',
+      to: orderDetails.customerEmail,
+      subject: `Order Confirmation - Thank You for Your Purchase!`,
+      html: `
+        <h2>Thank You for Your Order! 🎉</h2>
+        <p>Hi ${orderDetails.customerName || 'there'},</p>
+        <p>Your order has been successfully processed. Here are your order details:</p>
+        
+        <h3>Order Summary</h3>
+        <p><strong>Order ID:</strong> ${orderDetails.sessionId}</p>
+        <p><strong>Total:</strong> $${(orderDetails.amount / 100).toFixed(2)}</p>
+        
+        <h3>Items Ordered:</h3>
+        <ul>
+          ${orderDetails.items.map(item => `
+            <li>${item.description} - Quantity: ${item.quantity} - $${(item.amount / 100).toFixed(2)}</li>
+          `).join('')}
+        </ul>
+        
+        ${orderDetails.shipping ? `
+          <h3>Shipping Address:</h3>
+          <p>
+            ${orderDetails.shipping.name}<br>
+            ${orderDetails.shipping.address.line1}<br>
+            ${orderDetails.shipping.address.line2 ? orderDetails.shipping.address.line2 + '<br>' : ''}
+            ${orderDetails.shipping.address.city}, ${orderDetails.shipping.address.state} ${orderDetails.shipping.address.postal_code}<br>
+            ${orderDetails.shipping.address.country}
+          </p>
+        ` : ''}
+        
+        <h3>What's Next?</h3>
+        <p>✅ Your order is being processed<br>
+        📦 We'll send tracking information once shipped<br>
+        📧 Questions? Reply to this email</p>
+        
+        <p>Thank you for your business!</p>
+        <p>Best regards,<br>Mois Cohen</p>
+        
+        <hr>
+        <p style="font-size: 12px; color: #666;">
+          This is an automated email. If you have any questions, please contact us at mois.cohen787@gmail.com
+        </p>
+      `,
+    });
+
+    if (error) {
+      console.error('Error sending customer receipt:', error);
+    } else {
+      console.log('Customer receipt sent successfully:', data.id);
+    }
+  } catch (error) {
+    console.error('Error sending customer receipt:', error);
+  }
+}
 
 // Product catalog
 const PRODUCTS = {
