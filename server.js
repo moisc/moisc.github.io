@@ -6,7 +6,7 @@ const rateLimit = require('express-rate-limit');
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 
 // Initialize Stripe
 const stripeClient = stripe(process.env.STRIPE_SECRET_KEY);
