@@ -116,9 +116,14 @@ app.get('/api/products/:id', (req, res) => {
 
 app.post('/api/create-checkout-session', async (req, res) => {
   try {
+    console.log('Checkout request received:', req.body);
+    console.log('Stripe client configured:', !!stripeClient);
+    console.log('Environment check - SECRET_KEY exists:', !!process.env.STRIPE_SECRET_KEY);
+    
     const { items } = req.body;
 
     if (!items || !Array.isArray(items) || items.length === 0) {
+      console.error('Invalid items array:', items);
       return res.status(400).json({
         success: false,
         error: 'Invalid items array'
@@ -195,9 +200,16 @@ app.post('/api/create-checkout-session', async (req, res) => {
 
   } catch (error) {
     console.error('Error creating checkout session:', error);
+    console.error('Error details:', {
+      message: error.message,
+      type: error.type,
+      code: error.code,
+      statusCode: error.statusCode
+    });
     res.status(500).json({
       success: false,
-      error: 'Failed to create checkout session'
+      error: 'Failed to create checkout session',
+      details: error.message
     });
   }
 });
@@ -247,7 +259,9 @@ app.use((error, req, res, next) => {
 app.listen(port, '0.0.0.0', () => {
   console.log(`Server running at http://0.0.0.0:${port}`);
   console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
-  console.log(`Stripe keys configured: ${process.env.STRIPE_SECRET_KEY ? 'Yes' : 'No'}`);
+  console.log(`Stripe SECRET_KEY configured: ${process.env.STRIPE_SECRET_KEY ? 'Yes (starts with ' + process.env.STRIPE_SECRET_KEY.substring(0, 7) + ')' : 'No'}`);
+  console.log(`Stripe PUBLISHABLE_KEY configured: ${process.env.STRIPE_PUBLISHABLE_KEY ? 'Yes' : 'No'}`);
+  console.log(`DOMAIN configured: ${process.env.DOMAIN || 'Not set'}`);
 });
 
 module.exports = app;
