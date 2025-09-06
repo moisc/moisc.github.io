@@ -242,9 +242,10 @@ app.use((error, req, res, next) => {
 });
 
 // Start server
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Server running at http://0.0.0.0:${port}`);
   console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`Stripe keys configured: ${process.env.STRIPE_SECRET_KEY ? 'Yes' : 'No'}`);
 });
 
 module.exports = app;
