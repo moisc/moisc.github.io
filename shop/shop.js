@@ -5,7 +5,7 @@ class ShopManager {
         this.selectedSize = null;
         this.stripe = null;
         this.apiBase = window.location.hostname === 'localhost' ? 
-            'http://localhost:3000' : 'https://moisc.github.io';
+            'http://localhost:3000' : 'https://moiscgithubio-production.up.railway.app';
         
         this.initStripe();
         this.initEventListeners();
