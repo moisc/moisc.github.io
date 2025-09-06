@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation | Mois Cohen</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="/favicon.ico">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Thank you for your order! Your purchase has been successfully processed.">
+    <meta name="robots" content="noindex, follow">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#3B82F6">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F172A',
+                        secondary: '#475569',
+                        accent: '#3B82F6',
+                        light: '#F8FAFC',
+                        dark: '#0F172A'
+                    },
+                    darkMode: 'class',
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace']
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            color: #0F172A;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #3B82F6, #1E40AF);
+        }
+        
+        .success-icon {
+            animation: scaleUp 0.6s ease-out;
+        }
+        
+        @keyframes scaleUp {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 w-full bg-white bg-opacity-80 backdrop-blur-md z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <a href="/" class="text-xl font-bold text-primary">MC<span class="text-accent">.</span></a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                    <a href="/#about" class="text-gray-700 hover:text-accent transition-colors">About</a>
+                    <a href="/#experience" class="text-gray-700 hover:text-accent transition-colors">Experience</a>
+                    <a href="/#skills" class="text-gray-700 hover:text-accent transition-colors">Skills</a>
+                    <a href="/#contact" class="text-gray-700 hover:text-accent transition-colors">Contact</a>
+                    <a href="/shop" class="text-gray-700 hover:text-accent transition-colors">Shop</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Success Content -->
+    <main class="min-h-screen flex items-center justify-center px-4 pt-20">
+        <div class="max-w-2xl mx-auto text-center">
+            <!-- Success Icon -->
+            <div class="success-icon mb-8">
+                <div class="w-24 h-24 mx-auto bg-green-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-check text-4xl text-green-600"></i>
+                </div>
+            </div>
+            
+            <!-- Success Message -->
+            <div class="fade-in">
+                <h1 class="text-4xl sm:text-5xl font-bold mb-6">Order Confirmed!</h1>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    Thank you for your purchase! Your order has been successfully processed and you'll receive a confirmation email shortly.
+                </p>
+                
+                <!-- Order Details -->
+                <div id="order-details" class="bg-white rounded-2xl p-6 shadow-sm mb-8 text-left">
+                    <h2 class="text-xl font-semibold mb-4">Order Summary</h2>
+                    <div id="order-info" class="space-y-2 text-sm text-gray-600">
+                        <div class="flex justify-between">
+                            <span>Order ID:</span>
+                            <span id="order-id" class="font-medium">Loading...</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Email:</span>
+                            <span id="customer-email" class="font-medium">Loading...</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Total:</span>
+                            <span id="order-total" class="font-medium text-accent">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- What's Next -->
+                <div class="bg-blue-50 rounded-2xl p-6 mb-8 text-left">
+                    <h3 class="text-lg font-semibold mb-3 text-accent">What happens next?</h3>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-accent text-white flex items-center justify-center text-xs font-semibold mt-0.5">1</div>
+                            <div>
+                                <strong>Order Processing:</strong> We'll prepare your order within 1-2 business days.
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-accent text-white flex items-center justify-center text-xs font-semibold mt-0.5">2</div>
+                            <div>
+                                <strong>Shipping:</strong> Your order will be shipped via standard shipping (3-5 business days).
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-accent text-white flex items-center justify-center text-xs font-semibold mt-0.5">3</div>
+                            <div>
+                                <strong>Tracking:</strong> You'll receive tracking information once your order ships.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="/shop" class="px-8 py-3 gradient-bg text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300">
+                        Continue Shopping
+                    </a>
+                    <a href="/" class="px-8 py-3 bg-white border border-gray-300 text-gray-700 font-semibold rounded-lg hover:border-accent hover:text-accent transition-all duration-300">
+                        Back to Home
+                    </a>
+                </div>
+                
+                <!-- Contact Support -->
+                <div class="mt-12 text-sm text-gray-500">
+                    <p class="mb-2">Need help with your order?</p>
+                    <a href="mailto:mois.cohen787@gmail.com" class="text-accent hover:underline">
+                        Contact Support
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Clear cart after successful purchase
+        localStorage.removeItem('moiscohen_cart');
+        
+        // Extract session ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const sessionId = urlParams.get('session_id');
+        
+        if (sessionId) {
+            // Fetch order details
+            fetchOrderDetails(sessionId);
+        } else {
+            // Show generic success message
+            document.getElementById('order-info').innerHTML = `
+                <div class="text-center py-4">
+                    <p class="text-gray-600">Order details will be sent to your email.</p>
+                </div>
+            `;
+        }
+        
+        async function fetchOrderDetails(sessionId) {
+            try {
+                const apiBase = window.location.hostname === 'localhost' ? 
+                    'http://localhost:3000' : 'https://moisc.github.io';
+                    
+                const response = await fetch(`${apiBase}/api/session/${sessionId}`);
+                
+                if (response.ok) {
+                    const { session } = await response.json();
+                    
+                    document.getElementById('order-id').textContent = session.id;
+                    document.getElementById('customer-email').textContent = session.customer_email || 'Not provided';
+                    document.getElementById('order-total').textContent = `$${(session.amount_total / 100).toFixed(2)}`;
+                } else {
+                    throw new Error('Failed to fetch order details');
+                }
+            } catch (error) {
+                console.error('Error fetching order details:', error);
+                document.getElementById('order-info').innerHTML = `
+                    <div class="text-center py-4">
+                        <p class="text-gray-600">Order details will be sent to your email.</p>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
