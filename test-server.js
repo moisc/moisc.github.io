@@ -1,7 +1,7 @@
 // Minimal test server for Railway debugging
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
 console.log('Starting test server...');
 console.log('Port:', port);
