@@ -156,13 +156,16 @@ app.post('/api/create-checkout-session', async (req, res) => {
         break;
       }
 
+      console.log('Adding line item for product:', product.name, 'Size:', item.size, 'Qty:', item.quantity);
+      
       lineItems.push({
         price_data: {
           currency: product.currency,
           product_data: {
             name: `${product.name} (${item.size})`,
             description: product.description,
-            images: product.images,
+            // Remove images for now to avoid URL issues
+            // images: product.images,
           },
           unit_amount: product.price,
         },
@@ -177,6 +180,10 @@ app.post('/api/create-checkout-session', async (req, res) => {
       });
     }
 
+    console.log('Creating Stripe session with line items:', JSON.stringify(lineItems, null, 2));
+    console.log('Success URL:', `${process.env.DOMAIN}/success.html?session_id={CHECKOUT_SESSION_ID}`);
+    console.log('Cancel URL:', `${process.env.DOMAIN}/cancel.html`);
+    
     const session = await stripeClient.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: lineItems,
@@ -187,9 +194,6 @@ app.post('/api/create-checkout-session', async (req, res) => {
         allowed_countries: ['US', 'CA'],
       },
       billing_address_collection: 'required',
-      phone_number_collection: {
-        enabled: true,
-      },
     });
 
     res.json({
