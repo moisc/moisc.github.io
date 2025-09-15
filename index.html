@@ -3,1252 +3,255 @@ layout: default
 title: "Home"
 description: "Mechanical Engineer with expertise in CAD/FEA, thermal systems, and engineering design. B.S. from Cal Poly SLO with experience in aerospace, solar, and mechanical systems."
 ---
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0F172A',
-                        secondary: '#475569',
-                        accent: '#3B82F6',
-                        light: '#F8FAFC',
-                        dark: '#0F172A'
-                    },
-                    darkMode: 'class',
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['Fira Code', 'monospace']
-                    },
-                }
-            }
-        }
-    </script>
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap');
-        
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 80px;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F8FAFC;
-            color: #0F172A;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        
-        /* Dark mode styles */
-        .dark body {
-            background-color: #0F172A;
-            color: #F8FAFC;
-        }
-        
-        .dark .bg-white {
-            background-color: #1E293B !important;
-        }
-        
-        .dark .bg-gray-50 {
-            background-color: #1E293B !important;
-        }
-        
-        .dark .bg-gray-100 {
-            background-color: #334155 !important;
-        }
-        
-        .dark .text-gray-700 {
-            color: #CBD5E1 !important;
-        }
-        
-        .dark .text-gray-600 {
-            color: #94A3B8 !important;
-        }
-        
-        .dark .text-gray-800 {
-            color: #F1F5F9 !important;
-        }
-        
-        .dark .text-gray-500 {
-            color: #64748B !important;
-        }
-        
-        .dark .border-gray-200 {
-            border-color: #334155 !important;
-        }
-        
-        .dark .border-gray-300 {
-            border-color: #475569 !important;
-        }
-        
-        .dark .shadow-sm {
-            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3) !important;
-        }
-        
-        .dark .shadow-md {
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3) !important;
-        }
-        
-        .dark .bg-opacity-80 {
-            background-color: rgba(15, 23, 42, 0.8) !important;
-        }
-        
-        .dark .bg-blue-50 {
-            background-color: rgba(59, 130, 246, 0.1) !important;
-        }
-        
-        /* Theme toggle button */
-        .theme-toggle {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 2px solid #E5E7EB;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .dark .theme-toggle {
-            border-color: #374151;
-            background: #1F2937;
-            color: #F9FAFB;
-        }
-        
-        .theme-toggle:hover {
-            border-color: #3B82F6;
-            transform: scale(1.1);
-        }
-        
-        /* Mobile optimizations */
-        @media (max-width: 768px) {
-            .theme-toggle {
-                width: 36px;
-                height: 36px;
-            }
-            
-            .toggle-container {
-                flex-direction: row;
-                padding: 4px;
-                width: 100%;
-                max-width: 350px;
-                margin: 0 auto;
-            }
-            
-            .toggle-option {
-                padding: 10px 12px;
-                font-size: 13px;
-                text-align: center;
-                width: 50%;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-            
-            .toggle-slider {
-                width: 50%;
-            }
-            
-            .experience-card {
-                margin-bottom: 1rem;
-            }
-            
-            .gallery-container {
-                -webkit-overflow-scrolling: touch;
-            }
-            
-            /* Fix mobile spacing */
-            .pt-32 {
-                padding-top: 6rem;
-            }
-            
-            .pb-20 {
-                padding-bottom: 4rem;
-            }
-            
-            /* Improve mobile typography */
-            h1, h2, h3 {
-                word-wrap: break-word;
-            }
-            
-            /* Better mobile cards */
-            .experience-card, .project-card {
-                margin-left: 0;
-                margin-right: 0;
-                border: 1px solid #E5E7EB;
-            }
-            
-            .experience-card:hover, .project-card:hover {
-                border: 1px solid #3B82F6;
-            }
-            
-            /* Mobile hero section */
-            .hero-mobile {
-                text-align: center;
-                padding-top: 1.5rem;
-                padding-bottom: 1rem;
-            }
-            
-            /* Mobile image sizing */
-            .mobile-image-container {
-                max-width: 280px;
-                margin: 0 auto 2rem auto;
-            }
-            
-            /* Fix mobile borders and shadows */
-            .shadow-sm {
-                box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-            }
-            
-            .bg-white {
-                border: 1px solid #F1F5F9;
-            }
-            
-            /* Mobile footer fix */
-            footer {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-            
-            /* Better mobile touch targets */
-            a, button {
-                min-height: 44px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            
-            /* Mobile navigation improvements */
-            #mobile-menu a {
-                padding: 12px 0;
-                min-height: 48px;
-            }
-        }
-        
-        .gradient-text {
-            background: linear-gradient(90deg, #3B82F6, #2563EB, #1D4ED8);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: inline-block;
-        }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, #3B82F6, #1E40AF);
-        }
-        
-        .experience-card {
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-        
-        .experience-card:hover {
-            transform: translateY(-5px);
-            border: 2px solid #3B82F6;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
-        .skill-pill {
-            transition: all 0.3s ease;
-        }
-        
-        .skill-pill:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            background: #3B82F6;
-            z-index: 1000;
-            transition: width 0.2s ease-out;
-        }
 
-        /* Toggle Switch Styles */
-        .toggle-container {
-            display: inline-flex;
-            background: #F1F5F9;
-            border-radius: 50px;
-            padding: 4px;
-            position: relative;
-        }
-        
-        .toggle-option {
-            padding: 12px 32px;
-            font-size: 16px;
-            font-weight: 500;
-            color: #64748B;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-radius: 50px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .toggle-option.active {
-            color: white;
-        }
-        
-        .toggle-slider {
-            position: absolute;
-            background: #3B82F6;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            z-index: 1;
-            box-shadow: 0 2px 10px rgba(59, 130, 246, 0.5);
-        }
-        
-        /* Project card styles */
-        .project-card {
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: 2px solid transparent;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-            border: 2px solid #3B82F6;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
-        .project-thumbnail {
-            height: 200px;
-            object-fit: cover;
-        }
-        
-        /* Animated cursor */
-        .cursor {
-            display: inline-block;
-            width: 2px;
-            height: 1.2em;
-            background-color: currentColor;
-            margin-left: 2px;
-            animation: blink 1s step-end infinite;
-        }
-        
-        @keyframes blink {
-            from, to { opacity: 1; }
-            50% { opacity: 0; }
-        }
-        
-        /* Project image gallery */
-        .gallery-container {
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-        }
-        
-        .gallery-container::-webkit-scrollbar {
-            display: none;
-        }
-        
-        .gallery-item {
-            scroll-snap-align: start;
-        }
-    </style>
+{% include hero.html %}
+{% include experience.html %}
+{% include projects.html %}
 
-    <!-- Add this Google Analytics code in the head section, before the closing </head> tag -->
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-J8BERH7V4E"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-J8BERH7V4E');
-</script>
-    
-</head>
-
-<body>
-    <!-- Progress Bar -->
-    <div class="progress-bar" id="scrollProgress"></div>
-    
-    <!-- Navigation -->
-    <header class="fixed top-0 left-0 w-full bg-white bg-opacity-80 backdrop-blur-md z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center">
-                    <span class="text-xl font-bold text-primary">MC<span class="text-accent">.</span></span>
-                </div>
-                
-                <!-- Desktop Navigation -->
-                <nav class="hidden md:flex space-x-8 text-sm font-medium">
-                    <a href="#about" class="text-gray-700 hover:text-accent transition-colors">About</a>
-                    <a href="#experience" class="text-gray-700 hover:text-accent transition-colors">Experience</a>
-                    <a href="#skills" class="text-gray-700 hover:text-accent transition-colors">Skills</a>
-                    <a href="#achievements" class="text-gray-700 hover:text-accent transition-colors">Achievements</a>
-                    <a href="#contact" class="text-gray-700 hover:text-accent transition-colors">Contact</a>
-                </nav>
-                
-                <!-- Theme Toggle & Resume Button -->
-                <div class="hidden md:flex items-center space-x-4">
-                    <button id="theme-toggle" class="theme-toggle" title="Toggle theme">
-                        <i class="fas fa-sun text-lg" id="theme-icon"></i>
-                    </button>
-                    <a href="https://raw.githubusercontent.com/moisc/moisc.github.io/main/Mois Cohen Resume 6.10.25.pdf" 
-                       class="px-4 py-2 rounded-full text-sm font-medium text-accent border border-accent hover:bg-accent hover:text-white transition-colors duration-300"
-                       download="Mois Cohen Resume 6.10.25.pdf">
-                        Download CV
-                    </a>
-                </div>
-                
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="md:hidden text-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
-            </div>
-            
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden py-4 border-t border-gray-200">
-                <div class="flex flex-col space-y-4 text-sm font-medium">
-                    <a href="#about" class="text-gray-700 hover:text-accent">About</a>
-                    <a href="#experience" class="text-gray-700 hover:text-accent">Experience</a>
-                    <a href="#skills" class="text-gray-700 hover:text-accent">Skills</a>
-                    <a href="#achievements" class="text-gray-700 hover:text-accent">Achievements</a>
-                    <a href="#contact" class="text-gray-700 hover:text-accent">Contact</a>
-                    <div class="flex items-center justify-between">
-                        <button id="mobile-theme-toggle" class="theme-toggle" title="Toggle theme">
-                            <i class="fas fa-sun text-lg" id="mobile-theme-icon"></i>
-                        </button>
-                        <a href="https://raw.githubusercontent.com/moisc/moisc.github.io/main/Mois Cohen Resume 6.10.25.pdf" 
-                           class="text-accent font-medium"
-                           download="Mois Cohen Resume 6.10.25.pdf">
-                            Download CV
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    
-    <!-- Hero Section -->
-    <section id="about" class="pt-24 md:pt-32 pb-16 md:pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
-            <!-- Content Column -->
-            <div class="md:col-span-7 text-center md:text-left" data-aos="fade-right">
-                <h2 class="text-sm uppercase tracking-wider text-accent font-semibold mb-2">MECHANICAL ENGINEER</h2>
-                <div class="mb-6">
-                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold">Hello, I'm</h1>
-                    <div class="text-3xl sm:text-4xl md:text-5xl font-bold" style="min-height: 50px; line-height: 1.2;">
-                        <span style="position: relative;">
-                            <span id="typing-text" class="gradient-text"></span>
-                            <span class="cursor" style="position: relative; display: inline-block; top: 0; margin-left: 2px;"></span>
-                        </span>
-                    </div>
-                </div>
-                <p class="text-base md:text-lg text-gray-700 mb-6 md:mb-8 leading-relaxed">
-                    B.S. in Mechanical Engineering from California Polytechnic State University, San Luis Obispo.<br class="hidden sm:block">
-                    <span class="block mt-2 sm:inline sm:mt-0"><strong>Coursework:</strong> Fluid Mechanics & Aerodynamics • Advanced CAD/FEA • Heat Transfer & Thermal Systems • Mechanical System Design • Control Systems • Mechanical Vibrations</span>
-                </p>
-                <div class="flex flex-col sm:flex-row gap-3 md:gap-4 mb-6 md:mb-8">
-                    <a href="mailto:mois.cohen787@gmail.com" class="flex items-center space-x-2 text-sm text-gray-700 hover:text-accent transition-colors justify-center md:justify-start">
-                        <i class="fas fa-envelope"></i>
-                        <span class="break-all sm:break-normal">mois.cohen787@gmail.com</span>
-                    </a>
-                    <a href="tel:8586689347" class="flex items-center space-x-2 text-sm text-gray-700 hover:text-accent transition-colors justify-center md:justify-start">
-                        <i class="fas fa-phone"></i>
-                        <span>(858) 668-9347</span>
-                    </a>
-                </div>
-                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                    <a href="https://raw.githubusercontent.com/moisc/moisc.github.io/main/Mois Cohen Resume 6.10.25.pdf" 
-                       class="px-6 py-3 rounded-lg gradient-bg text-white font-medium hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 text-center w-full sm:w-auto"
-                       download="Mois Cohen Resume 6.10.25.pdf">
-                        <i class="fas fa-download"></i>
-                        <span>Download Resume</span>
-                    </a>
-                    <a href="#contact" class="px-6 py-3 rounded-lg bg-white border border-gray-300 text-gray-700 font-medium hover:border-accent hover:text-accent transition-all duration-300 text-center w-full sm:w-auto">
-                        Contact Me
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Image Column -->
-            <div class="md:col-span-5 order-first md:order-last mb-8 md:mb-0" data-aos="fade-left">
-                <div class="relative mobile-image-container md:max-w-md md:mx-auto">
-                    <!-- Decorative background elements -->
-                    <div class="absolute -top-6 -right-6 md:-top-10 md:-right-10 w-32 h-32 md:w-64 md:h-64 bg-blue-100 rounded-full opacity-50 blur-3xl"></div>
-                    <div class="absolute -bottom-6 -left-6 md:-bottom-10 md:-left-10 w-24 h-24 md:w-48 md:h-48 bg-blue-200 rounded-full opacity-50 blur-3xl"></div>
-                    
-                    <!-- Profile Image -->
-                    <div class="relative z-10 overflow-hidden rounded-2xl shadow-xl aspect-square">
-                        <img src="../unnamed (22).jpg" alt="Mois Cohen" class="w-full h-full object-cover">
-                    </div>
-                    
-                    <!-- Decorative elements -->
-                    <div class="absolute -top-2 -left-2 md:-top-4 md:-left-4 w-16 h-16 md:w-24 md:h-24 border-4 md:border-8 border-blue-100 rounded-xl z-0"></div>
-                    <div class="absolute -bottom-2 -right-2 md:-bottom-4 md:-right-4 w-20 h-20 md:w-32 md:h-32 border-4 md:border-8 border-blue-100 rounded-full z-0"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Experience & Projects Section -->
-    <section id="experience" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="mb-12 text-center" data-aos="fade-up">
-            <!-- Toggle Switch -->
-            <div class="toggle-container" id="sectionToggle">
-                <div class="toggle-option active" data-section="experience">Professional Experience</div>
-                <div class="toggle-option" data-section="projects">Projects</div>
-                <div class="toggle-slider" id="toggleSlider"></div>
-            </div>
+<!-- Skills Section -->
+<section class="section bg-gray-50" id="skills">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-header__subtitle">Expertise</p>
+            <h2 class="section-header__title">Technical Skills</h2>
+            <p class="section-header__description">
+                Comprehensive engineering expertise across mechanical design, thermal systems, and advanced analysis tools.
+            </p>
         </div>
         
-        <!-- Professional Experience Content -->
-        <div id="experienceContent" class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-            
-            <!-- Fire Hose Clamp Project -->
-            <div class="experience-card bg-white rounded-xl p-6 shadow-sm" data-aos="fade-up">
-                <div class="flex items-start justify-between mb-4">
-                    <div>
-                        <h3 class="text-xl font-semibold mb-1">Cal Poly SLO Senior Project</h3>
-                        <p class="text-gray-600">Wildland Fire Hose Clamp Team Member</p>
-                    </div>
-                    <span class="inline-block px-4 py-2 rounded-full bg-blue-50 text-accent text-sm font-medium whitespace-nowrap">
-                        Sep 2024 - Jun 2025
-                    </span>
+        <div class="skills-grid">
+            <!-- CAD & Design -->
+            <div class="skill-category card hover-lift">
+                <div class="skill-category__icon">
+                    <i class="fas fa-drafting-compass"></i>
                 </div>
-                <ul class="space-y-2 mb-4">
-                    <li class="text-sm text-gray-700">• Performed advanced CAD modeling and FEA simulations, improving strength by 30%</li>
-                    <li class="text-sm text-gray-700">• Developed models to predict system behavior and identify failure modes</li>
-                    <li class="text-sm text-gray-700">• Coordinated with stakeholders to align design with specifications</li>
-                </ul>
-                <a href="/firehoseclamp" class="inline-flex items-center text-accent hover:text-blue-700 font-medium text-sm transition-colors">
-                    <span>View project details</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                </a>
-            </div>
-
-            <!-- Cal Poly SLO Research -->
-            <div class="experience-card bg-white rounded-xl p-6 shadow-sm" data-aos="fade-up" data-aos-delay="100">
-                <div class="flex items-start justify-between mb-4">
-                    <div>
-                        <h3 class="text-xl font-semibold mb-1">Cal Poly SLO</h3>
-                        <p class="text-gray-600">Mechanical Engineering Research Assistant</p>
-                    </div>
-                    <span class="inline-block px-4 py-2 rounded-full bg-blue-50 text-accent text-sm font-medium whitespace-nowrap">
-                        Apr 2024 - Jun 2025
-                    </span>
-                </div>
-                <ul class="space-y-2">
-                    <li class="text-sm text-gray-700">• Conducted research on campus sustainability and thermal comfort</li>
-                    <li class="text-sm text-gray-700">• Improved HVAC cooling capacity by 15% through developed methods</li>
-                    <li class="text-sm text-gray-700">• Developed data acquisition systems for real-time performance analysis</li>
-                    <li class="text-sm text-gray-700">• Collaborated with faculty on sustainability initiatives</li>
+                <h3 class="skill-category__title">CAD & Design</h3>
+                <ul class="skill-category__list">
+                    <li>
+                        <span class="skill-category__skill">SolidWorks</span>
+                        <span class="skill-category__level">Expert</span>
+                    </li>
+                    <li>
+                        <span class="skill-category__skill">AutoCAD</span>
+                        <span class="skill-category__level">Advanced</span>
+                    </li>
+                    <li>
+                        <span class="skill-category__skill">FEA Analysis</span>
+                        <span class="skill-category__level">Advanced</span>
+                    </li>
+                    <li>
+                        <span class="skill-category__skill">GD&T</span>
+                        <span class="skill-category__level">Advanced</span>
+                    </li>
                 </ul>
             </div>
             
-            <!-- K2 Systems -->
-            <div class="experience-card bg-white rounded-xl p-6 shadow-sm" data-aos="fade-up" data-aos-delay="200">
-                <div class="flex items-start justify-between mb-4">
-                    <div>
-                        <h3 class="text-xl font-semibold mb-1">K2 Systems US</h3>
-                        <p class="text-gray-600">Mechanical Engineering Intern</p>
-                    </div>
-                    <span class="inline-block px-4 py-2 rounded-full bg-blue-50 text-accent text-sm font-medium whitespace-nowrap">
-                        Jun 2024 - Sep 2024
-                    </span>
+            <!-- Thermal Systems -->
+            <div class="skill-category card hover-lift">
+                <div class="skill-category__icon">
+                    <i class="fas fa-thermometer-half"></i>
                 </div>
-                <ul class="space-y-2 mb-4">
-                    <li class="text-sm text-gray-700">• Developed testing methodologies, improving accuracy by over 50%</li>
-                    <li class="text-sm text-gray-700">• Constructed test jigs and fixtures for streamlined setups</li>
-                    <li class="text-sm text-gray-700">• Conducted certification testing (fire, wind, rain) for compliance</li>
-                    <li class="text-sm text-gray-700">• Created customer-facing product drawings and marketing materials</li>
+                <h3 class="skill-category__title">Thermal Systems</h3>
+                <ul class="skill-category__list">
+                    <li>
+                        <span class="skill-category__skill">Heat Transfer</span>
+                        <span class="skill-category__level">Expert</span>
+                    </li>
+                    <li>
+                        <span class="skill-category__skill">HVAC Design</span>
+                        <span class="skill-category__level">Advanced</span>
+                    </li>
+                    <li>
+                        <span class="skill-category__skill">Thermal Analysis</span>
+                        <span class="skill-category__level">Advanced</span>
+                    </li>
+                    <li>
+                        <span class="skill-category__skill">System Optimization</span>
+                        <span class="skill-category__level">Advanced</span>
+                    </li>
                 </ul>
-                <a href="/k2-systems" class="inline-flex items-center text-accent hover:text-blue-700 font-medium text-sm transition-colors">
-                    <span>View project details</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                </a>
             </div>
             
-            <!-- Nina Labs -->
-            <div class="experience-card bg-white rounded-xl p-6 shadow-sm" data-aos="fade-up" data-aos-delay="300">
-                <div class="flex items-start justify-between mb-4">
-                    <div>
-                        <h3 class="text-xl font-semibold mb-1">Nina Labs</h3>
-                        <p class="text-gray-600">Junior Engineer</p>
-                    </div>
-                    <span class="inline-block px-4 py-2 rounded-full bg-blue-50 text-accent text-sm font-medium whitespace-nowrap">
-                        Jun 2023 - Dec 2023
-                    </span>
+            <!-- Programming & Analysis -->
+            <div class="skill-category card hover-lift">
+                <div class="skill-category__icon">
+                    <i class="fas fa-code"></i>
                 </div>
-                <ul class="space-y-2 mb-4">
-                    <li class="text-sm text-gray-700">• Drove design optimization for enhanced manufacturability</li>
-                    <li class="text-sm text-gray-700">• Designed test jigs in SolidWorks with automated validation protocols</li>
-                    <li class="text-sm text-gray-700">• Improved pour accuracy by ~80% through test-driven discoveries</li>
-                    <li class="text-sm text-gray-700">• Ensured on-time product launch at the Sphere</li>
+                <h3 class="skill-category__title">Programming & Analysis</h3>
+                <ul class="skill-category__list">
+                    <li>
+                        <span class="skill-category__skill">MATLAB</span>
+                        <span class="skill-category__level">Advanced</span>
+                    </li>
+                    <li>
+                        <span class="skill-category__skill">Python</span>
+                        <span class="skill-category__level">Intermediate</span>
+                    </li>
+                    <li>
+                        <span class="skill-category__skill">Data Analysis</span>
+                        <span class="skill-category__level">Advanced</span>
+                    </li>
+                    <li>
+                        <span class="skill-category__skill">Excel</span>
+                        <span class="skill-category__level">Expert</span>
+                    </li>
                 </ul>
-                <a href="/ninalabs" class="inline-flex items-center text-accent hover:text-blue-700 font-medium text-sm transition-colors">
-                    <span>View project details</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                </a>
-            </div>
-
-            <!-- Autoprint Inc. -->
-            <div class="experience-card bg-white rounded-xl p-6 shadow-sm" data-aos="fade-up" data-aos-delay="400">
-                <div class="flex items-start justify-between mb-4">
-                    <div>
-                        <h3 class="text-xl font-semibold mb-1">Autoprint Inc.</h3>
-                        <p class="text-gray-600">Co-founder & Chief Mechanical Engineer</p>
-                    </div>
-                    <span class="inline-block px-4 py-2 rounded-full bg-blue-50 text-accent text-sm font-medium whitespace-nowrap">
-                        Nov 2020 - Nov 2021
-                    </span>
-                </div>
-                <ul class="space-y-2 mb-4">
-                    <li class="text-sm text-gray-700">• Co-founded 3D printing startup with proprietary printer design</li>
-                    <li class="text-sm text-gray-700">• Filed provisional patent while managing $32,000 budget</li>
-                    <li class="text-sm text-gray-700">• Engineered IoT-enabled system, reducing setup time by 90%</li>
-                    <li class="text-sm text-gray-700">• Developed full-stack solution with cloud connectivity</li>
-                </ul>
-                <a href="/autoprint" class="inline-flex items-center text-accent hover:text-blue-700 font-medium text-sm transition-colors">
-                    <span>View project details</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                </a>
-            </div>
-            
-        </div>
-
-        <!-- Projects Content (Hidden by default) -->
-        <div id="projectsContent" class="hidden">
-            <div class="flex items-center justify-center py-24">
-                <div class="text-center" data-aos="fade-up">
-                    <div class="w-20 h-20 rounded-full bg-blue-50 flex items-center justify-center text-accent mx-auto mb-6">
-                        <i class="fas fa-rocket text-3xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">Projects Coming Soon</h3>
-                    <p class="text-gray-600 max-w-md mx-auto">I'm currently working on documenting my personal projects. Check back soon to see my latest work!</p>
-                </div>
             </div>
         </div>
-    </section>
-    
-    <!-- Skills -->
-    <section id="skills" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50">
-        <div class="mb-12 text-center" data-aos="fade-up">
-            <h2 class="text-sm uppercase tracking-wider text-accent font-semibold mb-2">What I Do</h2>
-            <h3 class="text-3xl font-bold">Technical Skills</h3>
-        </div>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Simulation & Testing -->
-            <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                <div class="absolute -right-5 -top-5 w-24 h-24 bg-blue-50 rounded-full opacity-50"></div>
-                <div class="relative">
-                    <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-accent mb-6">
-                        <i class="fas fa-microscope text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">Simulation & Testing</h3>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">FEA</span>
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Thermal Analysis</span>
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">System Modeling</span>
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Wind Tunnel Testing</span>
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">GD&T</span>
-                    </div>
-                    <div class="w-full bg-gray-100 h-1 rounded-full mb-1">
-                        <div class="bg-accent h-1 rounded-full" style="width: 70%"></div>
-                    </div>
-                    <div class="text-right text-xs text-gray-500">Adanced</div>
-                </div>
-            </div>
-            
-            <!-- Programming & Data Analysis -->
-            <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                <div class="absolute -right-5 -top-5 w-24 h-24 bg-blue-50 rounded-full opacity-50"></div>
-                <div class="relative">
-                    <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-accent mb-6">
-                        <i class="fas fa-code text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">Programming & Data Analysis</h3>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">MATLAB</span>
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Python</span>
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Excel</span>
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Data Analysis</span>
-                    </div>
-                    <div class="w-full bg-gray-100 h-1 rounded-full mb-1">
-                        <div class="bg-accent h-1 rounded-full" style="width: 75%"></div>
-                    </div>
-                    <div class="text-right text-xs text-gray-500">Advanced</div>
-                </div>
-            </div>
-            
-            <!-- CAD & Prototyping -->
-            <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
-                <div class="absolute -right-5 -top-5 w-24 h-24 bg-blue-50 rounded-full opacity-50"></div>
-                <div class="relative">
-                    <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-accent mb-6">
-                        <i class="fas fa-drafting-compass text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">CAD & Prototyping</h3>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">SolidWorks</span>
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Autodesk Suite</span>
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Design for Manufacturing</span>
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Rapid Prototyping</span>
-                        <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Conventional & CNC Machining</span>
-                    </div>
-                    <div class="w-full bg-gray-100 h-1 rounded-full mb-1">
-                        <div class="bg-accent h-1 rounded-full" style="width: 90%"></div>
-                    </div>
-                    <div class="text-right text-xs text-gray-500">Expert</div>
-                </div>
-            </div>
-
-
-<!-- Leadership & Project Management -->
-<div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-    <div class="absolute -right-5 -top-5 w-24 h-24 bg-blue-50 rounded-full opacity-50"></div>
-    <div class="relative">
-        <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-accent mb-6">
-            <i class="fas fa-users-cog text-xl"></i>
-        </div>
-        <h3 class="text-xl font-semibold mb-4">Leadership & Project Management</h3>
-        <div class="flex flex-wrap gap-2 mb-4">
-            <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Team Leadership</span>
-            <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Strategic Communication</span>
-            <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Agile/Scrum</span>
-            <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Stakeholder Management</span>
-        </div>
-        <div class="w-full bg-gray-100 h-1 rounded-full mb-1">
-            <div class="bg-accent h-1 rounded-full" style="width: 85%"></div>
-        </div>
-        <div class="text-right text-xs text-gray-500">Expert</div>
     </div>
-</div>
+</section>
 
-<!-- Business Development & Operations -->
-<div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-    <div class="absolute -right-5 -top-5 w-24 h-24 bg-blue-50 rounded-full opacity-50"></div>
-    <div class="relative">
-        <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-accent mb-6">
-            <i class="fas fa-chart-line text-xl"></i>
-        </div>
-        <h3 class="text-xl font-semibold mb-4">Business Development & Operations</h3>
-        <div class="flex flex-wrap gap-2 mb-4">
-            <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Financial Analysis</span>
-            <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">QuickBooks</span>
-            <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Market Strategy</span>
-            <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Digital Marketing</span>
-            <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Brand Development</span>
-            <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Financial and Tax Accounting</span>
-        </div>
-        <div class="w-full bg-gray-100 h-1 rounded-full mb-1">
-            <div class="bg-accent h-1 rounded-full" style="width: 75%"></div>
-        </div>
-        <div class="text-right text-xs text-gray-500">Advanced</div>
-    </div>
-</div>
-
-<!-- Hands-On Engineering & Trades -->
-<div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
-    <div class="absolute -right-5 -top-5 w-24 h-24 bg-blue-50 rounded-full opacity-50"></div>
-    <div class="relative">
-        <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-accent mb-6">
-            <i class="fas fa-tools text-xl"></i>
-        </div>
-        <h3 class="text-xl font-semibold mb-4">Hands-On Engineering & Trades</h3>
-        <div class="flex flex-wrap gap-2 mb-4">
-            <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Automotive Repair</span>
-            <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Welding/Fabrication</span>
-            <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Electrical Systems</span>
-            <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">Construction</span>
-            <span class="px-3 py-1 bg-blue-50 text-accent rounded-full text-sm">HVAC Systems</span>
-        </div>
-        <div class="w-full bg-gray-100 h-1 rounded-full mb-1">
-            <div class="bg-accent h-1 rounded-full" style="width: 80%"></div>
-        </div>
-        <div class="text-right text-xs text-gray-500">Advanced</div>
-    </div>
-</div>
-            
-        </div>
-    </section>
-    
-    <!-- Achievements -->
-    <section id="achievements" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="mb-12 text-center" data-aos="fade-up">
-            <h2 class="text-sm uppercase tracking-wider text-accent font-semibold mb-2">Recognition</h2>
-            <h3 class="text-3xl font-bold">Achievements</h3>
+<!-- Achievements Section -->
+<section class="section" id="achievements">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-header__subtitle">Recognition</p>
+            <h2 class="section-header__title">Achievements</h2>
+            <p class="section-header__description">
+                Leadership accomplishments and professional recognition demonstrating commitment to excellence.
+            </p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid--3">
             <!-- Eagle Scout -->
-            <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col" data-aos="fade-up" data-aos-delay="100">
-                <div class="mb-6">
-                    <div class="w-16 h-16 rounded-xl gradient-bg flex items-center justify-center text-white">
-                        <i class="fas fa-award text-2xl"></i>
+            <div class="card hover-lift">
+                <div class="card__header">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange)); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                        <i class="fas fa-award" style="font-size: 1.5rem; color: white;"></i>
                     </div>
+                    <h3 class="card__title">Eagle Scout</h3>
+                    <p class="card__subtitle">Boy Scouts of America</p>
                 </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-2">Eagle Scout Rank</h3>
-                    <p class="text-gray-600">At age 16, led team of 12 scouts to construct trash posts for my hometown, managing logistics of thousands of pounds of materials, raising and managing a $1,000 budget, resulting in multiple follow-up projects.</p>
-                    <div class="mt-4 text-xs font-medium text-gray-500">
-                        <span class="inline-flex items-center">
-                            <i class="fas fa-calendar-alt mr-1"></i> Achieved 2018
-                        </span>
-                    </div>
+                <div class="card__content">
+                    <p>Led team of 12 scouts to construct community infrastructure, managing logistics and $1,000 budget at age 16.</p>
+                </div>
+                <div class="card__footer">
+                    <span style="font-size: 0.875rem; color: var(--gray-500);">Achieved 2018</span>
                 </div>
             </div>
             
             <!-- Student Pilot -->
-            <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col" data-aos="fade-up" data-aos-delay="200">
-                <div class="mb-6">
-                    <div class="w-16 h-16 rounded-xl gradient-bg flex items-center justify-center text-white">
-                        <i class="fas fa-plane text-2xl"></i>
+            <div class="card hover-lift">
+                <div class="card__header">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange)); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                        <i class="fas fa-plane" style="font-size: 1.5rem; color: white;"></i>
                     </div>
+                    <h3 class="card__title">Student Pilot & Instructor</h3>
+                    <p class="card__subtitle">Aviation Training</p>
                 </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-2">Student Pilot and Ground School Instructor</h3>
-                    <p class="text-gray-600">Taught aerodynamics and aircraft systems to over 150 students while developing rapid analytical and decision-making skills through flight training.</p>
-                    <div class="mt-4 text-xs font-medium text-gray-500">
-                        <span class="inline-flex items-center">
-                            <i class="fas fa-calendar-alt mr-1"></i> Ongoing
-                        </span>
-                    </div>
+                <div class="card__content">
+                    <p>Taught aerodynamics and aircraft systems to 150+ students while developing analytical and decision-making skills.</p>
+                </div>
+                <div class="card__footer">
+                    <span style="font-size: 0.875rem; color: var(--gray-500);">Ongoing</span>
                 </div>
             </div>
             
-            <!-- Chabad on Campus -->
-            <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col" data-aos="fade-up" data-aos-delay="300">
-                <div class="mb-6">
-                    <div class="w-16 h-16 rounded-xl gradient-bg flex items-center justify-center text-white">
-                        <i class="fas fa-users text-2xl"></i>
+            <!-- Leadership -->
+            <div class="card hover-lift">
+                <div class="card__header">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange)); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                        <i class="fas fa-users" style="font-size: 1.5rem; color: white;"></i>
                     </div>
+                    <h3 class="card__title">Campus Leadership</h3>
+                    <p class="card__subtitle">Chabad on Campus</p>
                 </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-2">Chabad on Campus Board Member</h3>
-                    <p class="text-gray-600">Managed student teams, organizing events and community outreach initiatives. Developed leadership skills while fostering campus engagement and cultural awareness.</p>
-                    <div class="mt-4 text-xs font-medium text-gray-500">
-                        <span class="inline-flex items-center">
-                            <i class="fas fa-calendar-alt mr-1"></i> 2022 - Present
-                        </span>
-                    </div>
+                <div class="card__content">
+                    <p>Board member managing student teams and organizing community outreach initiatives at Cal Poly.</p>
+                </div>
+                <div class="card__footer">
+                    <span style="font-size: 0.875rem; color: var(--gray-500);">2022 - Present</span>
                 </div>
             </div>
         </div>
-    </section>
-    
-    <!-- Contact -->
-    <section id="contact" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50">
-        <div class="mb-12 text-center" data-aos="fade-up">
-            <h2 class="text-sm uppercase tracking-wider text-accent font-semibold mb-2">Get In Touch</h2>
-            <h3 class="text-3xl font-bold">Contact Me</h3>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="section bg-gray-50" id="contact">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-header__subtitle">Get In Touch</p>
+            <h2 class="section-header__title">Contact Me</h2>
+            <p class="section-header__description">
+                Ready to discuss engineering opportunities, collaboration, or technical projects.
+            </p>
         </div>
         
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div class="contact-grid">
             <!-- Contact Info -->
-            <div class="lg:col-span-4" data-aos="fade-right">
-                <div class="bg-white rounded-2xl p-8 shadow-sm h-full">
-                    <h4 class="text-xl font-semibold mb-6">Contact Information</h4>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                            <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-accent mr-4">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div>
-                                <h5 class="text-sm font-medium text-gray-500 mb-1">Email</h5>
-                                <a href="mailto:mois.cohen787@gmail.com" class="text-gray-800 hover:text-accent transition-colors">mois.cohen787@gmail.com</a>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-accent mr-4">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div>
-                                <h5 class="text-sm font-medium text-gray-500 mb-1">Phone</h5>
-                                <a href="tel:8586689347" class="text-gray-800 hover:text-accent transition-colors">(858) 668-9347</a>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-accent mr-4">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div>
-                                <h5 class="text-sm font-medium text-gray-500 mb-1">Location</h5>
-                                <p class="text-gray-800">San Luis Obispo, California</p>
-                            </div>
-                        </div>
+            <div class="contact-info">
+                <div class="contact-info__item">
+                    <div class="contact-info__icon">
+                        <i class="fas fa-envelope"></i>
                     </div>
-                    
-                    <div class="pt-8 mt-8 border-t border-gray-100">
-                        <h4 class="text-lg font-semibold mb-4">Connect with me</h4>
-                        <div class="flex">
-                            <!-- Only LinkedIn button as requested -->
-                            <a href="https://www.linkedin.com/in/moiscohen/" target="_blank" class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-colors">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </div>
+                    <div class="contact-info__content">
+                        <h4>Email</h4>
+                        <p><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-info__item">
+                    <div class="contact-info__icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-info__content">
+                        <h4>Phone</h4>
+                        <p><a href="tel:{{ site.author.phone | remove: '(' | remove: ')' | remove: ' ' | remove: '-' }}">{{ site.author.phone }}</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-info__item">
+                    <div class="contact-info__icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-info__content">
+                        <h4>Location</h4>
+                        <p>{{ site.author.location }}</p>
+                    </div>
+                </div>
+                
+                <div class="contact-info__item">
+                    <div class="contact-info__icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <div class="contact-info__content">
+                        <h4>LinkedIn</h4>
+                        <p><a href="{{ site.author.linkedin }}" target="_blank" rel="noopener">Connect with me</a></p>
                     </div>
                 </div>
             </div>
             
             <!-- Contact Form -->
-            <div class="lg:col-span-8" data-aos="fade-left">
-                <div class="bg-white rounded-2xl p-8 shadow-sm">
-                    <form action="https://formspree.io/f/mqaargaq" method="POST" class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
-                                <input 
-                                    type="text" 
-                                    id="name" 
-                                    name="name" 
-                                    required
-                                    class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
-                                    placeholder="Your name">
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                                <input 
-                                    type="email" 
-                                    id="email" 
-                                    name="email" 
-                                    required
-                                    class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
-                                    placeholder="your.email@example.com">
-                            </div>
-                        </div>
-                        
+            <div class="card">
+                <form id="contact-form" action="https://formspree.io/f/mqaargaq" method="POST">
+                    <div class="grid grid--2" style="gap: 1.5rem; margin-bottom: 1.5rem;">
                         <div>
-                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
-                            <input 
-                                type="text" 
-                                id="subject" 
-                                name="subject" 
-                                class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
-                                placeholder="What is this regarding?">
+                            <label for="name" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Name</label>
+                            <input type="text" id="name" name="name" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 8px; font-size: 1rem;">
                         </div>
-                        
                         <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                            <textarea 
-                                id="message" 
-                                name="message" 
-                                rows="6" 
-                                required
-                                class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-accent focus:border-accent transition-colors resize-none"
-                                placeholder="Your message here..."></textarea>
+                            <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email</label>
+                            <input type="email" id="email" name="email" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 8px; font-size: 1rem;">
                         </div>
-                        
-                        <div class="flex justify-end">
-                            <button 
-                                type="submit"
-                                class="px-8 py-3 rounded-lg gradient-bg text-white font-medium hover:shadow-lg transition-all duration-300 flex items-center space-x-2">
-                                <span>Send Message</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                                </svg>
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="subject" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Subject</label>
+                        <input type="text" id="subject" name="subject" style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 8px; font-size: 1rem;">
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="message" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Message</label>
+                        <textarea id="message" name="message" rows="6" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 8px; font-size: 1rem; resize: vertical;"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn--primary btn--large" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Send Message</span>
+                    </button>
+                </form>
             </div>
         </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer class="py-8 px-4 sm:px-6 lg:px-8 bg-gray-100">
-        <div class="max-w-7xl mx-auto px-2 sm:px-0">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0 text-center md:text-left">
-                    <span class="text-xl font-bold text-primary">Mois Cohen<span class="text-accent">.</span></span>
-                    <p class="text-gray-600 text-sm mt-1">Mechanical Engineer</p>
-                </div>
-                
-                <div class="grid grid-cols-2 sm:flex gap-3 sm:gap-6 md:gap-8 text-xs sm:text-sm text-gray-600 text-center">
-                    <a href="#about" class="hover:text-accent transition-colors py-2 px-1">About</a>
-                    <a href="#experience" class="hover:text-accent transition-colors py-2 px-1">Experience</a>
-                    <a href="#skills" class="hover:text-accent transition-colors py-2 px-1">Skills</a>
-                    <a href="#achievements" class="hover:text-accent transition-colors py-2 px-1">Achievements</a>
-                    <a href="#contact" class="hover:text-accent transition-colors py-2 px-1 col-span-2 sm:col-span-1">Contact</a>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-200 mt-6 pt-6 text-center text-sm text-gray-500">
-                <p>© 2025 Mois Cohen. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-    
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true,
-            mirror: false
-        });
-        
-        // Mobile menu
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-        
-        // Smooth scroll for all internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80, // Accounting for fixed header
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
-            });
-        });
-        
-        // Scroll progress bar
-        window.addEventListener('scroll', function() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById("scrollProgress").style.width = scrolled + "%";
-        });
-        
-        // Fixed typing animation with proper cycling
-        const phrases = ['Mois Cohen', 'a Problem Solver', 'a Designer', 'an Engineer']; 
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        
-        const typingElement = document.getElementById('typing-text');
-        
-        function type() {
-            const currentPhrase = phrases[phraseIndex];
-            
-            if (!isDeleting) {
-                // Typing forward
-                typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
-                charIndex++;
-                
-                // If we've typed the full phrase
-                if (charIndex >= currentPhrase.length) {
-                    // Wait at end of phrase, then start deleting
-                    isDeleting = true;
-                    setTimeout(type, 1500); // Longer pause at the end of a phrase
-                    return;
-                }
-            } else {
-                // Deleting
-                typingElement.textContent = currentPhrase.substring(0, charIndex);
-                charIndex--;
-                
-                // If we've deleted everything
-                if (charIndex <= 0) {
-                    isDeleting = false;
-                    // Move to next phrase
-                    phraseIndex = (phraseIndex + 1) % phrases.length;
-                    
-                    // Slight pause before typing next phrase
-                    setTimeout(type, 500);
-                    return;
-                }
-            }
-            
-            // Set timing for next character
-            let typeSpeed = isDeleting ? 50 : 100;
-            
-            setTimeout(type, typeSpeed);
-        }
-        
-        // Start typing immediately
-        setTimeout(type, 1000);
-        
-        // Dark mode functionality
-        function initTheme() {
-            const savedTheme = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            
-            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-                document.documentElement.classList.add('dark');
-                updateThemeIcons('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-                updateThemeIcons('light');
-            }
-        }
-        
-        function updateThemeIcons(theme) {
-            const desktopIcon = document.getElementById('theme-icon');
-            const mobileIcon = document.getElementById('mobile-theme-icon');
-            
-            if (theme === 'dark') {
-                desktopIcon.className = 'fas fa-moon text-lg';
-                mobileIcon.className = 'fas fa-moon text-lg';
-            } else {
-                desktopIcon.className = 'fas fa-sun text-lg';
-                mobileIcon.className = 'fas fa-sun text-lg';
-            }
-        }
-        
-        function toggleTheme() {
-            const isDark = document.documentElement.classList.contains('dark');
-            
-            if (isDark) {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-                updateThemeIcons('light');
-            } else {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-                updateThemeIcons('dark');
-            }
-        }
-        
-        // Initialize theme on page load
-        initTheme();
-        
-        // Add event listeners for theme toggle buttons
-        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
-        document.getElementById('mobile-theme-toggle').addEventListener('click', toggleTheme);
-        
-        // Listen for system theme changes
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-            if (!localStorage.getItem('theme')) {
-                if (e.matches) {
-                    document.documentElement.classList.add('dark');
-                    updateThemeIcons('dark');
-                } else {
-                    document.documentElement.classList.remove('dark');
-                    updateThemeIcons('light');
-                }
-            }
-        });
-        
-        // Toggle Switch functionality
-        const toggleOptions = document.querySelectorAll('.toggle-option');
-        const toggleSlider = document.getElementById('toggleSlider');
-        const experienceContent = document.getElementById('experienceContent');
-        const projectsContent = document.getElementById('projectsContent');
-        
-        // Initialize slider position
-        function updateSliderPosition() {
-            const activeOption = document.querySelector('.toggle-option.active');
-            toggleSlider.style.width = activeOption.offsetWidth + 'px';
-            toggleSlider.style.height = activeOption.offsetHeight + 'px';
-            toggleSlider.style.left = activeOption.offsetLeft - 4 + 'px';
-            toggleSlider.style.top = '4px';
-        }
-        
-        // Initial position
-        updateSliderPosition();
-        
-        // Handle toggle clicks
-        toggleOptions.forEach(option => {
-            option.addEventListener('click', function() {
-                const section = this.getAttribute('data-section');
-                
-                // Update active state
-                toggleOptions.forEach(opt => opt.classList.remove('active'));
-                this.classList.add('active');
-                
-                // Update slider position
-                updateSliderPosition();
-                
-                // Show/hide content
-                if (section === 'experience') {
-                    experienceContent.classList.remove('hidden');
-                    projectsContent.classList.add('hidden');
-                } else {
-                    experienceContent.classList.add('hidden');
-                    projectsContent.classList.remove('hidden');
-                }
-            });
-        });
-        
-        // Update slider position on window resize
-        window.addEventListener('resize', updateSliderPosition);
-        
-        // Fix mobile toggle functionality
-        function initMobileToggle() {
-            const toggleContainer = document.getElementById('sectionToggle');
-            const isMobile = window.innerWidth <= 768;
-            
-            if (isMobile) {
-                // Ensure toggle works on mobile
-                toggleContainer.addEventListener('touchstart', function(e) {
-                    e.preventDefault();
-                }, {passive: false});
-                
-                toggleContainer.addEventListener('touchend', function(e) {
-                    const target = e.target.closest('.toggle-option');
-                    if (target) {
-                        target.click();
-                    }
-                });
-            }
-        }
-        
-        // Initialize mobile toggle
-        initMobileToggle();
-        window.addEventListener('resize', initMobileToggle);
-        
-        // Form handling
-        const form = document.querySelector('form');
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const submitButton = form.querySelector('button[type="submit"]');
-                const originalButtonText = submitButton.innerHTML;
-                submitButton.innerHTML = '<span>Sending...</span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 animate-spin" viewBox="0 0 24 24" fill="none"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
-                
-                fetch(form.action, {
-                    method: 'POST',
-                    body: new FormData(form),
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                }).then(response => response.json())
-                .then(data => {
-                    form.reset();
-                    submitButton.innerHTML = '<span>Message Sent!</span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
-                    setTimeout(() => {
-                        submitButton.innerHTML = originalButtonText;
-                    }, 3000);
-                }).catch(error => {
-                    submitButton.innerHTML = '<span>Error Sending</span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>';
-                    setTimeout(() => {
-                        submitButton.innerHTML = originalButtonText;
-                    }, 3000);
-                });
-            });
-        }
-    </script>
-</body>
-</html>
+    </div>
+</section>
