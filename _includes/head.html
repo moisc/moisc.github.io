@@ -1,0 +1,40 @@
+<!-- DNS Prefetch for external resources -->
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+
+<!-- Preconnect to external domains -->
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Resource Hints -->
+<link rel="prefetch" href="{{ '/assets/js/main.js' | relative_url }}">
+
+<!-- Performance optimizations -->
+<meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- PWA Meta Tags -->
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="{{ site.title }}">
+
+<!-- Microsoft Tiles -->
+<meta name="msapplication-TileColor" content="#1a365d">
+<meta name="msapplication-config" content="/browserconfig.xml">
+
+<!-- Additional SEO Meta Tags -->
+<meta name="format-detection" content="telephone=no">
+<meta name="language" content="en">
+<meta name="distribution" content="global">
+<meta name="rating" content="general">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+<!-- Alternate hreflang for SEO -->
+<link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.url }}">
+
+<!-- RSS Feed -->
+<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">

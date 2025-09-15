@@ -1,0 +1,31 @@
+<!-- Hero Section -->
+<section class="hero" id="about">
+    <div class="hero__container container">
+        <div class="hero__content">
+            <p class="hero__greeting">Hello, I'm</p>
+            <h1 class="hero__title">
+                {{ site.author.name }}
+                <br>
+                <span class="highlight typing-text">Mechanical Engineer</span>
+            </h1>
+            <p class="hero__subtitle">
+                {{ site.profession }} with expertise in {{ site.specializations | join: ", " }}. 
+                Passionate about solving complex engineering challenges through innovative design and analysis.
+            </p>
+            <div class="hero__cta">
+                <a href="#contact" class="btn btn--primary btn--large">
+                    <i class="fas fa-envelope"></i>
+                    <span>Get In Touch</span>
+                </a>
+                <a href="{{ site.author.resume_url | default: '/resume.pdf' }}" class="btn btn--outline btn--large" download>
+                    <i class="fas fa-download"></i>
+                    <span>Download Resume</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="hero__image">
+            <img src="/unnamed (22).jpg" alt="{{ site.author.name }}" loading="lazy">
+        </div>
+    </div>
+</section>

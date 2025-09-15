@@ -1,0 +1,114 @@
+# Site Configuration
+title: "Mois Cohen | Mechanical Engineer"
+description: "Mechanical Engineering Expert | Thermal Systems | Product Development | Technical Leadership"
+baseurl: ""
+url: "https://moisc.github.io"
+
+# Personal Information
+author:
+  name: "Mois Cohen"
+  email: "mois.cohen787@gmail.com"
+  phone: "(858) 668-9347"
+  location: "San Luis Obispo, California"
+  linkedin: "https://www.linkedin.com/in/moiscohen/"
+  resume_url: "https://raw.githubusercontent.com/moisc/moisc.github.io/main/Mois Cohen Resume 6.10.25.pdf"
+  
+# Professional Details
+profession: "Mechanical Engineer"
+education: "B.S. Mechanical Engineering, Cal Poly SLO"
+specializations:
+  - "Thermal Systems & Heat Transfer"
+  - "Advanced CAD/FEA Analysis" 
+  - "Product Development & Design"
+  - "Technical Leadership"
+  - "System Optimization"
+
+# Site Settings
+permalink: /:categories/:title/
+timezone: America/Los_Angeles
+encoding: utf-8
+highlighter: rouge
+markdown: kramdown
+
+# Build Settings
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-minifier
+
+# Minification settings
+jekyll-minifier:
+  uglifier_args:
+    harmony: true
+  compress_css: true
+  compress_js: true
+  compress_html: true
+  preserve_php: false
+  remove_spaces_inside_tags: true
+  remove_multi_spaces: true
+  remove_comments: true
+  remove_intertag_spaces: true
+  remove_quotes: false
+  compress_css_files:
+    - "*.css"
+  compress_js_files:
+    - "*.js"
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /:collection/:name/
+  experience:
+    output: false
+
+# Sass Configuration
+sass:
+  style: compressed
+  sass_dir: _sass
+
+# Exclude files
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .bundle
+  - .sass-cache
+  - .jekyll-cache
+  - gemfiles
+  - README.md
+  - server.js
+  - package.json
+  - vercel.json
+  - railway.toml
+  - Procfile
+  - .env*
+
+# SEO and Social
+social:
+  name: Mois Cohen
+  links:
+    - https://www.linkedin.com/in/moiscohen/
+    - https://github.com/moisc
+
+# Analytics
+google_analytics: "G-J8BERH7V4E"
+
+# Performance settings
+future: false
+show_drafts: false
+limit_posts: 10
+lsi: false
+
+# Compression settings
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
+  endings: [html, head, body]
+  ignore:
+    envs: [development]
+  blanklines: false
+  profile: false
+  startings: [html, head, body]
