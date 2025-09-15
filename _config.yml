@@ -35,25 +35,6 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-feed
-  - jekyll-minifier
-
-# Minification settings
-jekyll-minifier:
-  uglifier_args:
-    harmony: true
-  compress_css: true
-  compress_js: true
-  compress_html: true
-  preserve_php: false
-  remove_spaces_inside_tags: true
-  remove_multi_spaces: true
-  remove_comments: true
-  remove_intertag_spaces: true
-  remove_quotes: false
-  compress_css_files:
-    - "*.css"
-  compress_js_files:
-    - "*.js"
 
 # Collections
 collections:

@@ -47,9 +47,9 @@
             --primary-blue: #1a365d;
             --primary-blue-dark: #153e75;
             --primary-blue-light: #2c5aa0;
-            --accent-orange: #fd7e14;
-            --accent-orange-light: #ff922b;
-            --accent-orange-dark: #e8590c;
+            --accent-blue: #1e40af;
+            --accent-blue-light: #3b82f6;
+            --accent-blue-dark: #1e3a8a;
             --gray-50: #f8fafc;
             --gray-100: #f1f5f9;
             --gray-200: #e2e8f0;
@@ -255,7 +255,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--accent-orange);
+            background-color: var(--accent-blue);
             transition: width var(--transition-fast);
         }
 
@@ -284,7 +284,7 @@
         }
 
         .btn:focus {
-            outline: 2px solid var(--accent-orange);
+            outline: 2px solid var(--accent-blue);
             outline-offset: 2px;
         }
 
@@ -370,13 +370,21 @@
 
         .hero__greeting {
             font-size: 1.25rem;
-            color: var(--accent-orange);
+            color: var(--accent-blue);
             font-weight: 600;
             margin-bottom: var(--space-sm);
         }
 
         .hero__title {
             margin-bottom: var(--space-lg);
+        }
+
+        .hero__subtitle-role {
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            font-weight: 500;
+            color: var(--gray-600);
+            display: block;
+            margin-top: 0.5rem;
         }
 
         .highlight {
@@ -391,7 +399,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, var(--accent-orange), var(--accent-orange-light));
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-blue-light));
         }
 
         .hero__subtitle {
@@ -457,7 +465,7 @@
             left: -20px;
             right: 20px;
             bottom: 20px;
-            background: linear-gradient(135deg, var(--primary-blue-light), var(--accent-orange));
+            background: linear-gradient(135deg, var(--primary-blue-light), var(--accent-blue));
             border-radius: var(--radius-xl);
             z-index: -1;
             opacity: 0.1;
@@ -509,6 +517,22 @@
             box-shadow: var(--shadow-xl);
         }
 
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            cursor: pointer;
+        }
+
+        .card-link:hover {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .card[data-link] {
+            cursor: pointer;
+        }
+
         /* Section Headers */
         .section-header {
             text-align: center;
@@ -518,7 +542,7 @@
         .section-header__subtitle {
             font-size: 1rem;
             font-weight: 600;
-            color: var(--accent-orange);
+            color: var(--accent-blue);
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin-bottom: var(--space-sm);
@@ -556,16 +580,6 @@
             animation: fadeInUp 0.6s ease-out both;
         }
 
-        /* Typography cursor for hero */
-        .typing-cursor::after {
-            content: '|';
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
 
         /* Mobile Menu */
         .mobile-menu-toggle {
@@ -581,6 +595,49 @@
             .mobile-menu-toggle {
                 display: none;
             }
+        }
+
+        /* Tab System */
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: var(--space-2xl);
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: var(--space-xs);
+            box-shadow: var(--shadow-md);
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: var(--space-md) var(--space-lg);
+            background: none;
+            border: none;
+            font-family: var(--font-secondary);
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--gray-600);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .tab-button.active {
+            background: var(--primary-blue);
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
         }
     </style>
 
@@ -605,8 +662,7 @@
             
             <div class="navbar__nav">
                 <a href="#about" class="navbar__link">About</a>
-                <a href="#experience" class="navbar__link">Experience</a>
-                <a href="#projects" class="navbar__link">Projects</a>
+                <a href="#work" class="navbar__link">Work</a>
                 <a href="#skills" class="navbar__link">Skills</a>
                 <a href="#contact" class="navbar__link">Contact</a>
             </div>
@@ -633,7 +689,7 @@
                 <h1 class="hero__title">
                     Mois Cohen
                     <br>
-                    <span class="highlight typing-cursor">Mechanical Engineer</span>
+                    <span class="hero__subtitle-role">Mechanical Engineer</span>
                 </h1>
                 <p class="hero__subtitle">
                     B.S. in Mechanical Engineering from California Polytechnic State University, San Luis Obispo.
@@ -657,51 +713,31 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section class="section" id="experience">
+    <!-- Work Section -->
+    <section class="section" id="work">
         <div class="container">
             <div class="section-header">
-                <p class="section-header__subtitle">Career Journey</p>
-                <h2 class="section-header__title">Professional Experience</h2>
+                <p class="section-header__subtitle">My Work</p>
+                <h2 class="section-header__title">Experience & Projects</h2>
                 <p class="section-header__description">
-                    A track record of delivering engineering excellence across diverse industries, from startup innovation to large-scale industrial projects.
+                    A showcase of professional experience and innovative projects across diverse engineering domains.
                 </p>
             </div>
             
-            <div class="grid grid--2">
-                <!-- Fire Hose Clamp Project -->
-                <div class="card">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange)); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-fire" style="color: white; font-size: 1.25rem;"></i>
-                        </div>
-                        <div>
-                            <h3 style="margin: 0; color: var(--gray-900);">Senior Capstone Project Lead</h3>
-                            <p style="margin: 0; color: var(--gray-600); font-size: 0.875rem;">Cal Poly San Luis Obispo</p>
-                        </div>
-                        <span style="margin-left: auto; background: var(--gray-100); padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem; color: var(--gray-700); white-space: nowrap;">Sep 2024 - Jun 2025</span>
-                    </div>
-                    <p style="color: var(--gray-700); margin-bottom: 1rem;">Leading advanced mechanical design project for wildland firefighting equipment, combining cutting-edge CAD modeling with real-world application requirements.</p>
-                    <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="margin-bottom: 0.5rem; color: var(--gray-700); position: relative; padding-left: 1rem;">
-                            <span style="position: absolute; left: 0; color: var(--accent-orange);">•</span>
-                            Performed advanced CAD modeling and FEA simulations, improving structural strength by 30%
-                        </li>
-                        <li style="margin-bottom: 0.5rem; color: var(--gray-700); position: relative; padding-left: 1rem;">
-                            <span style="position: absolute; left: 0; color: var(--accent-orange);">•</span>
-                            Developed predictive models to identify failure modes and optimize system behavior
-                        </li>
-                        <li style="margin-bottom: 0.5rem; color: var(--gray-700); position: relative; padding-left: 1rem;">
-                            <span style="position: absolute; left: 0; color: var(--accent-orange);">•</span>
-                            Coordinated with industry stakeholders to align design specifications
-                        </li>
-                    </ul>
-                </div>
+            <!-- Tab Navigation -->
+            <div class="tab-container">
+                <button class="tab-button active" onclick="switchTab('experience')">Experience</button>
+                <button class="tab-button" onclick="switchTab('projects')">Projects</button>
+            </div>
+            
+            <!-- Experience Tab Content -->
+            <div id="experience-content" class="tab-content active">
+                <div class="grid grid--2">
 
                 <!-- Cal Poly Research -->
-                <div class="card">
+                <div class="card" data-link="#contact">
                     <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange)); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue)); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
                             <i class="fas fa-thermometer-half" style="color: white; font-size: 1.25rem;"></i>
                         </div>
                         <div>
@@ -713,24 +749,30 @@
                     <p style="color: var(--gray-700); margin-bottom: 1rem;">Spearheaded research initiatives in campus sustainability and thermal comfort, developing innovative solutions for HVAC system optimization.</p>
                     <ul style="list-style: none; padding: 0; margin: 0;">
                         <li style="margin-bottom: 0.5rem; color: var(--gray-700); position: relative; padding-left: 1rem;">
-                            <span style="position: absolute; left: 0; color: var(--accent-orange);">•</span>
+                            <span style="position: absolute; left: 0; color: var(--accent-blue);">•</span>
                             Improved HVAC cooling capacity by 15% through innovative thermal analysis methods
                         </li>
                         <li style="margin-bottom: 0.5rem; color: var(--gray-700); position: relative; padding-left: 1rem;">
-                            <span style="position: absolute; left: 0; color: var(--accent-orange);">•</span>
+                            <span style="position: absolute; left: 0; color: var(--accent-blue);">•</span>
                             Developed comprehensive data acquisition systems for real-time monitoring
                         </li>
                         <li style="margin-bottom: 0.5rem; color: var(--gray-700); position: relative; padding-left: 1rem;">
-                            <span style="position: absolute; left: 0; color: var(--accent-orange);">•</span>
+                            <span style="position: absolute; left: 0; color: var(--accent-blue);">•</span>
                             Collaborated with interdisciplinary teams on sustainability initiatives
                         </li>
                     </ul>
+                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-200);">
+                        <a href="#contact" style="color: var(--primary-blue); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;" onclick="event.stopPropagation();">
+                            <span>Contact for Details</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
 
                 <!-- K2 Systems -->
-                <div class="card">
+                <div class="card" data-link="/k2-systems/">
                     <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange)); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue)); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
                             <i class="fas fa-solar-panel" style="color: white; font-size: 1.25rem;"></i>
                         </div>
                         <div>
@@ -742,24 +784,30 @@
                     <p style="color: var(--gray-700); margin-bottom: 1rem;">Drove innovation in solar mounting system testing and certification, revolutionizing quality assurance processes for industry-leading products.</p>
                     <ul style="list-style: none; padding: 0; margin: 0;">
                         <li style="margin-bottom: 0.5rem; color: var(--gray-700); position: relative; padding-left: 1rem;">
-                            <span style="position: absolute; left: 0; color: var(--accent-orange);">•</span>
+                            <span style="position: absolute; left: 0; color: var(--accent-blue);">•</span>
                             Developed testing methodologies that improved measurement accuracy by over 50%
                         </li>
                         <li style="margin-bottom: 0.5rem; color: var(--gray-700); position: relative; padding-left: 1rem;">
-                            <span style="position: absolute; left: 0; color: var(--accent-orange);">•</span>
+                            <span style="position: absolute; left: 0; color: var(--accent-blue);">•</span>
                             Designed and constructed specialized test jigs and fixtures
                         </li>
                         <li style="margin-bottom: 0.5rem; color: var(--gray-700); position: relative; padding-left: 1rem;">
-                            <span style="position: absolute; left: 0; color: var(--accent-orange);">•</span>
+                            <span style="position: absolute; left: 0; color: var(--accent-blue);">•</span>
                             Conducted comprehensive certification testing for regulatory compliance
                         </li>
                     </ul>
+                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-200);">
+                        <a href="/k2-systems/" style="color: var(--primary-blue); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;" onclick="event.stopPropagation();">
+                            <span>Learn More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Nina Labs -->
-                <div class="card">
+                <div class="card" data-link="/ninalabs/">
                     <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange)); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue)); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
                             <i class="fas fa-cogs" style="color: white; font-size: 1.25rem;"></i>
                         </div>
                         <div>
@@ -771,41 +819,37 @@
                     <p style="color: var(--gray-700); margin-bottom: 1rem;">Delivered critical engineering solutions for high-profile product launch, optimizing manufacturing processes and ensuring product quality for debut at the Las Vegas Sphere.</p>
                     <ul style="list-style: none; padding: 0; margin: 0;">
                         <li style="margin-bottom: 0.5rem; color: var(--gray-700); position: relative; padding-left: 1rem;">
-                            <span style="position: absolute; left: 0; color: var(--accent-orange);">•</span>
+                            <span style="position: absolute; left: 0; color: var(--accent-blue);">•</span>
                             Led design optimization initiatives for enhanced manufacturability
                         </li>
                         <li style="margin-bottom: 0.5rem; color: var(--gray-700); position: relative; padding-left: 1rem;">
-                            <span style="position: absolute; left: 0; color: var(--accent-orange);">•</span>
+                            <span style="position: absolute; left: 0; color: var(--accent-blue);">•</span>
                             Designed automated test jigs in SolidWorks with validation protocols
                         </li>
                         <li style="margin-bottom: 0.5rem; color: var(--gray-700); position: relative; padding-left: 1rem;">
-                            <span style="position: absolute; left: 0; color: var(--accent-orange);">•</span>
+                            <span style="position: absolute; left: 0; color: var(--accent-blue);">•</span>
                             Improved product pour accuracy by approximately 80%
                         </li>
                     </ul>
+                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-200);">
+                        <a href="/ninalabs/" style="color: var(--primary-blue); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;" onclick="event.stopPropagation();">
+                            <span>Learn More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="section bg-gray-50" id="projects">
-        <div class="container">
-            <div class="section-header">
-                <p class="section-header__subtitle">Portfolio</p>
-                <h2 class="section-header__title">Featured Projects</h2>
-                <p class="section-header__description">
-                    Engineering projects showcasing innovation, technical expertise, and problem-solving capabilities.
-                </p>
-            </div>
             
-            <div class="grid grid--2" style="margin-bottom: 3rem;">
+            <!-- Projects Tab Content -->
+            <div id="projects-content" class="tab-content">
+                <div class="grid grid--2" style="margin-bottom: 3rem;">
                 <!-- Fire Hose Clamp -->
-                <div class="card">
-                    <div style="height: 200px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange)); border-radius: 12px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                <div class="card" data-link="/firehoseclamp/">
+                    <div style="height: 200px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue)); border-radius: 12px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center;">
                         <i class="fas fa-fire" style="font-size: 3rem; color: white; opacity: 0.8;"></i>
                     </div>
-                    <span style="display: inline-block; padding: 0.25rem 0.75rem; background: var(--gray-100); color: var(--accent-orange); font-size: 0.75rem; font-weight: 600; border-radius: 12px; margin-bottom: 1rem;">Senior Capstone Project</span>
+                    <span style="display: inline-block; padding: 0.25rem 0.75rem; background: var(--gray-100); color: var(--accent-blue); font-size: 0.75rem; font-weight: 600; border-radius: 12px; margin-bottom: 1rem;">Senior Capstone Project</span>
                     <h3 style="margin-bottom: 1rem;">Wildland Fire Hose Clamp</h3>
                     <p style="margin-bottom: 1.5rem; color: var(--gray-700);">Advanced CAD modeling and FEA analysis of firefighting equipment, improving structural strength by 30% through innovative design optimization and stakeholder collaboration.</p>
                     <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
@@ -814,8 +858,8 @@
                         <span style="padding: 0.25rem 0.75rem; background: var(--gray-100); color: var(--gray-700); font-size: 0.75rem; border-radius: 12px;">GD&T</span>
                         <span style="padding: 0.25rem 0.75rem; background: var(--gray-100); color: var(--gray-700); font-size: 0.75rem; border-radius: 12px;">Design for Manufacturing</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <a href="#" style="color: var(--primary-blue); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-200);">
+                        <a href="/firehoseclamp/" style="color: var(--primary-blue); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;" onclick="event.stopPropagation();">
                             <span>Learn More</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
@@ -824,11 +868,11 @@
                 </div>
 
                 <!-- Autoprint -->
-                <div class="card">
-                    <div style="height: 200px; background: linear-gradient(135deg, var(--accent-orange), var(--accent-orange-light)); border-radius: 12px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                <div class="card" data-link="/autoprint/">
+                    <div style="height: 200px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-light)); border-radius: 12px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center;">
                         <i class="fas fa-cube" style="font-size: 3rem; color: white; opacity: 0.8;"></i>
                     </div>
-                    <span style="display: inline-block; padding: 0.25rem 0.75rem; background: var(--gray-100); color: var(--accent-orange); font-size: 0.75rem; font-weight: 600; border-radius: 12px; margin-bottom: 1rem;">Startup Project</span>
+                    <span style="display: inline-block; padding: 0.25rem 0.75rem; background: var(--gray-100); color: var(--accent-blue); font-size: 0.75rem; font-weight: 600; border-radius: 12px; margin-bottom: 1rem;">Startup Project</span>
                     <h3 style="margin-bottom: 1rem;">Autoprint 3D Printing System</h3>
                     <p style="margin-bottom: 1.5rem; color: var(--gray-700);">Founded innovative 3D printing startup, developing proprietary printer design with IoT capabilities. Filed provisional patent and engineered system reducing setup time by 90%.</p>
                     <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
@@ -837,23 +881,24 @@
                         <span style="padding: 0.25rem 0.75rem; background: var(--gray-100); color: var(--gray-700); font-size: 0.75rem; border-radius: 12px;">Patent Filing</span>
                         <span style="padding: 0.25rem 0.75rem; background: var(--gray-100); color: var(--gray-700); font-size: 0.75rem; border-radius: 12px;">Business Development</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <a href="#" style="color: var(--primary-blue); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-200);">
+                        <a href="/autoprint/" style="color: var(--primary-blue); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;" onclick="event.stopPropagation();">
                             <span>Learn More</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
                         <span style="color: var(--gray-500); font-size: 0.875rem;">2020-2021</span>
                     </div>
                 </div>
-            </div>
-
-            <!-- Coming Soon -->
-            <div style="text-align: center; padding: 3rem; background: var(--gray-50); border: 2px dashed var(--gray-300); border-radius: 16px;">
-                <div style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-plus-circle" style="font-size: 3rem; color: var(--gray-400);"></i>
+                
+                <!-- Coming Soon -->
+                <div class="card" style="text-align: center;">
+                    <div style="margin-bottom: 1.5rem;">
+                        <i class="fas fa-plus-circle" style="font-size: 3rem; color: var(--gray-400);"></i>
+                    </div>
+                    <h3 style="font-size: 1.5rem; color: var(--gray-700); margin-bottom: 1rem;">More Projects Coming Soon</h3>
+                    <p style="color: var(--gray-600); margin-bottom: 0;">I'm currently documenting additional engineering projects and technical innovations. Check back soon to see more of my work!</p>
                 </div>
-                <h3 style="font-size: 1.5rem; color: var(--gray-700); margin-bottom: 1rem;">More Projects Coming Soon</h3>
-                <p style="color: var(--gray-600); margin-bottom: 0;">I'm currently documenting additional engineering projects and technical innovations. Check back soon to see more of my work!</p>
+                </div>
             </div>
         </div>
     </section>
@@ -872,7 +917,7 @@
             <div class="grid grid--3">
                 <!-- CAD & Design -->
                 <div class="card">
-                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange)); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue)); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
                         <i class="fas fa-drafting-compass" style="font-size: 1.5rem; color: white;"></i>
                     </div>
                     <h3 style="margin-bottom: 1rem;">CAD & Design</h3>
@@ -898,7 +943,7 @@
 
                 <!-- Thermal Systems -->
                 <div class="card">
-                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange)); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue)); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
                         <i class="fas fa-thermometer-half" style="font-size: 1.5rem; color: white;"></i>
                     </div>
                     <h3 style="margin-bottom: 1rem;">Thermal Systems</h3>
@@ -924,7 +969,7 @@
 
                 <!-- Programming & Analysis -->
                 <div class="card">
-                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange)); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue)); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
                         <i class="fas fa-code" style="font-size: 1.5rem; color: white;"></i>
                     </div>
                     <h3 style="margin-bottom: 1rem;">Programming & Analysis</h3>
@@ -966,42 +1011,42 @@
                 <!-- Contact Info -->
                 <div>
                     <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
-                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange)); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue)); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
                             <i class="fas fa-envelope" style="color: white; font-size: 1.25rem;"></i>
                         </div>
                         <div>
                             <h4 style="margin: 0 0 0.25rem 0;">Email</h4>
-                            <p style="margin: 0;"><a href="mailto:mois.cohen787@gmail.com" style="color: var(--primary-blue);">mois.cohen787@gmail.com</a></p>
+                            <p style="margin: 0;"><a href="mailto:mois.cohen787@gmail.com" style="color: var(--primary-blue); text-decoration: none;">mois.cohen787@gmail.com</a></p>
                         </div>
                     </div>
                     
                     <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
-                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange)); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue)); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
                             <i class="fas fa-phone" style="color: white; font-size: 1.25rem;"></i>
                         </div>
                         <div>
                             <h4 style="margin: 0 0 0.25rem 0;">Phone</h4>
-                            <p style="margin: 0;"><a href="tel:8586689347" style="color: var(--primary-blue);">(858) 668-9347</a></p>
+                            <p style="margin: 0;"><a href="tel:8586689347" style="color: var(--primary-blue); text-decoration: none;">(858) 668-9347</a></p>
                         </div>
                     </div>
                     
                     <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
-                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange)); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue)); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
                             <i class="fas fa-map-marker-alt" style="color: white; font-size: 1.25rem;"></i>
                         </div>
                         <div>
                             <h4 style="margin: 0 0 0.25rem 0;">Location</h4>
-                            <p style="margin: 0;">San Luis Obispo, California</p>
+                            <p style="margin: 0;">San Diego, California</p>
                         </div>
                     </div>
                     
                     <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange)); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue)); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
                             <i class="fab fa-linkedin-in" style="color: white; font-size: 1.25rem;"></i>
                         </div>
                         <div>
                             <h4 style="margin: 0 0 0.25rem 0;">LinkedIn</h4>
-                            <p style="margin: 0;"><a href="https://www.linkedin.com/in/moiscohen/" target="_blank" rel="noopener" style="color: var(--primary-blue);">Connect with me</a></p>
+                            <p style="margin: 0;"><a href="https://www.linkedin.com/in/moiscohen/" target="_blank" rel="noopener" style="color: var(--primary-blue); text-decoration: none;">Connect with me</a></p>
                         </div>
                     </div>
                 </div>
@@ -1099,50 +1144,50 @@
             lastScrollY = currentScrollY;
         });
 
-        // Simple typing animation
-        const typingElement = document.querySelector('.typing-cursor');
-        if (typingElement) {
-            const phrases = [
-                'Mechanical Engineer',
-                'Problem Solver', 
-                'Design Expert',
-                'Innovation Driver'
-            ];
+        // Tab functionality
+        function switchTab(tabName) {
+            // Remove active class from all tab buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
             
-            let phraseIndex = 0;
-            let charIndex = 0;
-            let isDeleting = false;
+            // Remove active class from all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
             
-            function type() {
-                const currentPhrase = phrases[phraseIndex];
-                
-                if (!isDeleting) {
-                    typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
-                    charIndex++;
-                    
-                    if (charIndex >= currentPhrase.length) {
-                        isDeleting = true;
-                        setTimeout(type, 2000);
-                        return;
-                    }
-                } else {
-                    typingElement.textContent = currentPhrase.substring(0, charIndex);
-                    charIndex--;
-                    
-                    if (charIndex < 0) {
-                        isDeleting = false;
-                        phraseIndex = (phraseIndex + 1) % phrases.length;
-                        setTimeout(type, 500);
-                        return;
-                    }
-                }
-                
-                const typeSpeed = isDeleting ? 50 : 100;
-                setTimeout(type, typeSpeed);
-            }
+            // Add active class to clicked tab button
+            event.target.classList.add('active');
             
-            setTimeout(type, 1000);
+            // Show corresponding tab content
+            document.getElementById(tabName + '-content').classList.add('active');
         }
+
+        // Card click functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Make cards with data-link clickable
+            document.querySelectorAll('.card[data-link]').forEach(card => {
+                card.addEventListener('click', function(event) {
+                    // Don't trigger if clicking on a link inside the card
+                    if (event.target.tagName === 'A' || event.target.closest('a')) {
+                        return;
+                    }
+                    
+                    const link = this.getAttribute('data-link');
+                    if (link.startsWith('#')) {
+                        // Internal anchor link
+                        const targetElement = document.querySelector(link);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    } else {
+                        // External link
+                        window.location.href = link;
+                    }
+                });
+            });
+        });
+
     </script>
 </body>
 </html>
