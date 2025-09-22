@@ -1,1 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autoprint Inc. | Mois Cohen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a365d',
+                        secondary: '#475569',
+                        accent: '#1e40af',
+                        light: '#F8FAFC',
+                        dark: '#0F172A'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'system-ui', 'sans-serif'],
+                        secondary: ['Poppins', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'system-ui', 'sans-serif']
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            color: #0F172A;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #1e40af, #3b82f6, #1e3a8a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+        }
+
+        .project-card {
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: #1e40af;
+            z-index: 1000;
+            transition: width 0.2s ease-out;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 40;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .feature-image {
+            transition: transform 0.5s ease;
+        }
+
+        .feature-image:hover {
+            transform: scale(1.02);
+        }
+    </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8BERH7V4E"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-J8BERH7V4E');
+    </script>
+</head>
+
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="scrollProgress"></div>
+
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 w-full bg-white bg-opacity-80 backdrop-blur-md z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <a href="/" class="text-xl font-bold" style="font-family: Arial, sans-serif; color: #1a365d;">MC<span style="color: #1e40af;">.</span></a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                    <a href="/#about" class="text-gray-700 hover:text-accent transition-colors">About</a>
+                    <a href="/#work" class="text-gray-700 hover:text-accent transition-colors">Work</a>
+                    <a href="/#skills" class="text-gray-700 hover:text-accent transition-colors">Skills</a>
+                    <a href="/#contact" class="text-gray-700 hover:text-accent transition-colors">Contact</a>
+                </nav>
+
+                <!-- Back to Portfolio Button -->
+                <div class="hidden md:block">
+                    <a href="/#work"
+                       class="px-4 py-2 rounded-full text-sm font-medium text-accent border border-accent hover:bg-accent hover:text-white transition-colors duration-300">
+                        <i class="fas fa-arrow-left mr-2"></i>Back to Portfolio
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden py-4 border-t border-gray-200">
+                <div class="flex flex-col space-y-4 text-sm font-medium">
+                    <a href="/#about" class="text-gray-700 hover:text-accent">About</a>
+                    <a href="/#work" class="text-gray-700 hover:text-accent">Work</a>
+                    <a href="/#skills" class="text-gray-700 hover:text-accent">Skills</a>
+                    <a href="/#contact" class="text-gray-700 hover:text-accent">Contact</a>
+                    <a href="/#work" class="text-accent font-medium">
+                        <i class="fas fa-arrow-left mr-2"></i>Back to Portfolio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Project Hero Section -->
+    <section class="pt-32 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Content Column -->
+            <div data-aos="fade-right">
+                <div class="inline-block px-3 py-1 rounded-full bg-blue-50 text-accent text-xs font-medium mb-4">
+                    2020 - 2021 • Startup Project
+                </div>
+                <h1 class="text-4xl sm:text-5xl font-bold mb-6">
+                    Autoprint Inc.
+                    <span class="block text-2xl sm:text-3xl font-medium text-gray-500 mt-2">
+                        3D Printing Innovation Startup
+                    </span>
+                </h1>
+                <p class="text-lg text-gray-700 mb-8">
+                    Co-founded innovative 3D printing startup that raised $11,000 through Kickstarter, developing proprietary printer technology with IoT capabilities and filing provisional patent for automated printing system.
+                </p>
+
+                <div class="flex flex-wrap gap-4">
+                    <a href="#overview" class="px-6 py-3 rounded-lg gradient-bg text-white font-medium hover:shadow-lg transition-all duration-300">
+                        Project Overview
+                    </a>
+                    <a href="#technology" class="px-6 py-3 rounded-lg bg-white border border-gray-300 text-gray-700 font-medium hover:border-accent hover:text-accent transition-all duration-300">
+                        Technology & Innovation
+                    </a>
+                </div>
+            </div>
+
+            <!-- Image Column -->
+            <div class="relative" data-aos="fade-left">
+                <!-- Featured Project Image -->
+                <div class="relative z-10 overflow-hidden rounded-2xl shadow-xl">
+                    <img src="autprint_kickstarter.jpg" alt="Autoprint Kickstarter Campaign" class="w-full h-auto feature-image">
+                </div>
+
+                <!-- Decorative elements -->
+                <div class="absolute -top-6 -right-6 w-32 h-32 border-8 border-blue-100 rounded-full z-0"></div>
+                <div class="absolute -bottom-6 -left-6 w-24 h-24 border-8 border-blue-100 rounded-xl z-0"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section id="overview" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="mb-12 text-center" data-aos="fade-up">
+            <h2 class="text-sm uppercase tracking-wider text-accent font-semibold mb-2">Project Overview</h2>
+            <h3 class="text-3xl font-bold">Revolutionizing 3D Printing Technology</h3>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Innovation Focus -->
+            <div class="bg-white rounded-2xl shadow-sm p-8 project-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-accent mb-6">
+                    <i class="fas fa-lightbulb text-xl"></i>
+                </div>
+                <h4 class="text-xl font-semibold mb-4">Innovation Focus</h4>
+                <ul class="space-y-3 text-gray-700">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                        <span>Developed proprietary automated print queue management system</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                        <span>Integrated IoT capabilities for remote monitoring and control</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                        <span>Designed modular print bed system for continuous operation</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                        <span>Filed provisional patent for automated material handling</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Business Development -->
+            <div class="bg-white rounded-2xl shadow-sm p-8 project-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-accent mb-6">
+                    <i class="fas fa-chart-line text-xl"></i>
+                </div>
+                <h4 class="text-xl font-semibold mb-4">Business Development</h4>
+                <ul class="space-y-3 text-gray-700">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                        <span>Raised $11,000 through successful Kickstarter campaign</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                        <span>Developed comprehensive business plan and financial projections</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                        <span>Created marketing strategy targeting hobbyist and professional markets</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                        <span>Established partnerships with material suppliers and distributors</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Technical Achievement -->
+            <div class="bg-white rounded-2xl shadow-sm p-8 project-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-accent mb-6">
+                    <i class="fas fa-cogs text-xl"></i>
+                </div>
+                <h4 class="text-xl font-semibold mb-4">Technical Achievements</h4>
+                <ul class="space-y-3 text-gray-700">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                        <span>Reduced pre-print setup time by 90% through automation</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                        <span>Implemented real-time print monitoring and failure detection</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                        <span>Designed scalable architecture for multi-printer management</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                        <span>Created user-friendly interface for remote print control</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology & Innovation Section -->
+    <section id="technology" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50">
+        <div class="mb-12 text-center" data-aos="fade-up">
+            <h2 class="text-sm uppercase tracking-wider text-accent font-semibold mb-2">Technology & Innovation</h2>
+            <h3 class="text-3xl font-bold">Core Technology Stack</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Hardware Innovation -->
+            <div class="bg-white rounded-2xl shadow-sm p-8" data-aos="fade-up" data-aos-delay="100">
+                <h4 class="text-2xl font-semibold mb-6 flex items-center">
+                    <i class="fas fa-microchip text-accent mr-3"></i>
+                    Hardware Innovation
+                </h4>
+                <div class="space-y-4">
+                    <div class="border-l-4 border-accent pl-4">
+                        <h5 class="font-semibold text-gray-900">Automated Print Bed System</h5>
+                        <p class="text-gray-700">Developed modular print bed mechanism allowing continuous printing without manual intervention</p>
+                    </div>
+                    <div class="border-l-4 border-accent pl-4">
+                        <h5 class="font-semibold text-gray-900">IoT Integration</h5>
+                        <p class="text-gray-700">Embedded sensors and connectivity for real-time monitoring and remote control capabilities</p>
+                    </div>
+                    <div class="border-l-4 border-accent pl-4">
+                        <h5 class="font-semibold text-gray-900">Material Handling</h5>
+                        <p class="text-gray-700">Automated filament loading and switching system for multi-material printing</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Software Development -->
+            <div class="bg-white rounded-2xl shadow-sm p-8" data-aos="fade-up" data-aos-delay="200">
+                <h4 class="text-2xl font-semibold mb-6 flex items-center">
+                    <i class="fas fa-code text-accent mr-3"></i>
+                    Software Development
+                </h4>
+                <div class="space-y-4">
+                    <div class="border-l-4 border-accent pl-4">
+                        <h5 class="font-semibold text-gray-900">Print Queue Management</h5>
+                        <p class="text-gray-700">Intelligent job scheduling and prioritization system for optimized print workflows</p>
+                    </div>
+                    <div class="border-l-4 border-accent pl-4">
+                        <h5 class="font-semibold text-gray-900">Mobile Application</h5>
+                        <p class="text-gray-700">Cross-platform mobile app for remote monitoring, control, and print job submission</p>
+                    </div>
+                    <div class="border-l-4 border-accent pl-4">
+                        <h5 class="font-semibold text-gray-900">Failure Detection</h5>
+                        <p class="text-gray-700">AI-powered monitoring system for early detection and automatic print failure recovery</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="mb-12 text-center" data-aos="fade-up">
+            <h2 class="text-sm uppercase tracking-wider text-accent font-semibold mb-2">Key Features</h2>
+            <h3 class="text-3xl font-bold">Revolutionary Printing Capabilities</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Feature 1 -->
+            <div class="bg-white rounded-xl p-6 shadow-sm text-center project-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-16 h-16 rounded-full gradient-bg flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h4 class="text-lg font-semibold mb-2">90% Setup Reduction</h4>
+                <p class="text-gray-700 text-sm">Automated pre-print setup eliminates manual configuration steps</p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="bg-white rounded-xl p-6 shadow-sm text-center project-card" data-aos="fade-up" data-aos-delay="150">
+                <div class="w-16 h-16 rounded-full gradient-bg flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                    <i class="fas fa-wifi"></i>
+                </div>
+                <h4 class="text-lg font-semibold mb-2">Remote Control</h4>
+                <p class="text-gray-700 text-sm">IoT connectivity enables monitoring and control from anywhere</p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="bg-white rounded-xl p-6 shadow-sm text-center project-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-16 h-16 rounded-full gradient-bg flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                    <i class="fas fa-layer-group"></i>
+                </div>
+                <h4 class="text-lg font-semibold mb-2">Multi-Material</h4>
+                <p class="text-gray-700 text-sm">Automatic filament switching for complex multi-material prints</p>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="bg-white rounded-xl p-6 shadow-sm text-center project-card" data-aos="fade-up" data-aos-delay="250">
+                <div class="w-16 h-16 rounded-full gradient-bg flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h4 class="text-lg font-semibold mb-2">Failure Recovery</h4>
+                <p class="text-gray-700 text-sm">AI-powered monitoring prevents failures and enables automatic recovery</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Impact -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50">
+        <div class="mb-12 text-center" data-aos="fade-up">
+            <h2 class="text-sm uppercase tracking-wider text-accent font-semibold mb-2">Project Impact</h2>
+            <h3 class="text-3xl font-bold">Results & Achievements</h3>
+        </div>
+
+        <!-- Impact Metrics -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div class="bg-white rounded-xl p-8 text-center shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                <div class="text-4xl font-bold text-accent mb-2">$11K</div>
+                <p class="text-gray-700 font-medium">Raised on Kickstarter</p>
+                <p class="text-sm text-gray-500 mt-1">Successful crowdfunding campaign</p>
+            </div>
+            <div class="bg-white rounded-xl p-8 text-center shadow-sm" data-aos="fade-up" data-aos-delay="150">
+                <div class="text-4xl font-bold text-accent mb-2">90%</div>
+                <p class="text-gray-700 font-medium">Setup Time Reduction</p>
+                <p class="text-sm text-gray-500 mt-1">Through automation technology</p>
+            </div>
+            <div class="bg-white rounded-xl p-8 text-center shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                <div class="text-4xl font-bold text-accent mb-2">1</div>
+                <p class="text-gray-700 font-medium">Provisional Patent Filed</p>
+                <p class="text-sm text-gray-500 mt-1">For automated printing system</p>
+            </div>
+        </div>
+
+        <!-- Lessons Learned -->
+        <div data-aos="fade-up">
+            <h4 class="text-2xl font-semibold mb-6 text-center">Key Learnings & Experience</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <h5 class="text-lg font-semibold mb-4 flex items-center">
+                        <i class="fas fa-graduation-cap text-accent mr-3"></i>
+                        Technical Skills Developed
+                    </h5>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-accent mr-2 mt-1"></i>
+                            <span>Product development lifecycle management</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-accent mr-2 mt-1"></i>
+                            <span>IoT system architecture and implementation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-accent mr-2 mt-1"></i>
+                            <span>Patent application process and IP protection</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-accent mr-2 mt-1"></i>
+                            <span>Mechanical design for manufacturing</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <h5 class="text-lg font-semibold mb-4 flex items-center">
+                        <i class="fas fa-users text-accent mr-3"></i>
+                        Business & Leadership Skills
+                    </h5>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-accent mr-2 mt-1"></i>
+                            <span>Startup founding and team management</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-accent mr-2 mt-1"></i>
+                            <span>Crowdfunding campaign development and execution</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-accent mr-2 mt-1"></i>
+                            <span>Market research and competitive analysis</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-accent mr-2 mt-1"></i>
+                            <span>Financial planning and investor relations</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call To Action -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="bg-white rounded-2xl shadow-sm overflow-hidden" data-aos="fade-up">
+            <div class="p-8 md:p-12">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold mb-4">Interested in Innovation?</h2>
+                    <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                        This project demonstrates my ability to combine technical engineering skills with business acumen to bring innovative products to market. Let's discuss how this experience can benefit your organization.
+                    </p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="/#work" class="px-8 py-3 rounded-lg bg-white border border-accent text-accent font-medium hover:bg-accent hover:text-white transition-all duration-300 w-full sm:w-auto text-center">
+                        <i class="fas fa-arrow-left mr-2"></i>View Other Projects
+                    </a>
+                    <a href="/#contact" class="px-8 py-3 rounded-lg gradient-bg text-white font-medium hover:shadow-lg transition-all duration-300 w-full sm:w-auto text-center">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 sm:px-6 lg:px-8 bg-gray-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <span class="text-xl font-bold" style="font-family: Arial, sans-serif; color: #1a365d;">Mois Cohen<span style="color: #1e40af;">.</span></span>
+                    <p class="text-gray-600 text-sm mt-1">Mechanical Engineer</p>
+                </div>
+
+                <div class="flex space-x-8 text-sm text-gray-600">
+                    <a href="/#about" class="hover:text-accent transition-colors">About</a>
+                    <a href="/#work" class="hover:text-accent transition-colors">Work</a>
+                    <a href="/#skills" class="hover:text-accent transition-colors">Skills</a>
+                    <a href="/#contact" class="hover:text-accent transition-colors">Contact</a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-200 mt-6 pt-6 text-center text-sm text-gray-500">
+                <p>© 2025 Mois Cohen. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center shadow-lg hover:shadow-xl hover:bg-blue-700 transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+
+        // Mobile menu
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Scroll progress bar
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("scrollProgress").style.width = scrolled + "%";
+
+            // Back to top button
+            const backToTopButton = document.getElementById('backToTop');
+            if (winScroll > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+
+        // Back to top button
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
