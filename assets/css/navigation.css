@@ -1,0 +1,49 @@
+/*
+ * Navigation — Sticky top bar
+ */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    height: var(--nav-height);
+    background: var(--color-bg);
+    border-bottom: var(--border);
+    display: flex;
+    align-items: center;
+    padding: 0 var(--page-padding);
+    justify-content: space-between;
+}
+
+/* Brand: MC. */
+.navbar__brand {
+    font-family: var(--font-sans);
+    font-weight: 900;
+    font-size: 16px;
+    letter-spacing: -0.5px;
+    color: var(--color-text);
+    text-decoration: none;
+}
+.navbar__brand .dot {
+    color: var(--color-navy);
+}
+
+/* Nav links */
+.navbar__nav {
+    display: flex;
+    gap: var(--space-32);
+    align-items: center;
+}
+
+.navbar__link {
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-subtle);
+    text-decoration: none;
+    transition: color var(--transition);
+}
+.navbar__link:hover {
+    color: var(--color-text);
+}
