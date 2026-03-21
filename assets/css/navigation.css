@@ -25,7 +25,7 @@
     text-decoration: none;
 }
 .navbar__brand .dot {
-    color: var(--color-navy);
+    color: #2563EB;
 }
 
 /* Nav links */
@@ -46,4 +46,17 @@
 }
 .navbar__link:hover {
     color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+    .navbar__nav {
+        gap: var(--space-16);
+    }
+    .navbar__link {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+    .navbar__link--hidden-mobile {
+        display: none;
+    }
 }
