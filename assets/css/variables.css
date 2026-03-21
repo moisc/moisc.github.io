@@ -1,0 +1,71 @@
+/*
+ * Portfolio Redesign — Design Tokens
+ * Swiss Precision + Warm Editorial
+ * Palette: Deep Navy + White. No dark mode.
+ */
+
+:root {
+    /* ── Colors ── */
+    --color-bg:         #FAFAFA;
+    --color-bg-tint:    #F5F8FC;
+    --color-border:     #E8EEF4;
+    --color-navy:       #1E3A5F;
+    --color-navy-tint:  #E8EEF4;
+    --color-text:       #0a0a0a;
+    --color-muted:      #555555;
+    --color-subtle:     #999999;
+    --color-faint:      #BBBBBB;
+
+    /* ── Typography ── */
+    --font-sans:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono:    'Space Mono', 'Courier New', monospace;
+
+    /* ── Type scale ── */
+    --text-hero:    72px;
+    --text-xl:      32px;
+    --text-lg:      24px;
+    --text-md:      16px;
+    --text-sm:      14px;
+    --text-xs:      12px;
+    --text-2xs:     11px;
+    --text-3xs:     10px;
+
+    /* ── Spacing (8px grid) ── */
+    --space-4:   4px;
+    --space-8:   8px;
+    --space-12:  12px;
+    --space-16:  16px;
+    --space-20:  20px;
+    --space-24:  24px;
+    --space-32:  32px;
+    --space-40:  40px;
+    --space-48:  48px;
+    --space-64:  64px;
+    --space-96:  96px;
+
+    /* ── Layout ── */
+    --max-width:    1200px;
+    --page-padding: 48px;
+    --nav-height:   64px;
+
+    /* ── Borders ── */
+    --border:       1px solid var(--color-border);
+
+    /* ── Transitions ── */
+    --transition:   150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (max-width: 768px) {
+    :root {
+        --text-hero:    48px;
+        --text-xl:      24px;
+        --page-padding: 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
