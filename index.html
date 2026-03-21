@@ -4,645 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mois Cohen | Mechanical Engineer</title>
-    
+
     <!-- SEO Meta Tags -->
     <meta name="description" content="Mechanical Engineer with expertise in CAD/FEA, thermal systems, and engineering design. B.S. from Cal Poly SLO with experience in aerospace, solar, and mechanical systems.">
     <meta name="keywords" content="mechanical engineer, CAD, FEA, thermal systems, engineering design, Cal Poly SLO">
     <meta name="author" content="Mois Cohen">
     <meta name="robots" content="index, follow">
-    
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Mois Cohen | Mechanical Engineer">
     <meta property="og:description" content="Mechanical Engineer with expertise in CAD/FEA, thermal systems, and engineering design. B.S. from Cal Poly SLO.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://moisc.github.io">
     <meta property="og:image" content="https://moisc.github.io/unnamed%20(22).jpg">
-    
+
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Mois Cohen | Mechanical Engineer">
     <meta name="twitter:description" content="Mechanical Engineer with expertise in CAD/FEA, thermal systems, and engineering design.">
     <meta name="twitter:image" content="https://moisc.github.io/unnamed%20(22).jpg">
-    
-    <!-- Theme Color -->
-    <meta name="theme-color" content="#1a365d">
-    
+
     <!-- Favicon -->
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="alternate icon" href="/favicon.ico">
-    
+
     <!-- Preload critical resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" as="style">
-    
-    <!-- CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Modern CSS -->
-    <style>
-        /* CSS Variables */
-        :root {
-            --primary-blue: #1a365d;
-            --primary-blue-dark: #153e75;
-            --primary-blue-light: #2c5aa0;
-            --accent-blue: #1e40af;
-            --accent-blue-light: #3b82f6;
-            --accent-blue-dark: #1e3a8a;
-            --gray-50: #f8fafc;
-            --gray-100: #f1f5f9;
-            --gray-200: #e2e8f0;
-            --gray-300: #cbd5e1;
-            --gray-400: #94a3b8;
-            --gray-500: #64748b;
-            --gray-600: #475569;
-            --gray-700: #334155;
-            --gray-800: #1e293b;
-            --gray-900: #0f172a;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --error: #ef4444;
-            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-            --font-secondary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-            --space-xs: 0.25rem;
-            --space-sm: 0.5rem;
-            --space-md: 1rem;
-            --space-lg: 1.5rem;
-            --space-xl: 2rem;
-            --space-2xl: 3rem;
-            --space-3xl: 4rem;
-            --radius-sm: 0.375rem;
-            --radius-md: 0.5rem;
-            --radius-lg: 0.75rem;
-            --radius-xl: 1rem;
-            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-            --transition-fast: 150ms ease-in-out;
-            --transition-normal: 250ms ease-in-out;
-            --transition-slow: 350ms ease-in-out;
-        }
 
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            font-size: 16px;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-primary);
-            line-height: 1.6;
-            color: var(--gray-800);
-            background-color: var(--gray-50);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-secondary);
-            font-weight: 700;
-            line-height: 1.2;
-            color: var(--gray-900);
-            margin-bottom: var(--space-md);
-        }
-
-        h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            letter-spacing: -0.02em;
-        }
-
-        h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 700;
-            letter-spacing: -0.01em;
-        }
-
-        h3 {
-            font-size: clamp(1.5rem, 3vw, 2.25rem);
-            font-weight: 600;
-        }
-
-        p {
-            margin-bottom: var(--space-md);
-            font-size: 1.125rem;
-            line-height: 1.7;
-            color: var(--gray-700);
-        }
-
-        /* Layout */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--space-md);
-        }
-
-        @media (min-width: 768px) {
-            .container {
-                padding: 0 var(--space-lg);
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .container {
-                padding: 0 var(--space-xl);
-            }
-        }
-
-        .section {
-            padding: var(--space-3xl) 0;
-        }
-
-        @media (min-width: 768px) {
-            .section {
-                padding: 5rem 0;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .section {
-                padding: 6rem 0;
-            }
-        }
-
-        /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--gray-200);
-            transition: all var(--transition-normal);
-        }
-
-        .navbar.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: var(--shadow-md);
-        }
-
-        .navbar__container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: var(--space-md) 0;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-left: var(--space-md);
-            padding-right: var(--space-md);
-        }
-
-        @media (min-width: 768px) {
-            .navbar__container {
-                padding-left: var(--space-lg);
-                padding-right: var(--space-lg);
-            }
-        }
-
-        .navbar__brand {
-            font-family: Arial, sans-serif;
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: #0F172A;
-            text-decoration: none;
-            transition: color var(--transition-fast);
-        }
-
-        .navbar__brand:hover {
-            color: var(--primary-blue-dark);
-        }
-
-        .navbar__nav {
-            display: none;
-        }
-
-        @media (min-width: 768px) {
-            .navbar__nav {
-                display: flex;
-                align-items: center;
-                gap: var(--space-xl);
-            }
-        }
-
-        .navbar__link {
-            font-weight: 500;
-            color: var(--gray-700);
-            text-decoration: none;
-            transition: color var(--transition-fast);
-            position: relative;
-        }
-
-        .navbar__link:hover,
-        .navbar__link.active {
-            color: var(--primary-blue);
-        }
-
-        .navbar__link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent-blue);
-            transition: width var(--transition-fast);
-        }
-
-        .navbar__link:hover::after,
-        .navbar__link.active::after {
-            width: 100%;
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--space-sm);
-            padding: var(--space-md) var(--space-xl);
-            font-family: var(--font-secondary);
-            font-weight: 600;
-            font-size: 1rem;
-            line-height: 1;
-            border: none;
-            border-radius: var(--radius-lg);
-            cursor: pointer;
-            transition: all var(--transition-fast);
-            text-decoration: none;
-            white-space: nowrap;
-        }
-
-        .btn:focus {
-            outline: 2px solid var(--accent-blue);
-            outline-offset: 2px;
-        }
-
-        .btn--primary {
-            background-color: var(--primary-blue);
-            color: white;
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn--primary:hover {
-            background-color: var(--primary-blue-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn--primary:active {
-            transform: translateY(0);
-        }
-
-        .btn--outline {
-            background-color: transparent;
-            color: var(--primary-blue);
-            border: 2px solid var(--primary-blue);
-        }
-
-        .btn--outline:hover {
-            background-color: var(--primary-blue);
-            color: white;
-        }
-
-        .btn--large {
-            padding: var(--space-lg) var(--space-2xl);
-            font-size: 1.125rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            background: linear-gradient(135deg, var(--gray-50) 0%, var(--gray-100) 100%);
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23e2e8f0" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.5;
-            z-index: 1;
-        }
-
-        .hero__container {
-            position: relative;
-            z-index: 2;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--space-2xl);
-            align-items: center;
-        }
-
-        @media (min-width: 1024px) {
-            .hero__container {
-                grid-template-columns: 1fr 400px;
-                gap: var(--space-3xl);
-            }
-        }
-
-        .hero__content {
-            text-align: center;
-        }
-
-        @media (min-width: 1024px) {
-            .hero__content {
-                text-align: left;
-            }
-        }
-
-        .hero__greeting {
-            font-size: 1.25rem;
-            color: var(--accent-blue);
-            font-weight: 600;
-            margin-bottom: var(--space-sm);
-        }
-
-        .hero__title {
-            margin-bottom: var(--space-lg);
-        }
-
-        .hero__subtitle-role {
-            font-size: clamp(1.5rem, 3vw, 2.25rem);
-            font-weight: 500;
-            color: var(--gray-600);
-            display: block;
-            margin-top: 0.5rem;
-        }
-
-        .highlight {
-            color: var(--primary-blue);
-            position: relative;
-        }
-
-        .highlight::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-blue-light));
-        }
-
-        .hero__subtitle {
-            font-size: 1.25rem;
-            color: var(--gray-600);
-            margin-bottom: var(--space-xl);
-            max-width: 600px;
-        }
-
-        @media (min-width: 1024px) {
-            .hero__subtitle {
-                margin-left: 0;
-                margin-right: auto;
-            }
-        }
-
-        @media (max-width: 1023px) {
-            .hero__subtitle {
-                margin-left: auto;
-                margin-right: auto;
-            }
-        }
-
-        .hero__cta {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-md);
-        }
-
-        @media (min-width: 640px) {
-            .hero__cta {
-                flex-direction: row;
-                justify-content: center;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .hero__cta {
-                justify-content: flex-start;
-            }
-        }
-
-        .hero__image {
-            position: relative;
-        }
-
-        .hero__image img {
-            width: 100%;
-            height: auto;
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-xl);
-            transition: transform var(--transition-slow);
-        }
-
-        .hero__image img:hover {
-            transform: scale(1.02);
-        }
-
-        .hero__image::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            right: 20px;
-            bottom: 20px;
-            background: linear-gradient(135deg, var(--primary-blue-light), var(--accent-blue));
-            border-radius: var(--radius-xl);
-            z-index: -1;
-            opacity: 0.1;
-        }
-
-        /* Grid System */
-        .grid {
-            display: grid;
-            gap: var(--space-lg);
-        }
-
-        .grid--2 {
-            grid-template-columns: 1fr;
-        }
-
-        @media (min-width: 768px) {
-            .grid--2 {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .grid--3 {
-            grid-template-columns: 1fr;
-        }
-
-        @media (min-width: 768px) {
-            .grid--3 {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .grid--3 {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        /* Cards */
-        .card {
-            background: white;
-            border-radius: var(--radius-xl);
-            padding: var(--space-xl);
-            box-shadow: var(--shadow-md);
-            transition: all var(--transition-normal);
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .card-link {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            cursor: pointer;
-        }
-
-        .card-link:hover {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .card[data-link] {
-            cursor: pointer;
-        }
-
-        /* Section Headers */
-        .section-header {
-            text-align: center;
-            margin-bottom: var(--space-3xl);
-        }
-
-        .section-header__subtitle {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--accent-blue);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: var(--space-sm);
-        }
-
-        .section-header__title {
-            margin-bottom: var(--space-lg);
-        }
-
-        .section-header__description {
-            font-size: 1.125rem;
-            color: var(--gray-600);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Background variations */
-        .bg-gray-50 {
-            background-color: var(--gray-50);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-fadeInUp {
-            animation: fadeInUp 0.6s ease-out both;
-        }
-
-
-        /* Mobile Menu */
-        .mobile-menu-toggle {
-            display: block;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--gray-700);
-            cursor: pointer;
-        }
-
-        @media (min-width: 768px) {
-            .mobile-menu-toggle {
-                display: none;
-            }
-        }
-
-        /* Tab System */
-        .tab-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: var(--space-2xl);
-            background: white;
-            border-radius: var(--radius-xl);
-            padding: var(--space-xs);
-            box-shadow: var(--shadow-md);
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .tab-button {
-            flex: 1;
-            padding: var(--space-md) var(--space-lg);
-            background: none;
-            border: none;
-            font-family: var(--font-secondary);
-            font-weight: 600;
-            font-size: 1rem;
-            color: var(--gray-600);
-            border-radius: var(--radius-lg);
-            cursor: pointer;
-            transition: all var(--transition-fast);
-        }
-
-        .tab-button.active {
-            background: var(--primary-blue);
-            color: white;
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-    </style>
+    <!-- ULTIMATE REDESIGN CSS -->
+    <link rel="stylesheet" href="/assets/css/variables.css">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/navigation.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/sections.css">
 
     <!-- Analytics -->
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8BERH7V4E"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -650,563 +51,247 @@
       gtag('js', new Date());
       gtag('config', 'G-J8BERH7V4E');
     </script>
+
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Mois Cohen",
+      "jobTitle": "Mechanical Engineer",
+      "url": "https://moisc.github.io",
+      "sameAs": [
+        "https://www.linkedin.com/in/moiscohen/"
+      ],
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "California Polytechnic State University, San Luis Obispo"
+      },
+      "email": "mois.cohen787@gmail.com",
+      "telephone": "+1-858-668-9347",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Innoflight"
+      },
+      "knowsAbout": [
+        "Mechanical Engineering",
+        "CAD Design",
+        "FEA Analysis",
+        "Thermal Systems",
+        "SolidWorks",
+        "Python",
+        "MATLAB",
+        "Product Development"
+      ]
+    }
+    </script>
 </head>
 
 <body>
+    <a href="#main" class="skip-to-main">Skip to main content</a>
+    <div class="scroll-progress" id="scroll-progress"></div>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
-        <div class="navbar__container container">
-            <a href="#" class="navbar__brand">
-                MC<span style="color: #3B82F6;">.</span>
-            </a>
-            
-            <div class="navbar__nav">
-                <a href="#about" class="navbar__link">About</a>
-                <a href="#work" class="navbar__link">Work</a>
-                <a href="#skills" class="navbar__link">Skills</a>
-                <a href="#contact" class="navbar__link">Contact</a>
-            </div>
-            
-            <div style="display: flex; align-items: center; gap: 1rem;">
-                <a href="https://raw.githubusercontent.com/moisc/moisc.github.io/main/Mois Cohen Resume 2026.pdf"
-                   class="btn btn--primary"
-                   download="Mois Cohen Resume 2026.pdf">
-                    <i class="fas fa-download"></i>
-                    <span>Resume</span>
-                </a>
-                <button class="mobile-menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
+        <a href="/" class="navbar__brand">MC<span class="dot">.</span></a>
+        <div class="navbar__nav">
+            <a href="#projects" class="navbar__link">Projects</a>
+            <a href="/blog/" class="navbar__link">Blog</a>
+            <a href="#contact" class="navbar__link">Contact</a>
+            <a href="https://raw.githubusercontent.com/moisc/moisc.github.io/main/Mois Cohen Resume 2026.pdf"
+               class="navbar__link" download="Mois Cohen Resume 2026.pdf">Resume</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="about">
-        <div class="hero__container container">
-            <div class="hero__content">
-                <p class="hero__greeting">Hello, I'm</p>
-                <h1 class="hero__title">
-                    Mois Cohen
-                    <br>
-                    <span class="hero__subtitle-role">Mechanical Engineer</span>
-                </h1>
-                <p class="hero__subtitle">
-                    B.S. Mechanical Engineering, Cal Poly San Luis Obispo | Class of 2025
-                </p>
-                <div class="hero__cta">
-                    <a href="#contact" class="btn btn--primary btn--large">
-                        <i class="fas fa-envelope"></i>
-                        <span>Get In Touch</span>
-                    </a>
-                    <a href="https://raw.githubusercontent.com/moisc/moisc.github.io/main/Mois Cohen Resume 2026.pdf" class="btn btn--outline btn--large" download="Mois Cohen Resume 2026.pdf">
-                        <i class="fas fa-download"></i>
-                        <span>Download Resume</span>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="hero__image">
-                <img src="/unnamed (22).jpg" alt="Mois Cohen" loading="lazy">
-            </div>
-        </div>
-    </section>
+    <main id="main">
 
-    <!-- Work Section -->
-    <section class="section" id="work">
-        <div class="container">
-            <div class="section-header">
-                <p class="section-header__subtitle">My Work</p>
-                <h2 class="section-header__title">Experience & Projects</h2>
-                <p class="section-header__description">
-                    A showcase of professional experience and innovative projects across diverse engineering domains.
-                </p>
-            </div>
-            
-            <!-- Tab Navigation -->
-            <div class="tab-container">
-                <button class="tab-button active" onclick="switchTab('experience')">Experience</button>
-                <button class="tab-button" onclick="switchTab('projects')">Projects</button>
-            </div>
-            
-            <!-- Experience Tab Content -->
-            <div id="experience-content" class="tab-content active">
-                <div class="grid grid--2">
-
-                <!-- Innoflight -->
-                <div class="card" data-link="#contact">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue)); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-satellite" style="color: white; font-size: 1.25rem;"></i>
-                        </div>
-                        <div>
-                            <h3 style="margin: 0; color: var(--gray-900);">Mechanical Engineering I</h3>
-                            <p style="margin: 0; color: var(--gray-600); font-size: 0.875rem;">Innoflight</p>
-                        </div>
-                        <span style="margin-left: auto; background: var(--success); padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem; color: white; white-space: nowrap;">Nov 2025 - Present</span>
-                    </div>
-                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-200);">
-                        <a href="#contact" style="color: var(--primary-blue); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;" onclick="event.stopPropagation();">
-                            <span>Contact for Details</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
+        <!-- Hero -->
+        <section class="hero" id="hero">
+            <div class="hero__label">Mechanical Engineer — EIT</div>
+            <h1 class="hero__name">Mois Cohen</h1>
+            <p class="hero__bio">Building systems that solve real problems — from wildfire safety to aerospace innovation. Currently at Innoflight.</p>
+            <div class="hero__stats">
+                <div class="hero__stat">
+                    <div class="hero__stat-label">Current Role</div>
+                    <div class="hero__stat-value">Innoflight</div>
+                    <div class="hero__stat-sub">Mechanical Eng. I · Nov 2025</div>
                 </div>
-
-                <!-- Cal Poly Research -->
-                <div class="card" data-link="#contact">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue)); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-thermometer-half" style="color: white; font-size: 1.25rem;"></i>
-                        </div>
-                        <div>
-                            <h3 style="margin: 0; color: var(--gray-900);">Research Assistant</h3>
-                            <p style="margin: 0; color: var(--gray-600); font-size: 0.875rem;">Cal Poly San Luis Obispo</p>
-                        </div>
-                        <span style="margin-left: auto; background: var(--gray-100); padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem; color: var(--gray-700); white-space: nowrap;">Apr 2024 - Jun 2025</span>
-                    </div>
-                    <p style="color: var(--gray-700); margin-bottom: 1rem;">Leading research in campus energy optimization and thermal systems, achieving significant energy savings through data-driven HVAC analysis and IoT sensor deployment.</p>
-                    <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="margin-bottom: 0.5rem; color: var(--gray-700); position: relative; padding-left: 1rem;">
-                            <span style="position: absolute; left: 0; color: var(--accent-blue);">•</span>
-                            Reduced campus energy consumption by 15% in studied buildings by analyzing 6 months of HVAC performance data
-                        </li>
-                        <li style="margin-bottom: 0.5rem; color: var(--gray-700); position: relative; padding-left: 1rem;">
-                            <span style="position: absolute; left: 0; color: var(--accent-blue);">•</span>
-                            Enabled energy optimization across 11 campus buildings by deploying 200+ IoT sensors with MATLAB data pipeline
-                        </li>
-                        <li style="margin-bottom: 0.5rem; color: var(--gray-700); position: relative; padding-left: 1rem;">
-                            <span style="position: absolute; left: 0; color: var(--accent-blue);">•</span>
-                            Conducted confidential heating system research for NexGen Heating using HVAC research processes
-                        </li>
-                    </ul>
-                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-200);">
-                        <a href="#contact" style="color: var(--primary-blue); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;" onclick="event.stopPropagation();">
-                            <span>Contact for Details</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
+                <div class="hero__stat">
+                    <div class="hero__stat-label">Education</div>
+                    <div class="hero__stat-value">Cal Poly SLO</div>
+                    <div class="hero__stat-sub">B.S. Mechanical Eng. · 2025</div>
                 </div>
-
-                <!-- K2 Systems -->
-                <div class="card" data-link="/k2-systems/">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue)); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-solar-panel" style="color: white; font-size: 1.25rem;"></i>
-                        </div>
-                        <div>
-                            <h3 style="margin: 0; color: var(--gray-900);">Mechanical Engineering Intern</h3>
-                            <p style="margin: 0; color: var(--gray-600); font-size: 0.875rem;">K2 Systems US</p>
-                        </div>
-                        <span style="margin-left: auto; background: var(--gray-100); padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem; color: var(--gray-700); white-space: nowrap;">Jun 2024 - Sep 2024</span>
-                    </div>
-                    <p style="color: var(--gray-700); margin-bottom: 1rem;">Drove innovation in solar mounting system testing and certification, significantly reducing testing time and costs while improving accuracy and standardization across the organization.</p>
-                    <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="margin-bottom: 0.5rem; color: var(--gray-700); position: relative; padding-left: 1rem;">
-                            <span style="position: absolute; left: 0; color: var(--accent-blue);">•</span>
-                            Cut UL certification testing time by 50% by automating data processing and developing standardized procedures
-                        </li>
-                        <li style="margin-bottom: 0.5rem; color: var(--gray-700); position: relative; padding-left: 1rem;">
-                            <span style="position: absolute; left: 0; color: var(--accent-blue);">•</span>
-                            Identified $15K in potential cost savings by collaborating with Mexican engineering teams
-                        </li>
-                        <li style="margin-bottom: 0.5rem; color: var(--gray-700); position: relative; padding-left: 1rem;">
-                            <span style="position: absolute; left: 0; color: var(--accent-blue);">•</span>
-                            Reduced fixture costs by 90% while eliminating measurement errors through custom test fixture design
-                        </li>
-                    </ul>
-                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-200);">
-                        <a href="/k2-systems/" style="color: var(--primary-blue); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;" onclick="event.stopPropagation();">
-                            <span>Learn More</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
+                <div class="hero__stat">
+                    <div class="hero__stat-label">Notable</div>
+                    <div class="hero__stat-value">Autoprint</div>
+                    <div class="hero__stat-sub">Co-Founder · $11K Kickstarter</div>
                 </div>
-
-                <!-- Nina Labs -->
-                <div class="card" data-link="/ninalabs/">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue)); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-cogs" style="color: white; font-size: 1.25rem;"></i>
-                        </div>
-                        <div>
-                            <h3 style="margin: 0; color: var(--gray-900);">Junior Engineer</h3>
-                            <p style="margin: 0; color: var(--gray-600); font-size: 0.875rem;">Nina Labs</p>
-                        </div>
-                        <span style="margin-left: auto; background: var(--gray-100); padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem; color: var(--gray-700); white-space: nowrap;">Jun 2023 - Dec 2023</span>
-                    </div>
-                    <p style="color: var(--gray-700); margin-bottom: 1rem;">Delivered critical engineering solutions for high-profile product launch, achieving significant improvements in product reliability and manufacturing efficiency.</p>
-                    <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="margin-bottom: 0.5rem; color: var(--gray-700); position: relative; padding-left: 1rem;">
-                            <span style="position: absolute; left: 0; color: var(--accent-blue);">•</span>
-                            Reduced pour variation by 80% by engineering Python-based pour-testing jig
-                        </li>
-                        <li style="margin-bottom: 0.5rem; color: var(--gray-700); position: relative; padding-left: 1rem;">
-                            <span style="position: absolute; left: 0; color: var(--accent-blue);">•</span>
-                            Eliminated $8K in outsourced testing costs by designing automated test fixture with Python control
-                        </li>
-                        <li style="margin-bottom: 0.5rem; color: var(--gray-700); position: relative; padding-left: 1rem;">
-                            <span style="position: absolute; left: 0; color: var(--accent-blue);">•</span>
-                            Reduced assembly time by 35% and cut production costs by $4K through design optimization
-                        </li>
-                    </ul>
-                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-200);">
-                        <a href="/ninalabs/" style="color: var(--primary-blue); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;" onclick="event.stopPropagation();">
-                            <span>Learn More</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
+                <div class="hero__stat">
+                    <div class="hero__stat-label">Specialties</div>
+                    <div class="hero__stat-value">CAD / FEA</div>
+                    <div class="hero__stat-sub">Thermal · SolidWorks · MATLAB</div>
                 </div>
             </div>
-            
-            <!-- Projects Tab Content -->
-            <div id="projects-content" class="tab-content">
-                <div class="grid grid--2" style="margin-bottom: 3rem;">
-                <!-- Fire Hose Clamp -->
-                <div class="card" data-link="/firehoseclamp/">
-                    <div style="height: 200px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue)); border-radius: 12px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-fire" style="font-size: 3rem; color: white; opacity: 0.8;"></i>
-                    </div>
-                    <span style="display: inline-block; padding: 0.25rem 0.75rem; background: var(--gray-100); color: var(--accent-blue); font-size: 0.75rem; font-weight: 600; border-radius: 12px; margin-bottom: 1rem;">Senior Capstone Project</span>
-                    <h3 style="margin-bottom: 1rem;">Wildland Fire Hose Clamp</h3>
-                    <p style="margin-bottom: 1.5rem; color: var(--gray-700);">Refined clamp design in SolidWorks with FEA analysis, achieving 30% higher strength than design specifications. Led field testing protocols ensuring clamp performance met Cal Fire operational requirements.</p>
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-                        <span style="padding: 0.25rem 0.75rem; background: var(--gray-100); color: var(--gray-700); font-size: 0.75rem; border-radius: 12px;">SolidWorks</span>
-                        <span style="padding: 0.25rem 0.75rem; background: var(--gray-100); color: var(--gray-700); font-size: 0.75rem; border-radius: 12px;">FEA Analysis</span>
-                        <span style="padding: 0.25rem 0.75rem; background: var(--gray-100); color: var(--gray-700); font-size: 0.75rem; border-radius: 12px;">GD&T</span>
-                        <span style="padding: 0.25rem 0.75rem; background: var(--gray-100); color: var(--gray-700); font-size: 0.75rem; border-radius: 12px;">Design for Manufacturing</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-200);">
-                        <a href="/firehoseclamp/" style="color: var(--primary-blue); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;" onclick="event.stopPropagation();">
-                            <span>Learn More</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <span style="color: var(--gray-500); font-size: 0.875rem;">2024-2025</span>
-                    </div>
-                </div>
+        </section>
 
-                <!-- Autoprint -->
-                <div class="card" data-link="/autoprint/">
-                    <div style="height: 200px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-light)); border-radius: 12px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-cube" style="font-size: 3rem; color: white; opacity: 0.8;"></i>
-                    </div>
-                    <span style="display: inline-block; padding: 0.25rem 0.75rem; background: var(--gray-100); color: var(--accent-blue); font-size: 0.75rem; font-weight: 600; border-radius: 12px; margin-bottom: 1rem;">Startup Project</span>
-                    <h3 style="margin-bottom: 1rem;">Autoprint 3D Printing System</h3>
-                    <p style="margin-bottom: 1.5rem; color: var(--gray-700);">Co-founded 3D printing startup that attracted $11,000 in Kickstarter backing while leading technical development of proprietary printer design and filing provisional patent. Reduced pre-print setup time by 90%.</p>
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-                        <span style="padding: 0.25rem 0.75rem; background: var(--gray-100); color: var(--gray-700); font-size: 0.75rem; border-radius: 12px;">Product Development</span>
-                        <span style="padding: 0.25rem 0.75rem; background: var(--gray-100); color: var(--gray-700); font-size: 0.75rem; border-radius: 12px;">IoT Systems</span>
-                        <span style="padding: 0.25rem 0.75rem; background: var(--gray-100); color: var(--gray-700); font-size: 0.75rem; border-radius: 12px;">Patent Filing</span>
-                        <span style="padding: 0.25rem 0.75rem; background: var(--gray-100); color: var(--gray-700); font-size: 0.75rem; border-radius: 12px;">Business Development</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-200);">
-                        <a href="/autoprint/" style="color: var(--primary-blue); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;" onclick="event.stopPropagation();">
-                            <span>Learn More</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <span style="color: var(--gray-500); font-size: 0.875rem;">2020-2021</span>
-                    </div>
-                </div>
-                
-                <!-- Coming Soon -->
-                <div class="card" style="text-align: center;">
-                    <div style="margin-bottom: 1.5rem;">
-                        <i class="fas fa-plus-circle" style="font-size: 3rem; color: var(--gray-400);"></i>
-                    </div>
-                    <h3 style="font-size: 1.5rem; color: var(--gray-700); margin-bottom: 1rem;">More Projects Coming Soon</h3>
-                    <p style="color: var(--gray-600); margin-bottom: 0;">I'm currently documenting additional engineering projects and technical innovations. Check back soon to see more of my work!</p>
-                </div>
+        <!-- About -->
+        <section class="section" id="about">
+            <div class="two-col">
+                <div class="section-label">About</div>
+                <div class="about__text animate-on-scroll">
+                    <p>I'm a mechanical engineer who believes <strong>engineering should solve real problems</strong>, not just theoretical ones.</p>
+                    <p>My journey started with Autoprint — co-founded a startup, raised $11K on Kickstarter, filed a provisional patent, and shipped real products. That experience taught me the gap between "it works in CAD" and "it works in the real world."</p>
+                    <p>At Cal Poly, I deployed 200+ IoT sensors to reduce campus energy consumption by 15%. At K2 Systems and Nina Labs, I cut testing time in half and delivered measurable results. Now at Innoflight, applying that same mindset to aerospace systems.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Skills Section -->
-    <section class="section" id="skills">
-        <div class="container">
-            <div class="section-header">
-                <p class="section-header__subtitle">Expertise</p>
-                <h2 class="section-header__title">Technical Skills</h2>
-                <p class="section-header__description">
-                    Comprehensive engineering expertise across mechanical design, thermal systems, and advanced analysis tools.
-                </p>
+        <!-- Projects -->
+        <section class="section" id="projects">
+            <div class="projects__header">
+                <h2 class="section-title">Projects</h2>
+                <span class="projects__count">5 WORKS</span>
             </div>
-            
-            <div class="grid grid--3">
-                <!-- CAD & Design -->
-                <div class="card">
-                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue)); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-                        <i class="fas fa-drafting-compass" style="font-size: 1.5rem; color: white;"></i>
+            <div class="project-list">
+                <div class="project-row project-row--no-link">
+                    <span class="project-row__num">01</span>
+                    <div>
+                        <div class="project-row__name">Innoflight — Aerospace Systems</div>
+                        <div class="project-row__cat">Thermal Analysis · CAD Design · Satellite Systems</div>
                     </div>
-                    <h3 style="margin-bottom: 1rem;">CAD & Design</h3>
-                    <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--gray-100);">
-                            <span style="font-weight: 500; color: var(--gray-700);">SolidWorks</span>
-                            <span style="font-size: 0.875rem; color: var(--gray-500);">Advanced</span>
-                        </li>
-                        <li style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--gray-100);">
-                            <span style="font-weight: 500; color: var(--gray-700);">AutoCAD</span>
-                            <span style="font-size: 0.875rem; color: var(--gray-500);">Intermediate</span>
-                        </li>
-                        <li style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--gray-100);">
-                            <span style="font-weight: 500; color: var(--gray-700);">FEA Analysis</span>
-                            <span style="font-size: 0.875rem; color: var(--gray-500);">Advanced</span>
-                        </li>
-                        <li style="display: flex; justify-content: space-between; padding: 0.5rem 0;">
-                            <span style="font-weight: 500; color: var(--gray-700);">GD&T</span>
-                            <span style="font-size: 0.875rem; color: var(--gray-500);">Advanced</span>
-                        </li>
-                    </ul>
+                    <span class="tag">CURRENT</span>
+                    <span class="project-row__year">2025 – now</span>
+                    <span class="project-row__arrow">→</span>
                 </div>
-
-                <!-- Thermal Systems -->
-                <div class="card">
-                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue)); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-                        <i class="fas fa-thermometer-half" style="font-size: 1.5rem; color: white;"></i>
+                <a href="/firehoseclamp/" class="project-row">
+                    <span class="project-row__num">02</span>
+                    <div>
+                        <div class="project-row__name">Wildland Fire Hose Clamp</div>
+                        <div class="project-row__cat">SolidWorks · FEA · GD&amp;T · Cal Fire Validated</div>
                     </div>
-                    <h3 style="margin-bottom: 1rem;">Thermal Systems</h3>
-                    <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--gray-100);">
-                            <span style="font-weight: 500; color: var(--gray-700);">Heat Transfer</span>
-                            <span style="font-size: 0.875rem; color: var(--gray-500);">Expert</span>
-                        </li>
-                        <li style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--gray-100);">
-                            <span style="font-weight: 500; color: var(--gray-700);">HVAC Design</span>
-                            <span style="font-size: 0.875rem; color: var(--gray-500);">Advanced</span>
-                        </li>
-                        <li style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--gray-100);">
-                            <span style="font-weight: 500; color: var(--gray-700);">Thermal Analysis</span>
-                            <span style="font-size: 0.875rem; color: var(--gray-500);">Advanced</span>
-                        </li>
-                        <li style="display: flex; justify-content: space-between; padding: 0.5rem 0;">
-                            <span style="font-weight: 500; color: var(--gray-700);">System Optimization</span>
-                            <span style="font-size: 0.875rem; color: var(--gray-500);">Advanced</span>
-                        </li>
-                    </ul>
+                    <span class="tag">CAPSTONE</span>
+                    <span class="project-row__year">2024 – 2025</span>
+                    <span class="project-row__arrow">→</span>
+                </a>
+                <div class="project-row project-row--no-link">
+                    <span class="project-row__num">03</span>
+                    <div>
+                        <div class="project-row__name">Cal Poly Energy Systems Research</div>
+                        <div class="project-row__cat">IoT · HVAC Analysis · MATLAB · 200+ Sensors</div>
+                    </div>
+                    <span class="tag">RESEARCH</span>
+                    <span class="project-row__year">2024 – 2025</span>
+                    <span class="project-row__arrow">→</span>
                 </div>
-
-                <!-- Programming & Analysis -->
-                <div class="card">
-                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue)); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-                        <i class="fas fa-code" style="font-size: 1.5rem; color: white;"></i>
+                <a href="/autoprint/" class="project-row">
+                    <span class="project-row__num">04</span>
+                    <div>
+                        <div class="project-row__name">Autoprint — 3D Printing Startup</div>
+                        <div class="project-row__cat">Product Design · Kickstarter · Provisional Patent</div>
                     </div>
-                    <h3 style="margin-bottom: 1rem;">Programming & Analysis</h3>
-                    <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--gray-100);">
-                            <span style="font-weight: 500; color: var(--gray-700);">MATLAB</span>
-                            <span style="font-size: 0.875rem; color: var(--gray-500);">Advanced</span>
-                        </li>
-                        <li style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--gray-100);">
-                            <span style="font-weight: 500; color: var(--gray-700);">Python</span>
-                            <span style="font-size: 0.875rem; color: var(--gray-500);">Intermediate</span>
-                        </li>
-                        <li style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--gray-100);">
-                            <span style="font-weight: 500; color: var(--gray-700);">Data Analysis</span>
-                            <span style="font-size: 0.875rem; color: var(--gray-500);">Advanced</span>
-                        </li>
-                        <li style="display: flex; justify-content: space-between; padding: 0.5rem 0;">
-                            <span style="font-weight: 500; color: var(--gray-700);">Excel</span>
-                            <span style="font-size: 0.875rem; color: var(--gray-500);">Advanced</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section bg-gray-50" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <p class="section-header__subtitle">Get In Touch</p>
-                <h2 class="section-header__title">Contact Me</h2>
-                <p class="section-header__description">
-                    Ready to discuss engineering opportunities, collaboration, or technical projects.
-                </p>
-            </div>
-            
-            <div class="grid grid--2">
-                <!-- Contact Info -->
-                <div>
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
-                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue)); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-envelope" style="color: white; font-size: 1.25rem;"></i>
-                        </div>
-                        <div>
-                            <h4 style="margin: 0 0 0.25rem 0;">Email</h4>
-                            <p style="margin: 0;"><a href="mailto:mois.cohen787@gmail.com" style="color: var(--primary-blue); text-decoration: none;">mois.cohen787@gmail.com</a></p>
-                        </div>
+                    <span class="tag">STARTUP</span>
+                    <span class="project-row__year">2022 – 2023</span>
+                    <span class="project-row__arrow">→</span>
+                </a>
+                <a href="/k2-systems/" class="project-row">
+                    <span class="project-row__num">05</span>
+                    <div>
+                        <div class="project-row__name">K2 Systems — Solar Racking</div>
+                        <div class="project-row__cat">Testing · CAD · Process Improvement</div>
                     </div>
-                    
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
-                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue)); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-phone" style="color: white; font-size: 1.25rem;"></i>
-                        </div>
-                        <div>
-                            <h4 style="margin: 0 0 0.25rem 0;">Phone</h4>
-                            <p style="margin: 0;"><a href="tel:8586689347" style="color: var(--primary-blue); text-decoration: none;">(858) 668-9347</a></p>
-                        </div>
-                    </div>
-                    
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
-                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue)); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-map-marker-alt" style="color: white; font-size: 1.25rem;"></i>
-                        </div>
-                        <div>
-                            <h4 style="margin: 0 0 0.25rem 0;">Location</h4>
-                            <p style="margin: 0;">San Diego, California</p>
-                        </div>
-                    </div>
-                    
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue)); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                            <i class="fab fa-linkedin-in" style="color: white; font-size: 1.25rem;"></i>
-                        </div>
-                        <div>
-                            <h4 style="margin: 0 0 0.25rem 0;">LinkedIn</h4>
-                            <p style="margin: 0;"><a href="https://www.linkedin.com/in/moiscohen/" target="_blank" rel="noopener" style="color: var(--primary-blue); text-decoration: none;">Connect with me</a></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Contact Form -->
-                <div class="card">
-                    <form action="https://formspree.io/f/mqaargaq" method="POST">
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
-                            <div>
-                                <label for="name" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Name</label>
-                                <input type="text" id="name" name="name" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 8px; font-size: 1rem;">
-                            </div>
-                            <div>
-                                <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email</label>
-                                <input type="email" id="email" name="email" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 8px; font-size: 1rem;">
-                            </div>
-                        </div>
-                        
-                        <div style="margin-bottom: 1.5rem;">
-                            <label for="subject" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Subject</label>
-                            <input type="text" id="subject" name="subject" style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 8px; font-size: 1rem;">
-                        </div>
-                        
-                        <div style="margin-bottom: 1.5rem;">
-                            <label for="message" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Message</label>
-                            <textarea id="message" name="message" rows="6" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 8px; font-size: 1rem; resize: vertical;"></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn btn--primary btn--large" style="width: 100%;">
-                            <i class="fas fa-paper-plane"></i>
-                            <span>Send Message</span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer style="background: var(--gray-900); color: var(--gray-300); padding: 3rem 0 1rem; text-align: center;">
-        <div class="container">
-            <div style="font-family: Arial, sans-serif; font-size: 1.5rem; font-weight: bold; color: white; margin-bottom: 1.5rem;">
-                Mois Cohen<span style="color: #3B82F6;">.</span>
-            </div>
-            
-            <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
-                <a href="#about" style="color: var(--gray-300); text-decoration: none; transition: color 0.15s;">About</a>
-                <a href="#experience" style="color: var(--gray-300); text-decoration: none; transition: color 0.15s;">Experience</a>
-                <a href="#projects" style="color: var(--gray-300); text-decoration: none; transition: color 0.15s;">Projects</a>
-                <a href="#skills" style="color: var(--gray-300); text-decoration: none; transition: color 0.15s;">Skills</a>
-                <a href="#contact" style="color: var(--gray-300); text-decoration: none; transition: color 0.15s;">Contact</a>
-            </div>
-            
-            <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1.5rem;">
-                <a href="https://www.linkedin.com/in/moiscohen/" target="_blank" rel="noopener" style="width: 40px; height: 40px; background: var(--gray-800); border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: all 0.15s; text-decoration: none;">
-                    <i class="fab fa-linkedin-in" style="color: var(--gray-300); font-size: 1.25rem;"></i>
+                    <span class="tag">INTERNSHIP</span>
+                    <span class="project-row__year">Summer 2024</span>
+                    <span class="project-row__arrow">→</span>
                 </a>
             </div>
-            
-            <div style="padding-top: 1.5rem; border-top: 1px solid var(--gray-800); font-size: 0.875rem; color: var(--gray-500);">
-                <p>&copy; 2025 Mois Cohen. All rights reserved.</p>
+        </section>
+
+        <!-- Skills -->
+        <section class="section section--tinted" id="skills">
+            <div class="two-col">
+                <div class="section-label">Skills</div>
+                <div class="skill-groups animate-on-scroll">
+                    <div>
+                        <div class="skill-group__title">Design &amp; Analysis</div>
+                        <div class="skill-group__list">
+                            <div class="skill-item">SolidWorks</div>
+                            <div class="skill-item">FEA / Simulation</div>
+                            <div class="skill-item">GD&amp;T</div>
+                            <div class="skill-item">Thermal Analysis</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="skill-group__title">Programming</div>
+                        <div class="skill-group__list">
+                            <div class="skill-item">MATLAB</div>
+                            <div class="skill-item">Python</div>
+                            <div class="skill-item">LabVIEW</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="skill-group__title">Manufacturing</div>
+                        <div class="skill-group__list">
+                            <div class="skill-item">Machining</div>
+                            <div class="skill-item">3D Printing</div>
+                            <div class="skill-item">Sheet Metal</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="skill-group__title">Systems</div>
+                        <div class="skill-group__list">
+                            <div class="skill-item">IoT / Sensors</div>
+                            <div class="skill-item">HVAC Systems</div>
+                            <div class="skill-item">Aerospace</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="section" id="contact">
+            <div class="contact__grid">
+                <div class="animate-on-scroll">
+                    <h2 class="contact__title">Let's work<br>together.</h2>
+                    <p class="contact__sub">Open to interesting problems in aerospace, thermal systems, or product development.</p>
+                </div>
+                <div class="animate-on-scroll">
+                    <a href="mailto:mois.cohen787@gmail.com" class="contact-link">
+                        <div>
+                            <div class="contact-link__label">Email</div>
+                            <div class="contact-link__value">mois.cohen787@gmail.com</div>
+                        </div>
+                        <span class="contact-link__arrow">→</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/moiscohen/" target="_blank" rel="noopener" class="contact-link">
+                        <div>
+                            <div class="contact-link__label">LinkedIn</div>
+                            <div class="contact-link__value">linkedin.com/in/moiscohen</div>
+                        </div>
+                        <span class="contact-link__arrow">→</span>
+                    </a>
+                    <a href="https://raw.githubusercontent.com/moisc/moisc.github.io/main/Mois Cohen Resume 2026.pdf"
+                       download="Mois Cohen Resume 2026.pdf" class="contact-link">
+                        <div>
+                            <div class="contact-link__label">Resume</div>
+                            <div class="contact-link__value">Download PDF</div>
+                        </div>
+                        <span class="contact-link__arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <span class="footer__brand">MC<span class="dot">.</span></span>
+        <span class="footer__mono">Mois Cohen · Mechanical Engineer · San Diego, CA</span>
     </footer>
 
-    <!-- JavaScript -->
-    <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const offsetTop = targetElement.offsetTop - 80;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
 
-        // Navbar scroll effect
-        const navbar = document.getElementById('navbar');
-        let lastScrollY = window.scrollY;
-
-        window.addEventListener('scroll', function() {
-            const currentScrollY = window.scrollY;
-            if (currentScrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-            lastScrollY = currentScrollY;
-        });
-
-        // Tab functionality
-        function switchTab(tabName) {
-            // Remove active class from all tab buttons
-            document.querySelectorAll('.tab-button').forEach(button => {
-                button.classList.remove('active');
-            });
-            
-            // Remove active class from all tab contents
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            
-            // Add active class to clicked tab button
-            event.target.classList.add('active');
-            
-            // Show corresponding tab content
-            document.getElementById(tabName + '-content').classList.add('active');
-        }
-
-        // Card click functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            // Make cards with data-link clickable
-            document.querySelectorAll('.card[data-link]').forEach(card => {
-                card.addEventListener('click', function(event) {
-                    // Don't trigger if clicking on a link inside the card
-                    if (event.target.tagName === 'A' || event.target.closest('a')) {
-                        return;
-                    }
-                    
-                    const link = this.getAttribute('data-link');
-                    if (link.startsWith('#')) {
-                        // Internal anchor link
-                        const targetElement = document.querySelector(link);
-                        if (targetElement) {
-                            targetElement.scrollIntoView({ behavior: 'smooth' });
-                        }
-                    } else {
-                        // External link
-                        window.location.href = link;
-                    }
-                });
-            });
-        });
-
-    </script>
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>
