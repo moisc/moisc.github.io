@@ -121,6 +121,14 @@
     transition: opacity var(--transition);
 }
 
+/* Linked rows: faint arrow hints clickability */
+a.project-row .project-row__arrow {
+    opacity: 0.25;
+}
+a.project-row:hover .project-row__arrow {
+    opacity: 1;
+}
+
 /* Non-linked project row (no detail page) */
 .project-row--no-link {
     cursor: default;

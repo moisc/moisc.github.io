@@ -99,8 +99,8 @@
         <a href="/" class="navbar__brand">MC<span class="dot">.</span></a>
         <div class="navbar__nav">
             <a href="#projects" class="navbar__link">Projects</a>
-            <a href="/blog/" class="navbar__link">Blog</a>
             <a href="#contact" class="navbar__link">Contact</a>
+            <a href="/blog/" class="navbar__link">Blog</a>
             <a href="https://raw.githubusercontent.com/moisc/moisc.github.io/main/Mois Cohen Resume 2026.pdf"
                class="navbar__link" download="Mois Cohen Resume 2026.pdf">Resume</a>
         </div>
@@ -110,9 +110,14 @@
 
         <!-- Hero -->
         <section class="hero" id="hero">
-            <div class="hero__label">Mechanical Engineer — EIT</div>
-            <h1 class="hero__name">Mois Cohen</h1>
-            <p class="hero__bio">Building systems that solve real problems — from wildfire safety to aerospace innovation. Currently at Innoflight.</p>
+            <div class="hero__top">
+                <div class="hero__left">
+                    <div class="hero__label">Mechanical Engineer — EIT</div>
+                    <h1 class="hero__name">Mois Cohen</h1>
+                    <p class="hero__bio">Building mechanical systems that solve real problems. Currently at Innoflight.</p>
+                </div>
+                <img class="hero__photo" src="/unnamed (22).jpg" alt="Mois Cohen">
+            </div>
             <div class="hero__stats">
                 <div class="hero__stat">
                     <div class="hero__stat-label">Current Role</div>
@@ -125,14 +130,9 @@
                     <div class="hero__stat-sub">B.S. Mechanical Eng. · 2025</div>
                 </div>
                 <div class="hero__stat">
-                    <div class="hero__stat-label">Notable</div>
-                    <div class="hero__stat-value">Autoprint</div>
-                    <div class="hero__stat-sub">Co-Founder · $11K Kickstarter</div>
-                </div>
-                <div class="hero__stat">
-                    <div class="hero__stat-label">Specialties</div>
-                    <div class="hero__stat-value">CAD / FEA</div>
-                    <div class="hero__stat-sub">Thermal · SolidWorks · MATLAB</div>
+                    <div class="hero__stat-label">Based In</div>
+                    <div class="hero__stat-value">San Diego</div>
+                    <div class="hero__stat-sub">California</div>
                 </div>
             </div>
         </section>
@@ -142,9 +142,9 @@
             <div class="two-col">
                 <div class="section-label">About</div>
                 <div class="about__text animate-on-scroll">
-                    <p>I'm a mechanical engineer who believes <strong>engineering should solve real problems</strong>, not just theoretical ones.</p>
-                    <p>My journey started with Autoprint — co-founded a startup, raised $11K on Kickstarter, filed a provisional patent, and shipped real products. That experience taught me the gap between "it works in CAD" and "it works in the real world."</p>
-                    <p>At Cal Poly, I deployed 200+ IoT sensors to reduce campus energy consumption by 15%. At K2 Systems and Nina Labs, I cut testing time in half and delivered measurable results. Now at Innoflight, applying that same mindset to aerospace systems.</p>
+                    <p>I'm a mechanical engineer who cares most about work that has real stakes — hardware that has to function under load, systems that need to be reliable, products that ship to actual users.</p>
+                    <p>My background spans early-stage startups, university research, and industry. Each taught me something different about the gap between a design on a screen and something that works in the field.</p>
+                    <p>I'm drawn to problems where the engineering actually matters — where getting it right makes a real difference.</p>
                 </div>
             </div>
         </section>
@@ -153,21 +153,11 @@
         <section class="section" id="projects">
             <div class="projects__header">
                 <h2 class="section-title">Projects</h2>
-                <span class="projects__count">5 WORKS</span>
+                <span class="projects__count">2 WORKS</span>
             </div>
             <div class="project-list">
-                <div class="project-row project-row--no-link">
-                    <span class="project-row__num">01</span>
-                    <div>
-                        <div class="project-row__name">Innoflight — Aerospace Systems</div>
-                        <div class="project-row__cat">Thermal Analysis · CAD Design · Satellite Systems</div>
-                    </div>
-                    <span class="tag">CURRENT</span>
-                    <span class="project-row__year">2025 – now</span>
-                    <span class="project-row__arrow">→</span>
-                </div>
                 <a href="/firehoseclamp/" class="project-row">
-                    <span class="project-row__num">02</span>
+                    <span class="project-row__num">01</span>
                     <div>
                         <div class="project-row__name">Wildland Fire Hose Clamp</div>
                         <div class="project-row__cat">SolidWorks · FEA · GD&amp;T · Cal Fire Validated</div>
@@ -176,18 +166,8 @@
                     <span class="project-row__year">2024 – 2025</span>
                     <span class="project-row__arrow">→</span>
                 </a>
-                <div class="project-row project-row--no-link">
-                    <span class="project-row__num">03</span>
-                    <div>
-                        <div class="project-row__name">Cal Poly Energy Systems Research</div>
-                        <div class="project-row__cat">IoT · HVAC Analysis · MATLAB · 200+ Sensors</div>
-                    </div>
-                    <span class="tag">RESEARCH</span>
-                    <span class="project-row__year">2024 – 2025</span>
-                    <span class="project-row__arrow">→</span>
-                </div>
                 <a href="/autoprint/" class="project-row">
-                    <span class="project-row__num">04</span>
+                    <span class="project-row__num">02</span>
                     <div>
                         <div class="project-row__name">Autoprint — 3D Printing Startup</div>
                         <div class="project-row__cat">Product Design · Kickstarter · Provisional Patent</div>
@@ -196,14 +176,54 @@
                     <span class="project-row__year">2022 – 2023</span>
                     <span class="project-row__arrow">→</span>
                 </a>
-                <a href="/k2-systems/" class="project-row">
-                    <span class="project-row__num">05</span>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section class="section" id="experience">
+            <div class="projects__header">
+                <h2 class="section-title">Experience</h2>
+                <span class="projects__count">4 POSITIONS</span>
+            </div>
+            <div class="project-list">
+                <div class="project-row project-row--no-link">
+                    <span class="project-row__num">01</span>
                     <div>
-                        <div class="project-row__name">K2 Systems — Solar Racking</div>
-                        <div class="project-row__cat">Testing · CAD · Process Improvement</div>
+                        <div class="project-row__name">Innoflight</div>
+                        <div class="project-row__cat">Mechanical Engineering I · Satellite Systems</div>
+                    </div>
+                    <span class="tag">CURRENT</span>
+                    <span class="project-row__year">2025 – now</span>
+                    <span class="project-row__arrow">→</span>
+                </div>
+                <div class="project-row project-row--no-link">
+                    <span class="project-row__num">02</span>
+                    <div>
+                        <div class="project-row__name">Cal Poly Energy Systems Research</div>
+                        <div class="project-row__cat">Research Assistant · IoT · HVAC · MATLAB</div>
+                    </div>
+                    <span class="tag">RESEARCH</span>
+                    <span class="project-row__year">2024 – 2025</span>
+                    <span class="project-row__arrow">→</span>
+                </div>
+                <a href="/k2-systems/" class="project-row">
+                    <span class="project-row__num">03</span>
+                    <div>
+                        <div class="project-row__name">K2 Systems</div>
+                        <div class="project-row__cat">Engineering Intern · Solar Racking · Testing</div>
                     </div>
                     <span class="tag">INTERNSHIP</span>
                     <span class="project-row__year">Summer 2024</span>
+                    <span class="project-row__arrow">→</span>
+                </a>
+                <a href="/ninalabs/" class="project-row">
+                    <span class="project-row__num">04</span>
+                    <div>
+                        <div class="project-row__name">Nina Labs</div>
+                        <div class="project-row__cat">Junior Engineer · Product Development</div>
+                    </div>
+                    <span class="tag">INTERNSHIP</span>
+                    <span class="project-row__year">2023 – 2024</span>
                     <span class="project-row__arrow">→</span>
                 </a>
             </div>
@@ -212,15 +232,14 @@
         <!-- Skills -->
         <section class="section section--tinted" id="skills">
             <div class="two-col">
-                <div class="section-label">Skills</div>
+                <div class="section-label">Tools</div>
                 <div class="skill-groups animate-on-scroll">
                     <div>
-                        <div class="skill-group__title">Design &amp; Analysis</div>
+                        <div class="skill-group__title">CAD &amp; Design</div>
                         <div class="skill-group__list">
                             <div class="skill-item">SolidWorks</div>
-                            <div class="skill-item">FEA / Simulation</div>
+                            <div class="skill-item">FEA</div>
                             <div class="skill-item">GD&amp;T</div>
-                            <div class="skill-item">Thermal Analysis</div>
                         </div>
                     </div>
                     <div>
@@ -240,11 +259,10 @@
                         </div>
                     </div>
                     <div>
-                        <div class="skill-group__title">Systems</div>
+                        <div class="skill-group__title">Other</div>
                         <div class="skill-group__list">
                             <div class="skill-item">IoT / Sensors</div>
-                            <div class="skill-item">HVAC Systems</div>
-                            <div class="skill-item">Aerospace</div>
+                            <div class="skill-item">Technical Writing</div>
                         </div>
                     </div>
                 </div>
@@ -256,7 +274,7 @@
             <div class="contact__grid">
                 <div class="animate-on-scroll">
                     <h2 class="contact__title">Let's work<br>together.</h2>
-                    <p class="contact__sub">Open to interesting problems in aerospace, thermal systems, or product development.</p>
+                    <p class="contact__sub">Open to interesting engineering problems and product development.</p>
                 </div>
                 <div class="animate-on-scroll">
                     <a href="mailto:mois.cohen787@gmail.com" class="contact-link">

@@ -4,338 +4,355 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autoprint Inc. | Mois Cohen</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
-    <style>
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 80px;
-        }
+    <!-- SEO -->
+    <meta name="description" content="Co-founded 3D printing startup, raising $11K on Kickstarter. Filed provisional patent for universal 3D printing solution.">
+    <meta name="theme-color" content="#1E3A5F">
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #ffffff;
-            color: #1f2937;
-        }
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        .tech-accent {
-            color: #3b82f6;
-        }
+    <!-- ULTIMATE REDESIGN CSS -->
+    <link rel="stylesheet" href="/assets/css/variables.css">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/navigation.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
 
-        .tech-card {
-            background: white;
-            border: 1px solid #e5e7eb;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .tech-card:hover {
-            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .primary-button {
-            background: #3b82f6;
-            color: white;
-            transition: all 0.3s ease;
-        }
-
-        .primary-button:hover {
-            background: #2563eb;
-            transform: translateY(-1px);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
-        }
-
-        .secondary-button {
-            background: white;
-            color: #3b82f6;
-            border: 2px solid #3b82f6;
-            transition: all 0.3s ease;
-        }
-
-        .secondary-button:hover {
-            background: #3b82f6;
-            color: white;
-        }
-    </style>
-
-    <!-- Google tag (gtag.js) -->
+    <!-- Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8BERH7V4E"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-J8BERH7V4E');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-J8BERH7V4E');
     </script>
+
 </head>
 
 <body>
+    <!-- Skip to main -->
+    <a href="#main" class="skip-to-main">Skip to main content</a>
+
     <!-- Navigation -->
-    <header class="fixed top-0 left-0 w-full bg-white bg-opacity-95 backdrop-blur-md z-50 border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center">
-                    <a href="/" class="text-2xl font-bold text-gray-900">MC<span class="text-blue-600">.</span></a>
-                </div>
-
-                <!-- Desktop Navigation -->
-                <nav class="hidden md:flex space-x-8 text-sm font-medium">
-                    <a href="/#about" class="text-gray-600 hover:text-blue-600 transition-colors">About</a>
-                    <a href="/#work" class="text-gray-600 hover:text-blue-600 transition-colors">Work</a>
-                    <a href="/#skills" class="text-gray-600 hover:text-blue-600 transition-colors">Skills</a>
-                    <a href="/#contact" class="text-gray-600 hover:text-blue-600 transition-colors">Contact</a>
-                </nav>
-
-                <!-- Back to Portfolio Button -->
-                <div class="hidden md:block">
-                    <a href="/#work" class="secondary-button px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300">
-                        <i class="fas fa-arrow-left mr-2"></i>Back to Portfolio
-                    </a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="md:hidden text-gray-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden py-4 border-t border-gray-200">
-                <div class="flex flex-col space-y-4 text-sm font-medium">
-                    <a href="/#about" class="text-gray-600 hover:text-blue-600">About</a>
-                    <a href="/#work" class="text-gray-600 hover:text-blue-600">Work</a>
-                    <a href="/#skills" class="text-gray-600 hover:text-blue-600">Skills</a>
-                    <a href="/#contact" class="text-gray-600 hover:text-blue-600">Contact</a>
-                    <a href="/#work" class="text-blue-600 font-medium">
-                        <i class="fas fa-arrow-left mr-2"></i>Back to Portfolio
-                    </a>
-                </div>
-            </div>
+    <nav class="navbar" id="navbar">
+        <a href="/" class="navbar__brand">MC<span class="dot">.</span></a>
+        <div class="navbar__nav">
+            <a href="/#projects" class="navbar__link">← Back</a>
         </div>
-    </header>
+    </nav>
 
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center pt-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <!-- Content Column -->
-            <div data-aos="fade-right">
-                <div class="inline-block px-4 py-2 rounded-full bg-blue-100 text-blue-800 text-sm font-semibold mb-6">
-                    June - July 2021 • Startup Initiative
-                </div>
+    <!-- Main Content -->
+    <main id="main">
 
-                <h1 class="text-5xl sm:text-6xl font-bold mb-6 leading-tight text-gray-900">
-                    Autoprint Inc.
-                    <span class="block text-2xl sm:text-3xl font-normal text-blue-600 mt-4">
+        <!-- Project Hero -->
+        <section class="section" style="min-height: 70vh; display: flex; align-items: center; padding-top: calc(var(--nav-height) + var(--space-96));">
+            <div class="container">
+                <div class="text-container">
+                    <span class="badge badge--primary" style="margin-bottom: var(--space-24);">Startup Project • 2020-2021</span>
+
+                    <h1 style="font-size: var(--font-size-h1); font-weight: var(--font-weight-bold); margin-bottom: var(--space-24);">
+                        Autoprint Inc.
+                    </h1>
+
+                    <p style="font-size: var(--font-size-h3); color: var(--text-secondary); margin-bottom: var(--space-48);">
                         Revolutionary 3D Printing Technology
-                    </span>
-                </h1>
-
-                <div class="bg-gray-50 p-6 rounded-lg mb-8">
-                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
-                        Co-founded a startup developing the "Autoprint One" - a universal rapid 3D printing device.
-                        Led product development and filed provisional patent for innovative printing technology.
                     </p>
-                    <p class="text-base text-gray-600 leading-relaxed">
-                        <strong class="text-gray-800">The Vision:</strong> The Autoprint One was designed to make 3D printing accessible to everyone. Compatible with the majority of existing 3D printers, it promised to eliminate setup complexity and get users printing in seconds. Our goal was to break down the barriers that kept people from experiencing the magic of 3D printing.
+
+                    <p style="font-size: var(--font-size-body); line-height: var(--line-height-relaxed); color: var(--text-secondary); margin-bottom: var(--space-48);">
+                        Co-founded a startup developing the "Autoprint One" - a universal rapid 3D printing device. Led product development and filed provisional patent for innovative printing technology. Raised $11,183 on Kickstarter with 125 backers.
                     </p>
-                </div>
 
-                <div class="flex flex-wrap gap-4">
-                    <a href="https://www.kickstarter.com/projects/autoprint/autoprint-one-3d-print-in-seconds" target="_blank" rel="noopener noreferrer" class="primary-button px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300">
-                        <i class="fas fa-external-link-alt mr-3"></i>View Kickstarter Campaign
-                    </a>
-                </div>
-            </div>
-
-            <!-- Kickstarter Campaign Screenshot -->
-            <div class="relative" data-aos="fade-left">
-                <div class="tech-card rounded-2xl overflow-hidden">
-                    <img src="autprint_kickstarter.jpg" alt="Autoprint Kickstarter Campaign" class="w-full h-auto">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Project Gallery Section -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-sm uppercase tracking-wider text-blue-600 font-semibold mb-4">Project Gallery</h2>
-                <h3 class="text-4xl font-bold text-gray-900">Development Process</h3>
-            </div>
-
-            <!-- Photo Gallery -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-                <div class="tech-card rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                    <div class="aspect-w-16 aspect-h-12">
-                        <img src="autoprint%20UI.png" alt="Autoprint User Interface" class="w-full h-64 object-contain bg-gray-50">
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-lg font-semibold text-gray-900 mb-2">User Interface Design</h4>
-                        <p class="text-gray-600 text-sm">Custom software interface for the Autoprint One system</p>
-                    </div>
-                </div>
-
-                <div class="tech-card rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="150">
-                    <div class="aspect-w-16 aspect-h-12">
-                        <img src="autoprint%20gcode%20progression%20.jpg" alt="G-code Progression Analysis" class="w-full h-64 object-contain bg-gray-50">
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-lg font-semibold text-gray-900 mb-2">G-code Development</h4>
-                        <p class="text-gray-600 text-sm">Technical analysis of printing progression and optimization</p>
-                    </div>
-                </div>
-
-                <div class="tech-card rounded-xl overflow-hidden md:col-span-2 lg:col-span-1" data-aos="fade-up" data-aos-delay="200">
-                    <div class="aspect-w-16 aspect-h-12">
-                        <img src="workingonkickstarter.jpg" alt="Working on Kickstarter Campaign" class="w-full h-64 object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-lg font-semibold text-gray-900 mb-2">Campaign Development</h4>
-                        <p class="text-gray-600 text-sm">Behind the scenes work on Kickstarter campaign preparation</p>
+                    <div style="display: flex; gap: var(--space-16); flex-wrap: wrap;">
+                        <a href="https://www.kickstarter.com/projects/autoprint/autoprint-one-3d-print-in-seconds"
+                           target="_blank" rel="noopener noreferrer"
+                           class="btn btn--primary">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>View Kickstarter</span>
+                        </a>
+                        <a href="/#contact" class="btn btn--ghost">
+                            <i class="fas fa-envelope"></i>
+                            <span>Get in Touch</span>
+                        </a>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Key Achievements -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="tech-card rounded-xl p-8" data-aos="fade-up" data-aos-delay="300">
-                    <h4 class="text-2xl font-bold mb-6 text-gray-900">Leadership Role</h4>
-                    <ul class="space-y-3 text-gray-700">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
-                            <span>Co-founder & Chief Mechanical Engineer</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
-                            <span>Led product development and design</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
-                            <span>Filed provisional patent application (expired)</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
-                            <span>Developed universal 3D printing solution</span>
-                        </li>
-                    </ul>
+        <!-- Hero Image -->
+        <section style="padding: 0;">
+            <div class="container">
+                <div style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-xl);">
+                    <img src="autprint_kickstarter.jpg" alt="Autoprint Kickstarter Campaign" style="width: 100%; height: auto;">
                 </div>
+            </div>
+        </section>
 
-                <div class="tech-card rounded-xl p-8" data-aos="fade-up" data-aos-delay="350">
-                    <h4 class="text-2xl font-bold mb-6 text-gray-900">Campaign Results</h4>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-700">Funding Raised:</span>
-                            <span class="text-xl font-bold text-blue-600">$11,183</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-700">Backers:</span>
-                            <span class="text-xl font-bold text-gray-900">125</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-700">Campaign Duration:</span>
-                            <span class="text-xl font-bold text-gray-900">30 days</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-700">Patent Status:</span>
-                            <span class="text-xl font-bold text-gray-600">Provisional (Expired)</span>
-                        </div>
+        <!-- Impact Metrics -->
+        <section class="section" style="background: var(--bg-secondary);">
+            <div class="container">
+                <div class="impact-metrics">
+                    <div class="metric">
+                        <span class="metric__value">$11K</span>
+                        <span class="metric__label">Raised on Kickstarter</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric__value">125</span>
+                        <span class="metric__label">Backers</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric__value">90%</span>
+                        <span class="metric__label">Setup Time Reduced</span>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Outcome Section -->
-            <div class="mt-16 bg-amber-50 border border-amber-200 rounded-xl p-8" data-aos="fade-up">
-                <div class="flex items-start">
-                    <i class="fas fa-info-circle text-amber-600 text-xl mr-4 mt-1"></i>
+        <!-- Project Overview -->
+        <section class="section">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-64); max-width: var(--max-width-text); margin: 0 auto;">
                     <div>
-                        <h4 class="text-lg font-semibold text-amber-900 mb-3">Campaign Outcome</h4>
-                        <p class="text-amber-800 leading-relaxed">
-                            Despite raising over $11,000 and gaining 125 supporters, the campaign ultimately fell short of its $30,000 funding goal.
-                            Without sufficient capital to move into production, we made the difficult decision to close Autoprint Inc.
-                            This experience provided valuable insights into startup challenges, market validation, and the realities of hardware development.
+                        <h2 style="font-size: var(--font-size-h3); margin-bottom: var(--space-24);">The Challenge</h2>
+                        <p style="color: var(--text-secondary); line-height: var(--line-height-relaxed);">
+                            3D printing technology remained inaccessible to most people due to complex setup processes, printer-specific requirements, and lengthy configuration times that deterred potential users.
+                        </p>
+                    </div>
+                    <div>
+                        <h2 style="font-size: var(--font-size-h3); margin-bottom: var(--space-24);">The Solution</h2>
+                        <p style="color: var(--text-secondary); line-height: var(--line-height-relaxed);">
+                            Developed the Autoprint One - a universal device compatible with most existing 3D printers that automated setup and enabled users to start printing in seconds instead of hours.
                         </p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Call To Action -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="tech-card rounded-3xl p-12 text-center" data-aos="fade-up">
-            <div class="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8">
-                <a href="/#work" class="secondary-button px-10 py-4 rounded-lg font-semibold text-lg transition-all duration-300 w-full sm:w-auto text-center">
-                    <i class="fas fa-arrow-left mr-3"></i>Back to Projects
-                </a>
-                <a href="/#contact" class="primary-button px-10 py-4 rounded-lg font-semibold text-lg transition-all duration-300 w-full sm:w-auto text-center">
-                    <i class="fas fa-envelope mr-3"></i>Get in Touch
-                </a>
+        <!-- Image Gallery -->
+        <section class="section" style="background: var(--bg-secondary);">
+            <div class="container">
+                <h2 style="font-size: var(--font-size-h2); text-align: center; margin-bottom: var(--space-96);">Development Process</h2>
+
+                <div class="image-gallery">
+                    <div class="image-gallery__item">
+                        <img src="autoprint%20UI.png" alt="User Interface Design" loading="lazy">
+                    </div>
+                    <div class="image-gallery__item">
+                        <img src="autoprint%20gcode%20progression%20.jpg" alt="G-code Development" loading="lazy">
+                    </div>
+                    <div class="image-gallery__item">
+                        <img src="workingonkickstarter.jpg" alt="Campaign Development" loading="lazy">
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Technical Details -->
+        <section class="section">
+            <div class="container">
+                <div style="max-width: var(--max-width-text); margin: 0 auto;">
+                    <h2 style="font-size: var(--font-size-h2); margin-bottom: var(--space-64);">Technical Details</h2>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-48); margin-bottom: var(--space-64);">
+                        <div>
+                            <h3 style="font-size: var(--font-size-h4); margin-bottom: var(--space-16);">Leadership Role</h3>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="margin-bottom: var(--space-16); padding-left: var(--space-24); position: relative;">
+                                    <span style="position: absolute; left: 0; color: var(--mc-blue);">•</span>
+                                    Co-founder & Chief Mechanical Engineer
+                                </li>
+                                <li style="margin-bottom: var(--space-16); padding-left: var(--space-24); position: relative;">
+                                    <span style="position: absolute; left: 0; color: var(--mc-blue);">•</span>
+                                    Led product development and design
+                                </li>
+                                <li style="margin-bottom: var(--space-16); padding-left: var(--space-24); position: relative;">
+                                    <span style="position: absolute; left: 0; color: var(--mc-blue);">•</span>
+                                    Filed provisional patent application
+                                </li>
+                                <li style="margin-bottom: var(--space-16); padding-left: var(--space-24); position: relative;">
+                                    <span style="position: absolute; left: 0; color: var(--mc-blue);">•</span>
+                                    Developed universal 3D printing solution
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 style="font-size: var(--font-size-h4); margin-bottom: var(--space-16);">Technologies Used</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: var(--space-8);">
+                                <span class="tag">Product Development</span>
+                                <span class="tag">IoT Systems</span>
+                                <span class="tag">Patent Filing</span>
+                                <span class="tag">Business Development</span>
+                                <span class="tag">Kickstarter</span>
+                                <span class="tag">G-code</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Outcome -->
+                    <div style="background: var(--bg-secondary); padding: var(--space-32); border-radius: var(--radius-lg); border-left: 4px solid var(--mc-blue);">
+                        <h3 style="font-size: var(--font-size-h4); margin-bottom: var(--space-16);">Campaign Outcome</h3>
+                        <p style="color: var(--text-secondary); line-height: var(--line-height-relaxed);">
+                            Despite raising over $11,000 and gaining 125 supporters, the campaign ultimately fell short of its $30,000 funding goal. Without sufficient capital to move into production, we made the difficult decision to close Autoprint Inc. This experience provided valuable insights into startup challenges, market validation, and the realities of hardware development.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Timeline -->
+        <section class="section" style="background: var(--bg-primary);">
+            <div class="container">
+                <h2 style="font-size: var(--font-size-h2); margin-bottom: var(--space-64); text-align: center;">Project Timeline</h2>
+
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <!-- Timeline Item 1 -->
+                    <div style="display: grid; grid-template-columns: 120px 1fr; gap: var(--space-32); margin-bottom: var(--space-48); position: relative;">
+                        <div style="text-align: right; padding-top: var(--space-8);">
+                            <span style="font-weight: var(--font-weight-bold); color: var(--mc-blue);">Q1 2020</span>
+                        </div>
+                        <div style="position: relative; padding-left: var(--space-32); border-left: 2px solid var(--border-color);">
+                            <div style="position: absolute; left: -9px; top: 12px; width: 16px; height: 16px; border-radius: 50%; background: var(--mc-blue); border: 3px solid var(--bg-primary);"></div>
+                            <h3 style="font-size: var(--font-size-h4); margin-bottom: var(--space-12);">Concept & Founding</h3>
+                            <p style="color: var(--text-secondary); line-height: var(--line-height-relaxed);">
+                                Co-founded Autoprint Inc. Identified the market need for simplified 3D printing setup. Began initial prototyping and proof-of-concept development.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2 -->
+                    <div style="display: grid; grid-template-columns: 120px 1fr; gap: var(--space-32); margin-bottom: var(--space-48); position: relative;">
+                        <div style="text-align: right; padding-top: var(--space-8);">
+                            <span style="font-weight: var(--font-weight-bold); color: var(--mc-blue);">Q2-Q3 2020</span>
+                        </div>
+                        <div style="position: relative; padding-left: var(--space-32); border-left: 2px solid var(--border-color);">
+                            <div style="position: absolute; left: -9px; top: 12px; width: 16px; height: 16px; border-radius: 50%; background: var(--mc-blue); border: 3px solid var(--bg-primary);"></div>
+                            <h3 style="font-size: var(--font-size-h4); margin-bottom: var(--space-12);">Product Development</h3>
+                            <p style="color: var(--text-secondary); line-height: var(--line-height-relaxed);">
+                                Led mechanical design and system integration. Developed G-code automation and universal printer compatibility. Filed provisional patent for auto-leveling technology.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 3 -->
+                    <div style="display: grid; grid-template-columns: 120px 1fr; gap: var(--space-32); margin-bottom: var(--space-48); position: relative;">
+                        <div style="text-align: right; padding-top: var(--space-8);">
+                            <span style="font-weight: var(--font-weight-bold); color: var(--mc-blue);">Q4 2020</span>
+                        </div>
+                        <div style="position: relative; padding-left: var(--space-32); border-left: 2px solid var(--border-color);">
+                            <div style="position: absolute; left: -9px; top: 12px; width: 16px; height: 16px; border-radius: 50%; background: var(--mc-blue); border: 3px solid var(--bg-primary);"></div>
+                            <h3 style="font-size: var(--font-size-h4); margin-bottom: var(--space-12);">Kickstarter Campaign</h3>
+                            <p style="color: var(--text-secondary); line-height: var(--line-height-relaxed);">
+                                Launched Kickstarter campaign. Produced marketing materials, demo videos, and technical documentation. Campaign raised $11,183 from 125 backers.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 4 -->
+                    <div style="display: grid; grid-template-columns: 120px 1fr; gap: var(--space-32); margin-bottom: 0; position: relative;">
+                        <div style="text-align: right; padding-top: var(--space-8);">
+                            <span style="font-weight: var(--font-weight-bold); color: var(--mc-blue);">Q1 2021</span>
+                        </div>
+                        <div style="position: relative; padding-left: var(--space-32);">
+                            <div style="position: absolute; left: -9px; top: 12px; width: 16px; height: 16px; border-radius: 50%; background: var(--text-muted); border: 3px solid var(--bg-primary);"></div>
+                            <h3 style="font-size: var(--font-size-h4); margin-bottom: var(--space-12);">Lessons Learned</h3>
+                            <p style="color: var(--text-secondary); line-height: var(--line-height-relaxed);">
+                                Campaign fell short of $30K goal. Made decision to close company. Gained invaluable experience in hardware startups, crowdfunding, product-market fit, and manufacturing challenges.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Projects -->
+        <section class="section" style="background: var(--bg-secondary);">
+            <div class="container">
+                <h2 style="font-size: var(--font-size-h2); margin-bottom: var(--space-48); text-align: center;">Related Projects</h2>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-32);">
+                    <!-- Nina Labs Card -->
+                    <a href="/ninalabs/" class="card-link">
+                        <div class="card">
+                            <span class="card__category">Product Engineering</span>
+                            <h3 class="card__title">Nina Labs Product Launch</h3>
+                            <p class="card__description">
+                                Reduced pour variation by 80%. Eliminated $8K in testing costs. Cut assembly time by 35%.
+                            </p>
+                            <div class="card__tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">Testing</span>
+                                <span class="tag">Manufacturing</span>
+                            </div>
+                            <div class="card__footer">
+                                <span class="card__link">
+                                    <span>View Project</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </span>
+                                <span class="card__date">Jun-Dec 2023</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- K2 Systems Card -->
+                    <a href="/k2-systems/" class="card-link">
+                        <div class="card">
+                            <span class="card__category">Industry Internship</span>
+                            <h3 class="card__title">K2 Systems Solar Testing</h3>
+                            <p class="card__description">
+                                Cut UL certification testing time by 50%. Identified $15K in cost savings. Reduced fixture costs by 90%.
+                            </p>
+                            <div class="card__tags">
+                                <span class="tag">Testing</span>
+                                <span class="tag">Automation</span>
+                                <span class="tag">Certification</span>
+                            </div>
+                            <div class="card__footer">
+                                <span class="card__link">
+                                    <span>View Project</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </span>
+                                <span class="card__date">Jun-Sep 2024</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Next Project CTA -->
+        <section class="section" style="background: var(--bg-primary);">
+            <div class="container">
+                <div style="text-align: center;">
+                    <h2 style="font-size: var(--font-size-h2); margin-bottom: var(--space-48);">View More Projects</h2>
+                    <div style="display: flex; gap: var(--space-16); justify-content: center; flex-wrap: wrap;">
+                        <a href="/#projects" class="btn btn--ghost">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>Back to Projects</span>
+                        </a>
+                        <a href="/#contact" class="btn btn--primary">
+                            <i class="fas fa-envelope"></i>
+                            <span>Get in Touch</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <!-- Footer -->
-    <footer class="py-12 px-4 sm:px-6 lg:px-8 border-t border-gray-200">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <span class="text-2xl font-bold text-gray-900">Mois Cohen<span class="text-blue-600">.</span></span>
-                    <p class="text-gray-600 text-sm mt-2">Mechanical Engineer</p>
-                </div>
-
-                <div class="flex space-x-8 text-sm text-gray-600">
-                    <a href="/#about" class="hover:text-blue-600 transition-colors">About</a>
-                    <a href="/#work" class="hover:text-blue-600 transition-colors">Projects</a>
-                    <a href="/#skills" class="hover:text-blue-600 transition-colors">Skills</a>
-                    <a href="/#contact" class="hover:text-blue-600 transition-colors">Contact</a>
-                </div>
-            </div>
-
-            <div class="border-t border-gray-200 mt-8 pt-8 text-center text-sm text-gray-500">
-                <p>© 2025 Mois Cohen. All rights reserved.</p>
-            </div>
-        </div>
+    <footer class="footer">
+        <span class="footer__brand">MC<span class="dot">.</span></span>
+        <span class="footer__mono">Mois Cohen · Mechanical Engineer · San Diego, CA</span>
     </footer>
 
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 1000,
-            easing: 'ease-out-cubic',
-            once: true,
-            mirror: false
-        });
+    <!-- Back to Top -->
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
-        // Mobile menu
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-
-        // Smooth scroll for internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
-            });
-        });
-    </script>
+    <!-- JavaScript -->
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>

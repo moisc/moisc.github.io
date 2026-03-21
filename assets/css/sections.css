@@ -8,6 +8,33 @@
     border-bottom: var(--border);
 }
 
+.hero__top {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: var(--space-48);
+    align-items: start;
+}
+
+.hero__photo {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .hero__top {
+        grid-template-columns: 1fr;
+    }
+    .hero__photo {
+        width: 120px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        order: -1;
+    }
+}
+
 .hero__label {
     font-family: var(--font-mono);
     font-size: var(--text-xs);
@@ -38,7 +65,7 @@
 /* Stats bar */
 .hero__stats {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     border-top: var(--border);
     margin-top: var(--space-40);
     padding-top: var(--space-20);

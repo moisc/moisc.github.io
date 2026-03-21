@@ -3,589 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nina Labs Junior Engineer | Mois Cohen</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#1a365d',
-                        secondary: '#475569',
-                        accent: '#1e40af',
-                        light: '#F8FAFC',
-                        dark: '#0F172A'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['Fira Code', 'monospace']
-                    },
-                }
-            }
-        }
-    </script>
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-        
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 80px;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F8FAFC;
-            color: #0F172A;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(90deg, #1e40af, #3b82f6, #1e3a8a);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: inline-block;
-        }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, #1e40af, #3b82f6);
-        }
-        
-        .project-card {
-            transition: all 0.3s ease;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            background: #1e40af;
-            z-index: 1000;
-            transition: width 0.2s ease-out;
-        }
-        
-        /* Gallery image zoom effect */
-        .gallery-item {
-            overflow: hidden;
-            border-radius: 0.5rem;
-        }
-        
-        .gallery-item img, .gallery-item video {
-            transition: transform 0.5s ease;
-        }
-        
-        .gallery-item:hover img, .gallery-item:hover video {
-            transform: scale(1.05);
-        }
-        
-        /* Back to top button */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 40;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .back-to-top.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        /* Video container styling */
-        .video-container {
-            position: relative;
-            overflow: hidden;
-            border-radius: 0.5rem;
-            background: #000;
-        }
-        
-        .video-container video {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-    </style>
-    
-    <!-- Google tag (gtag.js) -->
+    <title>Nina Labs | Mois Cohen</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Junior Engineer at Nina Labs. Improved pour accuracy by 80%, eliminated $8K in testing costs, reduced assembly time by 35%.">
+    <meta name="theme-color" content="#1E3A5F">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- ULTIMATE REDESIGN CSS -->
+    <link rel="stylesheet" href="/assets/css/variables.css">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/navigation.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+
+    <!-- Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8BERH7V4E"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-J8BERH7V4E');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-J8BERH7V4E');
     </script>
+
 </head>
 
 <body>
-    <!-- Progress Bar -->
-    <div class="progress-bar" id="scrollProgress"></div>
-    
+    <a href="#main" class="skip-to-main">Skip to main content</a>
+
     <!-- Navigation -->
-    <header class="fixed top-0 left-0 w-full bg-white bg-opacity-80 backdrop-blur-md z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center">
-                    <a href="/" class="text-xl font-bold text-primary">MC<span class="text-accent">.</span></a>
-                </div>
-                
-                <!-- Desktop Navigation -->
-                <nav class="hidden md:flex space-x-8 text-sm font-medium">
-                    <a href="/#about" class="text-gray-700 hover:text-accent transition-colors">About</a>
-                    <a href="/#work" class="text-gray-700 hover:text-accent transition-colors">Work</a>
-                    <a href="/#skills" class="text-gray-700 hover:text-accent transition-colors">Skills</a>
-                    <a href="/#achievements" class="text-gray-700 hover:text-accent transition-colors">Achievements</a>
-                    <a href="/#contact" class="text-gray-700 hover:text-accent transition-colors">Contact</a>
-                </nav>
-                
-                <!-- Back to Portfolio Button -->
-                <div class="hidden md:block">
-                    <a href="/#work" 
-                       class="px-4 py-2 rounded-full text-sm font-medium text-accent border border-accent hover:bg-accent hover:text-white transition-colors duration-300">
-                        <i class="fas fa-arrow-left mr-2"></i>Back to Portfolio
-                    </a>
-                </div>
-                
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="md:hidden text-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
-            </div>
-            
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden py-4 border-t border-gray-200">
-                <div class="flex flex-col space-y-4 text-sm font-medium">
-                    <a href="/#about" class="text-gray-700 hover:text-accent">About</a>
-                    <a href="/#work" class="text-gray-700 hover:text-accent">Work</a>
-                    <a href="/#skills" class="text-gray-700 hover:text-accent">Skills</a>
-                    <a href="/#achievements" class="text-gray-700 hover:text-accent">Achievements</a>
-                    <a href="/#contact" class="text-gray-700 hover:text-accent">Contact</a>
-                    <a href="/#work" class="text-accent font-medium">
-                        <i class="fas fa-arrow-left mr-2"></i>Back to Portfolio
-                    </a>
-                </div>
-            </div>
+    <nav class="navbar" id="navbar">
+        <a href="/" class="navbar__brand">MC<span class="dot">.</span></a>
+        <div class="navbar__nav">
+            <a href="/#projects" class="navbar__link">← Back</a>
         </div>
-    </header>
-    
-    <!-- Project Hero Section -->
-    <section class="pt-32 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <!-- Content Column -->
-            <div data-aos="fade-right">
-                <div class="inline-block px-3 py-1 rounded-full bg-blue-50 text-accent text-xs font-medium mb-4">
-                    June 2023 - December 2023
-                </div>
-                <h1 class="text-4xl sm:text-5xl font-bold mb-6">
-                    Nina Labs
-                    <span class="block text-2xl sm:text-3xl font-medium text-gray-500 mt-2">
+    </nav>
+
+    <main id="main">
+
+        <!-- Project Hero -->
+        <section class="section" style="min-height: 70vh; display: flex; align-items: center; padding-top: calc(var(--nav-height) + var(--space-96));">
+            <div class="container">
+                <div class="text-container">
+                    <span class="badge badge--primary" style="margin-bottom: var(--space-24);">Product Engineering • Jun-Dec 2023</span>
+
+                    <h1 style="font-size: var(--font-size-h1); font-weight: var(--font-weight-bold); margin-bottom: var(--space-24);">
+                        Nina Labs
+                    </h1>
+
+                    <p style="font-size: var(--font-size-h3); color: var(--text-secondary); margin-bottom: var(--space-48);">
                         Junior Engineer
-                    </span>
-                </h1>
-                <p class="text-lg text-gray-700 mb-8 leading-relaxed">
-                    Worked on IoT smart pourer technology for premium beverage service. Led iterative testing efforts that improved pour accuracy by 80% through data-driven discoveries and mechanical design optimization.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#overview" class="px-6 py-3 rounded-lg gradient-bg text-white font-medium hover:shadow-lg transition-all duration-300">
-                        Project Overview
-                    </a>
-                    <a href="#gallery" class="px-6 py-3 rounded-lg bg-white border border-gray-300 text-gray-700 font-medium hover:border-accent hover:text-accent transition-all duration-300">
-                        View Gallery
-                    </a>
+                    </p>
+
+                    <p style="font-size: var(--font-size-body); line-height: var(--line-height-relaxed); color: var(--text-secondary); margin-bottom: var(--space-48);">
+                        Led product engineering for IoT smart pourer technology. Improved pour accuracy by 80% through iterative testing and mechanical design optimization. Developed automated validation protocols using Python and MATLAB.
+                    </p>
+
+                    <div style="display: flex; gap: var(--space-16); flex-wrap: wrap;">
+                        <a href="/#contact" class="btn btn--primary">
+                            <i class="fas fa-envelope"></i>
+                            <span>Get in Touch</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-            
-            <!-- Image Column -->
-            <div class="relative" data-aos="fade-left">
-                <!-- Featured Project Image -->
-                <div class="relative z-10 overflow-hidden rounded-2xl shadow-xl aspect-video">
-                    <!-- Replace with your actual image -->
-                    <div class="video-container">
-                    <video controls class="w-full h-64 object-cover rounded-lg shadow-md">
-                        <source src="nina-videos/v2ninaoverview.mp4" type="video/mp4">
-                    </video>
-                </div>
-                
-                
-            </div>
-        </div>
-    </section>
-    
-    <!-- Project Overview -->
-    <section id="overview" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="mb-12 text-center" data-aos="fade-up">
-            <h2 class="text-sm uppercase tracking-wider text-accent font-semibold mb-2">Project Overview</h2>
-            <h3 class="text-3xl font-bold">Engineering Scope & Objectives</h3>
-        </div>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <!-- Key Responsibilities -->
-            <div class="bg-white rounded-2xl shadow-sm p-8 project-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-accent mb-6">
-                    <i class="fas fa-tasks text-xl"></i>
-                </div>
-                <h4 class="text-xl font-semibold mb-4">Key Responsibilities</h4>
-                <ul class="space-y-3 text-gray-700">
-                    <li class="flex items-start">
-                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
-                        <span>Drove design optimization initiatives to enhance manufacturability and production efficiency</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
-                        <span>Designed mechanical test jigs in SolidWorks and developed automated validation protocols using Python and MATLAB</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
-                        <span>Led iterative testing efforts, improving pour accuracy by approximately 80% through test driven discoveries</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
-                        <span>Collaborated with team to accelerate development and ensure on-time product launch</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <!-- Engineering Challenges -->
-            <div class="bg-white rounded-2xl shadow-sm p-8 project-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-accent mb-6">
-                    <i class="fas fa-mountain text-xl"></i>
-                </div>
-                <h4 class="text-xl font-semibold mb-4">Engineering Challenges</h4>
-                <ul class="space-y-3 text-gray-700">
-                    <li class="flex items-start">
-                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
-                        <span>Achieving precise liquid flow measurement accuracy in varying environmental conditions</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
-                        <span>Creating test protocols that simulate real-world usage patterns and edge cases</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
-                        <span>Balancing design for manufacturability with performance requirements</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <!-- Solutions & Innovations -->
-            <div class="bg-white rounded-2xl shadow-sm p-8 project-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-accent mb-6">
-                    <i class="fas fa-lightbulb text-xl"></i>
-                </div>
-                <h4 class="text-xl font-semibold mb-4">Solutions & Innovations</h4>
-                <ul class="space-y-3 text-gray-700">
-                    <li class="flex items-start">
-                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
-                        <span>Developed modular test jigs allowing rapid configuration changes for different product variants</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
-                        <span>Implemented automated data collection systems using Python to analyze pour patterns</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
-                        <span>Created MATLAB models to predict pour behavior</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Project Gallery -->
-    <section id="gallery" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="mb-12 text-center" data-aos="fade-up">
-            <h2 class="text-sm uppercase tracking-wider text-accent font-semibold mb-2">Project Gallery</h2>
-            <h3 class="text-3xl font-bold">Engineering Work at Nina Labs</h3>
-        </div>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Main project video - keeping this as it has actual content -->
-            <div class="gallery-item col-span-full lg:col-span-2" data-aos="fade-up" data-aos-delay="100">
-                <div class="video-container">
-                    <video controls class="w-full h-80 object-cover rounded-lg shadow-md">
+        </section>
+
+        <!-- Hero Video -->
+        <section style="padding: 0;">
+            <div class="container">
+                <div style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-xl);">
+                    <video controls style="width: 100%; height: auto; display: block;">
                         <source src="nina-videos/v2ninaoverview.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
-                    <div class="mt-2">
-                        <p class="text-sm text-gray-600">Nina Labs IoT pourer technology overview</p>
-                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="lg:col-span-1 flex items-center justify-center" data-aos="fade-up" data-aos-delay="200">
-                <div class="text-center p-8 bg-gray-50 rounded-lg">
-                    <i class="fas fa-images text-4xl text-gray-400 mb-4"></i>
-                    <p class="text-gray-500">Additional project media coming soon</p>
+        <!-- Impact Metrics -->
+        <section class="section" style="background: var(--bg-secondary);">
+            <div class="container">
+                <div class="impact-metrics">
+                    <div class="metric">
+                        <span class="metric__value">80%</span>
+                        <span class="metric__label">Pour Accuracy Improvement</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric__value">$8K</span>
+                        <span class="metric__label">Testing Costs Eliminated</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric__value">35%</span>
+                        <span class="metric__label">Assembly Time Reduced</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Technical Details -->
-    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50">
-        <div class="mb-12 text-center" data-aos="fade-up">
-            <h2 class="text-sm uppercase tracking-wider text-accent font-semibold mb-2">Technical Implementation</h2>
-            <h3 class="text-3xl font-bold">Engineering Solutions</h3>
-        </div>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <!-- Test Automation -->
-            <div class="bg-white rounded-xl p-8 shadow-sm" data-aos="fade-up" data-aos-delay="100">
-                <h4 class="text-2xl font-semibold mb-6">Test Automation Framework</h4>
-                <p class="text-gray-700 mb-4">
-                    Developed comprehensive testing protocols combining hardware fixtures with software automation:
-                </p>
-                <ul class="space-y-3 text-gray-700">
-                    <li class="flex items-start">
-                        <i class="fas fa-code text-accent mr-3 mt-1"></i>
-                        <span><strong>Python Scripts:</strong> Automated data collection from sensors, real-time analysis, and report generation</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-calculator text-accent mr-3 mt-1"></i>
-                        <span><strong>MATLAB Models:</strong> Statistical analysis of pour patterns and predictive modeling for design optimization</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-cogs text-accent mr-3 mt-1"></i>
-                        <span><strong>Test Fixtures:</strong> Modular jigs designed in SolidWorks for rapid prototype validation</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <!-- Performance Metrics -->
-            <div class="bg-white rounded-xl p-8 shadow-sm" data-aos="fade-up" data-aos-delay="200">
-                <h4 class="text-2xl font-semibold mb-6">Key Performance Improvements</h4>
-                <div class="space-y-4">
+        </section>
+
+        <!-- Project Overview -->
+        <section class="section">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-64); max-width: var(--max-width-text); margin: 0 auto;">
                     <div>
-                        <div class="flex justify-between mb-2">
-                            <span class="text-gray-700 font-medium">Pour Accuracy</span>
-                            <span class="text-accent font-bold">+80%</span>
-                        </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2">
-                            <div class="bg-accent h-2 rounded-full" style="width: 80%"></div>
-                        </div>
+                        <h2 style="font-size: var(--font-size-h3); margin-bottom: var(--space-24);">The Challenge</h2>
+                        <p style="color: var(--text-secondary); line-height: var(--line-height-relaxed);">
+                            Achieving precise liquid flow measurement accuracy in varying environmental conditions. Creating test protocols that simulate real-world usage patterns while balancing design for manufacturability with performance requirements.
+                        </p>
                     </div>
-                    
                     <div>
-                        <div class="flex justify-between mb-2">
-                            <span class="text-gray-700 font-medium">Test Efficiency</span>
-                            <span class="text-accent font-bold">+50%</span>
-                        </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2">
-                            <div class="bg-accent h-2 rounded-full" style="width: 50%"></div>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <div class="flex justify-between mb-2">
-                            <span class="text-gray-700 font-medium">Development Cycle Time</span>
-                            <span class="text-accent font-bold">-30%</span>
-                        </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2">
-                            <div class="bg-accent h-2 rounded-full" style="width: 70%"></div>
-                        </div>
+                        <h2 style="font-size: var(--font-size-h3); margin-bottom: var(--space-24);">The Solution</h2>
+                        <p style="color: var(--text-secondary); line-height: var(--line-height-relaxed);">
+                            Implemented data-driven iterative testing process using Python and MATLAB for automated analysis. Optimized mechanical design based on test discoveries, reducing pour variation from 5ml to <1ml while cutting manufacturing costs.
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Outcomes & Results -->
-    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="mb-12 text-center" data-aos="fade-up">
-            <h2 class="text-sm uppercase tracking-wider text-accent font-semibold mb-2">Project Outcomes</h2>
-            <h3 class="text-3xl font-bold">Results & Achievements</h3>
-        </div>
-        
-        <!-- Key Achievements -->
-        <div data-aos="fade-up">
-            <h4 class="text-2xl font-semibold mb-6">Key Engineering Achievements</h4>
-            <div class="space-y-4">
-                <div class="bg-white rounded-xl p-6 shadow-sm">
-                    <div class="flex items-start">
-                        <div class="flex-shrink-0 mr-4">
-                            <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white font-bold">
-                                1
-                            </div>
-                        </div>
-                        <div>
-                            <h5 class="text-lg font-medium mb-2">Pour Accuracy Revolution</h5>
-                            <p class="text-gray-700">Achieved 80% improvement in pour accuracy through iterative testing and design refinement, setting new standards for IoT beverage technology</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-xl p-6 shadow-sm">
-                    <div class="flex items-start">
-                        <div class="flex-shrink-0 mr-4">
-                            <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white font-bold">
-                                2
-                            </div>
-                        </div>
-                        <div>
-                            <h5 class="text-lg font-medium mb-2">Automated Testing Framework</h5>
-                            <p class="text-gray-700">Built comprehensive test automation using Python and MATLAB, reducing manual testing time by 50% and improving data reliability</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-xl p-6 shadow-sm">
-                    <div class="flex items-start">
-                        <div class="flex-shrink-0 mr-4">
-                            <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white font-bold">
-                                3
-                            </div>
-                        </div>
-                        <div>
-                            <h5 class="text-lg font-medium mb-2">Design for Manufacturing</h5>
-                            <p class="text-gray-700">Optimized mechanical designs for scalable production, balancing performance requirements with manufacturing constraints</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-xl p-6 shadow-sm">
-                    <div class="flex items-start">
-                        <div class="flex-shrink-0 mr-4">
-                            <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white font-bold">
-                                4
-                            </div>
-                        </div>
-                        <div>
-                            <h5 class="text-lg font-medium mb-2">On-Time Product Launch</h5>
-                            <p class="text-gray-700">Collaborated effectively with cross-functional teams to ensure successful product launch, meeting all critical milestones</p>
-                        </div>
+        </section>
+
+        <!-- Image Gallery -->
+        <section class="section" style="background: var(--bg-secondary);">
+            <div class="container">
+                <h2 style="font-size: var(--font-size-h2); text-align: center; margin-bottom: var(--space-96);">Product Development</h2>
+
+                <div class="image-gallery">
+                    <div class="image-gallery__item">
+                        <img src="nina-images/image1.jpg" alt="Nina Labs smart pourer technology" loading="lazy">
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Call To Action -->
-    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="bg-white rounded-2xl shadow-sm overflow-hidden" data-aos="fade-up">
-            <div class="p-8 md:p-12">
-                <div class="text-center mb-8">
-                    <h2 class="text-3xl font-bold mb-4">Interested in My Work?</h2>
-                    <p class="text-lg text-gray-700 max-w-3xl mx-auto">
-                        Feel free to explore my other engineering projects or get in touch to discuss how my experience in IoT product development and test automation can benefit your organization.
-                    </p>
-                </div>
-                
-                <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                    <a href="/#work" class="px-8 py-3 rounded-lg bg-white border border-accent text-accent font-medium hover:bg-accent hover:text-white transition-all duration-300 w-full sm:w-auto text-center">
-                        <i class="fas fa-arrow-left mr-2"></i>View Other Projects
-                    </a>
-                    <a href="/#contact" class="px-8 py-3 rounded-lg gradient-bg text-white font-medium hover:shadow-lg transition-all duration-300 w-full sm:w-auto text-center">
-                        Contact Me
-                    </a>
+        </section>
+
+        <!-- Technical Details -->
+        <section class="section">
+            <div class="container">
+                <div style="max-width: var(--max-width-text); margin: 0 auto;">
+                    <h2 style="font-size: var(--font-size-h2); margin-bottom: var(--space-64);">Key Responsibilities</h2>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-48); margin-bottom: var(--space-64);">
+                        <div>
+                            <h3 style="font-size: var(--font-size-h4); margin-bottom: var(--space-16);">Primary Focus</h3>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="margin-bottom: var(--space-16); padding-left: var(--space-24); position: relative;">
+                                    <span style="position: absolute; left: 0; color: var(--mc-blue);">•</span>
+                                    Led iterative testing improving pour accuracy by 80%
+                                </li>
+                                <li style="margin-bottom: var(--space-16); padding-left: var(--space-24); position: relative;">
+                                    <span style="position: absolute; left: 0; color: var(--mc-blue);">•</span>
+                                    Designed mechanical test jigs in SolidWorks
+                                </li>
+                                <li style="margin-bottom: var(--space-16); padding-left: var(--space-24); position: relative;">
+                                    <span style="position: absolute; left: 0; color: var(--mc-blue);">•</span>
+                                    Developed automated validation protocols with Python/MATLAB
+                                </li>
+                                <li style="margin-bottom: var(--space-16); padding-left: var(--space-24); position: relative;">
+                                    <span style="position: absolute; left: 0; color: var(--mc-blue);">•</span>
+                                    Drove design optimization for manufacturability
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 style="font-size: var(--font-size-h4); margin-bottom: var(--space-16);">Technologies & Skills</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: var(--space-8);">
+                                <span class="tag">Python</span>
+                                <span class="tag">MATLAB</span>
+                                <span class="tag">SolidWorks</span>
+                                <span class="tag">Testing</span>
+                                <span class="tag">IoT</span>
+                                <span class="tag">Manufacturing</span>
+                                <span class="tag">Data Analysis</span>
+                                <span class="tag">Product Development</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Key Achievements -->
+                    <div style="background: var(--bg-secondary); padding: var(--space-32); border-radius: var(--radius-lg); border-left: 4px solid var(--mc-blue);">
+                        <h3 style="font-size: var(--font-size-h4); margin-bottom: var(--space-16);">Solutions & Innovations</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: var(--space-16); padding-left: var(--space-24); position: relative; color: var(--text-secondary);">
+                                <span style="position: absolute; left: 0; color: var(--mc-blue);">•</span>
+                                Implemented data-driven testing process, reducing pour variation from 5ml to <1ml
+                            </li>
+                            <li style="margin-bottom: var(--space-16); padding-left: var(--space-24); position: relative; color: var(--text-secondary);">
+                                <span style="position: absolute; left: 0; color: var(--mc-blue);">•</span>
+                                Created automated Python scripts eliminating $8K in manual testing costs
+                            </li>
+                            <li style="margin-bottom: var(--space-16); padding-left: var(--space-24); position: relative; color: var(--text-secondary);">
+                                <span style="position: absolute; left: 0; color: var(--mc-blue);">•</span>
+                                Optimized assembly process, reducing build time by 35%
+                            </li>
+                            <li style="padding-left: var(--space-24); position: relative; color: var(--text-secondary);">
+                                <span style="position: absolute; left: 0; color: var(--mc-blue);">•</span>
+                                Collaborated with cross-functional team to ensure on-time product launch
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
+        </section>
+
+        <!-- Next Project CTA -->
+        <section class="section" style="background: var(--bg-secondary);">
+            <div class="container">
+                <div style="text-align: center;">
+                    <h2 style="font-size: var(--font-size-h2); margin-bottom: var(--space-48);">View More Projects</h2>
+                    <div style="display: flex; gap: var(--space-16); justify-content: center; flex-wrap: wrap;">
+                        <a href="/#projects" class="btn btn--ghost">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>Back to Projects</span>
+                        </a>
+                        <a href="/#contact" class="btn btn--primary">
+                            <i class="fas fa-envelope"></i>
+                            <span>Get in Touch</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
     <!-- Footer -->
-    <footer class="py-8 px-4 sm:px-6 lg:px-8 bg-gray-100">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <span class="text-xl font-bold text-primary">Mois Cohen<span class="text-accent">.</span></span>
-                    <p class="text-gray-600 text-sm mt-1">Mechanical Engineer</p>
-                </div>
-                
-                <div class="flex space-x-8 text-sm text-gray-600">
-                    <a href="/#about" class="hover:text-accent transition-colors">About</a>
-                    <a href="/#work" class="hover:text-accent transition-colors">Work</a>
-                    <a href="/#skills" class="hover:text-accent transition-colors">Skills</a>
-                    <a href="/#achievements" class="hover:text-accent transition-colors">Achievements</a>
-                    <a href="/#contact" class="hover:text-accent transition-colors">Contact</a>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-200 mt-6 pt-6 text-center text-sm text-gray-500">
-                <p>© 2025 Mois Cohen. All rights reserved.</p>
-            </div>
-        </div>
+    <footer class="footer">
+        <span class="footer__brand">MC<span class="dot">.</span></span>
+        <span class="footer__mono">Mois Cohen · Mechanical Engineer · San Diego, CA</span>
     </footer>
-    
-    <!-- Back to Top Button -->
-    <button id="backToTop" class="back-to-top w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center shadow-lg hover:shadow-xl hover:bg-blue-700 transition-all duration-300">
+
+    <button class="back-to-top" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </button>
-    
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true,
-            mirror: false
-        });
-        
-        // Mobile menu
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-        
-        // Smooth scroll for internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
-            });
-        });
-        
-        // Scroll progress bar
-        window.addEventListener('scroll', function() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById("scrollProgress").style.width = scrolled + "%";
-            
-            // Back to top button
-            const backToTopButton = document.getElementById('backToTop');
-            if (winScroll > 300) {
-                backToTopButton.classList.add('active');
-            } else {
-                backToTopButton.classList.remove('active');
-            }
-        });
-        
-        // Back to top button
-        document.getElementById('backToTop').addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    </script>
+
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>
