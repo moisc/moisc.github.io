@@ -73,7 +73,7 @@
     border-top: var(--border);
     text-decoration: none;
     color: var(--color-text);
-    transition: background var(--transition);
+    transition: background var(--transition), margin var(--transition), padding var(--transition);
 }
 
 /* Extend hover bg to full width by using negative margins trick */
@@ -134,6 +134,12 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-32);
+}
+
+@media (max-width: 768px) {
+    .skill-groups {
+        grid-template-columns: 1fr;
+    }
 }
 
 .skill-group__title {
