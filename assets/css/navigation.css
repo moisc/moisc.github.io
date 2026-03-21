@@ -49,14 +49,18 @@
 }
 
 @media (max-width: 768px) {
+    .navbar {
+        height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: var(--space-12) var(--page-padding);
+        gap: var(--space-8);
+    }
     .navbar__nav {
         gap: var(--space-16);
     }
     .navbar__link {
         font-size: 9px;
         letter-spacing: 1px;
-    }
-    .navbar__link--hidden-mobile {
-        display: none;
     }
 }
