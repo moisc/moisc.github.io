@@ -117,7 +117,14 @@
                     <h1 class="hero__name">Mois Cohen</h1>
                     <p class="hero__bio">Building mechanical systems that solve real problems. Currently at Innoflight.</p>
                 </div>
-                <img class="hero__photo" src="/unnamed (22).jpg" alt="Mois Cohen">
+                <svg width="0" height="0" style="position:absolute;">
+                    <defs>
+                        <clipPath id="photoMask" clipPathUnits="objectBoundingBox">
+                            <path d="M 0.05,0.12 C 0.08,0.01 0.2,0 0.35,0 C 0.65,0 0.92,0.02 0.98,0.18 C 1.04,0.34 1.0,0.58 0.95,0.76 C 0.9,0.93 0.72,1.04 0.52,1.02 C 0.32,1.0 0.12,0.96 0.04,0.82 C -0.04,0.68 0.02,0.23 0.05,0.12 Z"/>
+                        </clipPath>
+                    </defs>
+                </svg>
+                <img class="hero__photo" src="/unnamed (22).jpg" alt="Mois Cohen" style="clip-path: url(#photoMask);">
             </div>
             <div class="hero__stats">
                 <div class="hero__stat">
