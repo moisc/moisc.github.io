@@ -8,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
   <style>
     /* ══════════════════════════════════════
        Design tokens
@@ -747,64 +746,107 @@
       color: var(--muted);
       letter-spacing: 0.04em;
     }
-    /* Leaflet overrides */
-    .leaflet-container { font-family: 'DM Sans', sans-serif !important; background: #0d1a2b; }
-    .leaflet-control-zoom a {
-      background: var(--bg-card) !important;
-      color: var(--cream-dim) !important;
-      border-color: var(--gold-border) !important;
+    /* ══════════════════════════════════════
+       COUNTDOWN
+    ══════════════════════════════════════ */
+    .countdown-card {
+      background: var(--bg-card);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius);
+      padding: 28px 20px;
+      text-align: center;
+      margin-bottom: 46px;
+      position: relative;
+      overflow: hidden;
     }
-    .leaflet-control-zoom a:hover { background: #182640 !important; }
-    .leaflet-control-attribution {
-      background: rgba(11,21,36,0.85) !important;
-      color: var(--muted) !important;
-      font-size: 9px !important;
+    .countdown-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(200,162,88,0.06) 0%, transparent 70%);
+      pointer-events: none;
     }
-    .leaflet-control-attribution a { color: var(--muted) !important; }
-    .map-tooltip {
-      background: #111f33 !important;
-      border: 1px solid var(--gold-border) !important;
-      color: var(--cream) !important;
-      font-family: 'DM Sans', sans-serif !important;
-      font-size: 12px !important;
-      border-radius: 7px !important;
-      padding: 6px 10px !important;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.55) !important;
-      white-space: nowrap;
+    .cdwn-number {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(52px, 14vw, 80px);
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      letter-spacing: 0.04em;
     }
-    .map-tooltip::before { display: none !important; }
-    .map-popup .leaflet-popup-content-wrapper {
-      background: #111f33 !important;
-      border: 1px solid var(--gold-border) !important;
-      color: var(--cream) !important;
-      border-radius: 10px !important;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.65) !important;
-      padding: 0 !important;
+    .cdwn-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      margin-top: 10px;
     }
-    .map-popup .leaflet-popup-content {
-      margin: 14px 16px !important;
-      font-family: 'DM Sans', sans-serif !important;
-      font-size: 13px !important;
-      line-height: 1.6 !important;
-      color: var(--cream-dim) !important;
+    .cdwn-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 6px;
+      letter-spacing: 0.06em;
     }
-    .map-popup .leaflet-popup-content strong {
-      font-family: 'Cinzel', serif !important;
-      font-size: 13px !important;
-      color: var(--gold) !important;
-      display: block !important;
-      margin-bottom: 5px !important;
+    /* ══════════════════════════════════════
+       PHRASES
+    ══════════════════════════════════════ */
+    .phrases-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 46px;
     }
-    .map-popup .leaflet-popup-tip { background: #111f33 !important; }
-    .map-popup .leaflet-popup-close-button {
-      color: var(--muted) !important;
-      font-size: 16px !important;
-      top: 6px !important;
-      right: 8px !important;
+    .phrase-lang {
+      background: var(--bg-card);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius);
+      overflow: hidden;
     }
-    /* Animated dashes on flight arcs */
-    .flight-arc path { animation: flightDash 1s linear infinite; }
-    @keyframes flightDash { to { stroke-dashoffset: -12; } }
+    .phrase-lang-hdr {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--gold-border);
+    }
+    .lang-flag { font-size: 22px; }
+    .lang-name {
+      font-family: 'Cinzel', serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--cream);
+      letter-spacing: 0.04em;
+    }
+    .lang-cities {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10.5px;
+      color: var(--muted);
+      margin-left: auto;
+    }
+    .phrase-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .phrase-table tr {
+      border-bottom: 1px solid rgba(200,162,88,0.07);
+    }
+    .phrase-table tr:last-child { border-bottom: none; }
+    .phrase-table td {
+      padding: 9px 20px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+    }
+    .phrase-table td:first-child { color: var(--muted); }
+    .phrase-table td:last-child {
+      color: var(--gold-light);
+      font-weight: 500;
+      text-align: right;
+    }
+    @media (max-width: 400px) {
+      .phrase-table td { padding: 8px 14px; font-size: 12px; }
+    }
   </style>
 </head>
 <body>
@@ -863,10 +905,18 @@
     </div>
   </div>
 
+  <!-- ══ COUNTDOWN ══ -->
+  <div class="section-label" style="margin-top:4px;">Departure</div>
+  <div class="countdown-card">
+    <div class="cdwn-number" id="cdwn-days">—</div>
+    <div class="cdwn-label">days until takeoff</div>
+    <div class="cdwn-sub">July 2, 2026 &nbsp;·&nbsp; San Diego → Oakland → The World</div>
+  </div>
+
   <!-- ══ MAP ══ -->
-  <div class="section-label">Interactive Map</div>
+  <div class="section-label">Route Map</div>
   <div class="map-wrap">
-    <div id="trip-map"></div>
+    <canvas id="trip-map" style="display:block;cursor:default;"></canvas>
     <div class="map-legend">
       <div class="legend-item">
         <svg width="28" height="4" aria-hidden="true"><line x1="0" y1="2" x2="28" y2="2" stroke="#e8944a" stroke-width="2" stroke-dasharray="6 4"/></svg>
@@ -880,7 +930,7 @@
         <svg width="28" height="4" aria-hidden="true"><line x1="0" y1="2" x2="28" y2="2" stroke="#52b8cc" stroke-width="2" stroke-dasharray="5 4"/></svg>
         <span>Ferry</span>
       </div>
-      <span class="map-tap-hint">Tap markers · hover lines for details</span>
+      <span class="map-tap-hint">Animated planes · gold = train · teal = ferry</span>
     </div>
   </div>
 
@@ -1232,6 +1282,67 @@
   </div><!-- /destinations -->
 
   <!-- ══ BUDGET ══ -->
+  <!-- ══ PHRASES ══ -->
+  <div class="section-label">Essential Phrases</div>
+  <div class="phrases-grid">
+    <div class="phrase-lang">
+      <div class="phrase-lang-hdr">
+        <span class="lang-flag">🇪🇸</span>
+        <span class="lang-name">Spanish</span>
+        <span class="lang-cities">Madrid · Granada · Málaga</span>
+      </div>
+      <table class="phrase-table">
+        <tr><td>Hello / Goodbye</td><td>Hola / Adiós</td></tr>
+        <tr><td>Thank you (very much)</td><td>Gracias (muchas gracias)</td></tr>
+        <tr><td>Please / Excuse me</td><td>Por favor / Perdona</td></tr>
+        <tr><td>Where is...?</td><td>¿Dónde está...?</td></tr>
+        <tr><td>How much?</td><td>¿Cuánto cuesta?</td></tr>
+        <tr><td>The menu, please</td><td>La carta, por favor</td></tr>
+        <tr><td>Two beers, please</td><td>Dos cervezas, por favor</td></tr>
+        <tr><td>Cheers!</td><td>¡Salud!</td></tr>
+        <tr><td>Delicious!</td><td>¡Delicioso!</td></tr>
+        <tr><td>The check, please</td><td>La cuenta, por favor</td></tr>
+        <tr><td>I don't understand</td><td>No entiendo</td></tr>
+        <tr><td>Do you speak English?</td><td>¿Habla inglés?</td></tr>
+      </table>
+    </div>
+    <div class="phrase-lang">
+      <div class="phrase-lang-hdr">
+        <span class="lang-flag">🇮🇹</span>
+        <span class="lang-name">Italian</span>
+        <span class="lang-cities">Naples · Sorrento · Amalfi · Rome</span>
+      </div>
+      <table class="phrase-table">
+        <tr><td>Hello / Goodbye</td><td>Ciao / Arrivederci</td></tr>
+        <tr><td>Thank you (very much)</td><td>Grazie (mille grazie)</td></tr>
+        <tr><td>Please / Excuse me</td><td>Per favore / Scusi</td></tr>
+        <tr><td>Where is...?</td><td>Dov'è...?</td></tr>
+        <tr><td>How much?</td><td>Quanto costa?</td></tr>
+        <tr><td>The menu, please</td><td>Il menù, per favore</td></tr>
+        <tr><td>Two beers, please</td><td>Due birre, per favore</td></tr>
+        <tr><td>Cheers!</td><td>Cin cin! / Salute!</td></tr>
+        <tr><td>Delicious!</td><td>Delizioso!</td></tr>
+        <tr><td>The check, please</td><td>Il conto, per favore</td></tr>
+        <tr><td>I don't understand</td><td>Non capisco</td></tr>
+        <tr><td>Do you speak English?</td><td>Parla inglese?</td></tr>
+      </table>
+    </div>
+    <div class="phrase-lang">
+      <div class="phrase-lang-hdr">
+        <span class="lang-flag">🇳🇱</span>
+        <span class="lang-name">Dutch</span>
+        <span class="lang-cities">Amsterdam layover</span>
+      </div>
+      <table class="phrase-table">
+        <tr><td>Hello / Thank you</td><td>Hallo / Dank je wel</td></tr>
+        <tr><td>Cheers!</td><td>Proost!</td></tr>
+        <tr><td>Where is...?</td><td>Waar is...?</td></tr>
+        <tr><td>Two beers, please</td><td>Twee bier, alsjeblieft</td></tr>
+        <tr><td>Excuse me</td><td>Pardon</td></tr>
+      </table>
+    </div>
+  </div>
+
   <div class="section-label">Budget Estimate</div>
   <div class="budget-card">
     <table class="budget-table">
@@ -1319,24 +1430,177 @@
   }
 
   initChecklist();
+
+  /* ── Countdown ── */
+  function initCountdown() {
+    var el = document.getElementById('cdwn-days');
+    if (!el) return;
+    function update() {
+      var now = new Date();
+      var dep = new Date('2026-07-02T20:55:00');
+      var diff = dep - now;
+      if (diff <= 0) { el.textContent = '✈'; return; }
+      el.textContent = Math.floor(diff / (1000*60*60*24));
+    }
+    update();
+    setInterval(update, 60000);
+  }
+  initCountdown();
 </script>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script>
-  /* ── Interactive Map ── */
+  /* ── Custom canvas map ── */
   function initMap() {
-    const map = L.map('trip-map', {
-      scrollWheelZoom: false,
-      zoomSnap: 0.5,
-    });
+    var canvas = document.getElementById('trip-map');
+    if (!canvas) return;
+    var W = canvas.offsetWidth || 800;
+    var H = canvas.offsetHeight || Math.round(W * 0.52);
+    var dpr = window.devicePixelRatio || 1;
+    canvas.width  = W * dpr;
+    canvas.height = H * dpr;
+    canvas.style.width  = W + 'px';
+    canvas.style.height = H + 'px';
+    var ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
-      subdomains: 'abcd',
-      maxZoom: 19,
-    }).addTo(map);
+    /* ── Projection: 3-zone non-linear (US/Atlantic/Europe) ── */
+    /* lon range: -125 (CA) to +16 (Rome). Zone boundaries: */
+    /* Zone 0 = US West: lon -125 to -60 → x 0%–12% */
+    /* Zone 1 = Atlantic: lon -60 to -5  → x 12%–45% */
+    /* Zone 2 = Europe:   lon -5  to +16 → x 45%–100% */
+    function lonToX(lon) {
+      if (lon <= -60) {
+        return W * (0.00 + 0.12 * (lon - (-125)) / 65);
+      } else if (lon <= -5) {
+        return W * (0.12 + 0.33 * (lon - (-60)) / 55);
+      } else {
+        return W * (0.45 + 0.55 * (lon - (-5)) / 21);
+      }
+    }
+    /* lat range: 20 (N Africa) to 65 (Iceland/Norway) → y 100%–0% */
+    function latToY(lat) {
+      return H * (1 - (lat - 20) / 45);
+    }
+    function project(lat, lon) {
+      return [lonToX(lon), latToY(lat)];
+    }
 
-    /* Coordinates */
-    const C = {
+    /* ── Land masses (simplified polygons) ── */
+    var lands = [
+      /* California / Baja */
+      { pts:[
+        [42,-124],[37,-122],[36.5,-121.9],[35,-121],[34,-120.5],[32.5,-117],[32,-116.5],
+        [28,-113],[28,-114],[30,-115],[32,-117.5],[34,-120],[36,-122],[38,-123],[40,-124.3],[42,-124]
+      ], label:null },
+      /* Pacific Northwest / Oregon */
+      { pts:[[49,-124],[48,-124],[47,-124],[46,-124],[45,-124],[44,-124],[43,-124],[42,-124],[42,-122],[44,-121],[46,-123],[48,-122],[49,-123],[49,-124]], label:null },
+      /* Eastern USA outline (simplified) */
+      { pts:[
+        [47,-68],[45,-67],[44,-70],[43,-71],[42,-70],[41,-71],[40.5,-74],[39,-75],[38,-75.5],
+        [37,-76],[35,-76],[34,-78],[32,-81],[30,-81],[28,-81],[26,-80],[25.5,-80.5],[25,-80],
+        [26,-82],[28,-83],[29,-84],[30,-88],[30,-89],[29,-90],[29,-91],[29,-94],[28,-97],[27,-97.5],
+        [26,-97],[26,-98],[28,-100],[30,-100],[32,-100],[34,-101],[36,-103],[37,-103],[38,-103],[40,-104],
+        [41,-104],[42,-104],[44,-104],[46,-104],[48,-106],[49,-110],[49,-120],[49,-124],[47,-122],[45,-124],
+        [43,-124],[42,-124],[40,-124],[38,-123],[36,-121],[34,-119],[32,-117],[30,-115],[28,-110],
+        [25,-105],[22,-98],[20,-90],[18,-88],[16,-86],[16,-85],[18,-84],[20,-87],[22,-90],[24,-88],
+        [26,-88],[28,-88],[30,-90],[30,-94],[28,-96],[27,-97],[27,-100],[29,-102],[32,-102],[34,-101],
+        [36,-103],[37,-104],[40,-104],[42,-104],[44,-104],[46,-106],[47,-107],[47,-100],[46,-97],
+        [44,-95],[42,-90],[42,-87],[42,-83],[43,-83],[44,-83],[45,-84],[46,-84],[46,-86],[47,-88],
+        [47,-90],[46,-92],[46,-93],[45,-93],[44,-88],[44,-87],[42,-86],[40,-86],[40,-80],[41,-80],
+        [42,-80],[43,-79],[43,-76],[44,-76],[44,-73],[43,-72],[43,-71],[42,-70],[41,-72],[41,-74],
+        [40.5,-74],[40,-74],[38,-75],[37,-76],[35,-77],[34,-78],[33,-79],[32,-81],[30,-82],[29,-81],
+        [27,-80],[26,-80],[25,-80],[24,-81],[24,-82],[25,-82],[26,-82],[27,-83],[28,-83],[29,-85],
+        [30,-88],[29,-90],[29,-91],[30,-93],[29,-94],[28,-96],[27,-97],[26,-98],[24,-97],[22,-98],
+        [20,-90],[18,-88],[16,-86],[15,-85],[14,-84],[14,-83],[15,-83],[16,-85],[16,-86],[18,-88],
+        [20,-87],[22,-90],[24,-91],[26,-90],[28,-90],[30,-89],[30,-88],[30,-85],[31,-85],[32,-85],
+        [33,-84],[34,-84],[36,-84],[37,-84],[37,-82],[38,-82],[38,-81],[39,-80],[40,-79],[40,-77],
+        [41,-74],[42,-70],[43,-70],[44,-69],[45,-67],[47,-68]
+      ], label:null },
+      /* Greenland (simplified) */
+      { pts:[
+        [83,-45],[82,-25],[80,-18],[78,-18],[76,-20],[74,-22],[72,-24],[70,-23],[68,-25],[66,-28],
+        [65,-38],[65,-50],[66,-52],[68,-53],[70,-52],[72,-50],[73,-52],[74,-57],[76,-63],[78,-70],
+        [80,-65],[82,-55],[83,-45]
+      ], label:null },
+      /* Iceland */
+      { pts:[
+        [66,-22],[65,-24],[64,-22],[63,-20],[63,-18],[64,-14],[65,-14],[66,-16],[66,-22]
+      ], label:null },
+      /* Ireland */
+      { pts:[
+        [55,-8],[54,-10],[53,-10],[52,-9],[52,-8],[53,-6],[54,-6],[55,-7],[55,-8]
+      ], label:null },
+      /* Great Britain */
+      { pts:[
+        [58,-5],[57,-6],[56,-5],[55,-4],[54,-4],[53,-5],[52,-5],[51,-5],[50,-5],[50,-4],
+        [51,-3],[52,-2],[53,-1],[54,0],[55,0],[56,0],[57,-2],[58,-3],[58,-5]
+      ], label:null },
+      /* Scotland + north */
+      { pts:[[58,-5],[57,-6],[57,-5],[58,-3],[59,-3],[60,-2],[61,-2],[60,-4],[58,-5]], label:null },
+      /* Iberian Peninsula */
+      { pts:[
+        [44,-9],[43,-9],[42,-9],[41,-9],[40,-8.5],[38,-9],[36,-8],[36,-6],[36,-5.5],[37,-2],
+        [38,-1],[39,0],[40.5,0],[41,1],[43,2],[44,3],[44,2],[43,1],[42,-1],[43,-2],[43,-4],
+        [44,-6],[44,-9]
+      ], label:null },
+      /* France */
+      { pts:[
+        [51,2],[50,2],[49,1],[48,-2],[47,-2],[46,-2],[45,-1],[44,0],[43,3],[43,5],[44,6],
+        [45,6],[46,7],[47,8],[48,8],[49,8],[50,7],[51,5],[51,2]
+      ], label:null },
+      /* Benelux + Germany + Switzerland + Austria */
+      { pts:[
+        [54,8],[53,7],[52,5],[51,4],[51,5],[51,7],[52,8],[53,9],[54,10],[55,10],[54,12],
+        [54,14],[52,14],[51,15],[50,14],[49,13],[48,13],[47,10],[47,8],[48,8],[49,8],[50,7],
+        [51,5],[52,5],[53,7],[54,8]
+      ], label:null },
+      /* Italy */
+      { pts:[
+        [44,6],[43,5],[43,8],[44,8],[44,9],[43,11],[43,12],[42,12],[42,14],[41,14],[41,15],
+        [40,16],[39,16],[38,15],[38,16],[39,17],[40,18],[41,16],[42,14],[43,14],[44,12],
+        [44,11],[44,9],[44,8],[44,6]
+      ], label:null },
+      /* Sicily */
+      { pts:[
+        [38,12],[37,12],[37,13],[37,14],[38,15],[38,14],[38,13],[38,12]
+      ], label:null },
+      /* Sardinia */
+      { pts:[[41,8],[40,8],[39,9],[39,10],[40,10],[41,9],[41,8]], label:null },
+      /* North Africa (Morocco, Algeria, Tunisia) */
+      { pts:[
+        [36,-6],[35,-6],[34,-5],[33,-2],[33,0],[33,2],[34,4],[34,6],[34,8],[33,10],[33,12],
+        [34,12],[35,11],[36,10],[37,10],[37,8],[36,7],[36,5],[36,3],[36,1],[36,-2],[35,-5],[36,-6]
+      ], label:null },
+      /* Corsica */
+      { pts:[[43,9],[42,9],[42,10],[43,10],[43,9]], label:null },
+    ];
+
+    /* ── Great circle arc ── */
+    function gcArc(from, to, n) {
+      n = n || 80;
+      var toR = function(d) { return d * Math.PI / 180; };
+      var toD = function(r) { return r * 180 / Math.PI; };
+      var phi1 = toR(from[0]), lam1 = toR(from[1]);
+      var phi2 = toR(to[0]),   lam2 = toR(to[1]);
+      var d = 2 * Math.asin(Math.sqrt(
+        Math.pow(Math.sin((phi2-phi1)/2), 2) +
+        Math.cos(phi1)*Math.cos(phi2)*Math.pow(Math.sin((lam2-lam1)/2), 2)
+      ));
+      if (d < 0.001) return [[from[0],from[1]],[to[0],to[1]]];
+      var pts = [];
+      for (var i = 0; i <= n; i++) {
+        var f = i / n;
+        var A = Math.sin((1-f)*d)/Math.sin(d);
+        var B = Math.sin(f*d)/Math.sin(d);
+        var x = A*Math.cos(phi1)*Math.cos(lam1) + B*Math.cos(phi2)*Math.cos(lam2);
+        var y = A*Math.cos(phi1)*Math.sin(lam1) + B*Math.cos(phi2)*Math.sin(lam2);
+        var z = A*Math.sin(phi1) + B*Math.sin(phi2);
+        pts.push([toD(Math.atan2(z, Math.sqrt(x*x+y*y))), toD(Math.atan2(y, x))]);
+      }
+      return pts;
+    }
+
+    /* ── Coordinate data ── */
+    var C = {
       sandiego:  [32.7157, -117.1611],
       oakland:   [37.8044, -122.2712],
       schiphol:  [52.3105,   4.7683],
@@ -1354,114 +1618,281 @@
       jfk:       [40.6413, -73.7781],
     };
 
-    /* Great-circle arc interpolation */
-    function arc(from, to, n) {
-      n = n || 60;
-      const toR = function(d) { return d * Math.PI / 180; };
-      const toD = function(r) { return r * 180 / Math.PI; };
-      var phi1 = toR(from[0]), lam1 = toR(from[1]);
-      var phi2 = toR(to[0]),   lam2 = toR(to[1]);
-      var d = 2 * Math.asin(Math.sqrt(
-        Math.pow(Math.sin((phi2-phi1)/2), 2) +
-        Math.cos(phi1)*Math.cos(phi2)*Math.pow(Math.sin((lam2-lam1)/2), 2)
-      ));
-      if (d < 0.001) return [from, to];
-      var pts = [];
-      for (var i = 0; i <= n; i++) {
-        var f = i / n;
-        var A = Math.sin((1-f)*d)/Math.sin(d);
-        var B = Math.sin(f*d)/Math.sin(d);
-        var x = A*Math.cos(phi1)*Math.cos(lam1) + B*Math.cos(phi2)*Math.cos(lam2);
-        var y = A*Math.cos(phi1)*Math.sin(lam1) + B*Math.cos(phi2)*Math.sin(lam2);
-        var z = A*Math.sin(phi1) + B*Math.sin(phi2);
-        pts.push([toD(Math.atan2(z, Math.sqrt(x*x+y*y))), toD(Math.atan2(y, x))]);
-      }
-      return pts;
-    }
-
-    var flightOpts = { color:'#e8944a', weight:1.8, dashArray:'7 5', opacity:0.85, className:'flight-arc' };
-    var trainOpts  = { color:'#c8a258', weight:2.5, opacity:0.75 };
-    var ferryOpts  = { color:'#52b8cc', weight:2.2, dashArray:'5 5', opacity:0.85 };
-
-    /* Flights */
-    [
-      [C.sandiego,  C.oakland,   'Southwest WN 4841 &middot; Jul 2 &middot; SAN &rarr; OAK'],
-      [C.oakland,   C.amsterdam, 'KLM &middot; Jul 3 &middot; Oakland &rarr; Amsterdam'],
-      [C.amsterdam, C.madrid,    'KLM &middot; Jul 3 &middot; Amsterdam &rarr; Madrid'],
-      [C.malaga,    C.naples,    'Ryanair &middot; Jul 7&ndash;8 &middot; M&aacute;laga &rarr; Naples &nbsp;&#9888; BOOK NOW'],
-      [C.rome,      C.dublin,    'Aer Lingus EI 401 &middot; Jul 13 &middot; Rome &rarr; Dublin'],
-      [C.dublin,    C.jfk,       'Aer Lingus EI 105 &middot; Jul 13 &middot; Dublin &rarr; JFK'],
-      [C.jfk,       C.sandiego,  'JetBlue B6 1189 &middot; Jul 13 &middot; JFK &rarr; San Diego'],
-    ].forEach(function(f) {
-      L.polyline(arc(f[0], f[1]), flightOpts)
-        .addTo(map)
-        .bindTooltip(f[2], { className:'map-tooltip', sticky:true });
-    });
-
-    /* Trains & buses */
-    [
-      [C.schiphol,  C.amsterdam, 'Train: Schiphol &rarr; Amsterdam Centraal &middot; 15 min &middot; ~&euro;11'],
-      [C.madrid,    C.granada,   'ALSA bus / Renfe: Madrid &rarr; Granada &middot; ~1.5 hrs &middot; ~&euro;10&ndash;15'],
-      [C.naples,    C.pompeii,   'Circumvesuviana: Naples &rarr; Pompeii &middot; ~40 min &middot; &euro;3'],
-      [C.pompeii,   C.sorrento,  'Circumvesuviana: Pompeii &rarr; Sorrento &middot; ~40 min'],
-      [C.naples,    C.rome,      'Italo/Trenitalia high-speed: Naples &rarr; Rome &middot; 70 min &middot; ~&euro;20&ndash;40'],
-    ].forEach(function(t) {
-      L.polyline([t[0], t[1]], trainOpts)
-        .addTo(map)
-        .bindTooltip(t[2], { className:'map-tooltip', sticky:true });
-    });
-
-    /* Ferries */
-    [
-      [[C.sorrento, C.positano, C.amalfi], 'Boat tour: Sorrento &rarr; Positano &rarr; Amalfi'],
-      [[C.amalfi,   C.naples],             'Ferry: Amalfi &rarr; Naples'],
-    ].forEach(function(f) {
-      L.polyline(f[0], ferryOpts)
-        .addTo(map)
-        .bindTooltip(f[1], { className:'map-tooltip', sticky:true });
-    });
-
-    /* City markers */
-    var stops = [
-      { c:C.sandiego,  name:'San Diego',    note:'Home &middot; Jul 2 departure',                                        type:'home' },
-      { c:C.schiphol,  name:'Schiphol AMS', note:'Airport &middot; Train to Centraal: 15 min, ~&euro;11',                type:'transit' },
-      { c:C.amsterdam, name:'Amsterdam',    note:'Layover &middot; Jul 3<br>Anne Frank House, Jordaan, Dam Square',      type:'dest' },
-      { c:C.madrid,    name:'Madrid',       note:'Jul 3 evening &ndash; Jul 5<br>Royal Palace, Reina Sof&iacute;a, Retiro', type:'dest' },
-      { c:C.granada,   name:'Granada',      note:'Jul 5&ndash;7<br>&#9888; Alhambra &mdash; book immediately',          type:'dest' },
-      { c:C.malaga,    name:'M&aacute;laga', note:'Ryanair departure to Naples<br>&#9888; Book now',                    type:'transit' },
-      { c:C.naples,    name:'Naples',       note:'Transit hub for Pompeii &amp; Sorrento',                              type:'transit' },
-      { c:C.pompeii,   name:'Pompeii',      note:'Jul 8 &middot; 3&ndash;4 hrs<br>Book skip-the-line tickets',          type:'sub' },
-      { c:C.sorrento,  name:'Sorrento',     note:'Base &middot; Jul 8&ndash;10<br>Hub for the Amalfi Coast',            type:'dest' },
-      { c:C.amalfi,    name:'Amalfi',       note:'Jul 9 &middot; Coastal boat tour day',                                type:'sub' },
-      { c:C.rome,      name:'Rome',         note:'Jul 10&ndash;13<br>&#9888; FCO departs 7:30 AM Jul 13<br>Colosseum, Vatican, Trastevere', type:'dest' },
-      { c:C.dublin,    name:'Dublin',       note:'Layover &middot; Jul 13',                                             type:'transit' },
-      { c:C.jfk,       name:'New York JFK', note:'Layover &middot; Jul 13',                                             type:'transit' },
+    /* ── Animated plane objects ── */
+    var planes = [
+      { from:C.sandiego,  to:C.oakland,   t:0, speed:0.0007, label:'WN4841 SAN→OAK',    color:'#e8944a' },
+      { from:C.oakland,   to:C.amsterdam, t:0.15, speed:0.00025, label:'KLM OAK→AMS',   color:'#e8944a' },
+      { from:C.amsterdam, to:C.madrid,    t:0.3,  speed:0.0006,  label:'KLM AMS→MAD',   color:'#e8944a' },
+      { from:C.malaga,    to:C.naples,    t:0.45, speed:0.0006,  label:'FR MAL→NAP',    color:'#cf5b45' },
+      { from:C.rome,      to:C.dublin,    t:0.6,  speed:0.0005,  label:'EI401 FCO→DUB', color:'#e8944a' },
+      { from:C.dublin,    to:C.jfk,       t:0.7,  speed:0.00028, label:'EI105 DUB→JFK', color:'#e8944a' },
+      { from:C.jfk,       to:C.sandiego,  t:0.85, speed:0.00035, label:'B6 JFK→SAN',    color:'#e8944a' },
     ];
 
-    var colMap  = { dest:'#c8a258', home:'#a0a898', transit:'#566070', sub:'#8a7a50' };
-    var sizeMap = { dest:14, home:12, transit:9, sub:10 };
+    /* train routes with real waypoints */
+    var trains = [
+      /* Schiphol → Amsterdam Centraal */
+      { pts:[ C.schiphol, C.amsterdam ], label:'Train: Schiphol→AMS (~15 min, €11)' },
+      /* Madrid → Granada via Aranjuez, Manzanares, Bailén, Jaén */
+      { pts:[ C.madrid, [40.03,-3.60], [39.0,-3.52], [38.1,-3.72], [37.77,-3.79], C.granada ], label:'Bus: Madrid→Granada (~4.5 hrs)' },
+      /* Naples → Pompeii → Sorrento (Circumvesuviana) */
+      { pts:[ C.naples, [40.81,14.35], C.pompeii, C.sorrento ], label:'Circumvesuviana: NAP→POM→SOR' },
+      /* Naples → Rome (high-speed via Cassino, Frosinone) */
+      { pts:[ C.naples, [41.08,14.33], [41.49,13.83], [41.64,13.35], C.rome ], label:'High-speed: Naples→Rome (~70 min)' },
+    ];
 
-    stops.forEach(function(s) {
-      var col  = colMap[s.type]  || '#c8a258';
-      var sz   = sizeMap[s.type] || 10;
-      var glow = s.type === 'dest' ? 'box-shadow:0 0 12px ' + col + '99;' : '';
-      var icon = L.divIcon({
-        className: '',
-        html: '<div style="width:' + sz + 'px;height:' + sz + 'px;border-radius:50%;background:' + col + ';border:2px solid #0b1524;' + glow + '"></div>',
-        iconSize:   [sz, sz],
-        iconAnchor: [sz/2, sz/2],
+    /* ferry routes */
+    var ferries = [
+      { pts:[ C.sorrento, C.positano, C.amalfi ],             label:'Boat: Sorrento→Positano→Amalfi' },
+      { pts:[ C.amalfi, [40.68,14.76], [40.68,14.96], C.naples ], label:'Ferry: Amalfi→Salerno→Naples' },
+    ];
+
+    /* major destination cities for labels */
+    var cities = [
+      { c:C.sandiego,  name:'San Diego',  type:'home' },
+      { c:C.amsterdam, name:'Amsterdam',  type:'dest' },
+      { c:C.madrid,    name:'Madrid',     type:'dest' },
+      { c:C.granada,   name:'Granada',    type:'dest' },
+      { c:C.naples,    name:'Naples',     type:'transit' },
+      { c:C.sorrento,  name:'Sorrento',   type:'dest' },
+      { c:C.rome,      name:'Rome',       type:'dest' },
+      { c:C.dublin,    name:'Dublin',     type:'transit' },
+      { c:C.jfk,       name:'JFK',        type:'transit' },
+    ];
+
+    /* ── Drawing helpers ── */
+    function polyPath(ptArray) {
+      /* ptArray: array of [lat,lon] */
+      ctx.beginPath();
+      ptArray.forEach(function(p, i) {
+        var xy = project(p[0], p[1]);
+        if (i === 0) ctx.moveTo(xy[0], xy[1]);
+        else         ctx.lineTo(xy[0], xy[1]);
       });
-      L.marker(s.c, { icon: icon })
-        .addTo(map)
-        .bindPopup('<strong>' + s.name + '</strong><br>' + s.note, {
-          className: 'map-popup',
-          maxWidth: 230,
-        });
-    });
+    }
 
-    /* Fit all points */
-    var allPts = Object.values(C);
-    map.fitBounds(allPts, { padding: [36, 36] });
+    function drawLand() {
+      lands.forEach(function(land) {
+        ctx.beginPath();
+        land.pts.forEach(function(p, i) {
+          var xy = project(p[0], p[1]);
+          if (i === 0) ctx.moveTo(xy[0], xy[1]);
+          else         ctx.lineTo(xy[0], xy[1]);
+        });
+        ctx.closePath();
+        ctx.fillStyle = '#1b2d45';
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(200,162,88,0.25)';
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+      });
+    }
+
+    function drawOceanLabels() {
+      ctx.font = 'italic ' + Math.round(W*0.013) + 'px Georgia,serif';
+      ctx.fillStyle = 'rgba(200,162,88,0.22)';
+      ctx.textAlign = 'center';
+      var atl = project(47, -35);
+      ctx.fillText('A T L A N T I C', atl[0], atl[1]);
+      ctx.fillText('O C E A N', atl[0], atl[1] + Math.round(W*0.018));
+      var med = project(37, 10);
+      ctx.fillText('M E D I T E R R A N E A N', med[0], med[1]);
+      ctx.textAlign = 'left';
+    }
+
+    function drawOceanWaves() {
+      ctx.strokeStyle = 'rgba(200,162,88,0.035)';
+      ctx.lineWidth = 0.7;
+      for (var lat = 25; lat < 60; lat += 4) {
+        ctx.beginPath();
+        for (var lon = -55; lon < -8; lon += 2) {
+          var xy = project(lat + Math.sin(lon*0.5)*1.5, lon);
+          if (lon === -55) ctx.moveTo(xy[0], xy[1]);
+          else             ctx.lineTo(xy[0], xy[1]);
+        }
+        ctx.stroke();
+      }
+    }
+
+    function drawFlightArcs() {
+      planes.forEach(function(p) {
+        var arc = gcArc(p.from, p.to, 80);
+        ctx.beginPath();
+        arc.forEach(function(pt, i) {
+          var xy = project(pt[0], pt[1]);
+          if (i === 0) ctx.moveTo(xy[0], xy[1]);
+          else         ctx.lineTo(xy[0], xy[1]);
+        });
+        ctx.strokeStyle = 'rgba(232,148,74,0.45)';
+        ctx.lineWidth = 1.2;
+        ctx.setLineDash([5, 4]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      });
+    }
+
+    function drawTrains() {
+      trains.forEach(function(t) {
+        polyPath(t.pts);
+        ctx.strokeStyle = 'rgba(200,162,88,0.75)';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([]);
+        ctx.stroke();
+      });
+    }
+
+    function drawFerries() {
+      ferries.forEach(function(f) {
+        polyPath(f.pts);
+        ctx.strokeStyle = 'rgba(82,184,204,0.7)';
+        ctx.lineWidth = 1.8;
+        ctx.setLineDash([4, 4]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      });
+    }
+
+    function interp(arc, t) {
+      var i = Math.min(Math.floor(t * (arc.length - 1)), arc.length - 2);
+      var f = t * (arc.length - 1) - i;
+      var a = arc[i], b = arc[i+1];
+      return [a[0] + f*(b[0]-a[0]), a[1] + f*(b[1]-a[1])];
+    }
+
+    function drawPlanes(ts) {
+      planes.forEach(function(p) {
+        var arc = gcArc(p.from, p.to, 80);
+        var t = ((p.t + ts * p.speed) % 1);
+        var pos = interp(arc, t);
+        var xy = project(pos[0], pos[1]);
+
+        /* Glow */
+        var g = ctx.createRadialGradient(xy[0], xy[1], 0, xy[0], xy[1], 10);
+        g.addColorStop(0, p.color + 'cc');
+        g.addColorStop(1, 'transparent');
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        ctx.arc(xy[0], xy[1], 10, 0, Math.PI*2);
+        ctx.fill();
+
+        /* Dot */
+        ctx.beginPath();
+        ctx.arc(xy[0], xy[1], 3.5, 0, Math.PI*2);
+        ctx.fillStyle = p.color;
+        ctx.fill();
+        ctx.strokeStyle = '#fff';
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+      });
+    }
+
+    function drawCities(ts) {
+      cities.forEach(function(city) {
+        var xy = project(city.c[0], city.c[1]);
+        var isDest = city.type === 'dest';
+        var r = isDest ? 5.5 : 3.5;
+        var col = city.type === 'home' ? '#a0b4a0' :
+                  city.type === 'dest' ? '#c8a258' : '#6b7f8e';
+
+        if (isDest) {
+          /* pulsing halo */
+          var pulse = 0.5 + 0.5 * Math.sin(ts * 0.002);
+          var hr = r + 4 + pulse * 4;
+          var hg = ctx.createRadialGradient(xy[0], xy[1], r, xy[0], xy[1], hr);
+          hg.addColorStop(0, col + '66');
+          hg.addColorStop(1, 'transparent');
+          ctx.fillStyle = hg;
+          ctx.beginPath();
+          ctx.arc(xy[0], xy[1], hr, 0, Math.PI*2);
+          ctx.fill();
+        }
+
+        /* dot */
+        ctx.beginPath();
+        ctx.arc(xy[0], xy[1], r, 0, Math.PI*2);
+        ctx.fillStyle = col;
+        ctx.fill();
+        ctx.strokeStyle = '#0b1524';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        /* label */
+        ctx.font = (isDest ? 'bold ' : '') + Math.round(W*0.012) + 'px "Lora",Georgia,serif';
+        ctx.fillStyle = isDest ? '#e6c47a' : 'rgba(200,162,88,0.6)';
+        ctx.textAlign = 'left';
+        ctx.fillText(city.name, xy[0] + r + 3, xy[1] + 4);
+      });
+    }
+
+    function drawCompass() {
+      var cx = W - 38, cy = H - 38, r = 18;
+      ctx.strokeStyle = 'rgba(200,162,88,0.35)';
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI*2); ctx.stroke();
+      /* N */
+      ctx.beginPath();
+      ctx.moveTo(cx, cy - r + 3);
+      ctx.lineTo(cx - 4, cy + 2);
+      ctx.lineTo(cx, cy - 2);
+      ctx.lineTo(cx + 4, cy + 2);
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(200,162,88,0.55)';
+      ctx.fill();
+      ctx.font = 'bold 9px "Cinzel",serif';
+      ctx.fillStyle = 'rgba(200,162,88,0.7)';
+      ctx.textAlign = 'center';
+      ctx.fillText('N', cx, cy - r - 4);
+    }
+
+    function drawLegend() {
+      var items = [
+        { color:'rgba(232,148,74,0.7)', dash:true,  label:'Flight' },
+        { color:'rgba(200,162,88,0.8)', dash:false, label:'Train' },
+        { color:'rgba(82,184,204,0.8)', dash:true,  label:'Ferry/Boat' },
+      ];
+      var x = 10, y = H - 56;
+      items.forEach(function(item) {
+        ctx.beginPath();
+        ctx.strokeStyle = item.color;
+        ctx.lineWidth = 2;
+        if (item.dash) ctx.setLineDash([4,3]);
+        else           ctx.setLineDash([]);
+        ctx.moveTo(x, y + 4);
+        ctx.lineTo(x + 20, y + 4);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.font = '10px "DM Sans",sans-serif';
+        ctx.fillStyle = 'rgba(200,162,88,0.55)';
+        ctx.textAlign = 'left';
+        ctx.fillText(item.label, x + 24, y + 8);
+        y += 16;
+      });
+    }
+
+    /* ── Animation loop ── */
+    var startTs = null;
+    function draw(ts) {
+      if (!startTs) startTs = ts;
+      var elapsed = ts - startTs;
+
+      /* Ocean background */
+      ctx.fillStyle = '#0b1524';
+      ctx.fillRect(0, 0, W, H);
+
+      drawOceanWaves();
+      drawLand();
+      drawOceanLabels();
+      drawFlightArcs();
+      drawTrains();
+      drawFerries();
+      drawPlanes(elapsed);
+      drawCities(elapsed);
+      drawCompass();
+      drawLegend();
+
+      requestAnimationFrame(draw);
+    }
+    requestAnimationFrame(draw);
   }
 
   initMap();
