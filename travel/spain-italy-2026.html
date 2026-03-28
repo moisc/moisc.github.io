@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>España &amp; Italia · July 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..500&display=swap" rel="stylesheet">
+  <style>
+    /* ══════════════════════════════════════
+       Design tokens
+    ══════════════════════════════════════ */
+    :root {
+      --bg:           #0b1524;
+      --bg-card:      #111f33;
+      --bg-deep:      #0d1a2b;
+      --gold:         #c8a258;
+      --gold-light:   #e6c47a;
+      --gold-faint:   rgba(200,162,88,0.12);
+      --gold-border:  rgba(200,162,88,0.22);
+      --cream:        #f0e8d5;
+      --cream-dim:    #a8a090;
+      --muted:        #5c6b7a;
+      --urgent:       #cf5b45;
+      --urgent-bg:    rgba(207,91,69,0.09);
+      --urgent-bdr:   rgba(207,91,69,0.28);
+      --radius:       13px;
+    }
+
+    /* ══════════════════════════════════════
+       Reset
+    ══════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--cream);
+      font-family: 'Lora', Georgia, serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* grain texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.032'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    /* ambient glow at top */
+    body::after {
+      content: '';
+      position: fixed;
+      top: -15%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 130%;
+      height: 65%;
+      background: radial-gradient(ellipse at center top, rgba(200,162,88,0.065) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ══════════════════════════════════════
+       Layout
+    ══════════════════════════════════════ */
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 20px 100px;
+    }
+
+    /* ══════════════════════════════════════
+       Typography
+    ══════════════════════════════════════ */
+    a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+    a:hover {
+      color: var(--gold-light);
+      text-decoration: underline;
+    }
+    strong { font-weight: 600; color: var(--cream); }
+
+    /* ══════════════════════════════════════
+       Section labels
+    ══════════════════════════════════════ */
+    .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gold-border);
+    }
+
+    /* ══════════════════════════════════════
+       HERO
+    ══════════════════════════════════════ */
+    .hero {
+      text-align: center;
+      padding: 72px 0 48px;
+      animation: fadeUp 0.9s ease both;
+    }
+
+    .hero-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: clamp(54px, 15vw, 100px);
+      line-height: 0.88;
+      letter-spacing: 0.02em;
+      color: var(--cream);
+    }
+
+    .hero-amp {
+      display: block;
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(26px, 7vw, 46px);
+      color: var(--gold);
+      line-height: 1;
+      margin: 14px 0 12px;
+      letter-spacing: 0.06em;
+    }
+
+    .hero-subtitle {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 20px;
+      color: var(--cream-dim);
+      margin-top: 26px;
+      margin-bottom: 10px;
+    }
+
+    .hero-dates {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .ornament {
+      color: var(--gold);
+      opacity: 0.45;
+      letter-spacing: 14px;
+      font-size: 13px;
+      display: block;
+      text-align: center;
+    }
+
+    /* ══════════════════════════════════════
+       ROUTE TIMELINE
+    ══════════════════════════════════════ */
+    .timeline-wrap {
+      margin: 8px 0 46px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .timeline-wrap::-webkit-scrollbar { display: none; }
+
+    .timeline {
+      display: flex;
+      align-items: flex-start;
+      min-width: 460px;
+      padding: 10px 10px 6px;
+      position: relative;
+    }
+
+    /* single connecting line across all stops */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 18px; /* centers on the 16px dot: padding-top(10) + 8px half-dot */
+      left: calc(100% / 14);
+      right: calc(100% / 14);
+      height: 1px;
+      background: var(--gold-border);
+      z-index: 0;
+    }
+
+    .tl-stop {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tl-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      background: var(--bg);
+      margin-bottom: 10px;
+      transition: box-shadow 0.2s;
+    }
+    .tl-dot.home {
+      border-color: var(--muted);
+    }
+    .tl-dot.dest {
+      background: var(--gold);
+      box-shadow: 0 0 10px rgba(200,162,88,0.45);
+    }
+
+    .tl-name {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9.5px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      text-align: center;
+      line-height: 1.3;
+    }
+    .tl-date {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 8.5px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 3px;
+    }
+
+    /* ══════════════════════════════════════
+       BOOK NOW CHECKLIST
+    ══════════════════════════════════════ */
+    .book-now {
+      background: var(--urgent-bg);
+      border: 1px solid var(--urgent-bdr);
+      border-radius: var(--radius);
+      padding: 24px 22px;
+      margin-bottom: 46px;
+      animation: fadeUp 0.9s 0.08s ease both;
+    }
+
+    .book-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 5px;
+    }
+    .book-title {
+      font-family: 'Cinzel', serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--urgent);
+    }
+    .book-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .chk-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .chk-item input[type="checkbox"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      min-width: 20px;
+      height: 20px;
+      border: 1.5px solid rgba(207,91,69,0.4);
+      border-radius: 5px;
+      background: transparent;
+      cursor: pointer;
+      position: relative;
+      margin-top: 1px;
+      flex-shrink: 0;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .chk-item input[type="checkbox"]:checked {
+      background: var(--urgent);
+      border-color: var(--urgent);
+    }
+    .chk-item input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 2px;
+      width: 6px;
+      height: 10px;
+      border: 2px solid #fff;
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
+    }
+
+    .chk-content { flex: 1; }
+
+    .chk-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: var(--cream);
+      cursor: pointer;
+      line-height: 1.45;
+      display: block;
+      transition: color 0.2s;
+    }
+    .chk-item.done .chk-label {
+      text-decoration: line-through;
+      color: var(--muted);
+    }
+
+    .chk-link {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11.5px;
+      color: var(--gold);
+      opacity: 0.8;
+      display: inline-block;
+      margin-top: 2px;
+    }
+    .chk-link:hover { opacity: 1; text-decoration: none; }
+    .chk-item.done .chk-link { opacity: 0.35; }
+
+    .progress-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .progress-bar {
+      flex: 1;
+      height: 3px;
+      background: rgba(207,91,69,0.18);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--urgent);
+      border-radius: 2px;
+      transition: width 0.4s ease;
+    }
+    .progress-text {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* ══════════════════════════════════════
+       FLIGHTS
+    ══════════════════════════════════════ */
+    .flights {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 46px;
+    }
+
+    .flight-card {
+      background: var(--bg-card);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+    }
+    .flight-card.book-it {
+      border-color: rgba(200,162,88,0.45);
+      background: linear-gradient(140deg, rgba(200,162,88,0.07), var(--bg-card));
+    }
+
+    .f-date {
+      text-align: center;
+      min-width: 42px;
+      flex-shrink: 0;
+    }
+    .f-day {
+      font-family: 'Cinzel', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .f-month {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: block;
+      margin-top: 3px;
+    }
+
+    .f-info { flex: 1; }
+    .f-route {
+      font-family: 'Lora', serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 4px;
+    }
+    .f-details {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .f-alert {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      color: var(--urgent);
+      margin-top: 6px;
+    }
+    .f-badge {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: #0b1524;
+      padding: 4px 10px;
+      border-radius: 20px;
+      align-self: center;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ══════════════════════════════════════
+       CITY ACCORDION
+    ══════════════════════════════════════ */
+    .destinations {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 46px;
+    }
+
+    .city-card {
+      background: var(--bg-card);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.25s;
+    }
+    .city-card.open {
+      border-color: rgba(200,162,88,0.36);
+    }
+
+    .city-btn {
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 20px 22px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-align: left;
+    }
+    .city-btn:active { background: rgba(255,255,255,0.02); }
+
+    .city-num {
+      font-family: 'Cinzel', serif;
+      font-size: 30px;
+      font-weight: 700;
+      color: rgba(200,162,88,0.16);
+      line-height: 1;
+      min-width: 36px;
+      flex-shrink: 0;
+      transition: color 0.25s;
+    }
+    .city-card.open .city-num {
+      color: rgba(200,162,88,0.35);
+    }
+
+    .city-meta { flex: 1; }
+    .city-name {
+      font-family: 'Cinzel', serif;
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--cream);
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+    }
+    .city-when {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11.5px;
+      color: var(--muted);
+      margin-top: 4px;
+      letter-spacing: 0.04em;
+    }
+
+    .city-chevron {
+      color: var(--gold);
+      font-size: 18px;
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+      flex-shrink: 0;
+      opacity: 0.65;
+    }
+    .city-card.open .city-chevron {
+      transform: rotate(180deg);
+      opacity: 1;
+    }
+
+    .city-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .city-card.open .city-body {
+      max-height: 2400px;
+    }
+
+    .city-inner {
+      padding: 4px 22px 26px;
+      border-top: 1px solid var(--gold-border);
+    }
+
+    /* callout blocks */
+    .callout {
+      border-radius: 0 9px 9px 0;
+      padding: 12px 16px;
+      margin: 16px 0;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+    .callout.tip {
+      border-left: 3px solid var(--gold);
+      background: var(--gold-faint);
+      color: var(--cream-dim);
+      font-style: italic;
+    }
+    .callout.alert {
+      border-left: 3px solid var(--urgent);
+      background: var(--urgent-bg);
+      color: var(--cream);
+    }
+    .callout.alert strong { color: var(--urgent); }
+
+    /* day blocks */
+    .day-block { margin: 20px 0 0; }
+    .day-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--gold-border);
+    }
+
+    .act-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .act-list li {
+      font-size: 16px;
+      color: var(--cream);
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.55;
+    }
+    .act-list li::before {
+      content: '·';
+      position: absolute;
+      left: 4px;
+      color: var(--gold);
+      font-size: 20px;
+      line-height: 1.2;
+      opacity: 0.55;
+    }
+
+    .transport {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: var(--bg-deep);
+      border-radius: 9px;
+      padding: 11px 14px;
+      margin-top: 18px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .transport .ico { font-size: 15px; margin-top: 1px; flex-shrink: 0; }
+
+    /* ══════════════════════════════════════
+       BUDGET
+    ══════════════════════════════════════ */
+    .budget-card {
+      background: var(--bg-card);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 46px;
+    }
+    .budget-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .budget-table tr {
+      border-bottom: 1px solid rgba(200,162,88,0.1);
+    }
+    .budget-table tr:last-child { border-bottom: none; }
+    .budget-table td {
+      padding: 11px 2px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: var(--cream-dim);
+    }
+    .budget-table td:last-child {
+      text-align: right;
+      color: var(--cream);
+      font-weight: 500;
+    }
+    .budget-table .total td {
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 15px;
+      border-top: 1px solid var(--gold-border);
+      padding-top: 16px;
+    }
+
+    /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
+    .footer {
+      text-align: center;
+      padding: 16px 0 0;
+    }
+    .footer p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      margin-top: 10px;
+    }
+
+    /* ══════════════════════════════════════
+       ANIMATIONS
+    ══════════════════════════════════════ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+    @media (max-width: 480px) {
+      .container { padding: 0 16px 80px; }
+      .hero { padding: 48px 0 36px; }
+      .city-btn { padding: 16px 18px; }
+      .city-inner { padding: 4px 18px 22px; }
+      .book-now { padding: 18px 16px; }
+      .flight-card { padding: 14px 16px; gap: 14px; }
+      .budget-card { padding: 16px 18px; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ══ HERO ══ -->
+  <header class="hero">
+    <p class="hero-eyebrow">Private Itinerary &nbsp;·&nbsp; July 2026</p>
+    <h1 class="hero-title">
+      España<span class="hero-amp">&amp;</span>Italia
+    </h1>
+    <p class="hero-subtitle">Mois &amp; Iliana</p>
+    <p class="hero-dates">July 2 &ensp;–&ensp; July 13, 2026</p>
+    <span class="ornament" style="margin-top:24px;">✦ &nbsp; ✦ &nbsp; ✦</span>
+  </header>
+
+  <!-- ══ ROUTE TIMELINE ══ -->
+  <div class="section-label" style="margin-top:8px;">Route</div>
+  <div class="timeline-wrap">
+    <div class="timeline">
+      <div class="tl-stop">
+        <div class="tl-dot home"></div>
+        <div class="tl-name">San Diego</div>
+        <div class="tl-date">Jul 2</div>
+      </div>
+      <div class="tl-stop">
+        <div class="tl-dot dest"></div>
+        <div class="tl-name">Amsterdam</div>
+        <div class="tl-date">Jul 3</div>
+      </div>
+      <div class="tl-stop">
+        <div class="tl-dot dest"></div>
+        <div class="tl-name">Madrid</div>
+        <div class="tl-date">Jul 3–5</div>
+      </div>
+      <div class="tl-stop">
+        <div class="tl-dot dest"></div>
+        <div class="tl-name">Granada</div>
+        <div class="tl-date">Jul 5–7</div>
+      </div>
+      <div class="tl-stop">
+        <div class="tl-dot dest"></div>
+        <div class="tl-name">Sorrento</div>
+        <div class="tl-date">Jul 8–10</div>
+      </div>
+      <div class="tl-stop">
+        <div class="tl-dot dest"></div>
+        <div class="tl-name">Rome</div>
+        <div class="tl-date">Jul 10–13</div>
+      </div>
+      <div class="tl-stop">
+        <div class="tl-dot home"></div>
+        <div class="tl-name">Home</div>
+        <div class="tl-date">Jul 13</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ BOOK THESE NOW ══ -->
+  <div class="section-label">Priority Bookings</div>
+  <div class="book-now">
+    <div class="book-header">
+      <div class="book-title">⚠ Book These Now</div>
+    </div>
+    <p class="book-sub">These sell out weeks or months in advance — do not delay.</p>
+
+    <ul class="checklist" id="booklist">
+
+      <li class="chk-item" data-id="alhambra">
+        <input type="checkbox" id="cb-alhambra">
+        <div class="chk-content">
+          <label class="chk-label" for="cb-alhambra">Alhambra Nasrid Palaces — sells out months ahead, book first</label>
+          <a class="chk-link" href="https://www.alhambra-patronato.es" target="_blank" rel="noopener">alhambra-patronato.es ↗</a>
+        </div>
+      </li>
+
+      <li class="chk-item" data-id="anne-frank">
+        <input type="checkbox" id="cb-anne">
+        <div class="chk-content">
+          <label class="chk-label" for="cb-anne">Anne Frank House — timed entry required, book 2 months ahead</label>
+          <a class="chk-link" href="https://www.annefrank.org" target="_blank" rel="noopener">annefrank.org ↗</a>
+        </div>
+      </li>
+
+      <li class="chk-item" data-id="colosseum">
+        <input type="checkbox" id="cb-colosseum">
+        <div class="chk-content">
+          <label class="chk-label" for="cb-colosseum">Colosseum + Roman Forum — timed entry required</label>
+          <a class="chk-link" href="https://www.coopculture.it" target="_blank" rel="noopener">coopculture.it ↗</a>
+        </div>
+      </li>
+
+      <li class="chk-item" data-id="vatican">
+        <input type="checkbox" id="cb-vatican">
+        <div class="chk-content">
+          <label class="chk-label" for="cb-vatican">Vatican Museums + Sistine Chapel — skip the 2–3 hr queue</label>
+          <a class="chk-link" href="https://www.museivaticani.va" target="_blank" rel="noopener">museivaticani.va ↗</a>
+        </div>
+      </li>
+
+      <li class="chk-item" data-id="ryanair">
+        <input type="checkbox" id="cb-ryanair">
+        <div class="chk-content">
+          <label class="chk-label" for="cb-ryanair">Ryanair: Málaga → Naples, Jul 7–8 (~€50–80 pp)</label>
+          <a class="chk-link" href="https://www.ryanair.com" target="_blank" rel="noopener">ryanair.com ↗</a>
+        </div>
+      </li>
+
+      <li class="chk-item" data-id="pompeii">
+        <input type="checkbox" id="cb-pompeii">
+        <div class="chk-content">
+          <label class="chk-label" for="cb-pompeii">Pompeii skip-the-line tickets — arrive at opening</label>
+        </div>
+      </li>
+
+    </ul>
+
+    <div class="progress-row">
+      <div class="progress-bar">
+        <div class="progress-fill" id="prog-fill" style="width:0%"></div>
+      </div>
+      <div class="progress-text" id="prog-text">0 / 6 booked</div>
+    </div>
+  </div>
+
+  <!-- ══ FLIGHTS ══ -->
+  <div class="section-label">Flights</div>
+  <div class="flights">
+
+    <div class="flight-card">
+      <div class="f-date">
+        <div class="f-day">2</div>
+        <span class="f-month">Jul</span>
+      </div>
+      <div class="f-info">
+        <div class="f-route">San Diego → Oakland</div>
+        <div class="f-details">Southwest WN 4841 &nbsp;·&nbsp; 8:55 PM → 10:30 PM</div>
+      </div>
+    </div>
+
+    <div class="flight-card">
+      <div class="f-date">
+        <div class="f-day">3</div>
+        <span class="f-month">Jul</span>
+      </div>
+      <div class="f-info">
+        <div class="f-route">Oakland → Amsterdam → Madrid</div>
+        <div class="f-details">KLM &nbsp;·&nbsp; Long layover in Amsterdam (see Destinations below)</div>
+      </div>
+    </div>
+
+    <div class="flight-card book-it">
+      <div class="f-date">
+        <div class="f-day">7–8</div>
+        <span class="f-month">Jul</span>
+      </div>
+      <div class="f-info">
+        <div class="f-route">Málaga → Naples</div>
+        <div class="f-details">Ryanair &nbsp;·&nbsp; ~€50–80 pp &nbsp;·&nbsp; ~2h 40m</div>
+      </div>
+      <div class="f-badge">Book Now</div>
+    </div>
+
+    <div class="flight-card">
+      <div class="f-date">
+        <div class="f-day">13</div>
+        <span class="f-month">Jul</span>
+      </div>
+      <div class="f-info">
+        <div class="f-route">Rome FCO → Dublin → JFK → San Diego</div>
+        <div class="f-details">
+          EI 401: FCO → DUB, departs 7:30 AM<br>
+          EI 105: DUB → JFK, 12:10 PM<br>
+          B6 1189: JFK → SAN, ~10 PM
+        </div>
+        <div class="f-alert">⚠ Be at FCO by 5:30 AM — Leonardo Express departs ~5:23 AM from Termini</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══ DESTINATIONS ══ -->
+  <div class="section-label">Destinations</div>
+  <div class="destinations">
+
+    <!-- Amsterdam -->
+    <div class="city-card" id="city-1">
+      <button class="city-btn" onclick="toggleCity('city-1')" aria-expanded="false">
+        <div class="city-num">01</div>
+        <div class="city-meta">
+          <div class="city-name">Amsterdam</div>
+          <div class="city-when">July 3 &nbsp;·&nbsp; Layover</div>
+        </div>
+        <div class="city-chevron">▾</div>
+      </button>
+      <div class="city-body">
+        <div class="city-inner">
+          <div class="callout tip">Train Schiphol → Centraal: 15 min. Tap any credit card at the gate — no ticket purchase needed. ~€11 each way.</div>
+          <div class="callout alert"><strong>⚠ Critical:</strong> Return to Schiphol airport at least 2.5 hours before the Madrid flight. Time this carefully.</div>
+
+          <div class="day-block">
+            <div class="day-label">Layover Highlights</div>
+            <ul class="act-list">
+              <li><strong>Anne Frank House</strong> — book timed entry at <a href="https://www.annefrank.org" target="_blank" rel="noopener">annefrank.org</a> (2 months ahead). Canal boat tours depart right outside (~€25).</li>
+              <li><strong>Jordaan neighborhood</strong> — best photography: narrow canals, houseboats, leaning canal houses</li>
+              <li><strong>Dam Square + Royal Palace</strong> — 15 min walk from Centraal station</li>
+            </ul>
+          </div>
+
+          <div class="transport">
+            <span class="ico">🚆</span>
+            <span>Schiphol ↔ Centraal: 15 min, tap credit card, ~€11 each way. Trains run every 10–15 min.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Madrid -->
+    <div class="city-card" id="city-2">
+      <button class="city-btn" onclick="toggleCity('city-2')" aria-expanded="false">
+        <div class="city-num">02</div>
+        <div class="city-meta">
+          <div class="city-name">Madrid</div>
+          <div class="city-when">July 3 evening – July 5 &nbsp;·&nbsp; 2 full days</div>
+        </div>
+        <div class="city-chevron">▾</div>
+      </button>
+      <div class="city-body">
+        <div class="city-inner">
+          <div class="callout tip">July heat: 35°C+. Outdoors before 11am or after 7pm. Museums are perfect for the midday heat. Metro €1.50/ride.</div>
+
+          <div class="day-block">
+            <div class="day-label">Day 1 — Evening Arrival</div>
+            <ul class="act-list">
+              <li>Gran Vía + Puerta del Sol — evening walk, great energy</li>
+              <li>Tapas in La Latina: <strong>Calle de Cava Baja</strong> is the street to know</li>
+              <li>Dinner 9–10 PM (Madrid eats late — lean into it)</li>
+            </ul>
+          </div>
+
+          <div class="day-block">
+            <div class="day-label">Day 2 — Full Day</div>
+            <ul class="act-list">
+              <li><strong>Royal Palace</strong> — book ahead, allow 2–3 hrs, get the audio guide</li>
+              <li>Lunch at <strong>Mercado de San Miguel</strong></li>
+              <li><strong>Reina Sofía Museum</strong> — Guernica is on floors 2 and 4. Unmissable.</li>
+              <li>Retiro Park at golden hour</li>
+              <li>Mirador Madrid rooftop bar — evening drinks with skyline views</li>
+            </ul>
+          </div>
+
+          <div class="day-block">
+            <div class="day-label">Day 3 Morning — Before Granada</div>
+            <ul class="act-list">
+              <li>Churros at <strong>Chocolatería San Ginés</strong> (open since 1894, open 24 hrs)</li>
+              <li>Bus or train to Granada</li>
+            </ul>
+          </div>
+
+          <div class="transport">
+            <span class="ico">🚌</span>
+            <span>To Granada: ALSA bus ~€10–15 (1.5 hrs) or Renfe train. Both depart from central Madrid.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Granada -->
+    <div class="city-card" id="city-3">
+      <button class="city-btn" onclick="toggleCity('city-3')" aria-expanded="false">
+        <div class="city-num">03</div>
+        <div class="city-meta">
+          <div class="city-name">Granada</div>
+          <div class="city-when">July 5–7 &nbsp;·&nbsp; 2 nights</div>
+        </div>
+        <div class="city-chevron">▾</div>
+      </button>
+      <div class="city-body">
+        <div class="city-inner">
+          <div class="callout alert"><strong>⚠ Stay in Granada, not Málaga.</strong> Book Alhambra tickets immediately — Nasrid Palaces sell out months ahead. Bring passport to enter the complex.</div>
+          <div class="callout tip">Granada specialty: free tapas with every single drink ordered. Eat and drink very well for almost nothing.</div>
+
+          <div class="day-block">
+            <div class="day-label">Day 1</div>
+            <ul class="act-list">
+              <li>Explore the <strong>Albaicín</strong> — Granada's ancient Moorish quarter, winding white-washed streets</li>
+              <li>Sunset at <strong>Mirador de San Nicolás</strong> — the iconic framed view of the Alhambra</li>
+              <li>Dinner in Albaicín — order a drink, receive a free tapa, repeat indefinitely</li>
+            </ul>
+          </div>
+
+          <div class="day-block">
+            <div class="day-label">Day 2 — Alhambra Day</div>
+            <ul class="act-list">
+              <li><strong>Full Alhambra morning:</strong> Nasrid Palaces + Generalife Gardens + Alcazaba fortress. Allow 4+ hours. Book at <a href="https://www.alhambra-patronato.es" target="_blank" rel="noopener">alhambra-patronato.es</a></li>
+              <li>Afternoon: <strong>Sacromonte</strong> — cave houses carved into the hillside above the city</li>
+              <li>Evening: <strong>Flamenco show</strong> — several venues in Sacromonte and Albaicín</li>
+            </ul>
+          </div>
+
+          <div class="transport">
+            <span class="ico">✈️</span>
+            <span>Next: Train or bus from Granada to Málaga airport for the Ryanair flight to Naples (Jul 7–8).</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Amalfi / Sorrento -->
+    <div class="city-card" id="city-4">
+      <button class="city-btn" onclick="toggleCity('city-4')" aria-expanded="false">
+        <div class="city-num">04</div>
+        <div class="city-meta">
+          <div class="city-name">Amalfi Coast</div>
+          <div class="city-when">July 8–10 &nbsp;·&nbsp; Base in Sorrento</div>
+        </div>
+        <div class="city-chevron">▾</div>
+      </button>
+      <div class="city-body">
+        <div class="city-inner">
+          <div class="callout tip">Base in Sorrento — perfect hub connecting Naples, Pompeii, and the Amalfi Coast by rail and ferry.</div>
+
+          <div class="day-block">
+            <div class="day-label">Day 1 — Arrival + Pompeii</div>
+            <ul class="act-list">
+              <li>Naples airport → <strong>Pompeii Scavi</strong> via Circumvesuviana train (~40 min, €3)</li>
+              <li>Book skip-the-line tickets in advance. Arrive at opening. Allow 3–4 hours.</li>
+              <li>Same Circumvesuviana line continues to <strong>Sorrento</strong> (~40 more min) — check in, rest up</li>
+            </ul>
+          </div>
+
+          <div class="day-block">
+            <div class="day-label">Day 2 — Amalfi Coast</div>
+            <ul class="act-list">
+              <li>Boat tour or ferry hopping: <strong>Positano</strong> → Amalfi town → swim in the Mediterranean</li>
+              <li>SITA bus between towns ~€2.50 / ferries €8–15 per leg</li>
+              <li>Positano: pastel cliffside houses, narrow staircased lanes</li>
+              <li>Amalfi: cathedral, paper museum, lemon everything</li>
+            </ul>
+          </div>
+
+          <div class="transport">
+            <span class="ico">🚂</span>
+            <span>To Rome: Ferry Amalfi → Naples, then Italo or Trenitalia high-speed train (70 min, ~€20–40). Book ahead — prices rise fast.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rome -->
+    <div class="city-card" id="city-5">
+      <button class="city-btn" onclick="toggleCity('city-5')" aria-expanded="false">
+        <div class="city-num">05</div>
+        <div class="city-meta">
+          <div class="city-name">Rome</div>
+          <div class="city-when">July 10–13 &nbsp;·&nbsp; ⚠ Early departure Jul 13</div>
+        </div>
+        <div class="city-chevron">▾</div>
+      </button>
+      <div class="city-body">
+        <div class="city-inner">
+          <div class="callout alert">
+            <strong>⚠ Flight departs FCO 7:30 AM on Jul 13.</strong> Be at FCO by 5:30 AM.<br>
+            Leonardo Express: Termini → FCO = 32 min, €14. First train ~5:23 AM.<br>
+            <strong>Be at Termini station by 5:00 AM. Set two alarms.</strong>
+          </div>
+
+          <div class="day-block">
+            <div class="day-label">Day 1</div>
+            <ul class="act-list">
+              <li><strong>Colosseum + Roman Forum</strong> — book 9am timed entry at <a href="https://www.coopculture.it" target="_blank" rel="noopener">coopculture.it</a>. Allow 3–4 hours.</li>
+              <li>Afternoon: <strong>Trastevere</strong> — cobblestones, ivy-covered walls, excellent trattorias</li>
+              <li>Evening: <strong>Piazza Navona</strong> + Campo de' Fiori</li>
+            </ul>
+          </div>
+
+          <div class="day-block">
+            <div class="day-label">Day 2</div>
+            <ul class="act-list">
+              <li><strong>Vatican Museums + Sistine Chapel</strong> — book at <a href="https://www.museivaticani.va" target="_blank" rel="noopener">museivaticani.va</a>. Skip the 2–3 hr standby queue.</li>
+              <li>Afternoon: <strong>Pantheon</strong> (free entry) + Spanish Steps + gelato</li>
+              <li>Evening drinks at a rooftop bar in the Prati neighborhood</li>
+            </ul>
+          </div>
+
+          <div class="day-block">
+            <div class="day-label">Day 3 — Departure</div>
+            <ul class="act-list">
+              <li>Alarm at <strong>4:30 AM</strong></li>
+              <li>Walk to Roma Termini, depart <strong>5:00 AM</strong></li>
+              <li>Leonardo Express to FCO: departs ~5:23 AM, arrives ~5:55 AM — €14, buy night before</li>
+              <li>Check in at FCO by 5:30 AM (Aer Lingus closes check-in early)</li>
+            </ul>
+          </div>
+
+          <div class="transport">
+            <span class="ico">🚆</span>
+            <span>Leonardo Express: Termini → FCO &nbsp;·&nbsp; 32 min &nbsp;·&nbsp; €14 &nbsp;·&nbsp; First train ~5:23 AM. Buy ticket the night before.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /destinations -->
+
+  <!-- ══ BUDGET ══ -->
+  <div class="section-label">Budget Estimate</div>
+  <div class="budget-card">
+    <table class="budget-table">
+      <tr>
+        <td>Málaga → Naples flight</td>
+        <td>€50 – 80</td>
+      </tr>
+      <tr>
+        <td>Trains within Spain</td>
+        <td>€30 – 50</td>
+      </tr>
+      <tr>
+        <td>Trains + ferries in Italy</td>
+        <td>€40 – 60</td>
+      </tr>
+      <tr>
+        <td>Accommodation — 10 nights</td>
+        <td>€400 – 600</td>
+      </tr>
+      <tr>
+        <td>Food (~€25–40/day × 10 days)</td>
+        <td>€250 – 400</td>
+      </tr>
+      <tr>
+        <td>Attractions &amp; museums</td>
+        <td>€100 – 150</td>
+      </tr>
+      <tr class="total">
+        <td>Total estimate per person</td>
+        <td>€750 – 1,100</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="footer">
+    <span class="ornament">✦ &nbsp; ✦ &nbsp; ✦</span>
+    <p>Mois &amp; Iliana &nbsp;·&nbsp; España &amp; Italia &nbsp;·&nbsp; July 2026</p>
+    <p style="opacity:0.4; font-size:10px; margin-top:4px;">Private itinerary &nbsp;·&nbsp; Not indexed</p>
+  </footer>
+
+</div><!-- /container -->
+
+<script>
+  /* ── City accordion ── */
+  function toggleCity(id) {
+    const card = document.getElementById(id);
+    const open = card.classList.toggle('open');
+    card.querySelector('.city-btn').setAttribute('aria-expanded', open);
+  }
+
+  /* ── Checklist with localStorage persistence ── */
+  const STORAGE_KEY = 'mois-spain-italy-2026';
+
+  function initChecklist() {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+
+    document.querySelectorAll('.chk-item').forEach(item => {
+      const id = item.dataset.id;
+      const cb = item.querySelector('input[type="checkbox"]');
+
+      if (saved[id]) {
+        cb.checked = true;
+        item.classList.add('done');
+      }
+
+      cb.addEventListener('change', () => {
+        item.classList.toggle('done', cb.checked);
+        const state = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+        state[id] = cb.checked;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        updateProgress();
+      });
+    });
+
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const total = document.querySelectorAll('.chk-item').length;
+    const done  = document.querySelectorAll('.chk-item.done').length;
+    const pct   = Math.round((done / total) * 100);
+    document.getElementById('prog-fill').style.width = pct + '%';
+    document.getElementById('prog-text').textContent = done + ' / ' + total + ' booked';
+  }
+
+  initChecklist();
+</script>
+</body>
+</html>
