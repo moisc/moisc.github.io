@@ -1,1901 +1,1065 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
-  <title>España &amp; Italia · July 2026</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..500&display=swap" rel="stylesheet">
-  <style>
-    /* ══════════════════════════════════════
-       Design tokens
-    ══════════════════════════════════════ */
-    :root {
-      --bg:           #0b1524;
-      --bg-card:      #111f33;
-      --bg-deep:      #0d1a2b;
-      --gold:         #c8a258;
-      --gold-light:   #e6c47a;
-      --gold-faint:   rgba(200,162,88,0.12);
-      --gold-border:  rgba(200,162,88,0.22);
-      --cream:        #f0e8d5;
-      --cream-dim:    #a8a090;
-      --muted:        #5c6b7a;
-      --urgent:       #cf5b45;
-      --urgent-bg:    rgba(207,91,69,0.09);
-      --urgent-bdr:   rgba(207,91,69,0.28);
-      --radius:       13px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mois & Iliana — Europe Trip Jul 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap');
 
-    /* ══════════════════════════════════════
-       Reset
-    ══════════════════════════════════════ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+  :root {
+    --ink: #0f0e0c;
+    --cream: #f5f0e8;
+    --warm-white: #faf8f4;
+    --gold: #c9a84c;
+    --rust: #b85c38;
+    --sage: #6b7c5e;
+    --sky: #4a7fa5;
+    --night: #1c2333;
+    --muted: #8a8278;
+    --border: rgba(15,14,12,0.09);
+    --shadow-sm: 0 1px 3px rgba(15,14,12,.07), 0 1px 2px rgba(15,14,12,.04);
+    --shadow-md: 0 4px 14px rgba(15,14,12,.09), 0 2px 4px rgba(15,14,12,.05);
+  }
 
-    body {
-      background-color: var(--bg);
-      color: var(--cream);
-      font-family: 'Lora', Georgia, serif;
-      font-size: 16px;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; font-weight:300; }
 
-    /* grain texture overlay */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.032'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 999;
-    }
+  /* ── STICKY NAV ── */
+  .snav {
+    position:sticky; top:0; z-index:100;
+    background:rgba(250,248,244,.94);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+    display:flex; align-items:stretch;
+    overflow-x:auto; scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+  }
+  .snav::-webkit-scrollbar { display:none; }
+  .snav a {
+    flex-shrink:0;
+    font-family:'DM Mono',monospace; font-size:9px; letter-spacing:1.5px;
+    text-transform:uppercase; color:var(--muted);
+    padding:10px 14px; text-decoration:none;
+    border-bottom:2px solid transparent;
+    transition:color .18s, border-color .18s;
+    white-space:nowrap;
+  }
+  .snav a:hover { color:var(--night); }
+  .snav a.active { color:var(--night); border-bottom-color:var(--gold); }
 
-    /* ambient glow at top */
-    body::after {
-      content: '';
-      position: fixed;
-      top: -15%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 130%;
-      height: 65%;
-      background: radial-gradient(ellipse at center top, rgba(200,162,88,0.065) 0%, transparent 65%);
-      pointer-events: none;
-      z-index: 0;
-    }
+  /* ── HERO ── */
+  .hero {
+    background:var(--night); color:var(--cream);
+    padding:56px 40px 44px; position:relative; overflow:hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; top:-120px; right:-120px;
+    width:520px; height:520px;
+    background:radial-gradient(circle,rgba(201,168,76,.16) 0%,transparent 62%);
+    pointer-events:none;
+    animation:hblob 14s ease-in-out infinite alternate;
+  }
+  .hero::after {
+    content:''; position:absolute; bottom:-100px; left:-80px;
+    width:380px; height:380px;
+    background:radial-gradient(circle,rgba(74,127,165,.11) 0%,transparent 62%);
+    pointer-events:none;
+    animation:hblob 18s ease-in-out infinite alternate-reverse;
+  }
+  @keyframes hblob {
+    from { transform:translate(0,0) scale(1); }
+    to   { transform:translate(24px,-18px) scale(1.07); }
+  }
+  .hero-inner { position:relative; z-index:1; }
 
-    /* ══════════════════════════════════════
-       Layout
-    ══════════════════════════════════════ */
-    .container {
-      position: relative;
-      z-index: 1;
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 0 20px 100px;
-    }
+  .hero-eyebrow {
+    font-family:'DM Mono',monospace; font-size:10px; letter-spacing:5px;
+    color:var(--gold); text-transform:uppercase; margin-bottom:16px;
+    opacity:0; animation:fadeup .55s .1s ease forwards;
+  }
+  .hero-title {
+    font-family:'Playfair Display',serif; font-size:clamp(32px,6vw,58px);
+    font-weight:900; line-height:1.02; margin-bottom:10px;
+    opacity:0; animation:fadeup .55s .2s ease forwards;
+  }
+  .hero-title em { font-style:italic; color:var(--gold); }
+  .hero-sub {
+    font-family:'DM Mono',monospace; font-size:10px; letter-spacing:3px;
+    color:rgba(245,240,232,.38); margin-bottom:26px;
+    opacity:0; animation:fadeup .55s .3s ease forwards;
+  }
+  .hero-route {
+    display:flex; flex-wrap:wrap; align-items:center;
+    font-family:'DM Mono',monospace; font-size:11px;
+    color:rgba(245,240,232,.45); line-height:2;
+    opacity:0; animation:fadeup .55s .4s ease forwards;
+  }
+  .hero-route .city { color:var(--cream); font-weight:500; }
+  .hero-route .arr  { color:var(--gold); margin:0 5px; font-size:9px; }
 
-    /* ══════════════════════════════════════
-       Typography
-    ══════════════════════════════════════ */
-    a {
-      color: var(--gold);
-      text-decoration: none;
-    }
-    a:hover {
-      color: var(--gold-light);
-      text-decoration: underline;
-    }
-    strong { font-weight: 600; color: var(--cream); }
+  .hero-bottom {
+    display:flex; justify-content:space-between; align-items:flex-end;
+    margin-top:24px; flex-wrap:wrap; gap:14px;
+    opacity:0; animation:fadeup .55s .5s ease forwards;
+  }
+  .hero-people {
+    font-family:'DM Mono',monospace; font-size:9.5px;
+    letter-spacing:3px; color:rgba(201,168,76,.65); text-transform:uppercase;
+  }
+  .hero-cdown { text-align:right; }
+  .cdown-num {
+    font-family:'Playfair Display',serif; font-size:32px; font-weight:700;
+    color:var(--gold); line-height:1;
+  }
+  .cdown-lbl {
+    font-family:'DM Mono',monospace; font-size:8px; letter-spacing:2.5px;
+    color:rgba(245,240,232,.32); text-transform:uppercase; margin-top:4px;
+  }
 
-    /* ══════════════════════════════════════
-       Section labels
-    ══════════════════════════════════════ */
-    .section-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--gold);
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--gold-border);
-    }
+  @keyframes fadeup {
+    from { opacity:0; transform:translateY(14px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
 
-    /* ══════════════════════════════════════
-       HERO
-    ══════════════════════════════════════ */
-    .hero {
-      text-align: center;
-      padding: 72px 0 48px;
-      animation: fadeUp 0.9s ease both;
-    }
+  /* ── LEGEND ── */
+  .legend {
+    display:flex; flex-wrap:wrap; gap:6px 20px;
+    padding:11px 40px; background:var(--warm-white);
+    border-bottom:1px solid var(--border);
+  }
+  .legend-item { display:flex; align-items:center; gap:6px; font-family:'DM Mono',monospace; font-size:9px; letter-spacing:1.8px; color:var(--muted); text-transform:uppercase; }
+  .legend-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
 
-    .hero-eyebrow {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 30px;
-    }
+  /* ── TIMELINE ── */
+  .timeline { padding:0 40px 60px; position:relative; max-width:920px; }
+  .timeline::before {
+    content:''; position:absolute; left:67px; top:0; bottom:0; width:1px;
+    background:linear-gradient(to bottom, var(--night) 0%, rgba(15,14,12,.14) 6%, rgba(15,14,12,.14) 94%, transparent 100%);
+  }
 
-    .hero-title {
-      font-family: 'Cinzel', serif;
-      font-weight: 700;
-      font-size: clamp(54px, 15vw, 100px);
-      line-height: 0.88;
-      letter-spacing: 0.02em;
-      color: var(--cream);
-    }
+  /* ── COUNTRY LABEL ── */
+  .country-marker {
+    padding-top:44px; position:relative;
+  }
+  .country-marker-label {
+    display:flex; align-items:center; gap:10px;
+    font-family:'DM Mono',monospace; font-size:8.5px; letter-spacing:4px;
+    color:var(--muted); text-transform:uppercase;
+    margin-bottom:2px;
+  }
+  .country-marker-label::before { content:''; flex-shrink:0; width:18px; height:1px; background:var(--muted); opacity:.35; }
+  .country-marker-label::after  { content:''; flex:1; height:1px; background:var(--muted); opacity:.12; }
 
-    .hero-amp {
-      display: block;
-      font-family: 'Lora', serif;
-      font-style: italic;
-      font-weight: 400;
-      font-size: clamp(26px, 7vw, 46px);
-      color: var(--gold);
-      line-height: 1;
-      margin: 14px 0 12px;
-      letter-spacing: 0.06em;
-    }
+  /* ── DAY BLOCK ── */
+  .day-block {
+    padding-top:34px;
+    opacity:0; transform:translateY(18px);
+    transition:opacity .48s ease, transform .48s ease;
+  }
+  .day-block.vis { opacity:1; transform:translateY(0); }
 
-    .hero-subtitle {
-      font-family: 'Lora', serif;
-      font-style: italic;
-      font-size: 20px;
-      color: var(--cream-dim);
-      margin-top: 26px;
-      margin-bottom: 10px;
-    }
+  .day-header { display:flex; align-items:baseline; gap:12px; padding-bottom:4px; position:relative; }
+  .day-header::before {
+    content:''; position:absolute; left:-20px; top:7px;
+    width:11px; height:11px; border-radius:50%;
+    background:var(--night); border:2.5px solid var(--cream); box-shadow:0 0 0 1.5px var(--night);
+  }
+  .day-date { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--night); }
+  .day-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:2.5px; color:var(--muted); text-transform:uppercase; }
 
-    .hero-dates {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 12px;
-      letter-spacing: 0.2em;
-      color: var(--muted);
-      text-transform: uppercase;
-    }
+  /* ── EVENTS ── */
+  .events { padding-top:7px; }
+  .event { display:grid; grid-template-columns:22px 1fr; gap:0 13px; padding:3px 0; }
+  .event-icon-col { display:flex; flex-direction:column; align-items:center; padding-top:2px; }
+  .event-dot {
+    width:22px; height:22px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:10px; flex-shrink:0; z-index:1;
+    box-shadow:0 1px 4px rgba(15,14,12,.18);
+  }
+  .event-line { width:1px; flex:1; min-height:6px; background:var(--border); margin-top:2px; }
 
-    .ornament {
-      color: var(--gold);
-      opacity: 0.45;
-      letter-spacing: 14px;
-      font-size: 13px;
-      display: block;
-      text-align: center;
-    }
+  .event.flight  .event-dot { background:var(--sky);   color:#fff; }
+  .event.hotel   .event-dot { background:var(--gold);  color:var(--night); }
+  .event.transit .event-dot { background:var(--sage);  color:#fff; }
+  .event.sleep   .event-dot { background:var(--night); color:var(--cream); }
+  .event.ferry   .event-dot { background:#5b9cb8;      color:#fff; }
+  .event.free    .event-dot { background:#c2b49a;      color:#fff; }
 
-    /* ══════════════════════════════════════
-       ROUTE TIMELINE
-    ══════════════════════════════════════ */
-    .timeline-wrap {
-      margin: 8px 0 46px;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-    .timeline-wrap::-webkit-scrollbar { display: none; }
+  /* ── EVENT CARDS ── */
+  .event-card {
+    border-radius:9px; padding:11px 15px;
+    box-shadow:var(--shadow-sm);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .event-card:hover { transform:translateY(-1px); box-shadow:var(--shadow-md); }
 
-    .timeline {
-      display: flex;
-      align-items: flex-start;
-      min-width: 460px;
-      padding: 10px 10px 6px;
-      position: relative;
-    }
+  .event.flight  .event-card { background:#eef4f8; }
+  .event.hotel   .event-card { background:#fdf8ee; border-left:3px solid var(--gold); }
+  .event.transit .event-card { background:#f0f4ee; }
+  .event.sleep   .event-card { background:var(--night); color:var(--cream); }
+  .event.ferry   .event-card { background:#eaf4f8; }
+  .event.free    .event-card { background:#f7f5f0; border-left:3px solid #c2b49a; }
 
-    /* single connecting line across all stops */
-    .timeline::before {
-      content: '';
-      position: absolute;
-      top: 18px; /* centers on the 16px dot: padding-top(10) + 8px half-dot */
-      left: calc(100% / 14);
-      right: calc(100% / 14);
-      height: 1px;
-      background: var(--gold-border);
-      z-index: 0;
-    }
+  .event-title { font-size:13px; font-weight:500; line-height:1.35; margin-bottom:3px; }
+  .event.sleep .event-title { color:var(--cream); }
 
-    .tl-stop {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-    }
+  .time-badge { font-family:'DM Mono',monospace; font-size:10px; color:var(--sky); }
+  .event.hotel   .time-badge { color:#9a7c30; }
+  .event.transit .time-badge { color:var(--sage); }
+  .event.sleep   .time-badge { color:rgba(245,240,232,.6); }
+  .event.ferry   .time-badge { color:#4a8fa8; }
+  .event.free    .time-badge { color:#7a6a58; }
 
-    .tl-dot {
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      border: 2px solid var(--gold);
-      background: var(--bg);
-      margin-bottom: 10px;
-      transition: box-shadow 0.2s;
-    }
-    .tl-dot.home {
-      border-color: var(--muted);
-    }
-    .tl-dot.dest {
-      background: var(--gold);
-      box-shadow: 0 0 10px rgba(200,162,88,0.45);
-    }
+  .detail-row { display:flex; flex-wrap:wrap; gap:3px 10px; margin-top:5px; }
+  .detail-chip { font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); line-height:1.55; }
+  .event.sleep  .detail-chip { color:rgba(245,240,232,.5); }
+  .event.hotel  .detail-chip { color:#7a6e58; }
+  .event.flight .detail-chip { color:#5a7a90; }
+  .event.free   .detail-chip { color:#8a7a68; }
 
-    .tl-name {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 9.5px;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--cream-dim);
-      text-align: center;
-      line-height: 1.3;
-    }
-    .tl-date {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 8.5px;
-      color: var(--muted);
-      text-align: center;
-      margin-top: 3px;
-    }
+  .meta-row { display:flex; flex-wrap:wrap; gap:5px; margin-top:8px; align-items:center; }
 
-    /* ══════════════════════════════════════
-       BOOK NOW CHECKLIST
-    ══════════════════════════════════════ */
-    .book-now {
-      background: var(--urgent-bg);
-      border: 1px solid var(--urgent-bdr);
-      border-radius: var(--radius);
-      padding: 24px 22px;
-      margin-bottom: 46px;
-      animation: fadeUp 0.9s 0.08s ease both;
-    }
+  /* conf codes — click to copy */
+  .conf {
+    font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.5px;
+    padding:3px 8px; border-radius:4px;
+    background:rgba(15,14,12,.06); color:var(--muted);
+    display:inline-flex; align-items:center; gap:4px;
+    cursor:pointer; border:none; font:inherit;
+    transition:background .15s, color .15s;
+    user-select:none;
+  }
+  .conf:hover { background:rgba(15,14,12,.12); color:var(--ink); }
+  .conf.copied { background:rgba(107,124,94,.15); color:var(--sage); }
+  .event.sleep  .conf { background:rgba(255,255,255,.1);  color:rgba(245,240,232,.45); }
+  .event.sleep  .conf:hover { background:rgba(255,255,255,.18); color:rgba(245,240,232,.8); }
+  .event.hotel  .conf { background:rgba(201,168,76,.12); color:#9a7c30; }
+  .event.hotel  .conf:hover { background:rgba(201,168,76,.22); }
+  .event.flight .conf { background:rgba(74,127,165,.12); color:#4a7fa5; }
+  .event.flight .conf:hover { background:rgba(74,127,165,.22); }
 
-    .book-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 5px;
-    }
-    .book-title {
-      font-family: 'Cinzel', serif;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--urgent);
-    }
-    .book-sub {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 12px;
-      color: var(--muted);
-      font-style: italic;
-      margin-bottom: 20px;
-    }
+  .copy-tip { font-size:8px; opacity:.6; font-family:'DM Mono',monospace; }
 
-    .checklist {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
+  .map-link {
+    font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.5px;
+    padding:3px 9px; border-radius:4px;
+    background:rgba(74,127,165,.08); color:var(--sky);
+    text-decoration:none; display:inline-flex; align-items:center; gap:4px;
+    border:1px solid rgba(74,127,165,.18);
+    transition:background .15s, border-color .15s;
+  }
+  .map-link:hover { background:rgba(74,127,165,.15); border-color:rgba(74,127,165,.32); }
+  .event.hotel .map-link { background:rgba(201,168,76,.1); color:#9a7c30; border-color:rgba(201,168,76,.22); }
+  .event.hotel .map-link:hover { background:rgba(201,168,76,.2); }
+  .event.sleep .map-link { background:rgba(255,255,255,.08); color:rgba(245,240,232,.65); border-color:rgba(255,255,255,.16); }
+  .event.sleep .map-link:hover { background:rgba(255,255,255,.15); }
 
-    .chk-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
+  .day-divider { height:1px; margin-top:4px; background:linear-gradient(to right,rgba(15,14,12,.1),transparent 70%); }
 
-    .chk-item input[type="checkbox"] {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 20px;
-      min-width: 20px;
-      height: 20px;
-      border: 1.5px solid rgba(207,91,69,0.4);
-      border-radius: 5px;
-      background: transparent;
-      cursor: pointer;
-      position: relative;
-      margin-top: 1px;
-      flex-shrink: 0;
-      transition: background 0.2s, border-color 0.2s;
-    }
-    .chk-item input[type="checkbox"]:checked {
-      background: var(--urgent);
-      border-color: var(--urgent);
-    }
-    .chk-item input[type="checkbox"]:checked::after {
-      content: '';
-      position: absolute;
-      left: 5px;
-      top: 2px;
-      width: 6px;
-      height: 10px;
-      border: 2px solid #fff;
-      border-top: none;
-      border-left: none;
-      transform: rotate(45deg);
-    }
+  /* ── SUMMARY ── */
+  .summary { margin:0 40px; border:1px solid var(--border); border-radius:12px; overflow:hidden; box-shadow:var(--shadow-sm); }
+  .summary-header { background:var(--night); color:var(--cream); padding:14px 20px; font-family:'Playfair Display',serif; font-size:15px; font-weight:700; }
+  .summary-grid { display:grid; grid-template-columns:1fr 1fr; }
+  .summary-cell { padding:15px 20px; border-right:1px solid var(--border); border-bottom:1px solid var(--border); transition:background .15s; }
+  .summary-cell:hover { background:rgba(201,168,76,.03); }
+  .summary-cell:nth-child(2n) { border-right:none; }
+  .summary-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:2px; color:var(--muted); text-transform:uppercase; margin-bottom:5px; }
+  .summary-val { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:var(--night); }
+  .summary-sub { font-family:'DM Mono',monospace; font-size:9.5px; color:var(--muted); margin-top:3px; line-height:1.5; }
 
-    .chk-content { flex: 1; }
+  /* ── BOOK BOX ── */
+  .book-box { margin:20px 40px 0; border:1px solid rgba(184,92,56,.2); border-radius:12px; overflow:hidden; box-shadow:var(--shadow-sm); }
+  .book-header { background:var(--rust); color:#fff; padding:11px 20px; font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:3px; text-transform:uppercase; }
+  .book-list { padding:14px 20px; background:#fdf0ec; display:grid; gap:8px; }
+  .book-item { display:flex; align-items:baseline; gap:10px; font-size:12.5px; line-height:1.4; }
+  .book-item::before { content:'→'; color:var(--rust); font-family:'DM Mono',monospace; flex-shrink:0; }
+  .book-item strong { font-weight:500; }
+  .book-item span { color:var(--muted); font-family:'DM Mono',monospace; font-size:9.5px; }
 
-    .chk-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      color: var(--cream);
-      cursor: pointer;
-      line-height: 1.45;
-      display: block;
-      transition: color 0.2s;
-    }
-    .chk-item.done .chk-label {
-      text-decoration: line-through;
-      color: var(--muted);
-    }
+  .spacer { height:48px; }
 
-    .chk-link {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 11.5px;
-      color: var(--gold);
-      opacity: 0.8;
-      display: inline-block;
-      margin-top: 2px;
-    }
-    .chk-link:hover { opacity: 1; text-decoration: none; }
-    .chk-item.done .chk-link { opacity: 0.35; }
+  /* ── RESPONSIVE ── */
+  @media (max-width:640px) {
+    .hero { padding:36px 20px 30px; }
+    .hero-cdown { display:none; }
+    .legend { padding:10px 20px; }
+    .snav a { padding:10px 11px; font-size:8.5px; }
+    .timeline { padding:0 20px 48px; }
+    .timeline::before { left:47px; }
+    .summary, .book-box { margin:0 20px; }
+    .book-box { margin-top:16px; }
+    .day-date { font-size:17px; }
+  }
 
-    .progress-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 20px;
-    }
-    .progress-bar {
-      flex: 1;
-      height: 3px;
-      background: rgba(207,91,69,0.18);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-    .progress-fill {
-      height: 100%;
-      background: var(--urgent);
-      border-radius: 2px;
-      transition: width 0.4s ease;
-    }
-    .progress-text {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 11px;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-
-    /* ══════════════════════════════════════
-       FLIGHTS
-    ══════════════════════════════════════ */
-    .flights {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 46px;
-    }
-
-    .flight-card {
-      background: var(--bg-card);
-      border: 1px solid var(--gold-border);
-      border-radius: var(--radius);
-      padding: 16px 20px;
-      display: flex;
-      align-items: flex-start;
-      gap: 18px;
-    }
-    .flight-card.book-it {
-      border-color: rgba(200,162,88,0.45);
-      background: linear-gradient(140deg, rgba(200,162,88,0.07), var(--bg-card));
-    }
-
-    .f-date {
-      text-align: center;
-      min-width: 42px;
-      flex-shrink: 0;
-    }
-    .f-day {
-      font-family: 'Cinzel', serif;
-      font-size: 22px;
-      font-weight: 600;
-      color: var(--gold);
-      line-height: 1;
-    }
-    .f-month {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 9px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-      display: block;
-      margin-top: 3px;
-    }
-
-    .f-info { flex: 1; }
-    .f-route {
-      font-family: 'Lora', serif;
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--cream);
-      margin-bottom: 4px;
-    }
-    .f-details {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 12.5px;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-    .f-alert {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 12px;
-      color: var(--urgent);
-      margin-top: 6px;
-    }
-    .f-badge {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      background: var(--gold);
-      color: #0b1524;
-      padding: 4px 10px;
-      border-radius: 20px;
-      align-self: center;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    /* ══════════════════════════════════════
-       CITY ACCORDION
-    ══════════════════════════════════════ */
-    .destinations {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 46px;
-    }
-
-    .city-card {
-      background: var(--bg-card);
-      border: 1px solid var(--gold-border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: border-color 0.25s;
-    }
-    .city-card.open {
-      border-color: rgba(200,162,88,0.36);
-    }
-
-    .city-btn {
-      width: 100%;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 20px 22px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      text-align: left;
-    }
-    .city-btn:active { background: rgba(255,255,255,0.02); }
-
-    .city-num {
-      font-family: 'Cinzel', serif;
-      font-size: 30px;
-      font-weight: 700;
-      color: rgba(200,162,88,0.16);
-      line-height: 1;
-      min-width: 36px;
-      flex-shrink: 0;
-      transition: color 0.25s;
-    }
-    .city-card.open .city-num {
-      color: rgba(200,162,88,0.35);
-    }
-
-    .city-meta { flex: 1; }
-    .city-name {
-      font-family: 'Cinzel', serif;
-      font-size: 19px;
-      font-weight: 600;
-      color: var(--cream);
-      letter-spacing: 0.04em;
-      line-height: 1.1;
-    }
-    .city-when {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 11.5px;
-      color: var(--muted);
-      margin-top: 4px;
-      letter-spacing: 0.04em;
-    }
-
-    .city-chevron {
-      color: var(--gold);
-      font-size: 18px;
-      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
-      flex-shrink: 0;
-      opacity: 0.65;
-    }
-    .city-card.open .city-chevron {
-      transform: rotate(180deg);
-      opacity: 1;
-    }
-
-    .city-body {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .city-card.open .city-body {
-      max-height: 2400px;
-    }
-
-    .city-inner {
-      padding: 4px 22px 26px;
-      border-top: 1px solid var(--gold-border);
-    }
-
-    /* callout blocks */
-    .callout {
-      border-radius: 0 9px 9px 0;
-      padding: 12px 16px;
-      margin: 16px 0;
-      font-size: 15px;
-      line-height: 1.55;
-    }
-    .callout.tip {
-      border-left: 3px solid var(--gold);
-      background: var(--gold-faint);
-      color: var(--cream-dim);
-      font-style: italic;
-    }
-    .callout.alert {
-      border-left: 3px solid var(--urgent);
-      background: var(--urgent-bg);
-      color: var(--cream);
-    }
-    .callout.alert strong { color: var(--urgent); }
-
-    /* day blocks */
-    .day-block { margin: 20px 0 0; }
-    .day-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: var(--gold);
-      padding-bottom: 8px;
-      margin-bottom: 10px;
-      border-bottom: 1px solid var(--gold-border);
-    }
-
-    .act-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-    }
-    .act-list li {
-      font-size: 16px;
-      color: var(--cream);
-      padding-left: 18px;
-      position: relative;
-      line-height: 1.55;
-    }
-    .act-list li::before {
-      content: '·';
-      position: absolute;
-      left: 4px;
-      color: var(--gold);
-      font-size: 20px;
-      line-height: 1.2;
-      opacity: 0.55;
-    }
-
-    .transport {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      background: var(--bg-deep);
-      border-radius: 9px;
-      padding: 11px 14px;
-      margin-top: 18px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-    .transport .ico { font-size: 15px; margin-top: 1px; flex-shrink: 0; }
-
-    /* ══════════════════════════════════════
-       BUDGET
-    ══════════════════════════════════════ */
-    .budget-card {
-      background: var(--bg-card);
-      border: 1px solid var(--gold-border);
-      border-radius: var(--radius);
-      padding: 20px 24px;
-      margin-bottom: 46px;
-    }
-    .budget-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    .budget-table tr {
-      border-bottom: 1px solid rgba(200,162,88,0.1);
-    }
-    .budget-table tr:last-child { border-bottom: none; }
-    .budget-table td {
-      padding: 11px 2px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      color: var(--cream-dim);
-    }
-    .budget-table td:last-child {
-      text-align: right;
-      color: var(--cream);
-      font-weight: 500;
-    }
-    .budget-table .total td {
-      color: var(--gold);
-      font-weight: 600;
-      font-size: 15px;
-      border-top: 1px solid var(--gold-border);
-      padding-top: 16px;
-    }
-
-    /* ══════════════════════════════════════
-       FOOTER
-    ══════════════════════════════════════ */
-    .footer {
-      text-align: center;
-      padding: 16px 0 0;
-    }
-    .footer p {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 0.06em;
-      margin-top: 10px;
-    }
-
-    /* ══════════════════════════════════════
-       ANIMATIONS
-    ══════════════════════════════════════ */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ══════════════════════════════════════
-       RESPONSIVE
-    ══════════════════════════════════════ */
-    @media (max-width: 480px) {
-      .container { padding: 0 16px 80px; }
-      .hero { padding: 48px 0 36px; }
-      .city-btn { padding: 16px 18px; }
-      .city-inner { padding: 4px 18px 22px; }
-      .book-now { padding: 18px 16px; }
-      .flight-card { padding: 14px 16px; gap: 14px; }
-      .budget-card { padding: 16px 18px; }
-      #trip-map { height: 300px; }
-      .map-tap-hint { display: none; }
-    }
-
-    /* ══════════════════════════════════════
-       MAP
-    ══════════════════════════════════════ */
-    .map-wrap {
-      background: var(--bg-card);
-      border: 1px solid var(--gold-border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      margin-bottom: 46px;
-    }
-    #trip-map {
-      height: 380px;
-      width: 100%;
-      background: #0d1a2b;
-    }
-    .map-legend {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      padding: 10px 16px;
-      border-top: 1px solid var(--gold-border);
-      flex-wrap: wrap;
-    }
-    .legend-item {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 11px;
-      color: var(--cream-dim);
-    }
-    .map-tap-hint {
-      margin-left: auto;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 10px;
-      color: var(--muted);
-      letter-spacing: 0.04em;
-    }
-    /* ══════════════════════════════════════
-       COUNTDOWN
-    ══════════════════════════════════════ */
-    .countdown-card {
-      background: var(--bg-card);
-      border: 1px solid var(--gold-border);
-      border-radius: var(--radius);
-      padding: 28px 20px;
-      text-align: center;
-      margin-bottom: 46px;
-      position: relative;
-      overflow: hidden;
-    }
-    .countdown-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(200,162,88,0.06) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .cdwn-number {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(52px, 14vw, 80px);
-      font-weight: 700;
-      color: var(--gold);
-      line-height: 1;
-      letter-spacing: 0.04em;
-    }
-    .cdwn-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 12px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--cream-dim);
-      margin-top: 10px;
-    }
-    .cdwn-sub {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 11px;
-      color: var(--muted);
-      margin-top: 6px;
-      letter-spacing: 0.06em;
-    }
-    /* ══════════════════════════════════════
-       PHRASES
-    ══════════════════════════════════════ */
-    .phrases-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 46px;
-    }
-    .phrase-lang {
-      background: var(--bg-card);
-      border: 1px solid var(--gold-border);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-    .phrase-lang-hdr {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 20px;
-      border-bottom: 1px solid var(--gold-border);
-    }
-    .lang-flag { font-size: 22px; }
-    .lang-name {
-      font-family: 'Cinzel', serif;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--cream);
-      letter-spacing: 0.04em;
-    }
-    .lang-cities {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 10.5px;
-      color: var(--muted);
-      margin-left: auto;
-    }
-    .phrase-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    .phrase-table tr {
-      border-bottom: 1px solid rgba(200,162,88,0.07);
-    }
-    .phrase-table tr:last-child { border-bottom: none; }
-    .phrase-table td {
-      padding: 9px 20px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
-    }
-    .phrase-table td:first-child { color: var(--muted); }
-    .phrase-table td:last-child {
-      color: var(--gold-light);
-      font-weight: 500;
-      text-align: right;
-    }
-    @media (max-width: 400px) {
-      .phrase-table td { padding: 8px 14px; font-size: 12px; }
-    }
-  </style>
+  /* ── PRINT ── */
+  @media print {
+    .snav { display:none; }
+    .hero::before,.hero::after { display:none; }
+    .day-block { opacity:1 !important; transform:none !important; }
+    .event-card { box-shadow:none; border:1px solid #ddd; }
+  }
+</style>
 </head>
 <body>
-<div class="container">
 
-  <!-- ══ HERO ══ -->
-  <header class="hero">
-    <p class="hero-eyebrow">Private Itinerary &nbsp;·&nbsp; July 2026</p>
-    <h1 class="hero-title">
-      España<span class="hero-amp">&amp;</span>Italia
-    </h1>
-    <p class="hero-subtitle">Iliana &amp; Mois</p>
-    <p class="hero-dates">July 2 &ensp;–&ensp; July 13, 2026</p>
-    <span class="ornament" style="margin-top:24px;">✦ &nbsp; ✦ &nbsp; ✦</span>
-  </header>
+<!-- Sticky Day Nav -->
+<nav class="snav" id="snav">
+  <a href="#day-1">Jul 2</a>
+  <a href="#day-2">Jul 3</a>
+  <a href="#day-3">Jul 4</a>
+  <a href="#day-4">Jul 5</a>
+  <a href="#day-5">Jul 6</a>
+  <a href="#day-6">Jul 7</a>
+  <a href="#day-7">Jul 8</a>
+  <a href="#day-8">Jul 9</a>
+  <a href="#day-9">Jul 10</a>
+  <a href="#day-10">Jul 11</a>
+  <a href="#day-11">Jul 12</a>
+  <a href="#day-12">Jul 13</a>
+</nav>
 
-  <!-- ══ ROUTE TIMELINE ══ -->
-  <div class="section-label" style="margin-top:8px;">Route</div>
-  <div class="timeline-wrap">
-    <div class="timeline">
-      <div class="tl-stop">
-        <div class="tl-dot home"></div>
-        <div class="tl-name">San Diego</div>
-        <div class="tl-date">Jul 2</div>
-      </div>
-      <div class="tl-stop">
-        <div class="tl-dot dest"></div>
-        <div class="tl-name">Amsterdam</div>
-        <div class="tl-date">Jul 3</div>
-      </div>
-      <div class="tl-stop">
-        <div class="tl-dot dest"></div>
-        <div class="tl-name">Madrid</div>
-        <div class="tl-date">Jul 3–5</div>
-      </div>
-      <div class="tl-stop">
-        <div class="tl-dot dest"></div>
-        <div class="tl-name">Granada</div>
-        <div class="tl-date">Jul 5–7</div>
-      </div>
-      <div class="tl-stop">
-        <div class="tl-dot dest"></div>
-        <div class="tl-name">Sorrento</div>
-        <div class="tl-date">Jul 8–10</div>
-      </div>
-      <div class="tl-stop">
-        <div class="tl-dot dest"></div>
-        <div class="tl-name">Rome</div>
-        <div class="tl-date">Jul 10–13</div>
-      </div>
-      <div class="tl-stop">
-        <div class="tl-dot home"></div>
-        <div class="tl-name">Home</div>
-        <div class="tl-date">Jul 13</div>
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">✦ Trip Itinerary ✦</div>
+    <div class="hero-title">Mois &amp; Iliana's<br><em>European Summer</em></div>
+    <div class="hero-sub">JULY 2 – 13, 2026 &nbsp;·&nbsp; 12 DAYS</div>
+    <div class="hero-route">
+      <span class="city">San Diego</span><span class="arr">→</span>
+      <span class="city">Oakland</span><span class="arr">→</span>
+      <span class="city">San Francisco</span><span class="arr">→</span>
+      <span class="city">Amsterdam</span><span class="arr">→</span>
+      <span class="city">Madrid</span><span class="arr">→</span>
+      <span class="city">Málaga</span><span class="arr">→</span>
+      <span class="city">Barcelona</span><span class="arr">→</span>
+      <span class="city">Naples</span><span class="arr">→</span>
+      <span class="city">Pompeii</span><span class="arr">→</span>
+      <span class="city">Sorrento</span><span class="arr">→</span>
+      <span class="city">Rome</span><span class="arr">→</span>
+      <span class="city">Dublin</span><span class="arr">→</span>
+      <span class="city">New York</span><span class="arr">→</span>
+      <span class="city">San Diego</span>
+    </div>
+    <div class="hero-bottom">
+      <div class="hero-people">Mois Cohen &nbsp;·&nbsp; Iliana Treyger</div>
+      <div class="hero-cdown">
+        <div class="cdown-num" id="cdown">—</div>
+        <div class="cdown-lbl">Days Until Departure</div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- ══ COUNTDOWN ══ -->
-  <div class="section-label" style="margin-top:4px;">Departure</div>
-  <div class="countdown-card">
-    <div class="cdwn-number" id="cdwn-days">—</div>
-    <div class="cdwn-label">days until takeoff</div>
-    <div class="cdwn-sub">July 2, 2026 &nbsp;·&nbsp; San Diego → Oakland → The World</div>
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#4a7fa5"></div>Flight</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#6b7c5e"></div>Transit / Train</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#c9a84c"></div>Hotel / Airbnb</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#5b9cb8"></div>Ferry</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#1c2333"></div>Overnight</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#c2b49a"></div>Free Time</div>
+</div>
+
+<div class="timeline">
+
+<!-- JUL 2 -->
+<div class="day-block" id="day-1">
+  <div class="day-header">
+    <div class="day-date">Thursday, July 2</div>
+    <div class="day-label">Day 1 &nbsp;·&nbsp; Departure</div>
   </div>
-
-  <!-- ══ MAP ══ -->
-  <div class="section-label">Route Map</div>
-  <div class="map-wrap">
-    <canvas id="trip-map" style="display:block;cursor:default;"></canvas>
-    <div class="map-legend">
-      <div class="legend-item">
-        <svg width="28" height="4" aria-hidden="true"><line x1="0" y1="2" x2="28" y2="2" stroke="#e8944a" stroke-width="2" stroke-dasharray="6 4"/></svg>
-        <span>Flight</span>
-      </div>
-      <div class="legend-item">
-        <svg width="28" height="4" aria-hidden="true"><line x1="0" y1="2" x2="28" y2="2" stroke="#c8a258" stroke-width="2.5"/></svg>
-        <span>Train / Bus</span>
-      </div>
-      <div class="legend-item">
-        <svg width="28" height="4" aria-hidden="true"><line x1="0" y1="2" x2="28" y2="2" stroke="#52b8cc" stroke-width="2" stroke-dasharray="5 4"/></svg>
-        <span>Ferry</span>
-      </div>
-      <span class="map-tap-hint">Animated planes · gold = train · teal = ferry</span>
+  <div class="events">
+    <div class="event flight">
+      <div class="event-icon-col"><div class="event-dot">✈</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Southwest WN #4841 &nbsp;<span class="time-badge">8:55 PM → 10:30 PM</span></div>
+        <div class="detail-row">
+          <span class="detail-chip">San Diego SAN → Oakland OAK &nbsp;·&nbsp; 1h 35m &nbsp;·&nbsp; Basic fare</span>
+          <span class="detail-chip">1 carry-on + 1 personal item</span>
+        </div>
+        <div class="meta-row">
+          <button class="conf" data-copy="WN4841">✈ WN #4841</button>
+          <button class="conf" data-copy="AH8GMA">🔖 AH8GMA</button>
+        </div>
+      </div></div>
     </div>
-  </div>
-
-  <!-- ══ BOOK THESE NOW ══ -->
-  <div class="section-label">Priority Bookings</div>
-  <div class="book-now">
-    <div class="book-header">
-      <div class="book-title">⚠ Book These Now</div>
-    </div>
-    <p class="book-sub">These sell out weeks or months in advance — do not delay.</p>
-
-    <ul class="checklist" id="booklist">
-
-      <li class="chk-item" data-id="alhambra">
-        <input type="checkbox" id="cb-alhambra">
-        <div class="chk-content">
-          <label class="chk-label" for="cb-alhambra">Alhambra Nasrid Palaces — sells out months ahead, book first</label>
-          <a class="chk-link" href="https://www.alhambra-patronato.es" target="_blank" rel="noopener">alhambra-patronato.es ↗</a>
-        </div>
-      </li>
-
-      <li class="chk-item" data-id="anne-frank">
-        <input type="checkbox" id="cb-anne">
-        <div class="chk-content">
-          <label class="chk-label" for="cb-anne">Anne Frank House — timed entry required, book 2 months ahead</label>
-          <a class="chk-link" href="https://www.annefrank.org" target="_blank" rel="noopener">annefrank.org ↗</a>
-        </div>
-      </li>
-
-      <li class="chk-item" data-id="colosseum">
-        <input type="checkbox" id="cb-colosseum">
-        <div class="chk-content">
-          <label class="chk-label" for="cb-colosseum">Colosseum + Roman Forum — timed entry required</label>
-          <a class="chk-link" href="https://www.coopculture.it" target="_blank" rel="noopener">coopculture.it ↗</a>
-        </div>
-      </li>
-
-      <li class="chk-item" data-id="vatican">
-        <input type="checkbox" id="cb-vatican">
-        <div class="chk-content">
-          <label class="chk-label" for="cb-vatican">Vatican Museums + Sistine Chapel — skip the 2–3 hr queue</label>
-          <a class="chk-link" href="https://www.museivaticani.va" target="_blank" rel="noopener">museivaticani.va ↗</a>
-        </div>
-      </li>
-
-      <li class="chk-item" data-id="ryanair">
-        <input type="checkbox" id="cb-ryanair">
-        <div class="chk-content">
-          <label class="chk-label" for="cb-ryanair">Ryanair: Málaga → Naples, Jul 7–8 (~€50–80 pp)</label>
-          <a class="chk-link" href="https://www.ryanair.com" target="_blank" rel="noopener">ryanair.com ↗</a>
-        </div>
-      </li>
-
-      <li class="chk-item" data-id="pompeii">
-        <input type="checkbox" id="cb-pompeii">
-        <div class="chk-content">
-          <label class="chk-label" for="cb-pompeii">Pompeii skip-the-line tickets — arrive at opening</label>
-        </div>
-      </li>
-
-    </ul>
-
-    <div class="progress-row">
-      <div class="progress-bar">
-        <div class="progress-fill" id="prog-fill" style="width:0%"></div>
-      </div>
-      <div class="progress-text" id="prog-text">0 / 6 booked</div>
+    <div class="event hotel">
+      <div class="event-icon-col"><div class="event-dot">🏠</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Sleep: Iliana's House &nbsp;<span class="time-badge">Night of Jul 2</span></div>
+        <div class="detail-row"><span class="detail-chip">Land OAK 10:30 PM · head to Iliana's to sleep</span></div>
+        <div class="meta-row"><a class="map-link" href="https://www.google.com/maps/search/323+Drayton+Court" target="_blank">📍 323 Drayton Court</a></div>
+      </div></div>
     </div>
   </div>
+</div>
+<div class="day-divider"></div>
 
-  <!-- ══ FLIGHTS ══ -->
-  <div class="section-label">Flights</div>
-  <div class="flights">
-
-    <div class="flight-card">
-      <div class="f-date">
-        <div class="f-day">2</div>
-        <span class="f-month">Jul</span>
-      </div>
-      <div class="f-info">
-        <div class="f-route">San Diego → Oakland</div>
-        <div class="f-details">Southwest WN 4841 &nbsp;·&nbsp; 8:55 PM → 10:30 PM</div>
-      </div>
-    </div>
-
-    <div class="flight-card">
-      <div class="f-date">
-        <div class="f-day">3</div>
-        <span class="f-month">Jul</span>
-      </div>
-      <div class="f-info">
-        <div class="f-route">Oakland → Amsterdam → Madrid</div>
-        <div class="f-details">KLM &nbsp;·&nbsp; Long layover in Amsterdam (see Destinations below)</div>
-      </div>
-    </div>
-
-    <div class="flight-card book-it">
-      <div class="f-date">
-        <div class="f-day">7–8</div>
-        <span class="f-month">Jul</span>
-      </div>
-      <div class="f-info">
-        <div class="f-route">Málaga → Naples</div>
-        <div class="f-details">Ryanair &nbsp;·&nbsp; ~€50–80 pp &nbsp;·&nbsp; ~2h 40m</div>
-      </div>
-      <div class="f-badge">Book Now</div>
-    </div>
-
-    <div class="flight-card">
-      <div class="f-date">
-        <div class="f-day">13</div>
-        <span class="f-month">Jul</span>
-      </div>
-      <div class="f-info">
-        <div class="f-route">Rome FCO → Dublin → JFK → San Diego</div>
-        <div class="f-details">
-          EI 401: FCO → DUB, departs 7:30 AM<br>
-          EI 105: DUB → JFK, 12:10 PM<br>
-          B6 1189: JFK → SAN, ~10 PM
-        </div>
-        <div class="f-alert">⚠ Be at FCO by 5:30 AM — Leonardo Express departs ~5:23 AM from Termini</div>
-      </div>
-    </div>
-
+<!-- JUL 3 -->
+<div class="day-block" id="day-2">
+  <div class="day-header">
+    <div class="day-date">Friday, July 3</div>
+    <div class="day-label">Day 2 &nbsp;·&nbsp; Trans-Atlantic</div>
   </div>
-
-  <!-- ══ DESTINATIONS ══ -->
-  <div class="section-label">Destinations</div>
-  <div class="destinations">
-
-    <!-- Amsterdam -->
-    <div class="city-card" id="city-1">
-      <button class="city-btn" onclick="toggleCity('city-1')" aria-expanded="false">
-        <div class="city-num">01</div>
-        <div class="city-meta">
-          <div class="city-name">Amsterdam</div>
-          <div class="city-when">July 3 &nbsp;·&nbsp; Layover</div>
-        </div>
-        <div class="city-chevron">▾</div>
-      </button>
-      <div class="city-body">
-        <div class="city-inner">
-          <div class="callout tip">Train Schiphol → Centraal: 15 min. Tap any credit card at the gate — no ticket purchase needed. ~€11 each way.</div>
-          <div class="callout alert"><strong>⚠ Critical:</strong> Return to Schiphol airport at least 2.5 hours before the Madrid flight. Time this carefully.</div>
-
-          <div class="day-block">
-            <div class="day-label">Layover Highlights</div>
-            <ul class="act-list">
-              <li><strong>Anne Frank House</strong> — book timed entry at <a href="https://www.annefrank.org" target="_blank" rel="noopener">annefrank.org</a> (2 months ahead). Canal boat tours depart right outside (~€25).</li>
-              <li><strong>Jordaan neighborhood</strong> — best photography: narrow canals, houseboats, leaning canal houses</li>
-              <li><strong>Dam Square + Royal Palace</strong> — 15 min walk from Centraal station</li>
-            </ul>
-          </div>
-
-          <div class="transport">
-            <span class="ico">🚆</span>
-            <span>Schiphol ↔ Centraal: 15 min, tap credit card, ~€11 each way. Trains run every 10–15 min.</span>
-          </div>
-        </div>
-      </div>
+  <div class="events">
+    <div class="event hotel">
+      <div class="event-icon-col"><div class="event-dot">🏠</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Wake up: Iliana's House &nbsp;<span class="time-badge">Morning</span></div>
+        <div class="detail-row"><span class="detail-chip">Head to SFO for 1:45 PM flight · KL 0606 check-in opens ~10:45 AM</span></div>
+        <div class="meta-row"><a class="map-link" href="https://www.google.com/maps/search/323+Drayton+Court" target="_blank">📍 323 Drayton Court</a></div>
+      </div></div>
     </div>
-
-    <!-- Madrid -->
-    <div class="city-card" id="city-2">
-      <button class="city-btn" onclick="toggleCity('city-2')" aria-expanded="false">
-        <div class="city-num">02</div>
-        <div class="city-meta">
-          <div class="city-name">Madrid</div>
-          <div class="city-when">July 3 evening – July 5 &nbsp;·&nbsp; 2 full days</div>
-        </div>
-        <div class="city-chevron">▾</div>
-      </button>
-      <div class="city-body">
-        <div class="city-inner">
-          <div class="callout tip">July heat: 35°C+. Outdoors before 11am or after 7pm. Museums are perfect for the midday heat. Metro €1.50/ride.</div>
-
-          <div class="day-block">
-            <div class="day-label">Day 1 — Evening Arrival</div>
-            <ul class="act-list">
-              <li>Gran Vía + Puerta del Sol — evening walk, great energy</li>
-              <li>Tapas in La Latina: <strong>Calle de Cava Baja</strong> is the street to know</li>
-              <li>Dinner 9–10 PM (Madrid eats late — lean into it)</li>
-            </ul>
-          </div>
-
-          <div class="day-block">
-            <div class="day-label">Day 2 — Full Day</div>
-            <ul class="act-list">
-              <li><strong>Royal Palace</strong> — book ahead, allow 2–3 hrs, get the audio guide</li>
-              <li>Lunch at <strong>Mercado de San Miguel</strong></li>
-              <li><strong>Reina Sofía Museum</strong> — Guernica is on floors 2 and 4. Unmissable.</li>
-              <li>Retiro Park at golden hour</li>
-              <li>Mirador Madrid rooftop bar — evening drinks with skyline views</li>
-            </ul>
-          </div>
-
-          <div class="day-block">
-            <div class="day-label">Day 3 Morning — Before Granada</div>
-            <ul class="act-list">
-              <li>Churros at <strong>Chocolatería San Ginés</strong> (open since 1894, open 24 hrs)</li>
-              <li>Bus or train to Granada</li>
-            </ul>
-          </div>
-
-          <div class="transport">
-            <span class="ico">🚌</span>
-            <span>To Granada: ALSA bus ~€10–15 (1.5 hrs) or Renfe train. Both depart from central Madrid.</span>
-          </div>
-        </div>
-      </div>
+    <div class="event transit">
+      <div class="event-icon-col"><div class="event-dot">🚗</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Transfer: Oakland → San Francisco SFO</div>
+        <div class="detail-row"><span class="detail-chip">BART or rideshare &nbsp;·&nbsp; ~45 min &nbsp;·&nbsp; allow 3h before departure</span></div>
+      </div></div>
     </div>
-
-    <!-- Granada -->
-    <div class="city-card" id="city-3">
-      <button class="city-btn" onclick="toggleCity('city-3')" aria-expanded="false">
-        <div class="city-num">03</div>
-        <div class="city-meta">
-          <div class="city-name">Granada</div>
-          <div class="city-when">July 5–7 &nbsp;·&nbsp; 2 nights</div>
+    <div class="event flight">
+      <div class="event-icon-col"><div class="event-dot">✈</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">KLM KL 0606 &nbsp;<span class="time-badge">1:45 PM → Sat 9:05 AM (+1)</span></div>
+        <div class="detail-row">
+          <span class="detail-chip">San Francisco SFO → Amsterdam AMS &nbsp;·&nbsp; ~10h 20m &nbsp;·&nbsp; Economy</span>
+          <span class="detail-chip">63,000 Flying Blue miles + $267.20 taxes</span>
         </div>
-        <div class="city-chevron">▾</div>
-      </button>
-      <div class="city-body">
-        <div class="city-inner">
-          <div class="callout alert"><strong>⚠ Stay in Granada, not Málaga.</strong> Book Alhambra tickets immediately — Nasrid Palaces sell out months ahead. Bring passport to enter the complex.</div>
-          <div class="callout tip">Granada specialty: free tapas with every single drink ordered. Eat and drink very well for almost nothing.</div>
-
-          <div class="day-block">
-            <div class="day-label">Day 1</div>
-            <ul class="act-list">
-              <li>Explore the <strong>Albaicín</strong> — Granada's ancient Moorish quarter, winding white-washed streets</li>
-              <li>Sunset at <strong>Mirador de San Nicolás</strong> — the iconic framed view of the Alhambra</li>
-              <li>Dinner in Albaicín — order a drink, receive a free tapa, repeat indefinitely</li>
-            </ul>
-          </div>
-
-          <div class="day-block">
-            <div class="day-label">Day 2 — Alhambra Day</div>
-            <ul class="act-list">
-              <li><strong>Full Alhambra morning:</strong> Nasrid Palaces + Generalife Gardens + Alcazaba fortress. Allow 4+ hours. Book at <a href="https://www.alhambra-patronato.es" target="_blank" rel="noopener">alhambra-patronato.es</a></li>
-              <li>Afternoon: <strong>Sacromonte</strong> — cave houses carved into the hillside above the city</li>
-              <li>Evening: <strong>Flamenco show</strong> — several venues in Sacromonte and Albaicín</li>
-            </ul>
-          </div>
-
-          <div class="transport">
-            <span class="ico">✈️</span>
-            <span>Next: Train or bus from Granada to Málaga airport for the Ryanair flight to Naples (Jul 7–8).</span>
-          </div>
+        <div class="meta-row">
+          <button class="conf" data-copy="KL0606">✈ KL 0606</button>
+          <button class="conf" data-copy="YPQPZS">🔖 YPQPZS</button>
         </div>
-      </div>
+      </div></div>
     </div>
-
-    <!-- Amalfi / Sorrento -->
-    <div class="city-card" id="city-4">
-      <button class="city-btn" onclick="toggleCity('city-4')" aria-expanded="false">
-        <div class="city-num">04</div>
-        <div class="city-meta">
-          <div class="city-name">Amalfi Coast</div>
-          <div class="city-when">July 8–10 &nbsp;·&nbsp; Base in Sorrento</div>
-        </div>
-        <div class="city-chevron">▾</div>
-      </button>
-      <div class="city-body">
-        <div class="city-inner">
-          <div class="callout tip">Base in Sorrento — perfect hub connecting Naples, Pompeii, and the Amalfi Coast by rail and ferry.</div>
-
-          <div class="day-block">
-            <div class="day-label">Day 1 — Arrival + Pompeii</div>
-            <ul class="act-list">
-              <li>Naples airport → <strong>Pompeii Scavi</strong> via Circumvesuviana train (~40 min, €3)</li>
-              <li>Book skip-the-line tickets in advance. Arrive at opening. Allow 3–4 hours.</li>
-              <li>Same Circumvesuviana line continues to <strong>Sorrento</strong> (~40 more min) — check in, rest up</li>
-            </ul>
-          </div>
-
-          <div class="day-block">
-            <div class="day-label">Day 2 — Amalfi Coast</div>
-            <ul class="act-list">
-              <li>Boat tour or ferry hopping: <strong>Positano</strong> → Amalfi town → swim in the Mediterranean</li>
-              <li>SITA bus between towns ~€2.50 / ferries €8–15 per leg</li>
-              <li>Positano: pastel cliffside houses, narrow staircased lanes</li>
-              <li>Amalfi: cathedral, paper museum, lemon everything</li>
-            </ul>
-          </div>
-
-          <div class="transport">
-            <span class="ico">🚂</span>
-            <span>To Rome: Ferry Amalfi → Naples, then Italo or Trenitalia high-speed train (70 min, ~€20–40). Book ahead — prices rise fast.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Rome -->
-    <div class="city-card" id="city-5">
-      <button class="city-btn" onclick="toggleCity('city-5')" aria-expanded="false">
-        <div class="city-num">05</div>
-        <div class="city-meta">
-          <div class="city-name">Rome</div>
-          <div class="city-when">July 10–13 &nbsp;·&nbsp; ⚠ Early departure Jul 13</div>
-        </div>
-        <div class="city-chevron">▾</div>
-      </button>
-      <div class="city-body">
-        <div class="city-inner">
-          <div class="callout alert">
-            <strong>⚠ Flight departs FCO 7:30 AM on Jul 13.</strong> Be at FCO by 5:30 AM.<br>
-            Leonardo Express: Termini → FCO = 32 min, €14. First train ~5:23 AM.<br>
-            <strong>Be at Termini station by 5:00 AM. Set two alarms.</strong>
-          </div>
-
-          <div class="day-block">
-            <div class="day-label">Day 1</div>
-            <ul class="act-list">
-              <li><strong>Colosseum + Roman Forum</strong> — book 9am timed entry at <a href="https://www.coopculture.it" target="_blank" rel="noopener">coopculture.it</a>. Allow 3–4 hours.</li>
-              <li>Afternoon: <strong>Trastevere</strong> — cobblestones, ivy-covered walls, excellent trattorias</li>
-              <li>Evening: <strong>Piazza Navona</strong> + Campo de' Fiori</li>
-            </ul>
-          </div>
-
-          <div class="day-block">
-            <div class="day-label">Day 2</div>
-            <ul class="act-list">
-              <li><strong>Vatican Museums + Sistine Chapel</strong> — book at <a href="https://www.museivaticani.va" target="_blank" rel="noopener">museivaticani.va</a>. Skip the 2–3 hr standby queue.</li>
-              <li>Afternoon: <strong>Pantheon</strong> (free entry) + Spanish Steps + gelato</li>
-              <li>Evening drinks at a rooftop bar in the Prati neighborhood</li>
-            </ul>
-          </div>
-
-          <div class="day-block">
-            <div class="day-label">Day 3 — Departure</div>
-            <ul class="act-list">
-              <li>Alarm at <strong>4:30 AM</strong></li>
-              <li>Walk to Roma Termini, depart <strong>5:00 AM</strong></li>
-              <li>Leonardo Express to FCO: departs ~5:23 AM, arrives ~5:55 AM — €14, buy night before</li>
-              <li>Check in at FCO by 5:30 AM (Aer Lingus closes check-in early)</li>
-            </ul>
-          </div>
-
-          <div class="transport">
-            <span class="ico">🚆</span>
-            <span>Leonardo Express: Termini → FCO &nbsp;·&nbsp; 32 min &nbsp;·&nbsp; €14 &nbsp;·&nbsp; First train ~5:23 AM. Buy ticket the night before.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- /destinations -->
-
-  <!-- ══ BUDGET ══ -->
-  <!-- ══ PHRASES ══ -->
-  <div class="section-label">Essential Phrases</div>
-  <div class="phrases-grid">
-    <div class="phrase-lang">
-      <div class="phrase-lang-hdr">
-        <span class="lang-flag">🇪🇸</span>
-        <span class="lang-name">Spanish</span>
-        <span class="lang-cities">Madrid · Granada · Málaga</span>
-      </div>
-      <table class="phrase-table">
-        <tr><td>Hello / Goodbye</td><td>Hola / Adiós</td></tr>
-        <tr><td>Thank you (very much)</td><td>Gracias (muchas gracias)</td></tr>
-        <tr><td>Please / Excuse me</td><td>Por favor / Perdona</td></tr>
-        <tr><td>Where is...?</td><td>¿Dónde está...?</td></tr>
-        <tr><td>How much?</td><td>¿Cuánto cuesta?</td></tr>
-        <tr><td>The menu, please</td><td>La carta, por favor</td></tr>
-        <tr><td>Two beers, please</td><td>Dos cervezas, por favor</td></tr>
-        <tr><td>Cheers!</td><td>¡Salud!</td></tr>
-        <tr><td>Delicious!</td><td>¡Delicioso!</td></tr>
-        <tr><td>The check, please</td><td>La cuenta, por favor</td></tr>
-        <tr><td>I don't understand</td><td>No entiendo</td></tr>
-        <tr><td>Do you speak English?</td><td>¿Habla inglés?</td></tr>
-      </table>
-    </div>
-    <div class="phrase-lang">
-      <div class="phrase-lang-hdr">
-        <span class="lang-flag">🇮🇹</span>
-        <span class="lang-name">Italian</span>
-        <span class="lang-cities">Naples · Sorrento · Amalfi · Rome</span>
-      </div>
-      <table class="phrase-table">
-        <tr><td>Hello / Goodbye</td><td>Ciao / Arrivederci</td></tr>
-        <tr><td>Thank you (very much)</td><td>Grazie (mille grazie)</td></tr>
-        <tr><td>Please / Excuse me</td><td>Per favore / Scusi</td></tr>
-        <tr><td>Where is...?</td><td>Dov'è...?</td></tr>
-        <tr><td>How much?</td><td>Quanto costa?</td></tr>
-        <tr><td>The menu, please</td><td>Il menù, per favore</td></tr>
-        <tr><td>Two beers, please</td><td>Due birre, per favore</td></tr>
-        <tr><td>Cheers!</td><td>Cin cin! / Salute!</td></tr>
-        <tr><td>Delicious!</td><td>Delizioso!</td></tr>
-        <tr><td>The check, please</td><td>Il conto, per favore</td></tr>
-        <tr><td>I don't understand</td><td>Non capisco</td></tr>
-        <tr><td>Do you speak English?</td><td>Parla inglese?</td></tr>
-      </table>
-    </div>
-    <div class="phrase-lang">
-      <div class="phrase-lang-hdr">
-        <span class="lang-flag">🇳🇱</span>
-        <span class="lang-name">Dutch</span>
-        <span class="lang-cities">Amsterdam layover</span>
-      </div>
-      <table class="phrase-table">
-        <tr><td>Hello / Thank you</td><td>Hallo / Dank je wel</td></tr>
-        <tr><td>Cheers!</td><td>Proost!</td></tr>
-        <tr><td>Where is...?</td><td>Waar is...?</td></tr>
-        <tr><td>Two beers, please</td><td>Twee bier, alsjeblieft</td></tr>
-        <tr><td>Excuse me</td><td>Pardon</td></tr>
-      </table>
+    <div class="event sleep">
+      <div class="event-icon-col"><div class="event-dot">💤</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Overnight in the air &nbsp;<span class="time-badge">→ Amsterdam</span></div>
+        <div class="detail-row"><span class="detail-chip">Arrives Schiphol Saturday 9:05 AM</span></div>
+      </div></div>
     </div>
   </div>
+</div>
+<div class="day-divider"></div>
 
-  <div class="section-label">Budget Estimate</div>
-  <div class="budget-card">
-    <table class="budget-table">
-      <tr>
-        <td>Málaga → Naples flight</td>
-        <td>€50 – 80</td>
-      </tr>
-      <tr>
-        <td>Trains within Spain</td>
-        <td>€30 – 50</td>
-      </tr>
-      <tr>
-        <td>Trains + ferries in Italy</td>
-        <td>€40 – 60</td>
-      </tr>
-      <tr>
-        <td>Accommodation — 10 nights</td>
-        <td>€400 – 600</td>
-      </tr>
-      <tr>
-        <td>Food (~€25–40/day × 10 days)</td>
-        <td>€250 – 400</td>
-      </tr>
-      <tr>
-        <td>Attractions &amp; museums</td>
-        <td>€100 – 150</td>
-      </tr>
-      <tr class="total">
-        <td>Total estimate per person</td>
-        <td>€750 – 1,100</td>
-      </tr>
-    </table>
+<!-- COUNTRY MARKER: Netherlands → Spain -->
+<div class="country-marker">
+  <div class="country-marker-label">Amsterdam layover &nbsp;·&nbsp; then Spain</div>
+</div>
+
+<!-- JUL 4 -->
+<div class="day-block" id="day-3">
+  <div class="day-header">
+    <div class="day-date">Saturday, July 4</div>
+    <div class="day-label">Day 3 &nbsp;·&nbsp; Amsterdam → Madrid</div>
   </div>
+  <div class="events">
+    <div class="event transit">
+      <div class="event-icon-col"><div class="event-dot">🛬</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Arrive Amsterdam Schiphol &nbsp;<span class="time-badge">9:05 AM</span></div>
+        <div class="detail-row"><span class="detail-chip">Store bags at Schiphol baggage lockers &nbsp;·&nbsp; ~7h layover</span></div>
+      </div></div>
+    </div>
+    <div class="event transit">
+      <div class="event-icon-col"><div class="event-dot">🚆</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Train: Schiphol → Amsterdam Centraal &nbsp;<span class="time-badge">~9:25 AM</span></div>
+        <div class="detail-row"><span class="detail-chip">~17 min &nbsp;·&nbsp; €4.40 &nbsp;·&nbsp; every 10 min</span></div>
+      </div></div>
+    </div>
+    <div class="event free">
+      <div class="event-icon-col"><div class="event-dot">🌿</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">~7 hours in Amsterdam &nbsp;<span class="time-badge">9:30 AM – 2:00 PM</span></div>
+        <div class="detail-row"><span class="detail-chip">Return to Centraal by 2:00 PM to catch train back to Schiphol</span></div>
+      </div></div>
+    </div>
+    <div class="event transit">
+      <div class="event-icon-col"><div class="event-dot">🚆</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Train: Amsterdam Centraal → Schiphol &nbsp;<span class="time-badge">~2:00 PM</span></div>
+        <div class="detail-row"><span class="detail-chip">~17 min &nbsp;·&nbsp; allows 2.5h before 5:00 PM flight</span></div>
+      </div></div>
+    </div>
+    <div class="event flight">
+      <div class="event-icon-col"><div class="event-dot">✈</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">KLM KL 1507 &nbsp;<span class="time-badge">5:00 PM → 7:35 PM</span></div>
+        <div class="detail-row"><span class="detail-chip">Amsterdam AMS → Madrid MAD &nbsp;·&nbsp; 2h 35m &nbsp;·&nbsp; Economy &nbsp;·&nbsp; same ticket as SFO→AMS</span></div>
+        <div class="meta-row">
+          <button class="conf" data-copy="KL1507">✈ KL 1507</button>
+          <button class="conf" data-copy="YPQPZS">🔖 YPQPZS</button>
+        </div>
+      </div></div>
+    </div>
+    <div class="event transit">
+      <div class="event-icon-col"><div class="event-dot">🚇</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Metro: Madrid Barajas T4 → Centro &nbsp;<span class="time-badge">~8:15 PM</span></div>
+        <div class="detail-row"><span class="detail-chip">Line 8 → Nuevos Ministerios → Line 10 &nbsp;·&nbsp; ~40 min &nbsp;·&nbsp; €5 airport supplement</span></div>
+      </div></div>
+    </div>
+    <div class="event hotel">
+      <div class="event-icon-col"><div class="event-dot">🏠</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Check in: Habitacion en Centro de Madrid &nbsp;<span class="time-badge">After 3:00 PM</span></div>
+        <div class="detail-row"><span class="detail-chip">Airbnb · hosted by Bachir &nbsp;·&nbsp; 3 nights (Jul 4–7) &nbsp;·&nbsp; $249.48 paid</span></div>
+        <div class="meta-row">
+          <a class="map-link" href="https://www.google.com/maps/search/Calle+de+la+Ruda+8+Centro+Madrid+Spain" target="_blank">📍 C. de la Ruda 8, Centro, Madrid</a>
+          <button class="conf" data-copy="HM5A5BYKFZ">🔖 HM5A5BYKFZ</button>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</div>
+<div class="day-divider"></div>
 
-  <!-- ══ FOOTER ══ -->
-  <footer class="footer">
-    <span class="ornament">✦ &nbsp; ✦ &nbsp; ✦</span>
-    <p>Iliana &amp; Mois &nbsp;·&nbsp; España &amp; Italia &nbsp;·&nbsp; July 2026</p>
-    <p style="opacity:0.4; font-size:10px; margin-top:4px;">Private itinerary &nbsp;·&nbsp; Not indexed</p>
-  </footer>
+<!-- JUL 5 -->
+<div class="day-block" id="day-4">
+  <div class="day-header">
+    <div class="day-date">Sunday, July 5</div>
+    <div class="day-label">Day 4 &nbsp;·&nbsp; Madrid</div>
+  </div>
+  <div class="events">
+    <div class="event free">
+      <div class="event-icon-col"><div class="event-dot">🌿</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Full day in Madrid &nbsp;<span class="time-badge">~14 hours</span></div>
+      </div></div>
+    </div>
+    <div class="event hotel">
+      <div class="event-icon-col"><div class="event-dot">🏠</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Sleep: Airbnb Madrid &nbsp;<span class="time-badge">Night 2 of 3</span></div>
+        <div class="meta-row">
+          <a class="map-link" href="https://www.google.com/maps/search/Calle+de+la+Ruda+8+Centro+Madrid+Spain" target="_blank">📍 C. de la Ruda 8, Centro</a>
+          <button class="conf" data-copy="HM5A5BYKFZ">🔖 HM5A5BYKFZ</button>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</div>
+<div class="day-divider"></div>
 
-</div><!-- /container -->
+<!-- JUL 6 -->
+<div class="day-block" id="day-5">
+  <div class="day-header">
+    <div class="day-date">Monday, July 6</div>
+    <div class="day-label">Day 5 &nbsp;·&nbsp; Madrid</div>
+  </div>
+  <div class="events">
+    <div class="event free">
+      <div class="event-icon-col"><div class="event-dot">🌿</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Full day in Madrid &nbsp;<span class="time-badge">~14 hours</span></div>
+        <div class="detail-row"><span class="detail-chip">Last full day &nbsp;·&nbsp; check out tomorrow by 11:00 AM</span></div>
+      </div></div>
+    </div>
+    <div class="event hotel">
+      <div class="event-icon-col"><div class="event-dot">🏠</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Sleep: Airbnb Madrid &nbsp;<span class="time-badge">Night 3 of 3</span></div>
+        <div class="meta-row">
+          <a class="map-link" href="https://www.google.com/maps/search/Calle+de+la+Ruda+8+Centro+Madrid+Spain" target="_blank">📍 C. de la Ruda 8, Centro</a>
+          <button class="conf" data-copy="HM5A5BYKFZ">🔖 HM5A5BYKFZ</button>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</div>
+<div class="day-divider"></div>
+
+<!-- JUL 7 -->
+<div class="day-block" id="day-6">
+  <div class="day-header">
+    <div class="day-date">Tuesday, July 7</div>
+    <div class="day-label">Day 6 &nbsp;·&nbsp; Madrid → Málaga</div>
+  </div>
+  <div class="events">
+    <div class="event hotel">
+      <div class="event-icon-col"><div class="event-dot">🏠</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Check out: Madrid Airbnb &nbsp;<span class="time-badge">By 11:00 AM</span></div>
+        <div class="meta-row">
+          <a class="map-link" href="https://www.google.com/maps/search/Calle+de+la+Ruda+8+Centro+Madrid+Spain" target="_blank">📍 C. de la Ruda 8, Centro</a>
+          <button class="conf" data-copy="HM5A5BYKFZ">🔖 HM5A5BYKFZ</button>
+        </div>
+      </div></div>
+    </div>
+    <div class="event transit">
+      <div class="event-icon-col"><div class="event-dot">🚆</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Renfe AVE: Madrid Atocha → Málaga María Zambrano</div>
+        <div class="detail-row"><span class="detail-chip">~2h 30m &nbsp;·&nbsp; High-speed AVE &nbsp;·&nbsp; ~€30–60/person &nbsp;·&nbsp; book renfe.com</span></div>
+        <div class="meta-row"><a class="map-link" href="https://www.google.com/maps/search/Madrid+Puerta+de+Atocha+station" target="_blank">📍 Madrid Puerta de Atocha</a></div>
+      </div></div>
+    </div>
+    <div class="event free">
+      <div class="event-icon-col"><div class="event-dot">🌿</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">~6 hours in Málaga &nbsp;<span class="time-badge">Afternoon + evening</span></div>
+        <div class="detail-row"><span class="detail-chip">Arrive mid-afternoon &nbsp;·&nbsp; last evening in Spain before overnight flight</span></div>
+      </div></div>
+    </div>
+    <div class="event hotel">
+      <div class="event-icon-col"><div class="event-dot">🏠</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Check in: Habitación cerca del Casco Histórico &nbsp;<span class="time-badge">After 2:00 PM</span></div>
+        <div class="detail-row"><span class="detail-chip">Airbnb · hosted by Misaily &nbsp;·&nbsp; 1 night &nbsp;·&nbsp; $63.74 paid &nbsp;·&nbsp; check out Jul 8 by 12:00 PM</span></div>
+        <div class="meta-row">
+          <a class="map-link" href="https://www.google.com/maps/search/Calle+San+Rafael+2+Malaga+Spain" target="_blank">📍 C. San Rafael 2, Málaga</a>
+          <button class="conf" data-copy="HMRS5YNEBZ">🔖 HMRS5YNEBZ</button>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</div>
+<div class="day-divider"></div>
+
+<!-- COUNTRY MARKER: Spain → Italy -->
+<div class="country-marker">
+  <div class="country-marker-label">Málaga → Barcelona overnight &nbsp;·&nbsp; then Italy</div>
+</div>
+
+<!-- JUL 8 -->
+<div class="day-block" id="day-7">
+  <div class="day-header">
+    <div class="day-date">Wednesday, July 8</div>
+    <div class="day-label">Day 7 &nbsp;·&nbsp; Málaga → Barcelona → Naples</div>
+  </div>
+  <div class="events">
+    <div class="event hotel">
+      <div class="event-icon-col"><div class="event-dot">🏠</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Check out: Málaga Airbnb &nbsp;<span class="time-badge">By 12:00 PM</span></div>
+        <div class="detail-row"><span class="detail-chip">Store bags &nbsp;·&nbsp; Radical Storage or Bounce near María Zambrano ~€5/bag</span></div>
+        <div class="meta-row">
+          <a class="map-link" href="https://www.google.com/maps/search/Calle+San+Rafael+2+Malaga+Spain" target="_blank">📍 C. San Rafael 2, Málaga</a>
+          <button class="conf" data-copy="HMRS5YNEBZ">🔖 HMRS5YNEBZ</button>
+        </div>
+      </div></div>
+    </div>
+    <div class="event free">
+      <div class="event-icon-col"><div class="event-dot">🌿</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">~10 hours in Málaga &nbsp;<span class="time-badge">12:00 PM – 10:00 PM</span></div>
+        <div class="detail-row"><span class="detail-chip">Full day &nbsp;·&nbsp; flight departs 10:50 PM</span></div>
+      </div></div>
+    </div>
+    <div class="event transit">
+      <div class="event-icon-col"><div class="event-dot">🚌</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Aerobus: Málaga Centro → Aeropuerto AGP &nbsp;<span class="time-badge">~8:00 PM</span></div>
+        <div class="detail-row"><span class="detail-chip">From María Zambrano &nbsp;·&nbsp; ~20 min &nbsp;·&nbsp; allow 2.5h before departure</span></div>
+      </div></div>
+    </div>
+    <div class="event flight">
+      <div class="event-icon-col"><div class="event-dot">✈</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Vueling VY2118: Málaga → Barcelona &nbsp;<span class="time-badge">10:50 PM → ~12:15 AM (+1)</span></div>
+        <div class="detail-row">
+          <span class="detail-chip">Málaga AGP → Barcelona BCN &nbsp;·&nbsp; ~1h 25m</span>
+          <span class="detail-chip">1 personal item + 1 carry-on (20×40×55 cm, max 10 kg) &nbsp;·&nbsp; NO checked bags</span>
+        </div>
+        <div class="meta-row">
+          <button class="conf" data-copy="VY2118">✈ VY2118</button>
+          <button class="conf" data-copy="SG1EPI">🔖 SG1EPI</button>
+        </div>
+      </div></div>
+    </div>
+    <div class="event sleep">
+      <div class="event-icon-col"><div class="event-dot">💤</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Overnight: Barcelona Airport (BCN) &nbsp;<span class="time-badge">~12:15 AM – early AM</span></div>
+        <div class="detail-row"><span class="detail-chip">Sleep at BCN between connections &nbsp;·&nbsp; VY6500 continues to Naples in the morning</span></div>
+      </div></div>
+    </div>
+  </div>
+</div>
+<div class="day-divider"></div>
+
+<!-- JUL 9 -->
+<div class="day-block" id="day-8">
+  <div class="day-header">
+    <div class="day-date">Thursday, July 9</div>
+    <div class="day-label">Day 8 &nbsp;·&nbsp; Barcelona → Naples · Pompeii · Sorrento</div>
+  </div>
+  <div class="events">
+    <div class="event flight">
+      <div class="event-icon-col"><div class="event-dot">✈</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Vueling VY6500: Barcelona → Naples &nbsp;<span class="time-badge">→ Arrives 9:20 AM</span></div>
+        <div class="detail-row"><span class="detail-chip">Barcelona BCN → Naples NAP &nbsp;·&nbsp; Same booking as VY2118</span></div>
+        <div class="meta-row">
+          <button class="conf" data-copy="VY6500">✈ VY6500</button>
+          <button class="conf" data-copy="SG1EPI">🔖 SG1EPI</button>
+        </div>
+      </div></div>
+    </div>
+    <div class="event transit">
+      <div class="event-icon-col"><div class="event-dot">🛬</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Arrive Naples Capodichino NAP &nbsp;<span class="time-badge">9:20 AM</span></div>
+        <div class="detail-row"><span class="detail-chip">Alibus to Naples Centrale &nbsp;·&nbsp; ~20 min &nbsp;·&nbsp; €5</span></div>
+        <div class="meta-row"><a class="map-link" href="https://www.google.com/maps/search/Naples+Capodichino+Airport+Italy" target="_blank">📍 Naples Airport (NAP)</a></div>
+      </div></div>
+    </div>
+    <div class="event free">
+      <div class="event-icon-col"><div class="event-dot">🌿</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">~2 hours in Naples &nbsp;<span class="time-badge">~10:00 AM – 12:00 PM</span></div>
+      </div></div>
+    </div>
+    <div class="event transit">
+      <div class="event-icon-col"><div class="event-dot">🚆</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Circumvesuviana: Naples Centrale → Pompeii Scavi &nbsp;<span class="time-badge">~12:00 PM</span></div>
+        <div class="detail-row"><span class="detail-chip">~40 min &nbsp;·&nbsp; €3 &nbsp;·&nbsp; departs lower level of Napoli Centrale</span></div>
+        <div class="meta-row"><a class="map-link" href="https://www.google.com/maps/search/Naples+Centrale+train+station" target="_blank">📍 Napoli Centrale</a></div>
+      </div></div>
+    </div>
+    <div class="event free">
+      <div class="event-icon-col"><div class="event-dot">🌿</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">~3 hours in Pompeii &nbsp;<span class="time-badge">~12:45 PM – 3:45 PM</span></div>
+        <div class="meta-row"><a class="map-link" href="https://www.google.com/maps/search/Pompeii+Archaeological+Park+Italy" target="_blank">📍 Via Villa dei Misteri 2, Pompeii</a></div>
+      </div></div>
+    </div>
+    <div class="event transit">
+      <div class="event-icon-col"><div class="event-dot">🚆</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Circumvesuviana: Pompeii → Sorrento &nbsp;<span class="time-badge">~4:00 PM</span></div>
+        <div class="detail-row"><span class="detail-chip">~30 min &nbsp;·&nbsp; €2.80 &nbsp;·&nbsp; end of the line</span></div>
+      </div></div>
+    </div>
+    <div class="event ferry">
+      <div class="event-icon-col"><div class="event-dot">⛵</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Ferry: Naples → Sorrento &nbsp;<span class="time-badge">Alternative to train</span></div>
+        <div class="detail-row"><span class="detail-chip">~35 min &nbsp;·&nbsp; €14 &nbsp;·&nbsp; departs Molo Beverello &nbsp;·&nbsp; skip Pompeii train if preferred</span></div>
+        <div class="meta-row"><a class="map-link" href="https://www.google.com/maps/search/Molo+Beverello+Naples" target="_blank">📍 Molo Beverello, Naples</a></div>
+      </div></div>
+    </div>
+    <div class="event hotel">
+      <div class="event-icon-col"><div class="event-dot">🏠</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Check in: Seven Hostel &nbsp;<span class="time-badge">Jul 9 · 1 night</span></div>
+        <div class="detail-row"><span class="detail-chip">Sant'Agnello (2 min from Sorrento) &nbsp;·&nbsp; 📞 +39 081 878 6758</span></div>
+        <div class="meta-row">
+          <a class="map-link" href="https://www.google.com/maps/search/Seven+Hostel+Via+Iommella+Grande+99+Sant+Agnello+Italy" target="_blank">📍 Via Iommella Grande 99, Sant'Agnello</a>
+          <button class="conf" data-copy="1775417679">🔖 WuBook #1775417679</button>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</div>
+<div class="day-divider"></div>
+
+<!-- JUL 10 -->
+<div class="day-block" id="day-9">
+  <div class="day-header">
+    <div class="day-date">Friday, July 10</div>
+    <div class="day-label">Day 9 &nbsp;·&nbsp; Sorrento → Rome</div>
+  </div>
+  <div class="events">
+    <div class="event hotel">
+      <div class="event-icon-col"><div class="event-dot">🏠</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Check out: Seven Hostel &nbsp;<span class="time-badge">Morning</span></div>
+        <div class="meta-row">
+          <a class="map-link" href="https://www.google.com/maps/search/Seven+Hostel+Via+Iommella+Grande+99+Sant+Agnello+Italy" target="_blank">📍 Via Iommella Grande 99, Sant'Agnello</a>
+          <button class="conf" data-copy="1775417679">🔖 WuBook #1775417679</button>
+        </div>
+      </div></div>
+    </div>
+    <div class="event transit">
+      <div class="event-icon-col"><div class="event-dot">🚆</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Circumvesuviana: Sorrento → Naples Centrale</div>
+        <div class="detail-row"><span class="detail-chip">~70 min &nbsp;·&nbsp; €3.40 &nbsp;·&nbsp; frequent departures</span></div>
+      </div></div>
+    </div>
+    <div class="event transit">
+      <div class="event-icon-col"><div class="event-dot">🚆</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Trenitalia Frecciarossa: Naples Centrale → Roma Termini</div>
+        <div class="detail-row"><span class="detail-chip">~1h 10m &nbsp;·&nbsp; ~€25–40 &nbsp;·&nbsp; book trenitalia.com &nbsp;·&nbsp; aim for midday train</span></div>
+        <div class="meta-row"><a class="map-link" href="https://www.google.com/maps/search/Naples+Centrale+train+station" target="_blank">📍 Napoli Centrale</a></div>
+      </div></div>
+    </div>
+    <div class="event hotel">
+      <div class="event-icon-col"><div class="event-dot">🏨</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Check in: Raeli Hotel Lazio &nbsp;<span class="time-badge">From 2:00 PM</span></div>
+        <div class="detail-row">
+          <span class="detail-chip">3 nights Jul 10–13 &nbsp;·&nbsp; Economy Double/Twin &nbsp;·&nbsp; 2 adults</span>
+          <span class="detail-chip">€259.54 prepaid &nbsp;·&nbsp; €36 city tax at property &nbsp;·&nbsp; non-refundable &nbsp;·&nbsp; 📞 +39 06 4456214</span>
+        </div>
+        <div class="meta-row">
+          <a class="map-link" href="https://www.google.com/maps/search/Raeli+Hotel+Lazio+Via+Vicenza+8+Rome" target="_blank">📍 Via Vicenza 8, Central Station, Rome</a>
+          <button class="conf" data-copy="6551548537">🔖 6551548537</button>
+          <button class="conf" data-copy="4981">PIN: 4981</button>
+        </div>
+      </div></div>
+    </div>
+    <div class="event free">
+      <div class="event-icon-col"><div class="event-dot">🌿</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">~8 hours in Rome &nbsp;<span class="time-badge">Afternoon + evening</span></div>
+        <div class="detail-row"><span class="detail-chip">First evening in the city</span></div>
+      </div></div>
+    </div>
+  </div>
+</div>
+<div class="day-divider"></div>
+
+<!-- JUL 11 -->
+<div class="day-block" id="day-10">
+  <div class="day-header">
+    <div class="day-date">Saturday, July 11</div>
+    <div class="day-label">Day 10 &nbsp;·&nbsp; Rome</div>
+  </div>
+  <div class="events">
+    <div class="event free">
+      <div class="event-icon-col"><div class="event-dot">🌿</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Full day in Rome &nbsp;<span class="time-badge">~14 hours</span></div>
+      </div></div>
+    </div>
+    <div class="event hotel">
+      <div class="event-icon-col"><div class="event-dot">🏨</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Sleep: Raeli Hotel Lazio &nbsp;<span class="time-badge">Night 2 of 3</span></div>
+        <div class="meta-row">
+          <a class="map-link" href="https://www.google.com/maps/search/Raeli+Hotel+Lazio+Via+Vicenza+8+Rome" target="_blank">📍 Via Vicenza 8, Rome</a>
+          <button class="conf" data-copy="6551548537">🔖 6551548537</button>
+          <button class="conf" data-copy="4981">PIN: 4981</button>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</div>
+<div class="day-divider"></div>
+
+<!-- JUL 12 -->
+<div class="day-block" id="day-11">
+  <div class="day-header">
+    <div class="day-date">Sunday, July 12</div>
+    <div class="day-label">Day 11 &nbsp;·&nbsp; Rome</div>
+  </div>
+  <div class="events">
+    <div class="event free">
+      <div class="event-icon-col"><div class="event-dot">🌿</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Full day in Rome &nbsp;<span class="time-badge">~14 hours</span></div>
+        <div class="detail-row"><span class="detail-chip">Last full day &nbsp;·&nbsp; pack tonight &nbsp;·&nbsp; flight departs 7:30 AM tomorrow — set a very early alarm</span></div>
+      </div></div>
+    </div>
+    <div class="event hotel">
+      <div class="event-icon-col"><div class="event-dot">🏨</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Sleep: Raeli Hotel Lazio &nbsp;<span class="time-badge">Night 3 of 3 · last night</span></div>
+        <div class="detail-row"><span class="detail-chip">⚠ Leave hotel by 5:00 AM &nbsp;·&nbsp; Leonardo Express first train ~5:08 AM</span></div>
+        <div class="meta-row">
+          <a class="map-link" href="https://www.google.com/maps/search/Raeli+Hotel+Lazio+Via+Vicenza+8+Rome" target="_blank">📍 Via Vicenza 8, Rome</a>
+          <button class="conf" data-copy="6551548537">🔖 6551548537</button>
+          <button class="conf" data-copy="4981">PIN: 4981</button>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</div>
+<div class="day-divider"></div>
+
+<!-- COUNTRY MARKER: heading home -->
+<div class="country-marker">
+  <div class="country-marker-label">Rome → Dublin → New York → San Diego</div>
+</div>
+
+<!-- JUL 13 -->
+<div class="day-block" id="day-12">
+  <div class="day-header">
+    <div class="day-date">Monday, July 13</div>
+    <div class="day-label">Day 12 &nbsp;·&nbsp; Rome → Home</div>
+  </div>
+  <div class="events">
+    <div class="event hotel">
+      <div class="event-icon-col"><div class="event-dot">🏨</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Check out: Raeli Hotel Lazio &nbsp;<span class="time-badge">Leave by 5:00 AM</span></div>
+        <div class="meta-row">
+          <a class="map-link" href="https://www.google.com/maps/search/Raeli+Hotel+Lazio+Via+Vicenza+8+Rome" target="_blank">📍 Via Vicenza 8, Rome</a>
+          <button class="conf" data-copy="6551548537">🔖 6551548537</button>
+        </div>
+      </div></div>
+    </div>
+    <div class="event transit">
+      <div class="event-icon-col"><div class="event-dot">🚆</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Leonardo Express: Roma Termini → Fiumicino FCO &nbsp;<span class="time-badge">~5:08 AM</span></div>
+        <div class="detail-row"><span class="detail-chip">~32 min &nbsp;·&nbsp; €14 &nbsp;·&nbsp; arrives FCO ~5:40 AM &nbsp;·&nbsp; allows 2h before departure</span></div>
+        <div class="meta-row"><a class="map-link" href="https://www.google.com/maps/search/Roma+Termini+station" target="_blank">📍 Roma Termini</a></div>
+      </div></div>
+    </div>
+    <div class="event flight">
+      <div class="event-icon-col"><div class="event-dot">✈</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Aer Lingus EI 401 &nbsp;<span class="time-badge">7:30 AM → 9:50 AM</span></div>
+        <div class="detail-row"><span class="detail-chip">Rome FCO → Dublin DUB &nbsp;·&nbsp; 3h 20m &nbsp;·&nbsp; Economy</span></div>
+        <div class="meta-row">
+          <button class="conf" data-copy="EI401">✈ EI 401</button>
+          <button class="conf" data-copy="3CDNYJ">🔖 3CDNYJ</button>
+        </div>
+      </div></div>
+    </div>
+    <div class="event transit">
+      <div class="event-icon-col"><div class="event-dot">⏱</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Layover: Dublin DUB &nbsp;<span class="time-badge">9:50 AM → 11:10 AM &nbsp;·&nbsp; 1h 20m</span></div>
+        <div class="detail-row"><span class="detail-chip">US Pre-clearance at Dublin — clears US immigration here, arrives JFK as domestic</span></div>
+      </div></div>
+    </div>
+    <div class="event flight">
+      <div class="event-icon-col"><div class="event-dot">✈</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Aer Lingus EI 105 &nbsp;<span class="time-badge">11:10 AM → 1:40 PM</span></div>
+        <div class="detail-row"><span class="detail-chip">Dublin DUB → New York JFK &nbsp;·&nbsp; 7h 30m &nbsp;·&nbsp; Economy</span></div>
+        <div class="meta-row">
+          <button class="conf" data-copy="EI105">✈ EI 105</button>
+          <button class="conf" data-copy="3CDNYJ">🔖 3CDNYJ</button>
+        </div>
+      </div></div>
+    </div>
+    <div class="event transit">
+      <div class="event-icon-col"><div class="event-dot">⏱</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">Layover: New York JFK &nbsp;<span class="time-badge">1:40 PM → 3:59 PM &nbsp;·&nbsp; 2h 19m</span></div>
+        <div class="detail-row"><span class="detail-chip">JetBlue is Terminal 5</span></div>
+      </div></div>
+    </div>
+    <div class="event flight">
+      <div class="event-icon-col"><div class="event-dot">✈</div><div class="event-line"></div></div>
+      <div class="event-body"><div class="event-card">
+        <div class="event-title">JetBlue B6 1189 &nbsp;<span class="time-badge">3:59 PM → 7:00 PM</span></div>
+        <div class="detail-row"><span class="detail-chip">New York JFK → San Diego SAN &nbsp;·&nbsp; 6h 1m &nbsp;·&nbsp; Economy &nbsp;·&nbsp; $760.53 total paid</span></div>
+        <div class="meta-row">
+          <button class="conf" data-copy="B61189">✈ B6 1189</button>
+          <button class="conf" data-copy="KNMLFV">🔖 KNMLFV</button>
+          <button class="conf" data-copy="73404372409486">🔖 Expedia #73404372409486</button>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /timeline -->
+
+<div class="summary">
+  <div class="summary-header">📋 All Bookings at a Glance</div>
+  <div class="summary-grid">
+    <div class="summary-cell">
+      <div class="summary-label">Trip Duration</div>
+      <div class="summary-val">12 days</div>
+      <div class="summary-sub">Jul 2 – Jul 13, 2026</div>
+    </div>
+    <div class="summary-cell">
+      <div class="summary-label">Travelers</div>
+      <div class="summary-val">2 people</div>
+      <div class="summary-sub">Mois Cohen · Iliana Treyger</div>
+    </div>
+    <div class="summary-cell">
+      <div class="summary-label">Flight Segments</div>
+      <div class="summary-val">8 segments</div>
+      <div class="summary-sub">WN · KLM ×2 · Vueling ×2 · Aer Lingus ×2 · JetBlue</div>
+    </div>
+    <div class="summary-cell">
+      <div class="summary-label">Accommodations</div>
+      <div class="summary-val">4 properties</div>
+      <div class="summary-sub">Madrid · Málaga · Sorrento · Rome</div>
+    </div>
+    <div class="summary-cell">
+      <div class="summary-label">Lodging Confirmed</div>
+      <div class="summary-val">~$650</div>
+      <div class="summary-sub">$249 Madrid · $64 Málaga · Seven Hostel · €296 Rome</div>
+    </div>
+    <div class="summary-cell">
+      <div class="summary-label">Flights Confirmed</div>
+      <div class="summary-val">~$1,130</div>
+      <div class="summary-sub">$103 WN · $267 KLM taxes + 63k miles · Vueling · $761 return</div>
+    </div>
+  </div>
+</div>
+
+<div class="book-box">
+  <div class="book-header">⚠ Still Need to Book</div>
+  <div class="book-list">
+    <div class="book-item"><strong>Renfe AVE: Madrid → Málaga</strong> <span>renfe.com · Jul 7 · fills up fast in summer</span></div>
+    <div class="book-item"><strong>Trenitalia Frecciarossa: Naples → Rome</strong> <span>trenitalia.com · Jul 10 · book for best price</span></div>
+  </div>
+</div>
+
+<div class="spacer"></div>
 
 <script>
-  /* ── City accordion ── */
-  function toggleCity(id) {
-    const card = document.getElementById(id);
-    const open = card.classList.toggle('open');
-    card.querySelector('.city-btn').setAttribute('aria-expanded', open);
-  }
+  // Countdown to departure
+  (function() {
+    const depart = new Date('2026-07-02T20:55:00-07:00');
+    const diff = Math.ceil((depart - Date.now()) / 86400000);
+    const el = document.getElementById('cdown');
+    if (diff > 0) el.textContent = diff;
+    else if (diff === 0) el.textContent = 'Today!';
+    else el.textContent = '✈';
+  })();
 
-  /* ── Checklist with localStorage persistence ── */
-  const STORAGE_KEY = 'mois-spain-italy-2026';
+  // Scroll reveal for day blocks
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('vis'); revealObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.06 });
+  document.querySelectorAll('.day-block').forEach(el => revealObs.observe(el));
 
-  function initChecklist() {
-    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-
-    document.querySelectorAll('.chk-item').forEach(item => {
-      const id = item.dataset.id;
-      const cb = item.querySelector('input[type="checkbox"]');
-
-      if (saved[id]) {
-        cb.checked = true;
-        item.classList.add('done');
+  // Active day in sticky nav
+  const dayEls = document.querySelectorAll('.day-block');
+  const navLinks = document.querySelectorAll('.snav a');
+  const activeObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(n => n.classList.remove('active'));
+        const link = document.querySelector(`.snav a[href="#${e.target.id}"]`);
+        if (link) {
+          link.classList.add('active');
+          link.scrollIntoView({ behavior:'smooth', block:'nearest', inline:'center' });
+        }
       }
+    });
+  }, { rootMargin:'-25% 0px -65% 0px' });
+  dayEls.forEach(el => activeObs.observe(el));
 
-      cb.addEventListener('change', () => {
-        item.classList.toggle('done', cb.checked);
-        const state = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-        state[id] = cb.checked;
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-        updateProgress();
+  // Click-to-copy on conf buttons
+  document.querySelectorAll('.conf[data-copy]').forEach(btn => {
+    btn.title = 'Click to copy';
+    btn.addEventListener('click', () => {
+      const val = btn.dataset.copy;
+      navigator.clipboard.writeText(val).then(() => {
+        const orig = btn.textContent;
+        btn.textContent = '✓ copied';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 1800);
+      }).catch(() => {
+        // fallback
+        const ta = document.createElement('textarea');
+        ta.value = val; document.body.appendChild(ta); ta.select();
+        document.execCommand('copy'); document.body.removeChild(ta);
+        const orig = btn.textContent;
+        btn.textContent = '✓ copied'; btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 1800);
       });
     });
-
-    updateProgress();
-  }
-
-  function updateProgress() {
-    const total = document.querySelectorAll('.chk-item').length;
-    const done  = document.querySelectorAll('.chk-item.done').length;
-    const pct   = Math.round((done / total) * 100);
-    document.getElementById('prog-fill').style.width = pct + '%';
-    document.getElementById('prog-text').textContent = done + ' / ' + total + ' booked';
-  }
-
-  initChecklist();
-
-  /* ── Countdown ── */
-  function initCountdown() {
-    var el = document.getElementById('cdwn-days');
-    if (!el) return;
-    function update() {
-      var now = new Date();
-      var dep = new Date('2026-07-02T20:55:00');
-      var diff = dep - now;
-      if (diff <= 0) { el.textContent = '✈'; return; }
-      el.textContent = Math.floor(diff / (1000*60*60*24));
-    }
-    update();
-    setInterval(update, 60000);
-  }
-  initCountdown();
-</script>
-<script>
-  /* ── Custom canvas map ── */
-  function initMap() {
-    var canvas = document.getElementById('trip-map');
-    if (!canvas) return;
-    var W = canvas.offsetWidth || 800;
-    var H = canvas.offsetHeight || Math.round(W * 0.52);
-    var dpr = window.devicePixelRatio || 1;
-    canvas.width  = W * dpr;
-    canvas.height = H * dpr;
-    canvas.style.width  = W + 'px';
-    canvas.style.height = H + 'px';
-    var ctx = canvas.getContext('2d');
-    ctx.scale(dpr, dpr);
-
-    /* ── Projection: 3-zone non-linear (US/Atlantic/Europe) ── */
-    /* lon range: -125 (CA) to +16 (Rome). Zone boundaries: */
-    /* Zone 0 = US West: lon -125 to -60 → x 0%–12% */
-    /* Zone 1 = Atlantic: lon -60 to -5  → x 12%–45% */
-    /* Zone 2 = Europe:   lon -5  to +16 → x 45%–100% */
-    function lonToX(lon) {
-      if (lon <= -60) {
-        return W * (0.00 + 0.12 * (lon - (-125)) / 65);
-      } else if (lon <= -5) {
-        return W * (0.12 + 0.33 * (lon - (-60)) / 55);
-      } else {
-        return W * (0.45 + 0.55 * (lon - (-5)) / 21);
-      }
-    }
-    /* lat range: 20 (N Africa) to 65 (Iceland/Norway) → y 100%–0% */
-    function latToY(lat) {
-      return H * (1 - (lat - 20) / 45);
-    }
-    function project(lat, lon) {
-      return [lonToX(lon), latToY(lat)];
-    }
-
-    /* ── Land masses (simplified polygons) ── */
-    var lands = [
-      /* California / Baja */
-      { pts:[
-        [42,-124],[37,-122],[36.5,-121.9],[35,-121],[34,-120.5],[32.5,-117],[32,-116.5],
-        [28,-113],[28,-114],[30,-115],[32,-117.5],[34,-120],[36,-122],[38,-123],[40,-124.3],[42,-124]
-      ], label:null },
-      /* Pacific Northwest / Oregon */
-      { pts:[[49,-124],[48,-124],[47,-124],[46,-124],[45,-124],[44,-124],[43,-124],[42,-124],[42,-122],[44,-121],[46,-123],[48,-122],[49,-123],[49,-124]], label:null },
-      /* Eastern USA outline (simplified) */
-      { pts:[
-        [47,-68],[45,-67],[44,-70],[43,-71],[42,-70],[41,-71],[40.5,-74],[39,-75],[38,-75.5],
-        [37,-76],[35,-76],[34,-78],[32,-81],[30,-81],[28,-81],[26,-80],[25.5,-80.5],[25,-80],
-        [26,-82],[28,-83],[29,-84],[30,-88],[30,-89],[29,-90],[29,-91],[29,-94],[28,-97],[27,-97.5],
-        [26,-97],[26,-98],[28,-100],[30,-100],[32,-100],[34,-101],[36,-103],[37,-103],[38,-103],[40,-104],
-        [41,-104],[42,-104],[44,-104],[46,-104],[48,-106],[49,-110],[49,-120],[49,-124],[47,-122],[45,-124],
-        [43,-124],[42,-124],[40,-124],[38,-123],[36,-121],[34,-119],[32,-117],[30,-115],[28,-110],
-        [25,-105],[22,-98],[20,-90],[18,-88],[16,-86],[16,-85],[18,-84],[20,-87],[22,-90],[24,-88],
-        [26,-88],[28,-88],[30,-90],[30,-94],[28,-96],[27,-97],[27,-100],[29,-102],[32,-102],[34,-101],
-        [36,-103],[37,-104],[40,-104],[42,-104],[44,-104],[46,-106],[47,-107],[47,-100],[46,-97],
-        [44,-95],[42,-90],[42,-87],[42,-83],[43,-83],[44,-83],[45,-84],[46,-84],[46,-86],[47,-88],
-        [47,-90],[46,-92],[46,-93],[45,-93],[44,-88],[44,-87],[42,-86],[40,-86],[40,-80],[41,-80],
-        [42,-80],[43,-79],[43,-76],[44,-76],[44,-73],[43,-72],[43,-71],[42,-70],[41,-72],[41,-74],
-        [40.5,-74],[40,-74],[38,-75],[37,-76],[35,-77],[34,-78],[33,-79],[32,-81],[30,-82],[29,-81],
-        [27,-80],[26,-80],[25,-80],[24,-81],[24,-82],[25,-82],[26,-82],[27,-83],[28,-83],[29,-85],
-        [30,-88],[29,-90],[29,-91],[30,-93],[29,-94],[28,-96],[27,-97],[26,-98],[24,-97],[22,-98],
-        [20,-90],[18,-88],[16,-86],[15,-85],[14,-84],[14,-83],[15,-83],[16,-85],[16,-86],[18,-88],
-        [20,-87],[22,-90],[24,-91],[26,-90],[28,-90],[30,-89],[30,-88],[30,-85],[31,-85],[32,-85],
-        [33,-84],[34,-84],[36,-84],[37,-84],[37,-82],[38,-82],[38,-81],[39,-80],[40,-79],[40,-77],
-        [41,-74],[42,-70],[43,-70],[44,-69],[45,-67],[47,-68]
-      ], label:null },
-      /* Greenland (simplified) */
-      { pts:[
-        [83,-45],[82,-25],[80,-18],[78,-18],[76,-20],[74,-22],[72,-24],[70,-23],[68,-25],[66,-28],
-        [65,-38],[65,-50],[66,-52],[68,-53],[70,-52],[72,-50],[73,-52],[74,-57],[76,-63],[78,-70],
-        [80,-65],[82,-55],[83,-45]
-      ], label:null },
-      /* Iceland */
-      { pts:[
-        [66,-22],[65,-24],[64,-22],[63,-20],[63,-18],[64,-14],[65,-14],[66,-16],[66,-22]
-      ], label:null },
-      /* Ireland */
-      { pts:[
-        [55,-8],[54,-10],[53,-10],[52,-9],[52,-8],[53,-6],[54,-6],[55,-7],[55,-8]
-      ], label:null },
-      /* Great Britain */
-      { pts:[
-        [58,-5],[57,-6],[56,-5],[55,-4],[54,-4],[53,-5],[52,-5],[51,-5],[50,-5],[50,-4],
-        [51,-3],[52,-2],[53,-1],[54,0],[55,0],[56,0],[57,-2],[58,-3],[58,-5]
-      ], label:null },
-      /* Scotland + north */
-      { pts:[[58,-5],[57,-6],[57,-5],[58,-3],[59,-3],[60,-2],[61,-2],[60,-4],[58,-5]], label:null },
-      /* Iberian Peninsula */
-      { pts:[
-        [44,-9],[43,-9],[42,-9],[41,-9],[40,-8.5],[38,-9],[36,-8],[36,-6],[36,-5.5],[37,-2],
-        [38,-1],[39,0],[40.5,0],[41,1],[43,2],[44,3],[44,2],[43,1],[42,-1],[43,-2],[43,-4],
-        [44,-6],[44,-9]
-      ], label:null },
-      /* France */
-      { pts:[
-        [51,2],[50,2],[49,1],[48,-2],[47,-2],[46,-2],[45,-1],[44,0],[43,3],[43,5],[44,6],
-        [45,6],[46,7],[47,8],[48,8],[49,8],[50,7],[51,5],[51,2]
-      ], label:null },
-      /* Benelux + Germany + Switzerland + Austria */
-      { pts:[
-        [54,8],[53,7],[52,5],[51,4],[51,5],[51,7],[52,8],[53,9],[54,10],[55,10],[54,12],
-        [54,14],[52,14],[51,15],[50,14],[49,13],[48,13],[47,10],[47,8],[48,8],[49,8],[50,7],
-        [51,5],[52,5],[53,7],[54,8]
-      ], label:null },
-      /* Italy */
-      { pts:[
-        [44,6],[43,5],[43,8],[44,8],[44,9],[43,11],[43,12],[42,12],[42,14],[41,14],[41,15],
-        [40,16],[39,16],[38,15],[38,16],[39,17],[40,18],[41,16],[42,14],[43,14],[44,12],
-        [44,11],[44,9],[44,8],[44,6]
-      ], label:null },
-      /* Sicily */
-      { pts:[
-        [38,12],[37,12],[37,13],[37,14],[38,15],[38,14],[38,13],[38,12]
-      ], label:null },
-      /* Sardinia */
-      { pts:[[41,8],[40,8],[39,9],[39,10],[40,10],[41,9],[41,8]], label:null },
-      /* North Africa (Morocco, Algeria, Tunisia) */
-      { pts:[
-        [36,-6],[35,-6],[34,-5],[33,-2],[33,0],[33,2],[34,4],[34,6],[34,8],[33,10],[33,12],
-        [34,12],[35,11],[36,10],[37,10],[37,8],[36,7],[36,5],[36,3],[36,1],[36,-2],[35,-5],[36,-6]
-      ], label:null },
-      /* Corsica */
-      { pts:[[43,9],[42,9],[42,10],[43,10],[43,9]], label:null },
-    ];
-
-    /* ── Great circle arc ── */
-    function gcArc(from, to, n) {
-      n = n || 80;
-      var toR = function(d) { return d * Math.PI / 180; };
-      var toD = function(r) { return r * 180 / Math.PI; };
-      var phi1 = toR(from[0]), lam1 = toR(from[1]);
-      var phi2 = toR(to[0]),   lam2 = toR(to[1]);
-      var d = 2 * Math.asin(Math.sqrt(
-        Math.pow(Math.sin((phi2-phi1)/2), 2) +
-        Math.cos(phi1)*Math.cos(phi2)*Math.pow(Math.sin((lam2-lam1)/2), 2)
-      ));
-      if (d < 0.001) return [[from[0],from[1]],[to[0],to[1]]];
-      var pts = [];
-      for (var i = 0; i <= n; i++) {
-        var f = i / n;
-        var A = Math.sin((1-f)*d)/Math.sin(d);
-        var B = Math.sin(f*d)/Math.sin(d);
-        var x = A*Math.cos(phi1)*Math.cos(lam1) + B*Math.cos(phi2)*Math.cos(lam2);
-        var y = A*Math.cos(phi1)*Math.sin(lam1) + B*Math.cos(phi2)*Math.sin(lam2);
-        var z = A*Math.sin(phi1) + B*Math.sin(phi2);
-        pts.push([toD(Math.atan2(z, Math.sqrt(x*x+y*y))), toD(Math.atan2(y, x))]);
-      }
-      return pts;
-    }
-
-    /* ── Coordinate data ── */
-    var C = {
-      sandiego:  [32.7157, -117.1611],
-      oakland:   [37.8044, -122.2712],
-      schiphol:  [52.3105,   4.7683],
-      amsterdam: [52.3730,   4.8924],
-      madrid:    [40.4168,  -3.7038],
-      granada:   [37.1773,  -3.5986],
-      malaga:    [36.7213,  -4.4214],
-      naples:    [40.8518,  14.2681],
-      pompeii:   [40.7461,  14.4989],
-      sorrento:  [40.6263,  14.3757],
-      positano:  [40.6280,  14.4850],
-      amalfi:    [40.6340,  14.6027],
-      rome:      [41.9028,  12.4964],
-      dublin:    [53.3498,  -6.2603],
-      jfk:       [40.6413, -73.7781],
-    };
-
-    /* ── Animated plane objects ── */
-    var planes = [
-      { from:C.sandiego,  to:C.oakland,   t:0, speed:0.0007, label:'WN4841 SAN→OAK',    color:'#e8944a' },
-      { from:C.oakland,   to:C.amsterdam, t:0.15, speed:0.00025, label:'KLM OAK→AMS',   color:'#e8944a' },
-      { from:C.amsterdam, to:C.madrid,    t:0.3,  speed:0.0006,  label:'KLM AMS→MAD',   color:'#e8944a' },
-      { from:C.malaga,    to:C.naples,    t:0.45, speed:0.0006,  label:'FR MAL→NAP',    color:'#cf5b45' },
-      { from:C.rome,      to:C.dublin,    t:0.6,  speed:0.0005,  label:'EI401 FCO→DUB', color:'#e8944a' },
-      { from:C.dublin,    to:C.jfk,       t:0.7,  speed:0.00028, label:'EI105 DUB→JFK', color:'#e8944a' },
-      { from:C.jfk,       to:C.sandiego,  t:0.85, speed:0.00035, label:'B6 JFK→SAN',    color:'#e8944a' },
-    ];
-
-    /* train routes with real waypoints */
-    var trains = [
-      /* Schiphol → Amsterdam Centraal */
-      { pts:[ C.schiphol, C.amsterdam ], label:'Train: Schiphol→AMS (~15 min, €11)' },
-      /* Madrid → Granada via Aranjuez, Manzanares, Bailén, Jaén */
-      { pts:[ C.madrid, [40.03,-3.60], [39.0,-3.52], [38.1,-3.72], [37.77,-3.79], C.granada ], label:'Bus: Madrid→Granada (~4.5 hrs)' },
-      /* Naples → Pompeii → Sorrento (Circumvesuviana) */
-      { pts:[ C.naples, [40.81,14.35], C.pompeii, C.sorrento ], label:'Circumvesuviana: NAP→POM→SOR' },
-      /* Naples → Rome (high-speed via Cassino, Frosinone) */
-      { pts:[ C.naples, [41.08,14.33], [41.49,13.83], [41.64,13.35], C.rome ], label:'High-speed: Naples→Rome (~70 min)' },
-    ];
-
-    /* ferry routes */
-    var ferries = [
-      { pts:[ C.sorrento, C.positano, C.amalfi ],             label:'Boat: Sorrento→Positano→Amalfi' },
-      { pts:[ C.amalfi, [40.68,14.76], [40.68,14.96], C.naples ], label:'Ferry: Amalfi→Salerno→Naples' },
-    ];
-
-    /* major destination cities for labels */
-    var cities = [
-      { c:C.sandiego,  name:'San Diego',  type:'home' },
-      { c:C.amsterdam, name:'Amsterdam',  type:'dest' },
-      { c:C.madrid,    name:'Madrid',     type:'dest' },
-      { c:C.granada,   name:'Granada',    type:'dest' },
-      { c:C.naples,    name:'Naples',     type:'transit' },
-      { c:C.sorrento,  name:'Sorrento',   type:'dest' },
-      { c:C.rome,      name:'Rome',       type:'dest' },
-      { c:C.dublin,    name:'Dublin',     type:'transit' },
-      { c:C.jfk,       name:'JFK',        type:'transit' },
-    ];
-
-    /* ── Drawing helpers ── */
-    function polyPath(ptArray) {
-      /* ptArray: array of [lat,lon] */
-      ctx.beginPath();
-      ptArray.forEach(function(p, i) {
-        var xy = project(p[0], p[1]);
-        if (i === 0) ctx.moveTo(xy[0], xy[1]);
-        else         ctx.lineTo(xy[0], xy[1]);
-      });
-    }
-
-    function drawLand() {
-      lands.forEach(function(land) {
-        ctx.beginPath();
-        land.pts.forEach(function(p, i) {
-          var xy = project(p[0], p[1]);
-          if (i === 0) ctx.moveTo(xy[0], xy[1]);
-          else         ctx.lineTo(xy[0], xy[1]);
-        });
-        ctx.closePath();
-        ctx.fillStyle = '#1b2d45';
-        ctx.fill();
-        ctx.strokeStyle = 'rgba(200,162,88,0.25)';
-        ctx.lineWidth = 0.8;
-        ctx.stroke();
-      });
-    }
-
-    function drawOceanLabels() {
-      ctx.font = 'italic ' + Math.round(W*0.013) + 'px Georgia,serif';
-      ctx.fillStyle = 'rgba(200,162,88,0.22)';
-      ctx.textAlign = 'center';
-      var atl = project(47, -35);
-      ctx.fillText('A T L A N T I C', atl[0], atl[1]);
-      ctx.fillText('O C E A N', atl[0], atl[1] + Math.round(W*0.018));
-      var med = project(37, 10);
-      ctx.fillText('M E D I T E R R A N E A N', med[0], med[1]);
-      ctx.textAlign = 'left';
-    }
-
-    function drawOceanWaves() {
-      ctx.strokeStyle = 'rgba(200,162,88,0.035)';
-      ctx.lineWidth = 0.7;
-      for (var lat = 25; lat < 60; lat += 4) {
-        ctx.beginPath();
-        for (var lon = -55; lon < -8; lon += 2) {
-          var xy = project(lat + Math.sin(lon*0.5)*1.5, lon);
-          if (lon === -55) ctx.moveTo(xy[0], xy[1]);
-          else             ctx.lineTo(xy[0], xy[1]);
-        }
-        ctx.stroke();
-      }
-    }
-
-    function drawFlightArcs() {
-      planes.forEach(function(p) {
-        var arc = gcArc(p.from, p.to, 80);
-        ctx.beginPath();
-        arc.forEach(function(pt, i) {
-          var xy = project(pt[0], pt[1]);
-          if (i === 0) ctx.moveTo(xy[0], xy[1]);
-          else         ctx.lineTo(xy[0], xy[1]);
-        });
-        ctx.strokeStyle = 'rgba(232,148,74,0.45)';
-        ctx.lineWidth = 1.2;
-        ctx.setLineDash([5, 4]);
-        ctx.stroke();
-        ctx.setLineDash([]);
-      });
-    }
-
-    function drawTrains() {
-      trains.forEach(function(t) {
-        polyPath(t.pts);
-        ctx.strokeStyle = 'rgba(200,162,88,0.75)';
-        ctx.lineWidth = 2;
-        ctx.setLineDash([]);
-        ctx.stroke();
-      });
-    }
-
-    function drawFerries() {
-      ferries.forEach(function(f) {
-        polyPath(f.pts);
-        ctx.strokeStyle = 'rgba(82,184,204,0.7)';
-        ctx.lineWidth = 1.8;
-        ctx.setLineDash([4, 4]);
-        ctx.stroke();
-        ctx.setLineDash([]);
-      });
-    }
-
-    function interp(arc, t) {
-      var i = Math.min(Math.floor(t * (arc.length - 1)), arc.length - 2);
-      var f = t * (arc.length - 1) - i;
-      var a = arc[i], b = arc[i+1];
-      return [a[0] + f*(b[0]-a[0]), a[1] + f*(b[1]-a[1])];
-    }
-
-    function drawPlanes(ts) {
-      planes.forEach(function(p) {
-        var arc = gcArc(p.from, p.to, 80);
-        var t = ((p.t + ts * p.speed) % 1);
-        var pos = interp(arc, t);
-        var xy = project(pos[0], pos[1]);
-
-        /* Glow */
-        var g = ctx.createRadialGradient(xy[0], xy[1], 0, xy[0], xy[1], 10);
-        g.addColorStop(0, p.color + 'cc');
-        g.addColorStop(1, 'transparent');
-        ctx.fillStyle = g;
-        ctx.beginPath();
-        ctx.arc(xy[0], xy[1], 10, 0, Math.PI*2);
-        ctx.fill();
-
-        /* Dot */
-        ctx.beginPath();
-        ctx.arc(xy[0], xy[1], 3.5, 0, Math.PI*2);
-        ctx.fillStyle = p.color;
-        ctx.fill();
-        ctx.strokeStyle = '#fff';
-        ctx.lineWidth = 0.8;
-        ctx.stroke();
-      });
-    }
-
-    function drawCities(ts) {
-      cities.forEach(function(city) {
-        var xy = project(city.c[0], city.c[1]);
-        var isDest = city.type === 'dest';
-        var r = isDest ? 5.5 : 3.5;
-        var col = city.type === 'home' ? '#a0b4a0' :
-                  city.type === 'dest' ? '#c8a258' : '#6b7f8e';
-
-        if (isDest) {
-          /* pulsing halo */
-          var pulse = 0.5 + 0.5 * Math.sin(ts * 0.002);
-          var hr = r + 4 + pulse * 4;
-          var hg = ctx.createRadialGradient(xy[0], xy[1], r, xy[0], xy[1], hr);
-          hg.addColorStop(0, col + '66');
-          hg.addColorStop(1, 'transparent');
-          ctx.fillStyle = hg;
-          ctx.beginPath();
-          ctx.arc(xy[0], xy[1], hr, 0, Math.PI*2);
-          ctx.fill();
-        }
-
-        /* dot */
-        ctx.beginPath();
-        ctx.arc(xy[0], xy[1], r, 0, Math.PI*2);
-        ctx.fillStyle = col;
-        ctx.fill();
-        ctx.strokeStyle = '#0b1524';
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
-
-        /* label */
-        ctx.font = (isDest ? 'bold ' : '') + Math.round(W*0.012) + 'px "Lora",Georgia,serif';
-        ctx.fillStyle = isDest ? '#e6c47a' : 'rgba(200,162,88,0.6)';
-        ctx.textAlign = 'left';
-        ctx.fillText(city.name, xy[0] + r + 3, xy[1] + 4);
-      });
-    }
-
-    function drawCompass() {
-      var cx = W - 38, cy = H - 38, r = 18;
-      ctx.strokeStyle = 'rgba(200,162,88,0.35)';
-      ctx.lineWidth = 1;
-      ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI*2); ctx.stroke();
-      /* N */
-      ctx.beginPath();
-      ctx.moveTo(cx, cy - r + 3);
-      ctx.lineTo(cx - 4, cy + 2);
-      ctx.lineTo(cx, cy - 2);
-      ctx.lineTo(cx + 4, cy + 2);
-      ctx.closePath();
-      ctx.fillStyle = 'rgba(200,162,88,0.55)';
-      ctx.fill();
-      ctx.font = 'bold 9px "Cinzel",serif';
-      ctx.fillStyle = 'rgba(200,162,88,0.7)';
-      ctx.textAlign = 'center';
-      ctx.fillText('N', cx, cy - r - 4);
-    }
-
-    function drawLegend() {
-      var items = [
-        { color:'rgba(232,148,74,0.7)', dash:true,  label:'Flight' },
-        { color:'rgba(200,162,88,0.8)', dash:false, label:'Train' },
-        { color:'rgba(82,184,204,0.8)', dash:true,  label:'Ferry/Boat' },
-      ];
-      var x = 10, y = H - 56;
-      items.forEach(function(item) {
-        ctx.beginPath();
-        ctx.strokeStyle = item.color;
-        ctx.lineWidth = 2;
-        if (item.dash) ctx.setLineDash([4,3]);
-        else           ctx.setLineDash([]);
-        ctx.moveTo(x, y + 4);
-        ctx.lineTo(x + 20, y + 4);
-        ctx.stroke();
-        ctx.setLineDash([]);
-        ctx.font = '10px "DM Sans",sans-serif';
-        ctx.fillStyle = 'rgba(200,162,88,0.55)';
-        ctx.textAlign = 'left';
-        ctx.fillText(item.label, x + 24, y + 8);
-        y += 16;
-      });
-    }
-
-    /* ── Animation loop ── */
-    var startTs = null;
-    function draw(ts) {
-      if (!startTs) startTs = ts;
-      var elapsed = ts - startTs;
-
-      /* Ocean background */
-      ctx.fillStyle = '#0b1524';
-      ctx.fillRect(0, 0, W, H);
-
-      drawOceanWaves();
-      drawLand();
-      drawOceanLabels();
-      drawFlightArcs();
-      drawTrains();
-      drawFerries();
-      drawPlanes(elapsed);
-      drawCities(elapsed);
-      drawCompass();
-      drawLegend();
-
-      requestAnimationFrame(draw);
-    }
-    requestAnimationFrame(draw);
-  }
-
-  initMap();
+  });
 </script>
 </body>
 </html>
