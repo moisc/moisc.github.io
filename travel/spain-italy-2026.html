@@ -3,977 +3,1108 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mois & Iliana — Europe Trip Jul 2026</title>
+<title>EUROPE 2026 — Flight Plan</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;1,200;1,300&family=Courier+Prime:wght@400;700&display=swap');
 
-  :root {
-    --ink: #0f0e0c;
-    --cream: #f5f0e8;
-    --warm-white: #faf8f4;
-    --gold: #c9a84c;
-    --rust: #b85c38;
-    --sage: #6b7c5e;
-    --sky: #4a7fa5;
-    --night: #1c2333;
-    --muted: #8a8278;
-    --border: rgba(15,14,12,0.09);
-    --shadow-sm: 0 1px 3px rgba(15,14,12,.07), 0 1px 2px rgba(15,14,12,.04);
-    --shadow-md: 0 4px 14px rgba(15,14,12,.09), 0 2px 4px rgba(15,14,12,.05);
-  }
+:root {
+  --bg:    #F2ECE0;
+  --bg2:   #EDE5D4;
+  --bg3:   #E5DCC8;
+  --surf:  #FEFCF6;
+  --text:  #180E07;
+  --text2: #3C2C1A;
+  --muted: #7A6852;
+  --dim:   #A8906C;
+  --red:   #C41210;
+  --red2:  #E01816;
+  --redb:  rgba(196,18,16,.07);
+  --redbh: rgba(196,18,16,.14);
+  --grn:   #2A6B45;
+  --grnb:  rgba(42,107,69,.08);
+  --blu:   #1C558A;
+  --blub:  rgba(28,85,138,.08);
+  --teal:  #1C6E6E;
+  --tealb: rgba(28,110,110,.08);
+  --gold:  #9A6E18;
+  --goldb: rgba(154,110,24,.08);
+  --bdr:   rgba(24,14,7,.09);
+  --bdr2:  rgba(24,14,7,.15);
+}
 
-  * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior:smooth; }
-  body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; font-weight:300; }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 
-  /* ── STICKY NAV ── */
-  .snav {
-    position:sticky; top:0; z-index:100;
-    background:rgba(250,248,244,.94);
-    backdrop-filter:blur(12px);
-    -webkit-backdrop-filter:blur(12px);
-    border-bottom:1px solid var(--border);
-    display:flex; align-items:stretch;
-    overflow-x:auto; scrollbar-width:none;
-    -webkit-overflow-scrolling:touch;
-  }
-  .snav::-webkit-scrollbar { display:none; }
-  .snav a {
-    flex-shrink:0;
-    font-family:'DM Mono',monospace; font-size:9px; letter-spacing:1.5px;
-    text-transform:uppercase; color:var(--muted);
-    padding:10px 14px; text-decoration:none;
-    border-bottom:2px solid transparent;
-    transition:color .18s, border-color .18s;
-    white-space:nowrap;
-  }
-  .snav a:hover { color:var(--night); }
-  .snav a.active { color:var(--night); border-bottom-color:var(--gold); }
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Josefin Sans',sans-serif;
+  font-size:14px;
+  line-height:1.5;
+}
 
-  /* ── HERO ── */
-  .hero {
-    background:var(--night); color:var(--cream);
-    padding:56px 40px 44px; position:relative; overflow:hidden;
-  }
-  .hero::before {
-    content:''; position:absolute; top:-120px; right:-120px;
-    width:520px; height:520px;
-    background:radial-gradient(circle,rgba(201,168,76,.16) 0%,transparent 62%);
-    pointer-events:none;
-    animation:hblob 14s ease-in-out infinite alternate;
-  }
-  .hero::after {
-    content:''; position:absolute; bottom:-100px; left:-80px;
-    width:380px; height:380px;
-    background:radial-gradient(circle,rgba(74,127,165,.11) 0%,transparent 62%);
-    pointer-events:none;
-    animation:hblob 18s ease-in-out infinite alternate-reverse;
-  }
-  @keyframes hblob {
-    from { transform:translate(0,0) scale(1); }
-    to   { transform:translate(24px,-18px) scale(1.07); }
-  }
-  .hero-inner { position:relative; z-index:1; }
+/* Paper grain */
+body::before{
+  content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='0.022'/%3E%3C/svg%3E");
+  opacity:.55;mix-blend-mode:multiply;
+}
 
-  .hero-eyebrow {
-    font-family:'DM Mono',monospace; font-size:10px; letter-spacing:5px;
-    color:var(--gold); text-transform:uppercase; margin-bottom:16px;
-    opacity:0; animation:fadeup .55s .1s ease forwards;
-  }
-  .hero-title {
-    font-family:'Playfair Display',serif; font-size:clamp(32px,6vw,58px);
-    font-weight:900; line-height:1.02; margin-bottom:10px;
-    opacity:0; animation:fadeup .55s .2s ease forwards;
-  }
-  .hero-title em { font-style:italic; color:var(--gold); }
-  .hero-sub {
-    font-family:'DM Mono',monospace; font-size:10px; letter-spacing:3px;
-    color:rgba(245,240,232,.38); margin-bottom:26px;
-    opacity:0; animation:fadeup .55s .3s ease forwards;
-  }
-  .hero-route {
-    display:flex; flex-wrap:wrap; align-items:center;
-    font-family:'DM Mono',monospace; font-size:11px;
-    color:rgba(245,240,232,.45); line-height:2;
-    opacity:0; animation:fadeup .55s .4s ease forwards;
-  }
-  .hero-route .city { color:var(--cream); font-weight:500; }
-  .hero-route .arr  { color:var(--gold); margin:0 5px; font-size:9px; }
+/* ── STICKY NAV ── */
+.snav{
+  position:sticky;top:0;z-index:100;
+  background:var(--surf);
+  border-bottom:2.5px solid var(--red);
+  display:flex;align-items:stretch;
+  overflow-x:auto;scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+  box-shadow:0 2px 20px rgba(24,14,7,.10);
+}
+.snav::-webkit-scrollbar{display:none;}
+.snav-brand{
+  flex-shrink:0;padding:0 20px;
+  display:flex;align-items:center;
+  border-right:1px solid var(--bdr);
+}
+.snav-logo{
+  font-size:10px;font-weight:700;letter-spacing:4px;
+  color:var(--red);text-transform:uppercase;
+  white-space:nowrap;
+}
+.snav a{
+  flex-shrink:0;
+  font-size:8.5px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);padding:12px 13px;text-decoration:none;white-space:nowrap;
+  border-bottom:2.5px solid transparent;margin-bottom:-2.5px;
+  transition:color .12s,border-color .12s;
+}
+.snav a:hover{color:var(--text);}
+.snav a.active{color:var(--red);border-bottom-color:var(--red);}
 
-  .hero-bottom {
-    display:flex; justify-content:space-between; align-items:flex-end;
-    margin-top:24px; flex-wrap:wrap; gap:14px;
-    opacity:0; animation:fadeup .55s .5s ease forwards;
-  }
-  .hero-people {
-    font-family:'DM Mono',monospace; font-size:9.5px;
-    letter-spacing:3px; color:rgba(201,168,76,.65); text-transform:uppercase;
-  }
-  .hero-cdown { text-align:right; }
-  .cdown-num {
-    font-family:'Playfair Display',serif; font-size:32px; font-weight:700;
-    color:var(--gold); line-height:1;
-  }
-  .cdown-lbl {
-    font-family:'DM Mono',monospace; font-size:8px; letter-spacing:2.5px;
-    color:rgba(245,240,232,.32); text-transform:uppercase; margin-top:4px;
-  }
+/* ── HERO ── */
+.hero{
+  position:relative;overflow:hidden;
+  background:var(--surf);
+  border-bottom:1px solid var(--bdr2);
+}
 
-  @keyframes fadeup {
-    from { opacity:0; transform:translateY(14px); }
-    to   { opacity:1; transform:translateY(0); }
-  }
+/* Faint watermark — echoes the terminal's sense of scale */
+.hero-wm{
+  position:absolute;right:-16px;top:0;bottom:0;
+  display:flex;align-items:center;
+  font-size:clamp(100px,22vw,200px);font-weight:700;
+  color:rgba(196,18,16,.04);
+  letter-spacing:-6px;line-height:1;
+  user-select:none;pointer-events:none;
+  white-space:nowrap;
+}
 
-  /* ── LEGEND ── */
-  .legend {
-    display:flex; flex-wrap:wrap; gap:6px 20px;
-    padding:11px 40px; background:var(--warm-white);
-    border-bottom:1px solid var(--border);
-  }
-  .legend-item { display:flex; align-items:center; gap:6px; font-family:'DM Mono',monospace; font-size:9px; letter-spacing:1.8px; color:var(--muted); text-transform:uppercase; }
-  .legend-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+/* Red sweep accent — curves like Saarinen's roof */
+.hero::after{
+  content:'';position:absolute;
+  bottom:-120px;right:-120px;
+  width:480px;height:480px;border-radius:50%;
+  background:radial-gradient(circle at 65% 65%,rgba(196,18,16,.05) 0%,transparent 55%);
+  pointer-events:none;
+}
 
-  /* ── TIMELINE ── */
-  .timeline { padding:0 40px 60px; position:relative; max-width:920px; }
-  .timeline::before {
-    content:''; position:absolute; left:67px; top:0; bottom:0; width:1px;
-    background:linear-gradient(to bottom, var(--night) 0%, rgba(15,14,12,.14) 6%, rgba(15,14,12,.14) 94%, transparent 100%);
-  }
+.hero-inner{
+  padding:56px 60px 48px;
+  position:relative;z-index:1;
+  max-width:960px;
+}
 
-  /* ── COUNTRY LABEL ── */
-  .country-marker {
-    padding-top:44px; position:relative;
-  }
-  .country-marker-label {
-    display:flex; align-items:center; gap:10px;
-    font-family:'DM Mono',monospace; font-size:8.5px; letter-spacing:4px;
-    color:var(--muted); text-transform:uppercase;
-    margin-bottom:2px;
-  }
-  .country-marker-label::before { content:''; flex-shrink:0; width:18px; height:1px; background:var(--muted); opacity:.35; }
-  .country-marker-label::after  { content:''; flex:1; height:1px; background:var(--muted); opacity:.12; }
+.hero-eyebrow{
+  font-size:8.5px;font-weight:600;letter-spacing:5px;text-transform:uppercase;
+  color:var(--red);margin-bottom:22px;
+  display:flex;align-items:center;gap:14px;
+  opacity:0;animation:rise .5s .05s ease forwards;
+}
+.hero-eyebrow::before{content:'';width:28px;height:1.5px;background:var(--red);}
 
-  /* ── DAY BLOCK ── */
-  .day-block {
-    padding-top:34px;
-    opacity:0; transform:translateY(18px);
-    transition:opacity .48s ease, transform .48s ease;
-  }
-  .day-block.vis { opacity:1; transform:translateY(0); }
+.hero-title{
+  font-size:clamp(48px,10vw,108px);font-weight:100;
+  letter-spacing:-2px;line-height:.9;
+  color:var(--text);
+  opacity:0;animation:rise .5s .14s ease forwards;
+}
+.hero-title em{font-style:italic;font-weight:200;color:var(--red);}
 
-  .day-header { display:flex; align-items:baseline; gap:12px; padding-bottom:4px; position:relative; }
-  .day-header::before {
-    content:''; position:absolute; left:-20px; top:7px;
-    width:11px; height:11px; border-radius:50%;
-    background:var(--night); border:2.5px solid var(--cream); box-shadow:0 0 0 1.5px var(--night);
-  }
-  .day-date { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--night); }
-  .day-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:2.5px; color:var(--muted); text-transform:uppercase; }
+.hero-sub{
+  font-size:9.5px;font-weight:600;letter-spacing:4.5px;text-transform:uppercase;
+  color:var(--muted);margin-top:18px;margin-bottom:30px;
+  opacity:0;animation:rise .5s .22s ease forwards;
+}
 
-  /* ── EVENTS ── */
-  .events { padding-top:7px; }
-  .event { display:grid; grid-template-columns:22px 1fr; gap:0 13px; padding:3px 0; }
-  .event-icon-col { display:flex; flex-direction:column; align-items:center; padding-top:2px; }
-  .event-dot {
-    width:22px; height:22px; border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-    font-size:10px; flex-shrink:0; z-index:1;
-    box-shadow:0 1px 4px rgba(15,14,12,.18);
-  }
-  .event-line { width:1px; flex:1; min-height:6px; background:var(--border); margin-top:2px; }
+.hero-route{
+  display:flex;flex-wrap:wrap;align-items:center;
+  font-size:8.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--dim);line-height:2.2;
+  opacity:0;animation:rise .5s .30s ease forwards;
+}
+.hero-route .city{color:var(--text2);transition:color .12s;}
+.hero-route .city:hover{color:var(--red);}
+.hero-route .arr{color:var(--dim);margin:0 6px;font-size:7px;}
 
-  .event.flight  .event-dot { background:var(--sky);   color:#fff; }
-  .event.hotel   .event-dot { background:var(--gold);  color:var(--night); }
-  .event.transit .event-dot { background:var(--sage);  color:#fff; }
-  .event.sleep   .event-dot { background:var(--night); color:var(--cream); }
-  .event.ferry   .event-dot { background:#5b9cb8;      color:#fff; }
-  .event.free    .event-dot { background:#c2b49a;      color:#fff; }
+.hero-footer{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  margin-top:32px;padding-top:22px;
+  border-top:1px solid var(--bdr);
+  flex-wrap:wrap;gap:16px;
+  opacity:0;animation:rise .5s .38s ease forwards;
+}
+.hero-pax{
+  font-size:8.5px;font-weight:600;letter-spacing:3.5px;text-transform:uppercase;
+  color:var(--muted);
+}
+.hero-cdown{display:flex;align-items:baseline;gap:7px;}
+.cdown-num{font-size:46px;font-weight:100;letter-spacing:-2px;color:var(--red);line-height:1;}
+.cdown-lbl{font-size:8px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--dim);}
 
-  /* ── EVENT CARDS ── */
-  .event-card {
-    border-radius:9px; padding:11px 15px;
-    box-shadow:var(--shadow-sm);
-    transition:transform .18s ease, box-shadow .18s ease;
-  }
-  .event-card:hover { transform:translateY(-1px); box-shadow:var(--shadow-md); }
+@keyframes rise{
+  from{opacity:0;transform:translateY(14px);}
+  to{opacity:1;transform:translateY(0);}
+}
 
-  .event.flight  .event-card { background:#eef4f8; }
-  .event.hotel   .event-card { background:#fdf8ee; border-left:3px solid var(--gold); }
-  .event.transit .event-card { background:#f0f4ee; }
-  .event.sleep   .event-card { background:var(--night); color:var(--cream); }
-  .event.ferry   .event-card { background:#eaf4f8; }
-  .event.free    .event-card { background:#f7f5f0; border-left:3px solid #c2b49a; }
+/* ── LEGEND ── */
+.legend{
+  display:flex;flex-wrap:wrap;gap:4px 22px;
+  padding:11px 60px;
+  background:var(--bg2);
+  border-bottom:1px solid var(--bdr);
+}
+.leg-item{
+  display:flex;align-items:center;gap:6px;
+  font-size:8px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);
+}
+.leg-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
 
-  .event-title { font-size:13px; font-weight:500; line-height:1.35; margin-bottom:3px; }
-  .event.sleep .event-title { color:var(--cream); }
+/* ── COUNTRY DIVIDER ── */
+.ctry-div{
+  padding:24px 0 0;border-top:1px solid var(--bdr);margin-top:4px;
+}
+.ctry-inner{
+  display:flex;align-items:center;padding:0 60px;
+}
+.ctry-inner::before{content:'';flex-shrink:0;width:24px;height:1.5px;background:var(--red);opacity:.6;}
+.ctry-text{
+  font-size:8px;font-weight:700;letter-spacing:4.5px;text-transform:uppercase;
+  color:var(--muted);padding:0 14px;
+}
+.ctry-inner::after{content:'';flex:1;height:1px;background:var(--bdr);}
 
-  .time-badge { font-family:'DM Mono',monospace; font-size:10px; color:var(--sky); }
-  .event.hotel   .time-badge { color:#9a7c30; }
-  .event.transit .time-badge { color:var(--sage); }
-  .event.sleep   .time-badge { color:rgba(245,240,232,.6); }
-  .event.ferry   .time-badge { color:#4a8fa8; }
-  .event.free    .time-badge { color:#7a6a58; }
+/* ── DAY BLOCK ── */
+.day-block{opacity:0;transform:translateY(16px);transition:opacity .4s ease,transform .4s ease;}
+.day-block.vis{opacity:1;transform:translateY(0);}
 
-  .detail-row { display:flex; flex-wrap:wrap; gap:3px 10px; margin-top:5px; }
-  .detail-chip { font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); line-height:1.55; }
-  .event.sleep  .detail-chip { color:rgba(245,240,232,.5); }
-  .event.hotel  .detail-chip { color:#7a6e58; }
-  .event.flight .detail-chip { color:#5a7a90; }
-  .event.free   .detail-chip { color:#8a7a68; }
+.day-header{
+  display:flex;align-items:center;
+  background:var(--bg2);
+  border-top:1px solid var(--bdr);
+  border-bottom:1px solid var(--bdr);
+  border-left:4px solid var(--red);
+  padding:11px 56px;
+  position:sticky;top:38px;z-index:50;
+}
+.day-num{
+  font-size:8px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  color:var(--red);margin-right:22px;min-width:50px;
+}
+.day-date{font-size:15px;font-weight:300;color:var(--text);letter-spacing:.3px;margin-right:16px;}
+.day-desc{
+  font-size:8.5px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--muted);
+}
+.day-fill{flex:1;}
+.day-dot{width:7px;height:7px;border-radius:50%;border:1.5px solid var(--red);}
 
-  .meta-row { display:flex; flex-wrap:wrap; gap:5px; margin-top:8px; align-items:center; }
+/* ── EVENTS ── */
+.events{display:flex;flex-direction:column;}
 
-  /* conf codes — click to copy */
-  .conf {
-    font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.5px;
-    padding:3px 8px; border-radius:4px;
-    background:rgba(15,14,12,.06); color:var(--muted);
-    display:inline-flex; align-items:center; gap:4px;
-    cursor:pointer; border:none; font:inherit;
-    transition:background .15s, color .15s;
-    user-select:none;
-  }
-  .conf:hover { background:rgba(15,14,12,.12); color:var(--ink); }
-  .conf.copied { background:rgba(107,124,94,.15); color:var(--sage); }
-  .event.sleep  .conf { background:rgba(255,255,255,.1);  color:rgba(245,240,232,.45); }
-  .event.sleep  .conf:hover { background:rgba(255,255,255,.18); color:rgba(245,240,232,.8); }
-  .event.hotel  .conf { background:rgba(201,168,76,.12); color:#9a7c30; }
-  .event.hotel  .conf:hover { background:rgba(201,168,76,.22); }
-  .event.flight .conf { background:rgba(74,127,165,.12); color:#4a7fa5; }
-  .event.flight .conf:hover { background:rgba(74,127,165,.22); }
+.event{
+  display:grid;grid-template-columns:52px 1fr auto;
+  align-items:start;
+  padding:15px 60px;
+  border-bottom:1px solid var(--bdr);
+  gap:0 16px;
+  background:var(--surf);
+  transition:background .12s;
+  position:relative;
+}
+.event:hover{background:#FFFEF4;}
 
-  .copy-tip { font-size:8px; opacity:.6; font-family:'DM Mono',monospace; }
+.event::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;}
+.event.flight::before  {background:var(--red);}
+.event.hotel::before   {background:var(--grn);}
+.event.transit::before {background:var(--gold);}
+.event.sleep::before   {background:rgba(24,14,7,.15);}
+.event.ferry::before   {background:var(--teal);}
+.event.free::before    {background:rgba(24,14,7,.07);}
 
-  .map-link {
-    font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.5px;
-    padding:3px 9px; border-radius:4px;
-    background:rgba(74,127,165,.08); color:var(--sky);
-    text-decoration:none; display:inline-flex; align-items:center; gap:4px;
-    border:1px solid rgba(74,127,165,.18);
-    transition:background .15s, border-color .15s;
-  }
-  .map-link:hover { background:rgba(74,127,165,.15); border-color:rgba(74,127,165,.32); }
-  .event.hotel .map-link { background:rgba(201,168,76,.1); color:#9a7c30; border-color:rgba(201,168,76,.22); }
-  .event.hotel .map-link:hover { background:rgba(201,168,76,.2); }
-  .event.sleep .map-link { background:rgba(255,255,255,.08); color:rgba(245,240,232,.65); border-color:rgba(255,255,255,.16); }
-  .event.sleep .map-link:hover { background:rgba(255,255,255,.15); }
+.evt-badge{
+  width:40px;height:40px;border-radius:3px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;margin-top:1px;
+}
+.event.flight  .evt-badge{background:var(--redb);}
+.event.hotel   .evt-badge{background:var(--grnb);}
+.event.transit .evt-badge{background:var(--goldb);}
+.event.sleep   .evt-badge{background:rgba(24,14,7,.04);}
+.event.ferry   .evt-badge{background:var(--tealb);}
+.event.free    .evt-badge{background:rgba(24,14,7,.04);}
 
-  .day-divider { height:1px; margin-top:4px; background:linear-gradient(to right,rgba(15,14,12,.1),transparent 70%); }
+.evt-content{min-width:0;}
 
-  /* ── SUMMARY ── */
-  .summary { margin:0 40px; border:1px solid var(--border); border-radius:12px; overflow:hidden; box-shadow:var(--shadow-sm); }
-  .summary-header { background:var(--night); color:var(--cream); padding:14px 20px; font-family:'Playfair Display',serif; font-size:15px; font-weight:700; }
-  .summary-grid { display:grid; grid-template-columns:1fr 1fr; }
-  .summary-cell { padding:15px 20px; border-right:1px solid var(--border); border-bottom:1px solid var(--border); transition:background .15s; }
-  .summary-cell:hover { background:rgba(201,168,76,.03); }
-  .summary-cell:nth-child(2n) { border-right:none; }
-  .summary-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:2px; color:var(--muted); text-transform:uppercase; margin-bottom:5px; }
-  .summary-val { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:var(--night); }
-  .summary-sub { font-family:'DM Mono',monospace; font-size:9.5px; color:var(--muted); margin-top:3px; line-height:1.5; }
+.evt-title{
+  font-size:14px;font-weight:400;
+  color:var(--text);letter-spacing:.15px;
+  margin-bottom:3px;line-height:1.35;
+}
+.event.sleep .evt-title{color:var(--text2);}
+.event.free  .evt-title{color:var(--text2);}
 
-  /* ── BOOK BOX ── */
-  .book-box { margin:20px 40px 0; border:1px solid rgba(184,92,56,.2); border-radius:12px; overflow:hidden; box-shadow:var(--shadow-sm); }
-  .book-header { background:var(--rust); color:#fff; padding:11px 20px; font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:3px; text-transform:uppercase; }
-  .book-list { padding:14px 20px; background:#fdf0ec; display:grid; gap:8px; }
-  .book-item { display:flex; align-items:baseline; gap:10px; font-size:12.5px; line-height:1.4; }
-  .book-item::before { content:'→'; color:var(--rust); font-family:'DM Mono',monospace; flex-shrink:0; }
-  .book-item strong { font-weight:500; }
-  .book-item span { color:var(--muted); font-family:'DM Mono',monospace; font-size:9.5px; }
+.evt-time{
+  font-family:'Courier Prime',monospace;font-size:11px;
+  margin-left:10px;
+}
+.event.flight  .evt-time{color:var(--red);}
+.event.hotel   .evt-time{color:var(--grn);}
+.event.transit .evt-time{color:var(--gold);}
+.event.sleep   .evt-time{color:var(--muted);}
+.event.ferry   .evt-time{color:var(--teal);}
+.event.free    .evt-time{color:var(--muted);}
 
-  .spacer { height:48px; }
+.evt-detail{
+  font-family:'Courier Prime',monospace;font-size:10px;
+  color:var(--muted);line-height:1.7;margin-top:3px;
+}
 
-  /* ── RESPONSIVE ── */
-  @media (max-width:640px) {
-    .hero { padding:36px 20px 30px; }
-    .hero-cdown { display:none; }
-    .legend { padding:10px 20px; }
-    .snav a { padding:10px 11px; font-size:8.5px; }
-    .timeline { padding:0 20px 48px; }
-    .timeline::before { left:47px; }
-    .summary, .book-box { margin:0 20px; }
-    .book-box { margin-top:16px; }
-    .day-date { font-size:17px; }
-  }
+.evt-meta{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px;align-items:center;}
 
-  /* ── PRINT ── */
-  @media print {
-    .snav { display:none; }
-    .hero::before,.hero::after { display:none; }
-    .day-block { opacity:1 !important; transform:none !important; }
-    .event-card { box-shadow:none; border:1px solid #ddd; }
-  }
+.evt-type{
+  font-size:7.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+  padding:4px 9px;border-radius:2px;
+  white-space:nowrap;margin-top:3px;flex-shrink:0;
+}
+.event.flight  .evt-type{color:var(--red); background:var(--redb); border:1px solid rgba(196,18,16,.16);}
+.event.hotel   .evt-type{color:var(--grn); background:var(--grnb); border:1px solid rgba(42,107,69,.16);}
+.event.transit .evt-type{color:var(--gold);background:var(--goldb);border:1px solid rgba(154,110,24,.16);}
+.event.sleep   .evt-type{color:var(--muted);background:rgba(24,14,7,.04);border:1px solid var(--bdr);}
+.event.ferry   .evt-type{color:var(--teal);background:var(--tealb);border:1px solid rgba(28,110,110,.16);}
+.event.free    .evt-type{color:var(--dim);background:rgba(24,14,7,.03);border:1px solid var(--bdr);}
+
+/* Conf/copy buttons */
+.conf{
+  font-family:'Courier Prime',monospace;font-size:9px;font-weight:700;
+  padding:3px 10px;border-radius:2px;
+  background:var(--redb);color:var(--red);
+  display:inline-flex;align-items:center;gap:4px;
+  cursor:pointer;border:1px solid rgba(196,18,16,.16);font:inherit;
+  font-family:'Courier Prime',monospace;font-size:9px;font-weight:700;
+  transition:background .12s;user-select:none;
+}
+.conf:hover{background:var(--redbh);}
+.conf.copied{background:var(--grnb);color:var(--grn);border-color:rgba(42,107,69,.2);}
+.event.hotel .conf{background:var(--grnb);color:var(--grn);border-color:rgba(42,107,69,.16);}
+.event.hotel .conf:hover{background:rgba(42,107,69,.15);}
+
+.map-link{
+  font-family:'Courier Prime',monospace;font-size:9px;
+  padding:3px 10px;border-radius:2px;
+  background:var(--goldb);color:var(--gold);
+  text-decoration:none;display:inline-flex;align-items:center;gap:4px;
+  border:1px solid rgba(154,110,24,.18);transition:background .12s;
+}
+.map-link:hover{background:rgba(154,110,24,.15);}
+.event.hotel .map-link{background:var(--grnb);color:var(--grn);border-color:rgba(42,107,69,.16);}
+.event.hotel .map-link:hover{background:rgba(42,107,69,.15);}
+
+/* ── SUMMARY ── */
+.summary{
+  margin:36px 60px 0;
+  border:1px solid var(--bdr2);border-radius:3px;overflow:hidden;
+  background:var(--surf);
+}
+.summary-header{
+  background:var(--red);color:var(--surf);
+  padding:15px 22px;
+  font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase;
+}
+.summary-grid{display:grid;grid-template-columns:1fr 1fr;}
+.summary-cell{
+  padding:18px 22px;border-right:1px solid var(--bdr);border-bottom:1px solid var(--bdr);
+  transition:background .12s;
+}
+.summary-cell:hover{background:rgba(196,18,16,.02);}
+.summary-cell:nth-child(2n){border-right:none;}
+.summary-label{font-size:8px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);margin-bottom:7px;}
+.summary-val{font-size:26px;font-weight:200;color:var(--text);letter-spacing:-1px;line-height:1.1;}
+.summary-sub{font-family:'Courier Prime',monospace;font-size:9px;color:var(--muted);margin-top:5px;line-height:1.65;}
+
+/* ── BOOK BOX ── */
+.book-box{
+  margin:12px 60px 0;
+  border:1px solid rgba(196,18,16,.2);border-radius:3px;overflow:hidden;
+}
+.book-header{background:var(--red);color:var(--surf);padding:11px 22px;font-size:8px;font-weight:700;letter-spacing:4px;text-transform:uppercase;}
+.book-list{padding:14px 22px;background:var(--redb);display:grid;gap:10px;}
+.book-item{display:flex;align-items:baseline;gap:10px;line-height:1.5;}
+.book-item::before{content:'→';color:var(--red);font-size:13px;flex-shrink:0;}
+.book-item strong{font-size:14px;font-weight:400;color:var(--text);}
+.book-item span{font-family:'Courier Prime',monospace;font-size:9px;color:var(--muted);}
+
+.spacer{height:72px;}
+
+/* ── FLIP ANIMATION (Solari board style) ── */
+@keyframes flipIn{
+  0%  {opacity:0;transform:perspective(400px) rotateX(-72deg);transform-origin:top center;filter:brightness(.4);}
+  65% {transform:perspective(400px) rotateX(4deg);filter:brightness(1);}
+  100%{opacity:1;transform:perspective(400px) rotateX(0);filter:brightness(1);}
+}
+.event.flip-in{animation:flipIn .22s ease forwards;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:640px){
+  .hero-inner{padding:36px 22px 32px;}
+  .hero-wm{display:none;}
+  .legend{padding:10px 22px;}
+  .snav-brand{padding:0 14px;}
+  .snav a{padding:12px 10px;font-size:8px;}
+  .day-header{padding:10px 22px;top:35px;}
+  .event{padding:13px 22px;grid-template-columns:40px 1fr auto;}
+  .summary,.book-box{margin-left:22px;margin-right:22px;}
+  .book-box{margin-top:12px;}
+  .hero-cdown{display:none;}
+  .evt-type{display:none;}
+  .ctry-inner{padding:0 22px;}
+}
+
+@media print{
+  .snav,.hero::after,.hero-wm{display:none;}
+  .day-block{opacity:1!important;transform:none!important;}
+  .event.flip-in{animation:none!important;}
+}
 </style>
 </head>
 <body>
 
-<!-- Sticky Day Nav -->
 <nav class="snav" id="snav">
-  <a href="#day-1">Jul 2</a>
-  <a href="#day-2">Jul 3</a>
-  <a href="#day-3">Jul 4</a>
-  <a href="#day-4">Jul 5</a>
-  <a href="#day-5">Jul 6</a>
-  <a href="#day-6">Jul 7</a>
-  <a href="#day-7">Jul 8</a>
-  <a href="#day-8">Jul 9</a>
-  <a href="#day-9">Jul 10</a>
-  <a href="#day-10">Jul 11</a>
-  <a href="#day-11">Jul 12</a>
-  <a href="#day-12">Jul 13</a>
+  <span class="snav-brand"><span class="snav-logo">JUL 2026</span></span>
+  <a href="#day-1">02</a><a href="#day-2">03</a><a href="#day-3">04</a>
+  <a href="#day-4">05</a><a href="#day-5">06</a><a href="#day-6">07</a>
+  <a href="#day-7">08</a><a href="#day-8">09</a><a href="#day-9">10</a>
+  <a href="#day-10">11</a><a href="#day-11">12</a><a href="#day-12">13</a>
 </nav>
 
 <div class="hero">
+  <div class="hero-wm">EUROPA</div>
   <div class="hero-inner">
-    <div class="hero-eyebrow">✦ Trip Itinerary ✦</div>
-    <div class="hero-title">Mois &amp; Iliana's<br><em>European Summer</em></div>
-    <div class="hero-sub">JULY 2 – 13, 2026 &nbsp;·&nbsp; 12 DAYS</div>
+    <div class="hero-eyebrow">Private Itinerary &nbsp;·&nbsp; Departures</div>
+    <div class="hero-title">GRAND<br><em>TOUR</em></div>
+    <div class="hero-sub">02 Jul – 13 Jul 2026 &nbsp;·&nbsp; 12 Days &nbsp;·&nbsp; 8 Segments</div>
     <div class="hero-route">
-      <span class="city">San Diego</span><span class="arr">→</span>
-      <span class="city">Oakland</span><span class="arr">→</span>
-      <span class="city">San Francisco</span><span class="arr">→</span>
-      <span class="city">Amsterdam</span><span class="arr">→</span>
-      <span class="city">Madrid</span><span class="arr">→</span>
-      <span class="city">Málaga</span><span class="arr">→</span>
-      <span class="city">Barcelona</span><span class="arr">→</span>
-      <span class="city">Naples</span><span class="arr">→</span>
-      <span class="city">Pompeii</span><span class="arr">→</span>
-      <span class="city">Sorrento</span><span class="arr">→</span>
-      <span class="city">Rome</span><span class="arr">→</span>
-      <span class="city">Dublin</span><span class="arr">→</span>
-      <span class="city">New York</span><span class="arr">→</span>
-      <span class="city">San Diego</span>
+      <span class="city">SAN DIEGO</span><span class="arr">→</span>
+      <span class="city">OAKLAND</span><span class="arr">→</span>
+      <span class="city">SAN FRANCISCO</span><span class="arr">→</span>
+      <span class="city">AMSTERDAM</span><span class="arr">→</span>
+      <span class="city">MADRID</span><span class="arr">→</span>
+      <span class="city">MÁLAGA</span><span class="arr">→</span>
+      <span class="city">BARCELONA</span><span class="arr">→</span>
+      <span class="city">NAPLES</span><span class="arr">→</span>
+      <span class="city">POMPEII</span><span class="arr">→</span>
+      <span class="city">SORRENTO</span><span class="arr">→</span>
+      <span class="city">ROME</span><span class="arr">→</span>
+      <span class="city">DUBLIN</span><span class="arr">→</span>
+      <span class="city">NEW YORK</span><span class="arr">→</span>
+      <span class="city">SAN DIEGO</span>
     </div>
-    <div class="hero-bottom">
-      <div class="hero-people">Mois Cohen &nbsp;·&nbsp; Iliana Treyger</div>
+    <div class="hero-footer">
+      <div class="hero-pax">PAX &nbsp;·&nbsp; M. Cohen &nbsp;&amp;&nbsp; I. Treyger</div>
       <div class="hero-cdown">
         <div class="cdown-num" id="cdown">—</div>
-        <div class="cdown-lbl">Days Until Departure</div>
+        <div class="cdown-lbl">days to dep.</div>
       </div>
     </div>
   </div>
 </div>
 
 <div class="legend">
-  <div class="legend-item"><div class="legend-dot" style="background:#4a7fa5"></div>Flight</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#6b7c5e"></div>Transit / Train</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#c9a84c"></div>Hotel / Airbnb</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#5b9cb8"></div>Ferry</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#1c2333"></div>Overnight</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#c2b49a"></div>Free Time</div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--red)"></div>Flight</div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--gold)"></div>Transit</div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--grn)"></div>Hotel / Airbnb</div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--teal)"></div>Ferry</div>
+  <div class="leg-item"><div class="leg-dot" style="background:rgba(24,14,7,.25)"></div>Overnight</div>
+  <div class="leg-item"><div class="leg-dot" style="background:rgba(24,14,7,.12)"></div>Free Time</div>
 </div>
 
-<div class="timeline">
+<div class="board">
 
 <!-- JUL 2 -->
 <div class="day-block" id="day-1">
   <div class="day-header">
-    <div class="day-date">Thursday, July 2</div>
-    <div class="day-label">Day 1 &nbsp;·&nbsp; Departure</div>
+    <span class="day-num">DAY 01</span>
+    <span class="day-date">Thursday, July 2</span>
+    <span class="day-desc">Departure</span>
+    <div class="day-fill"></div>
+    <div class="day-dot"></div>
   </div>
   <div class="events">
     <div class="event flight">
-      <div class="event-icon-col"><div class="event-dot">✈</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Southwest WN #4841 &nbsp;<span class="time-badge">8:55 PM → 10:30 PM</span></div>
-        <div class="detail-row">
-          <span class="detail-chip">San Diego SAN → Oakland OAK &nbsp;·&nbsp; 1h 35m &nbsp;·&nbsp; Basic fare</span>
-          <span class="detail-chip">1 carry-on + 1 personal item</span>
+      <div class="evt-badge">✈</div>
+      <div class="evt-content">
+        <div class="evt-title">Southwest WN #4841 <span class="evt-time">20:55 → 22:30</span></div>
+        <div class="evt-detail">SAN → OAK &nbsp;·&nbsp; 1h 35m &nbsp;·&nbsp; Basic fare &nbsp;·&nbsp; 1 carry-on + 1 personal item</div>
+        <div class="evt-meta">
+          <button class="conf" data-copy="WN4841">WN #4841</button>
+          <button class="conf" data-copy="AH8GMA">AH8GMA</button>
         </div>
-        <div class="meta-row">
-          <button class="conf" data-copy="WN4841">✈ WN #4841</button>
-          <button class="conf" data-copy="AH8GMA">🔖 AH8GMA</button>
-        </div>
-      </div></div>
+      </div>
+      <div class="evt-type">FLIGHT</div>
     </div>
     <div class="event hotel">
-      <div class="event-icon-col"><div class="event-dot">🏠</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Sleep: Iliana's House &nbsp;<span class="time-badge">Night of Jul 2</span></div>
-        <div class="detail-row"><span class="detail-chip">Land OAK 10:30 PM · head to Iliana's to sleep</span></div>
-        <div class="meta-row"><a class="map-link" href="https://www.google.com/maps/search/323+Drayton+Court" target="_blank">📍 323 Drayton Court</a></div>
-      </div></div>
+      <div class="evt-badge">🏠</div>
+      <div class="evt-content">
+        <div class="evt-title">Sleep: Iliana's House <span class="evt-time">Night of Jul 2</span></div>
+        <div class="evt-detail">Land OAK 22:30 · head to Iliana's to sleep</div>
+        <div class="evt-meta"><a class="map-link" href="https://www.google.com/maps/search/323+Drayton+Court+Walnut+Creek+CA" target="_blank">📍 323 Drayton Court, Walnut Creek</a></div>
+      </div>
+      <div class="evt-type">HOTEL</div>
     </div>
   </div>
 </div>
-<div class="day-divider"></div>
 
 <!-- JUL 3 -->
 <div class="day-block" id="day-2">
   <div class="day-header">
-    <div class="day-date">Friday, July 3</div>
-    <div class="day-label">Day 2 &nbsp;·&nbsp; Trans-Atlantic</div>
+    <span class="day-num">DAY 02</span>
+    <span class="day-date">Friday, July 3</span>
+    <span class="day-desc">Trans-Atlantic</span>
+    <div class="day-fill"></div>
+    <div class="day-dot"></div>
   </div>
   <div class="events">
     <div class="event hotel">
-      <div class="event-icon-col"><div class="event-dot">🏠</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Wake up: Iliana's House &nbsp;<span class="time-badge">Morning</span></div>
-        <div class="detail-row"><span class="detail-chip">Head to SFO for 1:45 PM flight · KL 0606 check-in opens ~10:45 AM</span></div>
-        <div class="meta-row"><a class="map-link" href="https://www.google.com/maps/search/323+Drayton+Court" target="_blank">📍 323 Drayton Court</a></div>
-      </div></div>
+      <div class="evt-badge">🏠</div>
+      <div class="evt-content">
+        <div class="evt-title">Wake up: Iliana's House <span class="evt-time">Morning</span></div>
+        <div class="evt-detail">Head to SFO · KL 0606 check-in opens ~10:45</div>
+        <div class="evt-meta"><a class="map-link" href="https://www.google.com/maps/search/323+Drayton+Court+Walnut+Creek+CA" target="_blank">📍 323 Drayton Court, Walnut Creek</a></div>
+      </div>
+      <div class="evt-type">HOTEL</div>
     </div>
     <div class="event transit">
-      <div class="event-icon-col"><div class="event-dot">🚗</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Transfer: Oakland → San Francisco SFO</div>
-        <div class="detail-row"><span class="detail-chip">BART or rideshare &nbsp;·&nbsp; ~45 min &nbsp;·&nbsp; allow 3h before departure</span></div>
-      </div></div>
+      <div class="evt-badge">🚗</div>
+      <div class="evt-content">
+        <div class="evt-title">Transfer: Oakland → SFO</div>
+        <div class="evt-detail">BART or rideshare &nbsp;·&nbsp; ~45 min &nbsp;·&nbsp; allow 3h before departure</div>
+      </div>
+      <div class="evt-type">TRANSIT</div>
     </div>
     <div class="event flight">
-      <div class="event-icon-col"><div class="event-dot">✈</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">KLM KL 0606 &nbsp;<span class="time-badge">1:45 PM → Sat 9:05 AM (+1)</span></div>
-        <div class="detail-row">
-          <span class="detail-chip">San Francisco SFO → Amsterdam AMS &nbsp;·&nbsp; ~10h 20m &nbsp;·&nbsp; Economy</span>
-          <span class="detail-chip">63,000 Flying Blue miles + $267.20 taxes</span>
+      <div class="evt-badge">✈</div>
+      <div class="evt-content">
+        <div class="evt-title">KLM KL 0606 <span class="evt-time">13:45 → Sat 09:05 (+1)</span></div>
+        <div class="evt-detail">SFO → AMS &nbsp;·&nbsp; ~10h 20m &nbsp;·&nbsp; Economy &nbsp;·&nbsp; 63,000 Flying Blue miles + $267.20 taxes</div>
+        <div class="evt-meta">
+          <button class="conf" data-copy="KL0606">KL 0606</button>
+          <button class="conf" data-copy="YPQPZS">YPQPZS</button>
         </div>
-        <div class="meta-row">
-          <button class="conf" data-copy="KL0606">✈ KL 0606</button>
-          <button class="conf" data-copy="YPQPZS">🔖 YPQPZS</button>
-        </div>
-      </div></div>
+      </div>
+      <div class="evt-type">FLIGHT</div>
     </div>
     <div class="event sleep">
-      <div class="event-icon-col"><div class="event-dot">💤</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Overnight in the air &nbsp;<span class="time-badge">→ Amsterdam</span></div>
-        <div class="detail-row"><span class="detail-chip">Arrives Schiphol Saturday 9:05 AM</span></div>
-      </div></div>
+      <div class="evt-badge">💤</div>
+      <div class="evt-content">
+        <div class="evt-title">Overnight in the air <span class="evt-time">→ AMS</span></div>
+        <div class="evt-detail">Arrives Schiphol Saturday 09:05</div>
+      </div>
+      <div class="evt-type">OVERNIGHT</div>
     </div>
   </div>
 </div>
-<div class="day-divider"></div>
 
-<!-- COUNTRY MARKER: Netherlands → Spain -->
-<div class="country-marker">
-  <div class="country-marker-label">Amsterdam layover &nbsp;·&nbsp; then Spain</div>
-</div>
+<div class="ctry-div"><div class="ctry-inner"><span class="ctry-text">Amsterdam layover &nbsp;·&nbsp; then Spain</span></div></div>
 
 <!-- JUL 4 -->
 <div class="day-block" id="day-3">
   <div class="day-header">
-    <div class="day-date">Saturday, July 4</div>
-    <div class="day-label">Day 3 &nbsp;·&nbsp; Amsterdam → Madrid</div>
+    <span class="day-num">DAY 03</span>
+    <span class="day-date">Saturday, July 4</span>
+    <span class="day-desc">Amsterdam → Madrid</span>
+    <div class="day-fill"></div>
+    <div class="day-dot"></div>
   </div>
   <div class="events">
     <div class="event transit">
-      <div class="event-icon-col"><div class="event-dot">🛬</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Arrive Amsterdam Schiphol &nbsp;<span class="time-badge">9:05 AM</span></div>
-        <div class="detail-row"><span class="detail-chip">Store bags at Schiphol baggage lockers &nbsp;·&nbsp; ~7h layover</span></div>
-      </div></div>
+      <div class="evt-badge">🛬</div>
+      <div class="evt-content">
+        <div class="evt-title">Arrive Amsterdam Schiphol <span class="evt-time">09:05</span></div>
+        <div class="evt-detail">Store bags at Schiphol baggage lockers &nbsp;·&nbsp; ~7h layover</div>
+      </div>
+      <div class="evt-type">ARRIVE</div>
     </div>
     <div class="event transit">
-      <div class="event-icon-col"><div class="event-dot">🚆</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Train: Schiphol → Amsterdam Centraal &nbsp;<span class="time-badge">~9:25 AM</span></div>
-        <div class="detail-row"><span class="detail-chip">~17 min &nbsp;·&nbsp; €4.40 &nbsp;·&nbsp; every 10 min</span></div>
-      </div></div>
+      <div class="evt-badge">🚆</div>
+      <div class="evt-content">
+        <div class="evt-title">Train: Schiphol → Amsterdam Centraal <span class="evt-time">~09:25</span></div>
+        <div class="evt-detail">~17 min &nbsp;·&nbsp; €4.40 &nbsp;·&nbsp; every 10 min</div>
+      </div>
+      <div class="evt-type">TRAIN</div>
     </div>
     <div class="event free">
-      <div class="event-icon-col"><div class="event-dot">🌿</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">~7 hours in Amsterdam &nbsp;<span class="time-badge">9:30 AM – 2:00 PM</span></div>
-        <div class="detail-row"><span class="detail-chip">Return to Centraal by 2:00 PM to catch train back to Schiphol</span></div>
-      </div></div>
+      <div class="evt-badge">🌿</div>
+      <div class="evt-content">
+        <div class="evt-title">~7 hours in Amsterdam <span class="evt-time">09:30 – 14:00</span></div>
+        <div class="evt-detail">Return to Centraal by 14:00 to catch train back to Schiphol</div>
+      </div>
+      <div class="evt-type">FREE</div>
     </div>
     <div class="event transit">
-      <div class="event-icon-col"><div class="event-dot">🚆</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Train: Amsterdam Centraal → Schiphol &nbsp;<span class="time-badge">~2:00 PM</span></div>
-        <div class="detail-row"><span class="detail-chip">~17 min &nbsp;·&nbsp; allows 2.5h before 5:00 PM flight</span></div>
-      </div></div>
+      <div class="evt-badge">🚆</div>
+      <div class="evt-content">
+        <div class="evt-title">Train: Amsterdam Centraal → Schiphol <span class="evt-time">~14:00</span></div>
+        <div class="evt-detail">~17 min &nbsp;·&nbsp; allows 2.5h before 17:00 flight</div>
+      </div>
+      <div class="evt-type">TRAIN</div>
     </div>
     <div class="event flight">
-      <div class="event-icon-col"><div class="event-dot">✈</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">KLM KL 1507 &nbsp;<span class="time-badge">5:00 PM → 7:35 PM</span></div>
-        <div class="detail-row"><span class="detail-chip">Amsterdam AMS → Madrid MAD &nbsp;·&nbsp; 2h 35m &nbsp;·&nbsp; Economy &nbsp;·&nbsp; same ticket as SFO→AMS</span></div>
-        <div class="meta-row">
-          <button class="conf" data-copy="KL1507">✈ KL 1507</button>
-          <button class="conf" data-copy="YPQPZS">🔖 YPQPZS</button>
+      <div class="evt-badge">✈</div>
+      <div class="evt-content">
+        <div class="evt-title">KLM KL 1507 <span class="evt-time">17:00 → 19:35</span></div>
+        <div class="evt-detail">AMS → MAD &nbsp;·&nbsp; 2h 35m &nbsp;·&nbsp; Economy &nbsp;·&nbsp; same ticket as SFO→AMS</div>
+        <div class="evt-meta">
+          <button class="conf" data-copy="KL1507">KL 1507</button>
+          <button class="conf" data-copy="YPQPZS">YPQPZS</button>
         </div>
-      </div></div>
+      </div>
+      <div class="evt-type">FLIGHT</div>
     </div>
     <div class="event transit">
-      <div class="event-icon-col"><div class="event-dot">🚇</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Metro: Madrid Barajas T4 → Centro &nbsp;<span class="time-badge">~8:15 PM</span></div>
-        <div class="detail-row"><span class="detail-chip">Line 8 → Nuevos Ministerios → Line 10 &nbsp;·&nbsp; ~40 min &nbsp;·&nbsp; €5 airport supplement</span></div>
-      </div></div>
+      <div class="evt-badge">🚇</div>
+      <div class="evt-content">
+        <div class="evt-title">Metro: Barajas T4 → Centro <span class="evt-time">~20:15</span></div>
+        <div class="evt-detail">Line 8 → Nuevos Ministerios → Line 10 &nbsp;·&nbsp; ~40 min &nbsp;·&nbsp; €5 airport supplement</div>
+      </div>
+      <div class="evt-type">METRO</div>
     </div>
     <div class="event hotel">
-      <div class="event-icon-col"><div class="event-dot">🏠</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Check in: Habitacion en Centro de Madrid &nbsp;<span class="time-badge">After 3:00 PM</span></div>
-        <div class="detail-row"><span class="detail-chip">Airbnb · hosted by Bachir &nbsp;·&nbsp; 3 nights (Jul 4–7) &nbsp;·&nbsp; $249.48 paid</span></div>
-        <div class="meta-row">
+      <div class="evt-badge">🏠</div>
+      <div class="evt-content">
+        <div class="evt-title">Check in: Habitacion en Centro de Madrid <span class="evt-time">After 15:00</span></div>
+        <div class="evt-detail">Airbnb · hosted by Bachir &nbsp;·&nbsp; 3 nights (Jul 4–7) &nbsp;·&nbsp; $249.48 paid</div>
+        <div class="evt-meta">
           <a class="map-link" href="https://www.google.com/maps/search/Calle+de+la+Ruda+8+Centro+Madrid+Spain" target="_blank">📍 C. de la Ruda 8, Centro, Madrid</a>
-          <button class="conf" data-copy="HM5A5BYKFZ">🔖 HM5A5BYKFZ</button>
+          <button class="conf" data-copy="HM5A5BYKFZ">HM5A5BYKFZ</button>
         </div>
-      </div></div>
+      </div>
+      <div class="evt-type">AIRBNB</div>
     </div>
   </div>
 </div>
-<div class="day-divider"></div>
 
 <!-- JUL 5 -->
 <div class="day-block" id="day-4">
   <div class="day-header">
-    <div class="day-date">Sunday, July 5</div>
-    <div class="day-label">Day 4 &nbsp;·&nbsp; Madrid</div>
+    <span class="day-num">DAY 04</span>
+    <span class="day-date">Sunday, July 5</span>
+    <span class="day-desc">Madrid</span>
+    <div class="day-fill"></div>
+    <div class="day-dot"></div>
   </div>
   <div class="events">
     <div class="event free">
-      <div class="event-icon-col"><div class="event-dot">🌿</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Full day in Madrid &nbsp;<span class="time-badge">~14 hours</span></div>
-      </div></div>
+      <div class="evt-badge">🌿</div>
+      <div class="evt-content">
+        <div class="evt-title">Full day in Madrid <span class="evt-time">~14 hours</span></div>
+      </div>
+      <div class="evt-type">FREE</div>
     </div>
     <div class="event hotel">
-      <div class="event-icon-col"><div class="event-dot">🏠</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Sleep: Airbnb Madrid &nbsp;<span class="time-badge">Night 2 of 3</span></div>
-        <div class="meta-row">
+      <div class="evt-badge">🏠</div>
+      <div class="evt-content">
+        <div class="evt-title">Sleep: Airbnb Madrid <span class="evt-time">Night 2 of 3</span></div>
+        <div class="evt-meta">
           <a class="map-link" href="https://www.google.com/maps/search/Calle+de+la+Ruda+8+Centro+Madrid+Spain" target="_blank">📍 C. de la Ruda 8, Centro</a>
-          <button class="conf" data-copy="HM5A5BYKFZ">🔖 HM5A5BYKFZ</button>
+          <button class="conf" data-copy="HM5A5BYKFZ">HM5A5BYKFZ</button>
         </div>
-      </div></div>
+      </div>
+      <div class="evt-type">AIRBNB</div>
     </div>
   </div>
 </div>
-<div class="day-divider"></div>
 
 <!-- JUL 6 -->
 <div class="day-block" id="day-5">
   <div class="day-header">
-    <div class="day-date">Monday, July 6</div>
-    <div class="day-label">Day 5 &nbsp;·&nbsp; Madrid</div>
+    <span class="day-num">DAY 05</span>
+    <span class="day-date">Monday, July 6</span>
+    <span class="day-desc">Madrid</span>
+    <div class="day-fill"></div>
+    <div class="day-dot"></div>
   </div>
   <div class="events">
     <div class="event free">
-      <div class="event-icon-col"><div class="event-dot">🌿</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Full day in Madrid &nbsp;<span class="time-badge">~14 hours</span></div>
-        <div class="detail-row"><span class="detail-chip">Last full day &nbsp;·&nbsp; check out tomorrow by 11:00 AM</span></div>
-      </div></div>
+      <div class="evt-badge">🌿</div>
+      <div class="evt-content">
+        <div class="evt-title">Full day in Madrid <span class="evt-time">~14 hours</span></div>
+        <div class="evt-detail">Last full day &nbsp;·&nbsp; check out tomorrow by 11:00</div>
+      </div>
+      <div class="evt-type">FREE</div>
     </div>
     <div class="event hotel">
-      <div class="event-icon-col"><div class="event-dot">🏠</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Sleep: Airbnb Madrid &nbsp;<span class="time-badge">Night 3 of 3</span></div>
-        <div class="meta-row">
+      <div class="evt-badge">🏠</div>
+      <div class="evt-content">
+        <div class="evt-title">Sleep: Airbnb Madrid <span class="evt-time">Night 3 of 3</span></div>
+        <div class="evt-meta">
           <a class="map-link" href="https://www.google.com/maps/search/Calle+de+la+Ruda+8+Centro+Madrid+Spain" target="_blank">📍 C. de la Ruda 8, Centro</a>
-          <button class="conf" data-copy="HM5A5BYKFZ">🔖 HM5A5BYKFZ</button>
+          <button class="conf" data-copy="HM5A5BYKFZ">HM5A5BYKFZ</button>
         </div>
-      </div></div>
+      </div>
+      <div class="evt-type">AIRBNB</div>
     </div>
   </div>
 </div>
-<div class="day-divider"></div>
 
 <!-- JUL 7 -->
 <div class="day-block" id="day-6">
   <div class="day-header">
-    <div class="day-date">Tuesday, July 7</div>
-    <div class="day-label">Day 6 &nbsp;·&nbsp; Madrid → Málaga</div>
+    <span class="day-num">DAY 06</span>
+    <span class="day-date">Tuesday, July 7</span>
+    <span class="day-desc">Madrid → Málaga</span>
+    <div class="day-fill"></div>
+    <div class="day-dot"></div>
   </div>
   <div class="events">
     <div class="event hotel">
-      <div class="event-icon-col"><div class="event-dot">🏠</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Check out: Madrid Airbnb &nbsp;<span class="time-badge">By 11:00 AM</span></div>
-        <div class="meta-row">
+      <div class="evt-badge">🏠</div>
+      <div class="evt-content">
+        <div class="evt-title">Check out: Madrid Airbnb <span class="evt-time">By 11:00</span></div>
+        <div class="evt-meta">
           <a class="map-link" href="https://www.google.com/maps/search/Calle+de+la+Ruda+8+Centro+Madrid+Spain" target="_blank">📍 C. de la Ruda 8, Centro</a>
-          <button class="conf" data-copy="HM5A5BYKFZ">🔖 HM5A5BYKFZ</button>
+          <button class="conf" data-copy="HM5A5BYKFZ">HM5A5BYKFZ</button>
         </div>
-      </div></div>
+      </div>
+      <div class="evt-type">AIRBNB</div>
     </div>
     <div class="event transit">
-      <div class="event-icon-col"><div class="event-dot">🚆</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Renfe AVE: Madrid Atocha → Málaga María Zambrano</div>
-        <div class="detail-row"><span class="detail-chip">~2h 30m &nbsp;·&nbsp; High-speed AVE &nbsp;·&nbsp; ~€30–60/person &nbsp;·&nbsp; book renfe.com</span></div>
-        <div class="meta-row"><a class="map-link" href="https://www.google.com/maps/search/Madrid+Puerta+de+Atocha+station" target="_blank">📍 Madrid Puerta de Atocha</a></div>
-      </div></div>
+      <div class="evt-badge">🚆</div>
+      <div class="evt-content">
+        <div class="evt-title">Renfe AVE: Madrid Atocha → Málaga María Zambrano</div>
+        <div class="evt-detail">~2h 30m &nbsp;·&nbsp; High-speed AVE &nbsp;·&nbsp; ~€30–60/person &nbsp;·&nbsp; book renfe.com</div>
+        <div class="evt-meta"><a class="map-link" href="https://www.google.com/maps/search/Madrid+Puerta+de+Atocha+station" target="_blank">📍 Madrid Puerta de Atocha</a></div>
+      </div>
+      <div class="evt-type">AVE</div>
     </div>
     <div class="event free">
-      <div class="event-icon-col"><div class="event-dot">🌿</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">~6 hours in Málaga &nbsp;<span class="time-badge">Afternoon + evening</span></div>
-        <div class="detail-row"><span class="detail-chip">Arrive mid-afternoon &nbsp;·&nbsp; last evening in Spain before overnight flight</span></div>
-      </div></div>
+      <div class="evt-badge">🌿</div>
+      <div class="evt-content">
+        <div class="evt-title">~6 hours in Málaga <span class="evt-time">Afternoon + evening</span></div>
+        <div class="evt-detail">Arrive mid-afternoon &nbsp;·&nbsp; last evening in Spain before overnight flight</div>
+      </div>
+      <div class="evt-type">FREE</div>
     </div>
     <div class="event hotel">
-      <div class="event-icon-col"><div class="event-dot">🏠</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Check in: Habitación cerca del Casco Histórico &nbsp;<span class="time-badge">After 2:00 PM</span></div>
-        <div class="detail-row"><span class="detail-chip">Airbnb · hosted by Misaily &nbsp;·&nbsp; 1 night &nbsp;·&nbsp; $63.74 paid &nbsp;·&nbsp; check out Jul 8 by 12:00 PM</span></div>
-        <div class="meta-row">
+      <div class="evt-badge">🏠</div>
+      <div class="evt-content">
+        <div class="evt-title">Check in: Habitación cerca del Casco Histórico <span class="evt-time">After 14:00</span></div>
+        <div class="evt-detail">Airbnb · hosted by Misaily &nbsp;·&nbsp; 1 night &nbsp;·&nbsp; $63.74 paid &nbsp;·&nbsp; check out Jul 8 by 12:00</div>
+        <div class="evt-meta">
           <a class="map-link" href="https://www.google.com/maps/search/Calle+San+Rafael+2+Malaga+Spain" target="_blank">📍 C. San Rafael 2, Málaga</a>
-          <button class="conf" data-copy="HMRS5YNEBZ">🔖 HMRS5YNEBZ</button>
+          <button class="conf" data-copy="HMRS5YNEBZ">HMRS5YNEBZ</button>
         </div>
-      </div></div>
+      </div>
+      <div class="evt-type">AIRBNB</div>
     </div>
   </div>
 </div>
-<div class="day-divider"></div>
 
-<!-- COUNTRY MARKER: Spain → Italy -->
-<div class="country-marker">
-  <div class="country-marker-label">Málaga → Barcelona overnight &nbsp;·&nbsp; then Italy</div>
-</div>
+<div class="ctry-div"><div class="ctry-inner"><span class="ctry-text">Málaga → Barcelona overnight &nbsp;·&nbsp; then Italy</span></div></div>
 
 <!-- JUL 8 -->
 <div class="day-block" id="day-7">
   <div class="day-header">
-    <div class="day-date">Wednesday, July 8</div>
-    <div class="day-label">Day 7 &nbsp;·&nbsp; Málaga → Barcelona → Naples</div>
+    <span class="day-num">DAY 07</span>
+    <span class="day-date">Wednesday, July 8</span>
+    <span class="day-desc">Málaga → Barcelona → Naples</span>
+    <div class="day-fill"></div>
+    <div class="day-dot"></div>
   </div>
   <div class="events">
     <div class="event hotel">
-      <div class="event-icon-col"><div class="event-dot">🏠</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Check out: Málaga Airbnb &nbsp;<span class="time-badge">By 12:00 PM</span></div>
-        <div class="detail-row"><span class="detail-chip">Store bags &nbsp;·&nbsp; Radical Storage or Bounce near María Zambrano ~€5/bag</span></div>
-        <div class="meta-row">
+      <div class="evt-badge">🏠</div>
+      <div class="evt-content">
+        <div class="evt-title">Check out: Málaga Airbnb <span class="evt-time">By 12:00</span></div>
+        <div class="evt-detail">Store bags &nbsp;·&nbsp; Radical Storage or Bounce near María Zambrano ~€5/bag</div>
+        <div class="evt-meta">
           <a class="map-link" href="https://www.google.com/maps/search/Calle+San+Rafael+2+Malaga+Spain" target="_blank">📍 C. San Rafael 2, Málaga</a>
-          <button class="conf" data-copy="HMRS5YNEBZ">🔖 HMRS5YNEBZ</button>
+          <button class="conf" data-copy="HMRS5YNEBZ">HMRS5YNEBZ</button>
         </div>
-      </div></div>
+      </div>
+      <div class="evt-type">AIRBNB</div>
     </div>
     <div class="event free">
-      <div class="event-icon-col"><div class="event-dot">🌿</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">~10 hours in Málaga &nbsp;<span class="time-badge">12:00 PM – 10:00 PM</span></div>
-        <div class="detail-row"><span class="detail-chip">Full day &nbsp;·&nbsp; flight departs 10:50 PM</span></div>
-      </div></div>
+      <div class="evt-badge">🌿</div>
+      <div class="evt-content">
+        <div class="evt-title">~10 hours in Málaga <span class="evt-time">12:00 – 22:00</span></div>
+        <div class="evt-detail">Full day &nbsp;·&nbsp; flight departs 22:50</div>
+      </div>
+      <div class="evt-type">FREE</div>
     </div>
     <div class="event transit">
-      <div class="event-icon-col"><div class="event-dot">🚌</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Aerobus: Málaga Centro → Aeropuerto AGP &nbsp;<span class="time-badge">~8:00 PM</span></div>
-        <div class="detail-row"><span class="detail-chip">From María Zambrano &nbsp;·&nbsp; ~20 min &nbsp;·&nbsp; allow 2.5h before departure</span></div>
-      </div></div>
+      <div class="evt-badge">🚌</div>
+      <div class="evt-content">
+        <div class="evt-title">Aerobus: Málaga Centro → AGP <span class="evt-time">~20:00</span></div>
+        <div class="evt-detail">From María Zambrano &nbsp;·&nbsp; ~20 min &nbsp;·&nbsp; allow 2.5h before departure</div>
+      </div>
+      <div class="evt-type">BUS</div>
     </div>
     <div class="event flight">
-      <div class="event-icon-col"><div class="event-dot">✈</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Vueling VY2118: Málaga → Barcelona &nbsp;<span class="time-badge">10:50 PM → ~12:15 AM (+1)</span></div>
-        <div class="detail-row">
-          <span class="detail-chip">Málaga AGP → Barcelona BCN &nbsp;·&nbsp; ~1h 25m</span>
-          <span class="detail-chip">1 personal item + 1 carry-on (20×40×55 cm, max 10 kg) &nbsp;·&nbsp; NO checked bags</span>
+      <div class="evt-badge">✈</div>
+      <div class="evt-content">
+        <div class="evt-title">Vueling VY2118: Málaga → Barcelona <span class="evt-time">22:50 → ~00:15+1</span></div>
+        <div class="evt-detail">AGP → BCN &nbsp;·&nbsp; ~1h 25m &nbsp;·&nbsp; carry-on only (20×40×55 cm, max 10 kg) &nbsp;·&nbsp; NO checked bags</div>
+        <div class="evt-meta">
+          <button class="conf" data-copy="VY2118">VY2118</button>
+          <button class="conf" data-copy="SG1EPI">SG1EPI</button>
         </div>
-        <div class="meta-row">
-          <button class="conf" data-copy="VY2118">✈ VY2118</button>
-          <button class="conf" data-copy="SG1EPI">🔖 SG1EPI</button>
-        </div>
-      </div></div>
+      </div>
+      <div class="evt-type">FLIGHT</div>
     </div>
     <div class="event sleep">
-      <div class="event-icon-col"><div class="event-dot">💤</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Overnight: Barcelona Airport (BCN) &nbsp;<span class="time-badge">~12:15 AM – early AM</span></div>
-        <div class="detail-row"><span class="detail-chip">Sleep at BCN between connections &nbsp;·&nbsp; VY6500 continues to Naples in the morning</span></div>
-      </div></div>
+      <div class="evt-badge">💤</div>
+      <div class="evt-content">
+        <div class="evt-title">Overnight: Barcelona Airport (BCN) <span class="evt-time">~00:15 – early AM</span></div>
+        <div class="evt-detail">Sleep at BCN between connections &nbsp;·&nbsp; VY6500 continues to Naples in the morning</div>
+      </div>
+      <div class="evt-type">OVERNIGHT</div>
     </div>
   </div>
 </div>
-<div class="day-divider"></div>
 
 <!-- JUL 9 -->
 <div class="day-block" id="day-8">
   <div class="day-header">
-    <div class="day-date">Thursday, July 9</div>
-    <div class="day-label">Day 8 &nbsp;·&nbsp; Barcelona → Naples · Pompeii · Sorrento</div>
+    <span class="day-num">DAY 08</span>
+    <span class="day-date">Thursday, July 9</span>
+    <span class="day-desc">Barcelona → Naples · Pompeii · Sorrento</span>
+    <div class="day-fill"></div>
+    <div class="day-dot"></div>
   </div>
   <div class="events">
     <div class="event flight">
-      <div class="event-icon-col"><div class="event-dot">✈</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Vueling VY6500: Barcelona → Naples &nbsp;<span class="time-badge">→ Arrives 9:20 AM</span></div>
-        <div class="detail-row"><span class="detail-chip">Barcelona BCN → Naples NAP &nbsp;·&nbsp; Same booking as VY2118</span></div>
-        <div class="meta-row">
-          <button class="conf" data-copy="VY6500">✈ VY6500</button>
-          <button class="conf" data-copy="SG1EPI">🔖 SG1EPI</button>
+      <div class="evt-badge">✈</div>
+      <div class="evt-content">
+        <div class="evt-title">Vueling VY6500: Barcelona → Naples <span class="evt-time">→ Arrives 09:20</span></div>
+        <div class="evt-detail">BCN → NAP &nbsp;·&nbsp; Same booking as VY2118</div>
+        <div class="evt-meta">
+          <button class="conf" data-copy="VY6500">VY6500</button>
+          <button class="conf" data-copy="SG1EPI">SG1EPI</button>
         </div>
-      </div></div>
+      </div>
+      <div class="evt-type">FLIGHT</div>
     </div>
     <div class="event transit">
-      <div class="event-icon-col"><div class="event-dot">🛬</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Arrive Naples Capodichino NAP &nbsp;<span class="time-badge">9:20 AM</span></div>
-        <div class="detail-row"><span class="detail-chip">Alibus to Naples Centrale &nbsp;·&nbsp; ~20 min &nbsp;·&nbsp; €5</span></div>
-        <div class="meta-row"><a class="map-link" href="https://www.google.com/maps/search/Naples+Capodichino+Airport+Italy" target="_blank">📍 Naples Airport (NAP)</a></div>
-      </div></div>
+      <div class="evt-badge">🛬</div>
+      <div class="evt-content">
+        <div class="evt-title">Arrive Naples Capodichino NAP <span class="evt-time">09:20</span></div>
+        <div class="evt-detail">Alibus to Naples Centrale &nbsp;·&nbsp; ~20 min &nbsp;·&nbsp; €5</div>
+        <div class="evt-meta"><a class="map-link" href="https://www.google.com/maps/search/Naples+Capodichino+Airport+Italy" target="_blank">📍 Naples Airport (NAP)</a></div>
+      </div>
+      <div class="evt-type">ARRIVE</div>
     </div>
     <div class="event free">
-      <div class="event-icon-col"><div class="event-dot">🌿</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">~2 hours in Naples &nbsp;<span class="time-badge">~10:00 AM – 12:00 PM</span></div>
-      </div></div>
+      <div class="evt-badge">🌿</div>
+      <div class="evt-content">
+        <div class="evt-title">~2 hours in Naples <span class="evt-time">~10:00 – 12:00</span></div>
+      </div>
+      <div class="evt-type">FREE</div>
     </div>
     <div class="event transit">
-      <div class="event-icon-col"><div class="event-dot">🚆</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Circumvesuviana: Naples Centrale → Pompeii Scavi &nbsp;<span class="time-badge">~12:00 PM</span></div>
-        <div class="detail-row"><span class="detail-chip">~40 min &nbsp;·&nbsp; €3 &nbsp;·&nbsp; departs lower level of Napoli Centrale</span></div>
-        <div class="meta-row"><a class="map-link" href="https://www.google.com/maps/search/Naples+Centrale+train+station" target="_blank">📍 Napoli Centrale</a></div>
-      </div></div>
+      <div class="evt-badge">🚆</div>
+      <div class="evt-content">
+        <div class="evt-title">Circumvesuviana: Naples → Pompeii Scavi <span class="evt-time">~12:00</span></div>
+        <div class="evt-detail">~40 min &nbsp;·&nbsp; €3 &nbsp;·&nbsp; departs lower level of Napoli Centrale</div>
+        <div class="evt-meta"><a class="map-link" href="https://www.google.com/maps/search/Naples+Centrale+train+station" target="_blank">📍 Napoli Centrale</a></div>
+      </div>
+      <div class="evt-type">TRAIN</div>
     </div>
     <div class="event free">
-      <div class="event-icon-col"><div class="event-dot">🌿</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">~3 hours in Pompeii &nbsp;<span class="time-badge">~12:45 PM – 3:45 PM</span></div>
-        <div class="meta-row"><a class="map-link" href="https://www.google.com/maps/search/Pompeii+Archaeological+Park+Italy" target="_blank">📍 Via Villa dei Misteri 2, Pompeii</a></div>
-      </div></div>
+      <div class="evt-badge">🌿</div>
+      <div class="evt-content">
+        <div class="evt-title">~3 hours in Pompeii <span class="evt-time">~12:45 – 15:45</span></div>
+        <div class="evt-meta"><a class="map-link" href="https://www.google.com/maps/search/Pompeii+Archaeological+Park+Italy" target="_blank">📍 Via Villa dei Misteri 2, Pompeii</a></div>
+      </div>
+      <div class="evt-type">FREE</div>
     </div>
     <div class="event transit">
-      <div class="event-icon-col"><div class="event-dot">🚆</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Circumvesuviana: Pompeii → Sorrento &nbsp;<span class="time-badge">~4:00 PM</span></div>
-        <div class="detail-row"><span class="detail-chip">~30 min &nbsp;·&nbsp; €2.80 &nbsp;·&nbsp; end of the line</span></div>
-      </div></div>
+      <div class="evt-badge">🚆</div>
+      <div class="evt-content">
+        <div class="evt-title">Circumvesuviana: Pompeii → Sorrento <span class="evt-time">~16:00</span></div>
+        <div class="evt-detail">~30 min &nbsp;·&nbsp; €2.80 &nbsp;·&nbsp; end of the line</div>
+      </div>
+      <div class="evt-type">TRAIN</div>
     </div>
     <div class="event ferry">
-      <div class="event-icon-col"><div class="event-dot">⛵</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Ferry: Naples → Sorrento &nbsp;<span class="time-badge">Alternative to train</span></div>
-        <div class="detail-row"><span class="detail-chip">~35 min &nbsp;·&nbsp; €14 &nbsp;·&nbsp; departs Molo Beverello &nbsp;·&nbsp; skip Pompeii train if preferred</span></div>
-        <div class="meta-row"><a class="map-link" href="https://www.google.com/maps/search/Molo+Beverello+Naples" target="_blank">📍 Molo Beverello, Naples</a></div>
-      </div></div>
+      <div class="evt-badge">⛵</div>
+      <div class="evt-content">
+        <div class="evt-title">Ferry: Naples → Sorrento <span class="evt-time">Alternative to train</span></div>
+        <div class="evt-detail">~35 min &nbsp;·&nbsp; €14 &nbsp;·&nbsp; departs Molo Beverello &nbsp;·&nbsp; skip Pompeii if preferred</div>
+        <div class="evt-meta"><a class="map-link" href="https://www.google.com/maps/search/Molo+Beverello+Naples" target="_blank">📍 Molo Beverello, Naples</a></div>
+      </div>
+      <div class="evt-type">FERRY</div>
     </div>
     <div class="event hotel">
-      <div class="event-icon-col"><div class="event-dot">🏠</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Check in: Seven Hostel &nbsp;<span class="time-badge">Jul 9 · 1 night</span></div>
-        <div class="detail-row"><span class="detail-chip">Sant'Agnello (2 min from Sorrento) &nbsp;·&nbsp; 📞 +39 081 878 6758</span></div>
-        <div class="meta-row">
+      <div class="evt-badge">🏠</div>
+      <div class="evt-content">
+        <div class="evt-title">Check in: Seven Hostel <span class="evt-time">Jul 9 · 1 night</span></div>
+        <div class="evt-detail">Sant'Agnello (2 min from Sorrento) &nbsp;·&nbsp; 📞 +39 081 878 6758</div>
+        <div class="evt-meta">
           <a class="map-link" href="https://www.google.com/maps/search/Seven+Hostel+Via+Iommella+Grande+99+Sant+Agnello+Italy" target="_blank">📍 Via Iommella Grande 99, Sant'Agnello</a>
-          <button class="conf" data-copy="1775417679">🔖 WuBook #1775417679</button>
+          <button class="conf" data-copy="1775417679">WuBook #1775417679</button>
         </div>
-      </div></div>
+      </div>
+      <div class="evt-type">HOSTEL</div>
     </div>
   </div>
 </div>
-<div class="day-divider"></div>
 
 <!-- JUL 10 -->
 <div class="day-block" id="day-9">
   <div class="day-header">
-    <div class="day-date">Friday, July 10</div>
-    <div class="day-label">Day 9 &nbsp;·&nbsp; Sorrento → Rome</div>
+    <span class="day-num">DAY 09</span>
+    <span class="day-date">Friday, July 10</span>
+    <span class="day-desc">Sorrento → Rome</span>
+    <div class="day-fill"></div>
+    <div class="day-dot"></div>
   </div>
   <div class="events">
     <div class="event hotel">
-      <div class="event-icon-col"><div class="event-dot">🏠</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Check out: Seven Hostel &nbsp;<span class="time-badge">Morning</span></div>
-        <div class="meta-row">
+      <div class="evt-badge">🏠</div>
+      <div class="evt-content">
+        <div class="evt-title">Check out: Seven Hostel <span class="evt-time">Morning</span></div>
+        <div class="evt-meta">
           <a class="map-link" href="https://www.google.com/maps/search/Seven+Hostel+Via+Iommella+Grande+99+Sant+Agnello+Italy" target="_blank">📍 Via Iommella Grande 99, Sant'Agnello</a>
-          <button class="conf" data-copy="1775417679">🔖 WuBook #1775417679</button>
+          <button class="conf" data-copy="1775417679">WuBook #1775417679</button>
         </div>
-      </div></div>
+      </div>
+      <div class="evt-type">HOSTEL</div>
     </div>
     <div class="event transit">
-      <div class="event-icon-col"><div class="event-dot">🚆</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Circumvesuviana: Sorrento → Naples Centrale</div>
-        <div class="detail-row"><span class="detail-chip">~70 min &nbsp;·&nbsp; €3.40 &nbsp;·&nbsp; frequent departures</span></div>
-      </div></div>
+      <div class="evt-badge">🚆</div>
+      <div class="evt-content">
+        <div class="evt-title">Circumvesuviana: Sorrento → Naples Centrale</div>
+        <div class="evt-detail">~70 min &nbsp;·&nbsp; €3.40 &nbsp;·&nbsp; frequent departures</div>
+      </div>
+      <div class="evt-type">TRAIN</div>
     </div>
     <div class="event transit">
-      <div class="event-icon-col"><div class="event-dot">🚆</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Trenitalia Frecciarossa: Naples Centrale → Roma Termini</div>
-        <div class="detail-row"><span class="detail-chip">~1h 10m &nbsp;·&nbsp; ~€25–40 &nbsp;·&nbsp; book trenitalia.com &nbsp;·&nbsp; aim for midday train</span></div>
-        <div class="meta-row"><a class="map-link" href="https://www.google.com/maps/search/Naples+Centrale+train+station" target="_blank">📍 Napoli Centrale</a></div>
-      </div></div>
+      <div class="evt-badge">🚆</div>
+      <div class="evt-content">
+        <div class="evt-title">Trenitalia Frecciarossa: Naples → Roma Termini</div>
+        <div class="evt-detail">~1h 10m &nbsp;·&nbsp; ~€25–40 &nbsp;·&nbsp; book trenitalia.com &nbsp;·&nbsp; aim for midday train</div>
+        <div class="evt-meta"><a class="map-link" href="https://www.google.com/maps/search/Naples+Centrale+train+station" target="_blank">📍 Napoli Centrale</a></div>
+      </div>
+      <div class="evt-type">TRAIN</div>
     </div>
     <div class="event hotel">
-      <div class="event-icon-col"><div class="event-dot">🏨</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Check in: Raeli Hotel Lazio &nbsp;<span class="time-badge">From 2:00 PM</span></div>
-        <div class="detail-row">
-          <span class="detail-chip">3 nights Jul 10–13 &nbsp;·&nbsp; Economy Double/Twin &nbsp;·&nbsp; 2 adults</span>
-          <span class="detail-chip">€259.54 prepaid &nbsp;·&nbsp; €36 city tax at property &nbsp;·&nbsp; non-refundable &nbsp;·&nbsp; 📞 +39 06 4456214</span>
-        </div>
-        <div class="meta-row">
+      <div class="evt-badge">🏨</div>
+      <div class="evt-content">
+        <div class="evt-title">Check in: Raeli Hotel Lazio <span class="evt-time">From 14:00</span></div>
+        <div class="evt-detail">3 nights Jul 10–13 &nbsp;·&nbsp; Economy Double/Twin &nbsp;·&nbsp; 2 adults</div>
+        <div class="evt-detail">€259.54 prepaid &nbsp;·&nbsp; €36 city tax at property &nbsp;·&nbsp; non-refundable &nbsp;·&nbsp; 📞 +39 06 4456214</div>
+        <div class="evt-meta">
           <a class="map-link" href="https://www.google.com/maps/search/Raeli+Hotel+Lazio+Via+Vicenza+8+Rome" target="_blank">📍 Via Vicenza 8, Central Station, Rome</a>
-          <button class="conf" data-copy="6551548537">🔖 6551548537</button>
-          <button class="conf" data-copy="4981">PIN: 4981</button>
+          <button class="conf" data-copy="6551548537">6551548537</button>
+          <button class="conf" data-copy="4981">PIN 4981</button>
         </div>
-      </div></div>
+      </div>
+      <div class="evt-type">HOTEL</div>
     </div>
     <div class="event free">
-      <div class="event-icon-col"><div class="event-dot">🌿</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">~8 hours in Rome &nbsp;<span class="time-badge">Afternoon + evening</span></div>
-        <div class="detail-row"><span class="detail-chip">First evening in the city</span></div>
-      </div></div>
+      <div class="evt-badge">🌿</div>
+      <div class="evt-content">
+        <div class="evt-title">~8 hours in Rome <span class="evt-time">Afternoon + evening</span></div>
+        <div class="evt-detail">First evening in the city</div>
+      </div>
+      <div class="evt-type">FREE</div>
     </div>
   </div>
 </div>
-<div class="day-divider"></div>
 
 <!-- JUL 11 -->
 <div class="day-block" id="day-10">
   <div class="day-header">
-    <div class="day-date">Saturday, July 11</div>
-    <div class="day-label">Day 10 &nbsp;·&nbsp; Rome</div>
+    <span class="day-num">DAY 10</span>
+    <span class="day-date">Saturday, July 11</span>
+    <span class="day-desc">Rome</span>
+    <div class="day-fill"></div>
+    <div class="day-dot"></div>
   </div>
   <div class="events">
     <div class="event free">
-      <div class="event-icon-col"><div class="event-dot">🌿</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Full day in Rome &nbsp;<span class="time-badge">~14 hours</span></div>
-      </div></div>
+      <div class="evt-badge">🌿</div>
+      <div class="evt-content">
+        <div class="evt-title">Full day in Rome <span class="evt-time">~14 hours</span></div>
+      </div>
+      <div class="evt-type">FREE</div>
     </div>
     <div class="event hotel">
-      <div class="event-icon-col"><div class="event-dot">🏨</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Sleep: Raeli Hotel Lazio &nbsp;<span class="time-badge">Night 2 of 3</span></div>
-        <div class="meta-row">
+      <div class="evt-badge">🏨</div>
+      <div class="evt-content">
+        <div class="evt-title">Sleep: Raeli Hotel Lazio <span class="evt-time">Night 2 of 3</span></div>
+        <div class="evt-meta">
           <a class="map-link" href="https://www.google.com/maps/search/Raeli+Hotel+Lazio+Via+Vicenza+8+Rome" target="_blank">📍 Via Vicenza 8, Rome</a>
-          <button class="conf" data-copy="6551548537">🔖 6551548537</button>
-          <button class="conf" data-copy="4981">PIN: 4981</button>
+          <button class="conf" data-copy="6551548537">6551548537</button>
+          <button class="conf" data-copy="4981">PIN 4981</button>
         </div>
-      </div></div>
+      </div>
+      <div class="evt-type">HOTEL</div>
     </div>
   </div>
 </div>
-<div class="day-divider"></div>
 
 <!-- JUL 12 -->
 <div class="day-block" id="day-11">
   <div class="day-header">
-    <div class="day-date">Sunday, July 12</div>
-    <div class="day-label">Day 11 &nbsp;·&nbsp; Rome</div>
+    <span class="day-num">DAY 11</span>
+    <span class="day-date">Sunday, July 12</span>
+    <span class="day-desc">Rome</span>
+    <div class="day-fill"></div>
+    <div class="day-dot"></div>
   </div>
   <div class="events">
     <div class="event free">
-      <div class="event-icon-col"><div class="event-dot">🌿</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Full day in Rome &nbsp;<span class="time-badge">~14 hours</span></div>
-        <div class="detail-row"><span class="detail-chip">Last full day &nbsp;·&nbsp; pack tonight &nbsp;·&nbsp; flight departs 7:30 AM tomorrow — set a very early alarm</span></div>
-      </div></div>
+      <div class="evt-badge">🌿</div>
+      <div class="evt-content">
+        <div class="evt-title">Full day in Rome <span class="evt-time">~14 hours</span></div>
+        <div class="evt-detail">Last full day &nbsp;·&nbsp; pack tonight &nbsp;·&nbsp; flight departs 07:30 tomorrow — set a very early alarm</div>
+      </div>
+      <div class="evt-type">FREE</div>
     </div>
     <div class="event hotel">
-      <div class="event-icon-col"><div class="event-dot">🏨</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Sleep: Raeli Hotel Lazio &nbsp;<span class="time-badge">Night 3 of 3 · last night</span></div>
-        <div class="detail-row"><span class="detail-chip">⚠ Leave hotel by 5:00 AM &nbsp;·&nbsp; Leonardo Express first train ~5:08 AM</span></div>
-        <div class="meta-row">
+      <div class="evt-badge">🏨</div>
+      <div class="evt-content">
+        <div class="evt-title">Sleep: Raeli Hotel Lazio <span class="evt-time">Night 3 of 3 · last night</span></div>
+        <div class="evt-detail">⚠ Leave hotel by 05:00 &nbsp;·&nbsp; Leonardo Express first train ~05:08</div>
+        <div class="evt-meta">
           <a class="map-link" href="https://www.google.com/maps/search/Raeli+Hotel+Lazio+Via+Vicenza+8+Rome" target="_blank">📍 Via Vicenza 8, Rome</a>
-          <button class="conf" data-copy="6551548537">🔖 6551548537</button>
-          <button class="conf" data-copy="4981">PIN: 4981</button>
+          <button class="conf" data-copy="6551548537">6551548537</button>
+          <button class="conf" data-copy="4981">PIN 4981</button>
         </div>
-      </div></div>
+      </div>
+      <div class="evt-type">HOTEL</div>
     </div>
   </div>
 </div>
-<div class="day-divider"></div>
 
-<!-- COUNTRY MARKER: heading home -->
-<div class="country-marker">
-  <div class="country-marker-label">Rome → Dublin → New York → San Diego</div>
-</div>
+<div class="ctry-div"><div class="ctry-inner"><span class="ctry-text">Rome → Dublin → New York → San Diego</span></div></div>
 
 <!-- JUL 13 -->
 <div class="day-block" id="day-12">
   <div class="day-header">
-    <div class="day-date">Monday, July 13</div>
-    <div class="day-label">Day 12 &nbsp;·&nbsp; Rome → Home</div>
+    <span class="day-num">DAY 12</span>
+    <span class="day-date">Monday, July 13</span>
+    <span class="day-desc">Rome → Home</span>
+    <div class="day-fill"></div>
+    <div class="day-dot"></div>
   </div>
   <div class="events">
     <div class="event hotel">
-      <div class="event-icon-col"><div class="event-dot">🏨</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Check out: Raeli Hotel Lazio &nbsp;<span class="time-badge">Leave by 5:00 AM</span></div>
-        <div class="meta-row">
+      <div class="evt-badge">🏨</div>
+      <div class="evt-content">
+        <div class="evt-title">Check out: Raeli Hotel Lazio <span class="evt-time">Leave by 05:00</span></div>
+        <div class="evt-meta">
           <a class="map-link" href="https://www.google.com/maps/search/Raeli+Hotel+Lazio+Via+Vicenza+8+Rome" target="_blank">📍 Via Vicenza 8, Rome</a>
-          <button class="conf" data-copy="6551548537">🔖 6551548537</button>
+          <button class="conf" data-copy="6551548537">6551548537</button>
         </div>
-      </div></div>
+      </div>
+      <div class="evt-type">HOTEL</div>
     </div>
     <div class="event transit">
-      <div class="event-icon-col"><div class="event-dot">🚆</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Leonardo Express: Roma Termini → Fiumicino FCO &nbsp;<span class="time-badge">~5:08 AM</span></div>
-        <div class="detail-row"><span class="detail-chip">~32 min &nbsp;·&nbsp; €14 &nbsp;·&nbsp; arrives FCO ~5:40 AM &nbsp;·&nbsp; allows 2h before departure</span></div>
-        <div class="meta-row"><a class="map-link" href="https://www.google.com/maps/search/Roma+Termini+station" target="_blank">📍 Roma Termini</a></div>
-      </div></div>
+      <div class="evt-badge">🚆</div>
+      <div class="evt-content">
+        <div class="evt-title">Leonardo Express: Roma Termini → FCO <span class="evt-time">~05:08</span></div>
+        <div class="evt-detail">~32 min &nbsp;·&nbsp; €14 &nbsp;·&nbsp; arrives FCO ~05:40 &nbsp;·&nbsp; allows 2h before departure</div>
+        <div class="evt-meta"><a class="map-link" href="https://www.google.com/maps/search/Roma+Termini+station" target="_blank">📍 Roma Termini</a></div>
+      </div>
+      <div class="evt-type">TRAIN</div>
     </div>
     <div class="event flight">
-      <div class="event-icon-col"><div class="event-dot">✈</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Aer Lingus EI 401 &nbsp;<span class="time-badge">7:30 AM → 9:50 AM</span></div>
-        <div class="detail-row"><span class="detail-chip">Rome FCO → Dublin DUB &nbsp;·&nbsp; 3h 20m &nbsp;·&nbsp; Economy</span></div>
-        <div class="meta-row">
-          <button class="conf" data-copy="EI401">✈ EI 401</button>
-          <button class="conf" data-copy="3CDNYJ">🔖 3CDNYJ</button>
+      <div class="evt-badge">✈</div>
+      <div class="evt-content">
+        <div class="evt-title">Aer Lingus EI 401 <span class="evt-time">07:30 → 09:50</span></div>
+        <div class="evt-detail">FCO → DUB &nbsp;·&nbsp; 3h 20m &nbsp;·&nbsp; Economy</div>
+        <div class="evt-meta">
+          <button class="conf" data-copy="EI401">EI 401</button>
+          <button class="conf" data-copy="3CDNYJ">3CDNYJ</button>
         </div>
-      </div></div>
+      </div>
+      <div class="evt-type">FLIGHT</div>
     </div>
     <div class="event transit">
-      <div class="event-icon-col"><div class="event-dot">⏱</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Layover: Dublin DUB &nbsp;<span class="time-badge">9:50 AM → 11:10 AM &nbsp;·&nbsp; 1h 20m</span></div>
-        <div class="detail-row"><span class="detail-chip">US Pre-clearance at Dublin — clears US immigration here, arrives JFK as domestic</span></div>
-      </div></div>
+      <div class="evt-badge">⏱</div>
+      <div class="evt-content">
+        <div class="evt-title">Layover: Dublin DUB <span class="evt-time">09:50 → 11:10 &nbsp;·&nbsp; 1h 20m</span></div>
+        <div class="evt-detail">US Pre-clearance at Dublin — clears US immigration here, arrives JFK as domestic</div>
+      </div>
+      <div class="evt-type">LAYOVER</div>
     </div>
     <div class="event flight">
-      <div class="event-icon-col"><div class="event-dot">✈</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Aer Lingus EI 105 &nbsp;<span class="time-badge">11:10 AM → 1:40 PM</span></div>
-        <div class="detail-row"><span class="detail-chip">Dublin DUB → New York JFK &nbsp;·&nbsp; 7h 30m &nbsp;·&nbsp; Economy</span></div>
-        <div class="meta-row">
-          <button class="conf" data-copy="EI105">✈ EI 105</button>
-          <button class="conf" data-copy="3CDNYJ">🔖 3CDNYJ</button>
+      <div class="evt-badge">✈</div>
+      <div class="evt-content">
+        <div class="evt-title">Aer Lingus EI 105 <span class="evt-time">11:10 → 13:40</span></div>
+        <div class="evt-detail">DUB → JFK &nbsp;·&nbsp; 7h 30m &nbsp;·&nbsp; Economy</div>
+        <div class="evt-meta">
+          <button class="conf" data-copy="EI105">EI 105</button>
+          <button class="conf" data-copy="3CDNYJ">3CDNYJ</button>
         </div>
-      </div></div>
+      </div>
+      <div class="evt-type">FLIGHT</div>
     </div>
     <div class="event transit">
-      <div class="event-icon-col"><div class="event-dot">⏱</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">Layover: New York JFK &nbsp;<span class="time-badge">1:40 PM → 3:59 PM &nbsp;·&nbsp; 2h 19m</span></div>
-        <div class="detail-row"><span class="detail-chip">JetBlue is Terminal 5</span></div>
-      </div></div>
+      <div class="evt-badge">⏱</div>
+      <div class="evt-content">
+        <div class="evt-title">Layover: New York JFK <span class="evt-time">13:40 → 15:59 &nbsp;·&nbsp; 2h 19m</span></div>
+        <div class="evt-detail">JetBlue is Terminal 5</div>
+      </div>
+      <div class="evt-type">LAYOVER</div>
     </div>
     <div class="event flight">
-      <div class="event-icon-col"><div class="event-dot">✈</div><div class="event-line"></div></div>
-      <div class="event-body"><div class="event-card">
-        <div class="event-title">JetBlue B6 1189 &nbsp;<span class="time-badge">3:59 PM → 7:00 PM</span></div>
-        <div class="detail-row"><span class="detail-chip">New York JFK → San Diego SAN &nbsp;·&nbsp; 6h 1m &nbsp;·&nbsp; Economy &nbsp;·&nbsp; $760.53 total paid</span></div>
-        <div class="meta-row">
-          <button class="conf" data-copy="B61189">✈ B6 1189</button>
-          <button class="conf" data-copy="KNMLFV">🔖 KNMLFV</button>
-          <button class="conf" data-copy="73404372409486">🔖 Expedia #73404372409486</button>
+      <div class="evt-badge">✈</div>
+      <div class="evt-content">
+        <div class="evt-title">JetBlue B6 1189 <span class="evt-time">15:59 → 19:00</span></div>
+        <div class="evt-detail">JFK → SAN &nbsp;·&nbsp; 6h 1m &nbsp;·&nbsp; Economy &nbsp;·&nbsp; $760.53 total paid</div>
+        <div class="evt-meta">
+          <button class="conf" data-copy="B61189">B6 1189</button>
+          <button class="conf" data-copy="KNMLFV">KNMLFV</button>
+          <button class="conf" data-copy="73404372409486">Expedia #73404372409486</button>
         </div>
-      </div></div>
+      </div>
+      <div class="evt-type">FLIGHT</div>
     </div>
   </div>
 </div>
 
-</div><!-- /timeline -->
+</div><!-- /board -->
 
 <div class="summary">
-  <div class="summary-header">📋 All Bookings at a Glance</div>
+  <div class="summary-header">All Bookings at a Glance</div>
   <div class="summary-grid">
     <div class="summary-cell">
       <div class="summary-label">Trip Duration</div>
       <div class="summary-val">12 days</div>
-      <div class="summary-sub">Jul 2 – Jul 13, 2026</div>
+      <div class="summary-sub">02 JUL – 13 JUL 2026</div>
     </div>
     <div class="summary-cell">
       <div class="summary-label">Travelers</div>
-      <div class="summary-val">2 people</div>
-      <div class="summary-sub">Mois Cohen · Iliana Treyger</div>
+      <div class="summary-val">2 PAX</div>
+      <div class="summary-sub">M. Cohen &nbsp;·&nbsp; I. Treyger</div>
     </div>
     <div class="summary-cell">
       <div class="summary-label">Flight Segments</div>
       <div class="summary-val">8 segments</div>
-      <div class="summary-sub">WN · KLM ×2 · Vueling ×2 · Aer Lingus ×2 · JetBlue</div>
+      <div class="summary-sub">WN · KLM ×2 · Vueling ×2 · EI ×2 · B6</div>
     </div>
     <div class="summary-cell">
       <div class="summary-label">Accommodations</div>
@@ -994,72 +1125,66 @@
 </div>
 
 <div class="book-box">
-  <div class="book-header">⚠ Still Need to Book</div>
+  <div class="book-header">Still Need to Book</div>
   <div class="book-list">
-    <div class="book-item"><strong>Renfe AVE: Madrid → Málaga</strong> <span>renfe.com · Jul 7 · fills up fast in summer</span></div>
-    <div class="book-item"><strong>Trenitalia Frecciarossa: Naples → Rome</strong> <span>trenitalia.com · Jul 10 · book for best price</span></div>
+    <div class="book-item"><strong>Renfe AVE: Madrid → Málaga</strong> <span>renfe.com &nbsp;·&nbsp; 07 JUL &nbsp;·&nbsp; fills up fast in summer</span></div>
+    <div class="book-item"><strong>Trenitalia Frecciarossa: Naples → Rome</strong> <span>trenitalia.com &nbsp;·&nbsp; 10 JUL &nbsp;·&nbsp; book for best price</span></div>
   </div>
 </div>
 
 <div class="spacer"></div>
 
 <script>
-  // Countdown to departure
-  (function() {
-    const depart = new Date('2026-07-02T20:55:00-07:00');
-    const diff = Math.ceil((depart - Date.now()) / 86400000);
-    const el = document.getElementById('cdown');
-    if (diff > 0) el.textContent = diff;
-    else if (diff === 0) el.textContent = 'Today!';
-    else el.textContent = '✈';
-  })();
+// Countdown
+(function(){
+  const d = new Date('2026-07-02T20:55:00-07:00');
+  const diff = Math.ceil((d - Date.now()) / 86400000);
+  const el = document.getElementById('cdown');
+  el.textContent = diff > 0 ? diff : diff === 0 ? 'TODAY' : '✈';
+})();
 
-  // Scroll reveal for day blocks
-  const revealObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('vis'); revealObs.unobserve(e.target); }
+// Scroll reveal with staggered flip
+const blocks = document.querySelectorAll('.day-block');
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('vis');
+    const rows = e.target.querySelectorAll('.event');
+    rows.forEach((row, i) => {
+      row.style.animationDelay = (i * 0.06) + 's';
+      row.classList.add('flip-in');
     });
-  }, { threshold: 0.06 });
-  document.querySelectorAll('.day-block').forEach(el => revealObs.observe(el));
-
-  // Active day in sticky nav
-  const dayEls = document.querySelectorAll('.day-block');
-  const navLinks = document.querySelectorAll('.snav a');
-  const activeObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        navLinks.forEach(n => n.classList.remove('active'));
-        const link = document.querySelector(`.snav a[href="#${e.target.id}"]`);
-        if (link) {
-          link.classList.add('active');
-          link.scrollIntoView({ behavior:'smooth', block:'nearest', inline:'center' });
-        }
-      }
-    });
-  }, { rootMargin:'-25% 0px -65% 0px' });
-  dayEls.forEach(el => activeObs.observe(el));
-
-  // Click-to-copy on conf buttons
-  document.querySelectorAll('.conf[data-copy]').forEach(btn => {
-    btn.title = 'Click to copy';
-    btn.addEventListener('click', () => {
-      const val = btn.dataset.copy;
-      navigator.clipboard.writeText(val).then(() => {
-        const orig = btn.textContent;
-        btn.textContent = '✓ copied';
-        btn.classList.add('copied');
-        setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 1800);
-      }).catch(() => {
-        // fallback
-        const ta = document.createElement('textarea');
-        ta.value = val; document.body.appendChild(ta); ta.select();
-        document.execCommand('copy'); document.body.removeChild(ta);
-        const orig = btn.textContent;
-        btn.textContent = '✓ copied'; btn.classList.add('copied');
-        setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 1800);
-      });
-    });
+    ro.unobserve(e.target);
   });
+}, { threshold: 0.04 });
+blocks.forEach(el => ro.observe(el));
+
+// Active nav
+const days = document.querySelectorAll('.day-block');
+const links = document.querySelectorAll('.snav a');
+const no = new IntersectionObserver(es => {
+  es.forEach(e => {
+    if (!e.isIntersecting) return;
+    links.forEach(l => l.classList.remove('active'));
+    const a = document.querySelector(`.snav a[href="#${e.target.id}"]`);
+    if (a) { a.classList.add('active'); a.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'}); }
+  });
+}, { rootMargin:'-25% 0px -65% 0px' });
+days.forEach(el => no.observe(el));
+
+// Click-to-copy
+document.querySelectorAll('.conf[data-copy]').forEach(btn => {
+  btn.title = 'click to copy';
+  btn.addEventListener('click', () => {
+    const val = btn.dataset.copy, orig = btn.textContent;
+    const done = () => {
+      btn.textContent = '✓ copied';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 1600);
+    };
+    navigator.clipboard ? navigator.clipboard.writeText(val).then(done).catch(done) : done();
+  });
+});
 </script>
 </body>
 </html>
