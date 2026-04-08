@@ -364,6 +364,15 @@ body::before{
 }
 .event.flip-in{animation:flipIn .22s ease forwards;}
 
+/* ── CHARACTER SPLIT-FLAP ── */
+.sc{display:inline-block;}
+@keyframes scFlip{
+  0%  {transform:perspective(180px) rotateX(0deg);}
+  40% {transform:perspective(180px) rotateX(-90deg);opacity:0;}
+  60% {transform:perspective(180px) rotateX(90deg);opacity:0;}
+  100%{transform:perspective(180px) rotateX(0deg);opacity:1;}
+}
+
 /* ── RESPONSIVE ── */
 @media(max-width:640px){
   .hero-inner{padding:36px 22px 32px;}
@@ -401,7 +410,7 @@ body::before{
   <div class="hero-wm">EUROPA</div>
   <div class="hero-inner">
     <div class="hero-eyebrow">Private Itinerary &nbsp;·&nbsp; Departures</div>
-    <div class="hero-title">GRAND<br><em>TOUR</em></div>
+    <div class="hero-title"><span class="sf">GRAND</span><br><em><span class="sf">TOUR</span></em></div>
     <div class="hero-sub">02 Jul – 13 Jul 2026 &nbsp;·&nbsp; 12 Days &nbsp;·&nbsp; 8 Segments</div>
     <div class="hero-route">
       <span class="city">SAN DIEGO</span><span class="arr">→</span>
@@ -1135,32 +1144,108 @@ body::before{
 <div class="spacer"></div>
 
 <script>
-// Countdown
+// ── CHARACTER SCRAMBLE ENGINE ──
+// Simulates a split-flap / Rolodex board: each character flips through
+// random glyphs before landing on the final value.
+const GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789·—/→';
+
+function flipChar(span, newChar, ms) {
+  return new Promise(res => {
+    span.style.animation = 'none';
+    // force reflow so animation restarts cleanly
+    span.getBoundingClientRect();
+    span.style.animation = `scFlip ${ms}ms ease`;
+    // swap the character at the midpoint (when opacity hits 0)
+    setTimeout(() => { span.textContent = newChar; }, ms * 0.45);
+    setTimeout(() => { span.style.animation = ''; res(); }, ms);
+  });
+}
+
+async function scramble(el, { delay = 0, steps = 12, flipMs = 55, stagger = 32 } = {}) {
+  const finalText = el.dataset.sf || el.textContent;
+  el.dataset.sf = finalText;
+
+  // Build one <span class="sc"> per character
+  const chars = [...finalText];
+  el.innerHTML = chars.map(ch =>
+    `<span class="sc">${ch === ' ' ? '\u00a0' : ch}</span>`
+  ).join('');
+
+  await new Promise(r => setTimeout(r, delay));
+
+  const spans = [...el.querySelectorAll('.sc')];
+  spans.forEach((span, idx) => {
+    const final = chars[idx];
+    if (final === ' ') return;
+    setTimeout(async () => {
+      for (let s = 0; s < steps; s++) {
+        const next = s === steps - 1
+          ? final
+          : GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+        await flipChar(span, next, flipMs);
+      }
+    }, idx * stagger);
+  });
+}
+
+// ── COUNTDOWN — slot-machine spin to final value ──
 (function(){
-  const d = new Date('2026-07-02T20:55:00-07:00');
-  const diff = Math.ceil((d - Date.now()) / 86400000);
+  const dep = new Date('2026-07-02T20:55:00-07:00');
+  const diff = Math.ceil((dep - Date.now()) / 86400000);
   const el = document.getElementById('cdown');
-  el.textContent = diff > 0 ? diff : diff === 0 ? 'TODAY' : '✈';
+  const finalVal = diff > 0 ? String(diff) : diff === 0 ? 'TODAY' : '✈';
+
+  if (diff <= 0) { el.textContent = finalVal; return; }
+
+  // Spin each digit independently
+  const digits = finalVal.split('');
+  el.innerHTML = digits.map(d => `<span class="sc">${d}</span>`).join('');
+  const spans = [...el.querySelectorAll('.sc')];
+  spans.forEach((span, idx) => {
+    setTimeout(async () => {
+      const numSteps = 16 + idx * 4; // rightmost digit spins longest
+      for (let s = 0; s < numSteps; s++) {
+        const next = s === numSteps - 1
+          ? digits[idx]
+          : String(Math.floor(Math.random() * 10));
+        await flipChar(span, next, 50);
+      }
+    }, idx * 80);
+  });
 })();
 
-// Scroll reveal with staggered flip
+// ── HERO TITLE — scramble on load ──
+window.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.sf').forEach((el, i) => {
+    scramble(el, { delay: 300 + i * 400, steps: 18, flipMs: 52, stagger: 36 });
+  });
+});
+
+// ── SCROLL REVEAL — flip rows + scramble day header ──
 const blocks = document.querySelectorAll('.day-block');
 const ro = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (!e.isIntersecting) return;
     e.target.classList.add('vis');
-    const rows = e.target.querySelectorAll('.event');
-    rows.forEach((row, i) => {
+
+    // Scramble the day number and date in the sticky header
+    const num  = e.target.querySelector('.day-num');
+    const date = e.target.querySelector('.day-date');
+    if (num)  scramble(num,  { delay: 0,   steps: 14, flipMs: 48, stagger: 30 });
+    if (date) scramble(date, { delay: 180, steps: 10, flipMs: 44, stagger: 22 });
+
+    // Staggered row flip
+    e.target.querySelectorAll('.event').forEach((row, i) => {
       row.style.animationDelay = (i * 0.06) + 's';
       row.classList.add('flip-in');
     });
+
     ro.unobserve(e.target);
   });
 }, { threshold: 0.04 });
 blocks.forEach(el => ro.observe(el));
 
-// Active nav
-const days = document.querySelectorAll('.day-block');
+// ── ACTIVE NAV ──
 const links = document.querySelectorAll('.snav a');
 const no = new IntersectionObserver(es => {
   es.forEach(e => {
@@ -1170,9 +1255,9 @@ const no = new IntersectionObserver(es => {
     if (a) { a.classList.add('active'); a.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'}); }
   });
 }, { rootMargin:'-25% 0px -65% 0px' });
-days.forEach(el => no.observe(el));
+blocks.forEach(el => no.observe(el));
 
-// Click-to-copy
+// ── CLICK-TO-COPY ──
 document.querySelectorAll('.conf[data-copy]').forEach(btn => {
   btn.title = 'click to copy';
   btn.addEventListener('click', () => {
