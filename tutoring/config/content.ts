@@ -168,5 +168,6 @@ export const content = {
       'Computer Science',
       'Not sure yet',
     ],
+    formspreeEndpoint: 'https://formspree.io/f/mqaargaq',
   },
 }

@@ -19,10 +19,10 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
           {/* Photo column */}
           <div>
-            {/* Photo — place your photo at tutoring/public/photo.jpg to display it */}
+            {/* Photo — replace tutoring/public/photo.jpg with your own */}
             <div className="w-full aspect-[3/4] rounded-2xl bg-zinc-100 overflow-hidden flex items-center justify-center">
               <img
-                src="/photo.jpg"
+                src="/tutoring/photo.jpg"
                 alt={about.photoAlt}
                 className="w-full h-full object-cover object-top"
               />

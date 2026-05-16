@@ -31,11 +31,22 @@ export default function ContactForm() {
     setErrorMsg('')
 
     try {
-      const res = await fetch(`${content.basePath}/api/contact`, {
+      const res = await fetch(content.contact.formspreeEndpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          ...(form.phone && { phone: form.phone }),
+          subject: form.subject,
+          message: form.message,
+          _subject: `Tutoring inquiry — ${form.subject}`,
+        }),
       })
+
       const data = await res.json()
 
       if (!res.ok) {
@@ -62,9 +73,7 @@ export default function ContactForm() {
           </svg>
         </div>
         <p className="text-base font-semibold text-zinc-950 mb-1">Message sent</p>
-        <p className="text-sm text-zinc-500">
-          I&apos;ll get back to you within 24 hours.
-        </p>
+        <p className="text-sm text-zinc-500">I&apos;ll get back to you within 24 hours.</p>
         <button
           onClick={() => setStatus('idle')}
           className="mt-5 text-sm text-zinc-500 hover:text-zinc-950 transition-colors underline underline-offset-2"
@@ -77,7 +86,6 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4" noValidate>
-      {/* Name + Email */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="flex flex-col gap-1.5">
           <label htmlFor="name" className="text-xs font-medium text-zinc-500">
@@ -109,7 +117,6 @@ export default function ContactForm() {
         </div>
       </div>
 
-      {/* Phone + Subject */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="flex flex-col gap-1.5">
           <label htmlFor="phone" className="text-xs font-medium text-zinc-500">
@@ -147,7 +154,6 @@ export default function ContactForm() {
         </div>
       </div>
 
-      {/* Message */}
       <div className="flex flex-col gap-1.5">
         <label htmlFor="message" className="text-xs font-medium text-zinc-500">
           Message <span className="text-zinc-400">*</span>
@@ -163,14 +169,12 @@ export default function ContactForm() {
         />
       </div>
 
-      {/* Error */}
       {status === 'error' && (
         <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-3">
           {errorMsg}
         </p>
       )}
 
-      {/* Submit */}
       <button
         type="submit"
         disabled={status === 'loading'}
