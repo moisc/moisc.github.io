@@ -207,6 +207,12 @@ main { padding-top: 64px; }
   margin-bottom: 2.5rem;
 }
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-cred {
+  margin-top: 1.75rem;
+  font-size: 0.8125rem;
+  color: var(--fg-dim);
+  letter-spacing: 0.01em;
+}
 
 /* ── Section base ────────────────────────────────────────────────────────── */
 .section { padding: 5rem 0; border-top: 1px solid var(--border); }
