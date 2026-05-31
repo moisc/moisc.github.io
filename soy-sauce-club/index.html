@@ -5,19 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Soy Sauce Club — Cal Poly SLO</title>
   <meta name="description" content="The Soy Sauce Club of Cal Poly San Luis Obispo. Proudly Kikkoman full sodium.">
+  <meta name="theme-color" content="#060606">
   <style>
     :root {
       --bg: #060606;
       --bg-warm: #1a0e00;
       --accent: #c8860a;
-      --accent-dim: rgba(200,134,10,0.13);
-      --accent-mid: rgba(200,134,10,0.33);
       --text: #e8d5b0;
       --text-2: #7a6a52;
       --text-3: #555;
-      --text-4: #3a2e1e;
+      --text-4: #6b5a3e;
       --card: #0a0a0a;
       --card-border: #1a1a1a;
+      --accent-faint: rgba(200,134,10,0.1);
+      --divider: #111;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -39,9 +40,14 @@
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
     .fade-in.visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+    }
 
     /* HERO */
     .hero {
+      min-height: 100vh;
       min-height: 100svh;
       display: flex;
       flex-direction: column;
@@ -51,7 +57,7 @@
       padding: 80px 32px 60px;
       position: relative;
       background: radial-gradient(ellipse 80% 50% at 50% 0%, var(--bg-warm), var(--bg) 70%);
-      border-bottom: 1px solid rgba(200,134,10,0.1);
+      border-bottom: 1px solid var(--accent-faint);
     }
     .hero-kanji {
       font-size: 12px;
@@ -141,6 +147,7 @@
       height: 1px;
       background: rgba(200,134,10,0.15);
     }
+    .section-label--center { justify-content: center; }
 
     /* ABOUT */
     .about-quote {
@@ -291,7 +298,7 @@
       flex-direction: column;
       gap: 8px;
       padding-top: 16px;
-      border-top: 1px solid #111;
+      border-top: 1px solid var(--divider);
     }
     .event-activity {
       display: flex;
@@ -373,7 +380,7 @@
 <!-- ABOUT -->
 <section class="section fade-in" id="about">
   <div class="section-label">Origin Story</div>
-  <blockquote class="about-quote">"We need to spread the love."</blockquote>
+  <p class="about-quote">"We need to spread the love."</p>
   <p class="about-body">
     It started with a prank. Benjamin gifted Avi 100 pounds of russet potatoes.
     Avi retaliated with a 5-gallon bucket of Kikkoman full sodium soy sauce.
@@ -483,7 +490,7 @@
 
 <!-- SOCIAL / FOOTER -->
 <section class="social fade-in">
-  <div class="section-label" style="justify-content:center; text-align:left;">Find Us</div>
+  <div class="section-label section-label--center">Find Us</div>
   <p class="social-heading">Stay in the<br>soy sauce loop.</p>
   <p class="social-sub">Follow · Connect · Join</p>
   <a class="ig-btn" href="https://instagram.com/soy.sauce.club" target="_blank" rel="noopener">
