@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soy Sauce Club — Cal Poly SLO</title>
+  <meta name="description" content="The Soy Sauce Club of Cal Poly San Luis Obispo. Proudly Kikkoman full sodium.">
+  <style>
+    :root {
+      --bg: #060606;
+      --bg-warm: #1a0e00;
+      --accent: #c8860a;
+      --accent-dim: rgba(200,134,10,0.13);
+      --accent-mid: rgba(200,134,10,0.33);
+      --text: #e8d5b0;
+      --text-2: #7a6a52;
+      --text-3: #555;
+      --text-4: #3a2e1e;
+      --card: #0a0a0a;
+      --card-border: #1a1a1a;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Georgia', serif;
+      max-width: 480px;
+      margin: 0 auto;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* SCROLL FADE-IN — JS adds .visible */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    /* HERO */
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 80px 32px 60px;
+      position: relative;
+      background: radial-gradient(ellipse 80% 50% at 50% 0%, var(--bg-warm), var(--bg) 70%);
+      border-bottom: 1px solid rgba(200,134,10,0.1);
+    }
+    .hero-kanji {
+      font-size: 12px;
+      letter-spacing: 8px;
+      color: var(--accent);
+      margin-bottom: 28px;
+      font-family: system-ui, sans-serif;
+    }
+    .hero-title {
+      font-size: clamp(60px, 18vw, 88px);
+      font-weight: 900;
+      line-height: 0.88;
+      letter-spacing: -3px;
+      color: var(--text);
+      font-family: system-ui, sans-serif;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .hero-rule {
+      width: 48px;
+      height: 1px;
+      background: var(--accent);
+      margin: 0 auto 20px;
+    }
+    .hero-location {
+      font-size: 10px;
+      letter-spacing: 6px;
+      color: var(--text-4);
+      text-transform: uppercase;
+      font-family: system-ui, sans-serif;
+      margin-bottom: 44px;
+    }
+    .hero-ig {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--accent);
+      border: 1px solid rgba(200,134,10,0.4);
+      padding: 11px 24px;
+      font-family: system-ui, sans-serif;
+      text-transform: uppercase;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .hero-ig:hover { border-color: var(--accent); background: rgba(200,134,10,0.08); }
+    .scroll-cue {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .scroll-cue-line {
+      width: 1px;
+      height: 44px;
+      background: linear-gradient(to bottom, rgba(200,134,10,0.5), transparent);
+    }
+    .scroll-cue-text {
+      font-size: 8px;
+      letter-spacing: 3px;
+      color: var(--text-4);
+      font-family: system-ui, sans-serif;
+      text-transform: uppercase;
+    }
+
+    /* SHARED SECTION STYLES */
+    .section {
+      padding: 64px 32px;
+      border-bottom: 1px solid #0d0d0d;
+    }
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 9px;
+      letter-spacing: 5px;
+      color: var(--accent);
+      text-transform: uppercase;
+      font-family: system-ui, sans-serif;
+      margin-bottom: 28px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(200,134,10,0.15);
+    }
+
+    /* ABOUT */
+    .about-quote {
+      font-size: 24px;
+      line-height: 1.35;
+      color: var(--text);
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+    .about-body {
+      font-size: 14px;
+      line-height: 1.85;
+      color: var(--text-2);
+      font-family: system-ui, sans-serif;
+      margin-bottom: 16px;
+    }
+    .kikkoman-badge {
+      display: inline-flex;
+      align-items: center;
+      background: #0c0704;
+      border: 1px solid rgba(200,134,10,0.25);
+      padding: 9px 16px;
+      margin-top: 12px;
+    }
+    .kikkoman-badge span {
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--accent);
+      font-family: system-ui, sans-serif;
+      text-transform: uppercase;
+    }
+
+    /* OFFICERS */
+    .members-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .member-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      padding: 18px 14px;
+      text-align: center;
+      position: relative;
+    }
+    .member-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--accent), transparent);
+    }
+    .member-card.wide {
+      grid-column: span 2;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      text-align: left;
+      padding: 20px;
+    }
+    .member-photo {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid rgba(200,134,10,0.25);
+      flex-shrink: 0;
+    }
+    .member-photo-sm {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid rgba(200,134,10,0.25);
+      margin: 0 auto 14px;
+    }
+    .member-role {
+      font-size: 8px;
+      letter-spacing: 3px;
+      color: var(--accent);
+      text-transform: uppercase;
+      font-family: system-ui, sans-serif;
+      margin-bottom: 5px;
+    }
+    .member-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      font-family: system-ui, sans-serif;
+      margin-bottom: 7px;
+    }
+    .member-bio {
+      font-size: 11px;
+      color: var(--text-3);
+      font-family: system-ui, sans-serif;
+      line-height: 1.55;
+    }
+
+    /* EVENTS */
+    .event-card {
+      background: var(--card);
+      border: 1px solid rgba(200,134,10,0.18);
+      padding: 28px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .event-card::after {
+      content: 'LADLE A LAD';
+      position: absolute;
+      right: -36px;
+      top: 50%;
+      transform: translateY(-50%) rotate(90deg);
+      font-size: 8px;
+      letter-spacing: 5px;
+      color: rgba(200,134,10,0.07);
+      font-family: system-ui, sans-serif;
+      font-weight: 900;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    .event-meta {
+      font-size: 9px;
+      letter-spacing: 3px;
+      color: var(--accent);
+      font-family: system-ui, sans-serif;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .event-name {
+      font-size: 32px;
+      font-weight: 900;
+      font-family: system-ui, sans-serif;
+      color: var(--text);
+      letter-spacing: -1px;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+    .event-desc {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-2);
+      font-family: system-ui, sans-serif;
+      margin-bottom: 20px;
+    }
+    .event-activities {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding-top: 16px;
+      border-top: 1px solid #111;
+    }
+    .event-activity {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .event-arrow { color: var(--accent); font-size: 11px; font-family: system-ui, sans-serif; flex-shrink: 0; margin-top: 2px; }
+    .event-activity-text { font-size: 12px; color: var(--text-3); font-family: system-ui, sans-serif; line-height: 1.5; }
+
+    /* GALLERY */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+    }
+    .gallery-cell {
+      aspect-ratio: 1;
+      background: #0c0c0c;
+      border: 1px solid #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .gallery-cell span { font-size: 8px; letter-spacing: 2px; color: var(--text-4); font-family: system-ui, sans-serif; text-transform: uppercase; }
+    .gallery-hint { text-align: center; margin-top: 14px; font-size: 10px; letter-spacing: 1px; color: var(--text-4); font-family: system-ui, sans-serif; }
+
+    /* SOCIAL / FOOTER */
+    .social {
+      padding: 88px 32px 60px;
+      text-align: center;
+      background: radial-gradient(ellipse 80% 50% at 50% 100%, var(--bg-warm), var(--bg) 70%);
+    }
+    .social-heading { font-size: 30px; font-style: italic; color: var(--text); line-height: 1.3; margin-bottom: 10px; }
+    .social-sub { font-size: 10px; letter-spacing: 4px; color: var(--text-4); font-family: system-ui, sans-serif; text-transform: uppercase; margin-bottom: 36px; }
+    .ig-btn {
+      display: block;
+      max-width: 280px;
+      margin: 0 auto 40px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-family: system-ui, sans-serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 15px 24px;
+      transition: background 0.2s;
+    }
+    .ig-btn:hover { background: rgba(200,134,10,0.08); }
+    .footer-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 28px;
+      opacity: 0.25;
+      filter: sepia(1) brightness(0.5);
+    }
+    .footer-logos img { height: 32px; width: auto; }
+    .footer-text { font-size: 9px; letter-spacing: 2px; color: var(--text-4); font-family: system-ui, sans-serif; text-transform: uppercase; }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-kanji">醤油クラブ</div>
+  <h1 class="hero-title">Soy<br>Sauce<br>Club</h1>
+  <div class="hero-rule"></div>
+  <p class="hero-location">Cal Poly San Luis Obispo</p>
+  <a class="hero-ig" href="https://instagram.com/soy.sauce.club" target="_blank" rel="noopener">
+    @soy.sauce.club
+  </a>
+  <div class="scroll-cue" aria-hidden="true">
+    <div class="scroll-cue-line"></div>
+    <div class="scroll-cue-text">Scroll</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section fade-in" id="about">
+  <div class="section-label">Origin Story</div>
+  <blockquote class="about-quote">"We need to spread the love."</blockquote>
+  <p class="about-body">
+    It started with a prank. Benjamin gifted Avi 100 pounds of russet potatoes.
+    Avi retaliated with a 5-gallon bucket of Kikkoman full sodium soy sauce.
+    Neither of them knew what to do with it — so they founded a club.
+  </p>
+  <p class="about-body">
+    That bucket holds 1,200 servings. Enough soy sauce for the average four-person
+    Japanese family for an entire year. It felt wrong to keep it to themselves.
+  </p>
+  <div class="kikkoman-badge">
+    <span>Proudly Kikkoman Full Sodium</span>
+  </div>
+</section>
+
+<!-- OFFICERS -->
+<section class="section fade-in" id="officers">
+  <div class="section-label">Officers</div>
+  <div class="members-grid">
+
+    <div class="member-card wide">
+      <img class="member-photo" src="../assets/Soy%20Sauce%20Club_files/benjamin_intro.gif" alt="Benjamin" loading="lazy">
+      <div>
+        <div class="member-role">Co-founder &amp; Visionary</div>
+        <div class="member-name">Benjamin</div>
+        <div class="member-bio">The original mind behind Soy Sauce Club. Graduated with a BS in Microbiology.</div>
+      </div>
+    </div>
+
+    <div class="member-card">
+      <img class="member-photo-sm" src="../assets/Soy%20Sauce%20Club_files/avi_intro.gif" alt="Avi" loading="lazy">
+      <div class="member-role">President</div>
+      <div class="member-name">Avi</div>
+      <div class="member-bio">Co-founder. BS in Materials Engineering + MS in Manufacturing Engineering.</div>
+    </div>
+
+    <div class="member-card">
+      <img class="member-photo-sm" src="../assets/Soy%20Sauce%20Club_files/oren_intro.gif" alt="Oren" loading="lazy">
+      <div class="member-role">Treasurer &amp; Secretary</div>
+      <div class="member-name">Oren</div>
+      <div class="member-bio">Co-founder. Math &amp; Physics major.</div>
+    </div>
+
+    <div class="member-card">
+      <img class="member-photo-sm" src="../assets/Soy%20Sauce%20Club_files/mika_intro.gif" alt="Mika" loading="lazy">
+      <div class="member-role">Vice President</div>
+      <div class="member-name">Mika</div>
+      <div class="member-bio">Runs social media. Psychology, 3rd year.</div>
+    </div>
+
+    <div class="member-card">
+      <img class="member-photo-sm" src="../assets/Soy%20Sauce%20Club_files/odelia_intro.gif" alt="Odelia" loading="lazy">
+      <div class="member-role">Outreach Manager</div>
+      <div class="member-name">Odelia</div>
+      <div class="member-bio">Creates all promotional content. Mechanical Engineering, 2nd year.</div>
+    </div>
+
+    <div class="member-card wide">
+      <img class="member-photo" src="../assets/Soy%20Sauce%20Club_files/benshea_intro.jpg" alt="Dr. BenShea" loading="lazy">
+      <div>
+        <div class="member-role">Faculty Advisor</div>
+        <div class="member-name">Dr. BenShea</div>
+        <div class="member-bio">Handles administrative duties. Teaches Religious Studies including RELS 374 Religion &amp; Violence and RELS 304 Judaism.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="section fade-in" id="events">
+  <div class="section-label">Events</div>
+  <div class="event-card">
+    <div class="event-meta">April 29 &middot; Dexter Lawn &middot; Cal Poly SLO</div>
+    <div class="event-name">Ladle<br>a Lad</div>
+    <p class="event-desc">
+      Our inaugural event. Free soy sauce packets for everyone, a mason jar guessing
+      game, and two 5-gallon buckets of Kikkoman up for grabs.
+    </p>
+    <div class="event-activities">
+      <div class="event-activity">
+        <span class="event-arrow">→</span>
+        <span class="event-activity-text">Guess the fluid ounces of soy sauce in the mason jar</span>
+      </div>
+      <div class="event-activity">
+        <span class="event-arrow">→</span>
+        <span class="event-activity-text">Pin a sprout on the soybean</span>
+      </div>
+      <div class="event-activity">
+        <span class="event-arrow">→</span>
+        <span class="event-activity-text">Win a 5-gallon bucket — 1,200 servings of pure Kikkoman</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section fade-in" id="gallery">
+  <div class="section-label">Gallery</div>
+  <div class="gallery-grid">
+    <div class="gallery-cell"><span>Photo</span></div>
+    <div class="gallery-cell"><span>Photo</span></div>
+    <div class="gallery-cell"><span>Photo</span></div>
+    <div class="gallery-cell"><span>Photo</span></div>
+  </div>
+  <p class="gallery-hint">Drop event photos into the grid to fill this in.</p>
+</section>
+
+<!-- SOCIAL / FOOTER -->
+<section class="social fade-in">
+  <div class="section-label" style="justify-content:center; text-align:left;">Find Us</div>
+  <p class="social-heading">Stay in the<br>soy sauce loop.</p>
+  <p class="social-sub">Follow · Connect · Join</p>
+  <a class="ig-btn" href="https://instagram.com/soy.sauce.club" target="_blank" rel="noopener">
+    @soy.sauce.club on Instagram
+  </a>
+  <div class="footer-logos">
+    <img src="../assets/Soy%20Sauce%20Club_files/calpoly.png" alt="Cal Poly SLO">
+    <img src="../assets/Soy%20Sauce%20Club_files/ssc.png" alt="Soy Sauce Club">
+  </div>
+  <p class="footer-text">Soy Sauce Club of Cal Poly SLO &middot; Proudly Kikkoman</p>
+</section>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    }),
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
