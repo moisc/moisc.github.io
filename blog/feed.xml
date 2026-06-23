@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mois Cohen Engineering Blog</title>
+    <description>Engineering insights, project reflections, and technical articles by Mois Cohen, Mechanical Engineer.</description>
+    <link>https://moisc.github.io/blog/</link>
+    <atom:link href="https://moisc.github.io/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 19 Mar 2026 00:00:00 GMT</lastBuildDate>
+    <pubDate>Mon, 19 Mar 2026 00:00:00 GMT</pubDate>
+    <ttl>1800</ttl>
+
+    <!-- Placeholder for future blog posts -->
+    <!--
+    <item>
+      <title>What I Learned Raising $11K on Kickstarter (And Why It Wasn't Enough)</title>
+      <link>https://moisc.github.io/blog/kickstarter-lessons/</link>
+      <description>The honest story of co-founding Autoprint Inc., the gap between crowdfunding and production, and the lessons that shaped my approach to engineering ever since.</description>
+      <pubDate>Coming Soon</pubDate>
+      <guid>https://moisc.github.io/blog/kickstarter-lessons/</guid>
+      <category>Startup</category>
+      <category>Lessons Learned</category>
+    </item>
+
+    <item>
+      <title>From FEA Simulation to Real-World Testing: Fire Hose Clamp Case Study</title>
+      <link>https://moisc.github.io/blog/fea-validation/</link>
+      <description>A deep dive into how we used SolidWorks FEA to achieve 30% higher strength, validated our models with Cal Fire, and bridged the gap between simulation and reality.</description>
+      <pubDate>Coming Soon</pubDate>
+      <guid>https://moisc.github.io/blog/fea-validation/</guid>
+      <category>Engineering</category>
+      <category>Technical Deep-Dive</category>
+    </item>
+
+    <item>
+      <title>How I Cut UL Certification Testing Time in Half</title>
+      <link>https://moisc.github.io/blog/testing-automation/</link>
+      <description>The process of identifying bottlenecks in solar racking certification testing, automating repetitive tasks, and delivering measurable time savings at K2 Systems.</description>
+      <pubDate>Coming Soon</pubDate>
+      <guid>https://moisc.github.io/blog/testing-automation/</guid>
+      <category>Engineering</category>
+      <category>Lessons Learned</category>
+    </item>
+    -->
+  </channel>
+</rss>
