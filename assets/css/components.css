@@ -209,6 +209,37 @@ a.project-row:hover .project-row__arrow {
     }
 }
 
+/* ── Buttons ── */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-8);
+    padding: var(--space-12) var(--space-24);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 1px;
+    text-decoration: none;
+    border: 1px solid var(--color-navy);
+    cursor: pointer;
+    transition: background var(--transition), color var(--transition);
+}
+
+.btn--primary {
+    background: var(--color-navy);
+    color: #fff;
+}
+.btn--primary:hover {
+    background: #142d4a;
+}
+
+.btn--ghost {
+    background: transparent;
+    color: var(--color-navy);
+}
+.btn--ghost:hover {
+    background: var(--color-navy-tint);
+}
+
 /* ── Contact links ── */
 .contact-link {
     display: flex;
