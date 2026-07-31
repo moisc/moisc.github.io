@@ -63,6 +63,28 @@
     }
 }
 
+/* ── Legacy variable aliases (compatibility for sub-pages) ── */
+:root {
+    --bg-secondary:       var(--color-bg-tint);
+    --bg-primary:         var(--color-bg);
+    --font-size-h1:       var(--text-xl);
+    --font-size-h2:       var(--text-xl);
+    --font-size-h3:       var(--text-lg);
+    --font-size-h4:       var(--text-md);
+    --font-size-body:     var(--text-md);
+    --font-size-small:    var(--text-xs);
+    --font-weight-bold:   700;
+    --line-height-relaxed: 1.75;
+    --mc-blue:            var(--color-navy);
+    --text-secondary:     var(--color-muted);
+    --text-primary:       var(--color-text);
+    --text-muted:         var(--color-subtle);
+    --border-color:       var(--color-border);
+    --radius-lg:          8px;
+    --max-width-text:     800px;
+    --transition-fast:    var(--transition);
+}
+
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
