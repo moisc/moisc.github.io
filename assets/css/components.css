@@ -192,9 +192,10 @@ a.project-row:hover .project-row__arrow {
 
 .image-gallery__item img {
     width: 100%;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3021 / 2754;
     object-fit: cover;
     display: block;
+    cursor: zoom-in;
 }
 
 .gallery-caption {
@@ -203,6 +204,44 @@ a.project-row:hover .project-row__arrow {
     color: var(--color-subtle);
     margin-top: var(--space-8);
     letter-spacing: 0.5px;
+}
+
+/* ── Lightbox ── */
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.92);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+}
+.lightbox.is-open {
+    display: flex;
+}
+.lightbox__img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    display: block;
+    cursor: default;
+}
+.lightbox__close {
+    position: fixed;
+    top: var(--space-24);
+    right: var(--space-32);
+    font-family: var(--font-mono);
+    font-size: var(--text-lg);
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    opacity: 0.7;
+}
+.lightbox__close:hover {
+    opacity: 1;
 }
 
 @media (max-width: 768px) {
